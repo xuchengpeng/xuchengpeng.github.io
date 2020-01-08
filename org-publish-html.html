@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2020-01-08 Wed 10:58 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publishing Org-mode files to HTML</title>
+<meta name="generator" content="Org mode">
+<link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="js/darkreader.js"></script>
+<script src="js/main.js"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Publishing Org-mode files to HTML</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org65a3ae3">Basics</a></li>
+<li><a href="#orga9bd4a0">Publishing the org project</a></li>
+</ul>
+</div>
+</div>
+<blockquote>
+<p>
+Emacs is the best editor in the world.
+</p>
+</blockquote>
+
+<div id="outline-container-org65a3ae3" class="outline-2">
+<h2 id="org65a3ae3">Basics</h2>
+<div class="outline-text-2" id="text-org65a3ae3">
+<p>
+Create your blog files and css files.
+</p>
+
+<pre class="example">
+~/blog/org/
+   |- css/
+   |  `- worg.css
+   |- img/
+   |- index.org
+   `- remember.org
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga9bd4a0" class="outline-2">
+<h2 id="orga9bd4a0">Publishing the org project</h2>
+<div class="outline-text-2" id="text-orga9bd4a0">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #51afef;">require</span> '<span style="color: #a9a1e1;">ox-publish</span>)
+(<span style="color: #51afef;">setq</span> org-publish-project-alist
+      '(<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Publish the posts</span>
+        (<span style="color: #98be65;">"blog-notes"</span>
+         <span style="color: #c678dd;">:base-directory</span> <span style="color: #98be65;">"~/blog/org"</span>
+         <span style="color: #c678dd;">:base-extension</span> <span style="color: #98be65;">"org"</span>
+         <span style="color: #c678dd;">:publishing-directory</span> <span style="color: #98be65;">"~/blog/public"</span>
+         <span style="color: #c678dd;">:recursive</span> t
+         <span style="color: #c678dd;">:publishing-function</span> org-html-publish-to-html
+         <span style="color: #c678dd;">:headline-levels</span> 4
+         <span style="color: #c678dd;">:section-numbers</span> nil
+         <span style="color: #c678dd;">:with-author</span> nil
+         <span style="color: #c678dd;">:with-creator</span> nil
+         <span style="color: #c678dd;">:with-email</span> nil
+         <span style="color: #c678dd;">:with-timestamps</span> nil
+         <span style="color: #c678dd;">:auto-preamble</span> t
+         <span style="color: #5B6268;">; </span><span style="color: #5B6268;">:auto-postamble nil</span>
+         <span style="color: #c678dd;">:html-head</span> <span style="color: #98be65;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg.css\"/&gt;"</span>
+         <span style="color: #c678dd;">:html-head-include-default-style</span> nil
+         <span style="color: #5B6268;">; </span><span style="color: #5B6268;">:html-head-include-scripts nil</span>
+         <span style="color: #5B6268;">; </span><span style="color: #5B6268;">:html-preamble nil</span>
+         <span style="color: #5B6268;">; </span><span style="color: #5B6268;">:html-postamble nil</span>
+         <span style="color: #c678dd;">:html-link-home</span> <span style="color: #98be65;">"index.html"</span>
+         <span style="color: #c678dd;">:html-link-up</span> <span style="color: #98be65;">"sitemap.html"</span>
+         <span style="color: #c678dd;">:html-metadata-timestamp-format</span> <span style="color: #98be65;">"%Y-%m-%d %H:%M"</span>
+         <span style="color: #c678dd;">:htmlized-source</span> t
+         <span style="color: #c678dd;">:auto-sitemap</span> t
+         <span style="color: #c678dd;">:sitemap-filename</span> <span style="color: #98be65;">"sitemap.org"</span>
+         <span style="color: #c678dd;">:sitemap-title</span> <span style="color: #98be65;">"Sitemap"</span>
+         <span style="color: #c678dd;">:author</span> <span style="color: #98be65;">"xuchengpeng"</span>
+         <span style="color: #c678dd;">:email</span> <span style="color: #98be65;">"xucp@outlook.com"</span>
+         )
+
+        <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">For static files that should remain untouched</span>
+        (<span style="color: #98be65;">"blog-static"</span>
+         <span style="color: #c678dd;">:base-directory</span> <span style="color: #98be65;">"~/blog/org"</span>
+         <span style="color: #c678dd;">:base-extension</span> <span style="color: #98be65;">"css</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">js</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">png</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">jpg</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">gif</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">pdf</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">mp3</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">ogg</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">swf</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">eot</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">svg</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">woff</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">woff2</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">ttf"</span>
+         <span style="color: #c678dd;">:publishing-directory</span> <span style="color: #98be65;">"~/blog/public"</span>
+         <span style="color: #c678dd;">:recursive</span> t
+         <span style="color: #c678dd;">:publishing-function</span> org-publish-attachment
+         )
+
+        <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Combine the two previous components in a single one</span>
+        (<span style="color: #98be65;">"blog"</span> <span style="color: #c678dd;">:components</span> (<span style="color: #98be65;">"blog-notes"</span> <span style="color: #98be65;">"blog-static"</span>))))
+</pre>
+</div>
+
+<p>
+Then run <code>org-publish-project</code> to generate html files to <code>~/blog/public</code> folder.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-12-28 Sat 23:03</p>
+<p class="date">Created: 2020-01-08 Wed 10:58</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
