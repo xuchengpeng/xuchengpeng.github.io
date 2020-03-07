@@ -263,14 +263,17 @@ th:last-child, td:last-child {
     padding: 1px 2px;
 }
 
+.article-comments {
+    margin-top: .36rem;
+}
 
 /* #postamble, .status */
 .status { 
     color: #666;
-    border-top: 2px solid #369;
-    border-image: linear-gradient(to right, #f66 , #147) 30 30;
-    margin: .62rem 0 .2rem 0;
-    padding-top: .2rem;
+    # border-top: 2px solid #369;
+    # border-image: linear-gradient(to right, #f66 , #147) 30 30;
+    margin: .36rem 0 .2rem 0;
+    # padding-top: .2rem;
  }
 
 .status p {
