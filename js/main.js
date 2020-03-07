@@ -1,59 +1,98 @@
 'use strict'
 
-let cent = ''
-let topBtn = ''
-
-// Event bindings and Function invoking.
-window.onload = () => {
-
-    // Add animate effects.
-    document.body.setAttribute('class', 'animated fadeIn slow'); 
-
-    // Toggle color of site.
-    // document.querySelector('.title').onclick = toggleColor;
-    document.querySelector('.title').addEventListener('click', toggleColor);
-
-    // Hide directory when click it of Mobile.
-    if(document.getElementById('table-of-contents')) {
-        document.getElementById('table-of-contents').addEventListener('click', hideDir);
-    }
-
-    // Calculate the scroll top distance.
-    window.addEventListener('scroll', scrollToTop);
-
-    
-    // To top.
-    topBtn = createTopButton();
-    // Set home nav.
-    createNav();   
-
-    // Show nav and top button exclude index page.
-    if(location.pathname == '/public/index.html' || location.pathname == '/index.html' || location.pathname == '/') {
-
-        if(document.getElementById('table-of-contents')) {
-            document.getElementById('table-of-contents').style.display = 'none';
-        }
-        document.getElementsByClassName('top-btn')[0].style.display = 'none';
-        document.getElementsByClassName('nav-btn')[0].style.display = 'none';
-    }
+let ISHOME = false,
+    ISPC = false,
+    ISMB = false,
+    cent = '',
+    topBtn = '';
 
 
-    // Update copyright.
-    let copyright = document.getElementsByClassName('validation')[0];
-    copyright.innerHTML = '<div id="license-note">&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.3.1)</div>'
+if( location.pathname == '/public/index.html' || 
+    location.pathname == '/public/' || 
+    location.pathname == '/index.html' || 
+    location.pathname == '/') { 
+
+    ISHOME = true
+}    
 
 
-    // Update timestamp style. Now in CSS, it cannont be completed.
-    let todoArr = document.getElementsByClassName('timestamp-wrapper');
-    Array.prototype.forEach.call(todoArr, item => {
-        item.parentNode.style = 'color: #666; font-size: .14rem;'
-    })
+if(browserRedirect() == 'PC') {
+    ISPC = true;
+} else {
+    ISMB = true;
+}
 
+console.log(ISPC)
+console.log(ISMB)
+// Event bindings and Function invoking
+$(document).ready(() => {
+    let TOC = $('#table-of-contents');
+
+
+    $('body').addClass('animated fadeIn slow');     // Add animate effects.
+    $('.title').click(toggleColor);                 // Toggle color of site.
+
+    createNavButton();                              // Create nav button.
+    topBtn = createTopButton();                     // Create top button.   
+    $(window).scroll(scrollToTop);                  // Calculate the scroll top distance.    
 
     // Listen touch event in moblie
-    let touchBody = document.getElementsByTagName('body')[0];
-    touchBody.addEventListener('touchstart', touchStart);
-    touchBody.addEventListener('touchend', touchEnd);
+    $('body').on('touchstart', touchStart);
+    $('body').on('touchend', touchEnd);
+
+    
+    if(TOC) TOC.click(hideDir);                     // Hide directory when click it of Mobile.   
+    if(TOC && ISPC) {          // Auto adjust TOC width to avoid it hover the main contents.
+        let t_w = '' + -parseInt(TOC.width() / $(document).width() * 100) + '%';
+        TOC.css('left', t_w)
+        TOC.mouseenter(() => TOC.css('left', 0) );
+        TOC.mouseleave(() => TOC.css('left', t_w) );
+    }             
+    // Customize home page style
+    if(ISHOME) {                                    // Hide nav and top button in index page.
+
+        if(TOC)   TOC.css('display', 'none');       // Hide table of contents.
+        $('.top-btn').css('display', 'none');       // Hide top button.
+        $('.nav-btn').css('display', 'none');       // Hide nav button.
+
+        // Set table background
+        $('table').css({
+            background: 'rgba(255, 255, 255, 0.86)'
+        })
+
+        // Set background pic
+        if(ISPC) {
+            $('#content').css({ 
+                background: '#fff url(\'../images/girls.gif\') no-repeat right',
+                'z-index': -2
+            })
+        } else {
+            $('#content').css({ 
+                background: '#fff url(\'../images/girls.gif\') no-repeat right',
+                'background-size': '2.8rem'
+            })
+        }
+
+        // Customize table showwing
+        $('tbody').hide();
+        $('thead').css({'border-bottom': '2px solid #E69'});
+        $('thead').each(function() {
+            if(ISPC) {
+                $(this).parent().hover(function() {
+                    $(this).find('tbody').fadeToggle();
+                })
+            } else {
+                $(this).parent().click(function() {
+                    $(this).find('tbody').fadeToggle();
+                })
+            }
+        }) 
+        $('thead th').css({ 'min-width': '1.6rem' });       
+    }
+
+    
+    $('.validation').html('<div id="license-note">&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.0.90 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</div>'); // Update copyright.
+    $('.timestamp-wrapper').parent().css({ 'color': '#666', 'font-size': '.14rem' }); // Update timestamp style.
 
 
     // Listen mousewheel event
@@ -64,10 +103,38 @@ window.onload = () => {
     // IE
     window.addEventListener('mousewheel', scrollFunc);
     document.addEventListener('mousewheel', scrollFunc);
-  
-}
+    
+    // Add mouse click animate
+    if(ISPC) {
 
+        $(document).click(e => {    
+            let size = 120                                      // size of water block
+            $('body').append("<div class='water-animate'>")     // create a water block
+    
+            $('.water-animate')
+                .css({                                          // init style
+                    position: 'fixed',                          // set position as 'fixed'
+                    left: e.clientX,
+                    top: e.clientY,
+                    borderRadius: size + 'px',
+                    border: '2px solid #19f',
+                    'z-index': -1
+                })
+                .stop()                                         // to stop non-end previous animate
+                .animate({
+                        width: size,
+                        height: size,
+                        left: e.clientX - size / 2,
+                        top: e.clientY - size / 2,
+                        opacity: '0'
+                    }, 
+                    'slow',
+                    () => $('body .water-animate').remove()            
+                )
+        })
+    }
 
+})
 
 
 // Resolve current theme color.
@@ -134,8 +201,9 @@ function browserRedirect() {
 /**
  * Hide directory when click it.
  */
+// TODO hideDir
 function hideDir() {
-    if(browserRedirect() == 'MB') {
+    if(ISMB) {
 
         let ele = document.getElementById('table-of-contents');
         let _opacity = getComputedStyle(ele).opacity
@@ -151,40 +219,18 @@ function hideDir() {
 }
 
 
-
-
 /**
  * Create a button of scrolling to top.
  */
 function scrollToTop() {
-    // console.log('scroll to top.......')
-    // Page height.
-    let totalH = document.documentElement.scrollHeight;
-    // View height.
-    let clientH = document.documentElement.clientHeight;
-    // Scroll height.
-    let scrollH = document.documentElement.scrollTop;
-
-
-    // Adapt into webkit core, for Mobile browser
-    if(browserRedirect() == 'MB') {
-
-        totalH = document.body.scrollHeight;
-        // View height.
-        clientH = document.documentElement.clientHeight;
-        // Scroll height.
-        scrollH = document.body.scrollTop; 
-    }
-
-    // console.log(totalH)
-    // console.log(clientH)
-    // console.log(scrollH)
+    
+    let totalH = $(document).height();                      // page height
+    let clientH = $(window).height();                       // view height
+    let scrollH = $(document).scrollTop();                  // scroll height
 
     let _cent = parseInt((scrollH / (totalH - clientH)) * 100);
     _cent = ('' + _cent).length < 2 ? '0' + _cent : _cent;
-
     cent = _cent + '% ↑';
-
     topBtn.innerHTML = cent;
 }
 
@@ -194,39 +240,31 @@ function scrollToTop() {
  * Create a element.
  */
 function createTopButton() {
-    let topBtn = document.createElement('div');
-    
-    topBtn.innerHTML = 'TOP ↑';
-    topBtn.setAttribute('class', 'top-btn');
-    topBtn.addEventListener('click', _toTop);
-    document.body.appendChild(topBtn);
-    return topBtn;   
+    let _btn = document.createElement('div');
+    _btn.innerHTML = 'TOP ↑';
+    _btn.setAttribute('class', 'top-btn');
+    _btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });    // instant, smooth, auto
+    });    
+    document.body.appendChild(_btn);
+    return _btn;
 }
-
-function _toTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });    // instant, smooth, auto
-}
-
 
 
 /**
  * Create nav link, e.g. back Home.
  */
-function createNav() {
-    let _btn = document.createElement('div');
+function createNavButton() {
 
-    _btn.innerHTML = 'IDX ←';
-    _btn.setAttribute('class', 'nav-btn');
-    _btn.addEventListener('click', _toHome);
-    // document.getElementById('content').appendChild(_btn);
-    document.body.appendChild(_btn);
+    $('<div></div>')
+        .text('IDX ←')
+        .addClass('nav-btn')
+        .appendTo('body')
+        .click(() => {
+            location.href = './index.html';
+            // history.go(-1);
+        });
 }
-
-function _toHome() {
-    location.href = './index.html';
-    // history.go(-1);
-}
-
 
 
 /**
@@ -235,36 +273,26 @@ function _toHome() {
 function scrollFunc (e) {
     e = e || window.event;
     if (e.wheelDelta) {         // For IE&Chrome
+
         if (e.wheelDelta > 0) { // ↑ 
             _showNav();
-
-            setTimeout(() => {
-                _hideNav();
-            }, 1000)
+            setTimeout(() => { _hideNav(); }, 1000);
         }
+
         if (e.wheelDelta < 0) { // ↓
-
             _showNav();
-
-            setTimeout(() => {
-                _hideNav();
-            }, 1000)
+            setTimeout(() => { _hideNav(); }, 1000);
         }
     } else if (e.detail) {      // For Firefox
+
         if (e.detail > 0) {     // ↑
             _showNav();
-
-            setTimeout(() => {
-                _hideNav();
-            }, 1000)
-
+            setTimeout(() => { _hideNav(); }, 1000);
         }
+
         if (e.detail < 0) {     // ↓
             _showNav();
-
-            setTimeout(() => {
-                _hideNav();
-            }, 1000)
+            setTimeout(() => { _hideNav(); }, 1000);
         }
     }
 }
@@ -274,69 +302,107 @@ function scrollFunc (e) {
 /**
  * Touch listener of mobile
  */
-// Init touch-point coordinates
-let startX = 0,
-    startY = 0;
+let startY = 0;                         // init touch-point coordinates
 
-// Touch start
 function touchStart(e) {
-    // console.log('touch start....')
-
-    let touch = e.touches[0];   // get the first touch point
-    let x = touch.pageX,
-        y = touch.pageY;
-
-    // Set init point
-    startX = x;
-    startY = y;
+    let touch = e.touches[0];           // get the first touch point
+    let y = touch.pageY;
+    
+    startY = y;                         // set init y point
 }
 
-// Touch end
 function touchEnd(e) {
-    // console.log('touch end....')
-
     let touch = e.changedTouches[0];    // get the first touch point
-    let x = touch.pageX,
-        y = touch.pageY;
+    let y = touch.pageY;
 
     // Judge which direction to move
     if (y - startY < 0) {               // ↑
         _showNav();
-        
-        setTimeout(() => {
-            _hideNav()
-        }, 1000)
+        setTimeout(() => { _hideNav() }, 1000);
     } else {                            // ↓
         _showNav();
-        
-        setTimeout(() => {
-            _hideNav()
-        }, 1000)
+        setTimeout(() => { _hideNav() }, 1000);
     }
 }
 
 // Plus opacity
 function _showNav() {
-
-    if (browserRedirect() == 'MB') {
-        document.getElementsByClassName('top-btn')[0].style.opacity = '0.9';
-        document.getElementsByClassName('nav-btn')[0].style.opacity = '0.9';
+    if (ISMB) {
+        $('.top-btn').css('opacity', '0.9');
+        $('.nav-btn').css('opacity', '0.9');
     } else {
-        document.getElementsByClassName('top-btn')[0].classList.add('nav-show-hide');
-        document.getElementsByClassName('nav-btn')[0].classList.add('nav-show-hide');
+        $('.top-btn').addClass('nav-show-hide');
+        $('.nav-btn').addClass('nav-show-hide');
     }
 }
 
 
 // Reduce opaciry
 function _hideNav() {
-
-    if (browserRedirect() == 'MB') {
-        document.getElementsByClassName('top-btn')[0].style.opacity = '0.1';
-        document.getElementsByClassName('nav-btn')[0].style.opacity = '0.1';
-      
+    if (ISMB) {
+        $('.top-btn').css('opacity', '0.1');
+        $('.nav-btn').css('opacity', '0.1');
     } else {
-        document.getElementsByClassName('top-btn')[0].classList.remove('nav-show-hide');
-        document.getElementsByClassName('nav-btn')[0].classList.remove('nav-show-hide');    
+        $('.top-btn').removeClass('nav-show-hide');
+        $('.nav-btn').removeClass('nav-show-hide');
+        
     }
 }
+
+/**
+ * DIR -- Highlight current headline
+ */
+
+// Re-construct <a> of '#table-of-contents'
+$(document).ready(function() {
+    let _links = $('#text-table-of-contents a')
+
+    _links.each(function() {
+        let _class = $(this).attr('href').split('#')[1]
+        $(this).addClass('links ' + _class)
+    })
+
+    $.each([2, 3, 4, 5, 6], function(index, val) {
+
+        if($('.outline-' + val)) {
+            let _outlines = $('.outline-' + val)
+    
+            _outlines.each(function() {
+                $(this).addClass('outline')
+            })
+        }
+    })
+})
+
+// Scroll
+$(window).scroll(function () {
+    var $sections = $('.outline');              // get all content blocks
+    var currentScroll = $(this).scrollTop();    // height of window scroll
+    var $currentSection;                        // current content block
+
+    var _arrTop = [];                           // just for getting the distance from the first headline to top
+
+    $sections.each(function () {
+        var divPosition = $(this).offset().top;
+
+        _arrTop.push(divPosition)
+
+        if (divPosition - 1 < currentScroll) {
+            $currentSection = $(this);            
+        }        
+
+        
+        // Avoid there no block at current height
+        if(currentScroll >= _arrTop[0]) {
+
+            let _id = $currentSection.attr('id')
+
+            let _idArr = _id.split('-');
+            _id = _idArr[_idArr.length - 1]
+    
+            $('.links').removeClass('link-active')
+            $('.' + _id).addClass('link-active')
+        }
+    })
+
+});

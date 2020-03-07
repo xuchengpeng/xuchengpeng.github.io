@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-01-08 Wed 18:22 -->
+<!-- 2020-03-07 Sat 09:57 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>交叉编译ARM64内核</title>
@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <script src="js/darkreader.js"></script>
 <script src="js/main.js"></script>
 </head>
@@ -33,7 +34,7 @@ tar -Jxf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
 拷贝默认配置：
 </p>
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #c678dd;">cd</span> linux-4.20.3
+<pre class="src src-shell">cd linux-4.20.3
 cp arch/arm64/configs/defconfig .config
 </pre>
 </div>
@@ -42,7 +43,7 @@ cp arch/arm64/configs/defconfig .config
 配置选项：
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">make -j8 <span style="color: #dcaeea;">ARCH</span>=arm64 <span style="color: #dcaeea;">CROSS_COMPILE</span>=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- menuconfig
+<pre class="src src-shell">make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- menuconfig
 </pre>
 </div>
 
@@ -50,7 +51,7 @@ cp arch/arm64/configs/defconfig .config
 编译内核：
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">make -j8 <span style="color: #dcaeea;">ARCH</span>=arm64 <span style="color: #dcaeea;">CROSS_COMPILE</span>=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
+<pre class="src src-shell">make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
 </pre>
 </div>
 
@@ -61,7 +62,7 @@ cp arch/arm64/configs/defconfig .config
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2019-12-28 Sat 23:03</p>
-<p class="date">Created: 2020-01-08 Wed 18:22</p>
+<p class="date">Created: 2020-03-07 Sat 09:57</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
