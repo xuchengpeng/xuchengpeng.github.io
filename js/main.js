@@ -22,12 +22,11 @@ if(browserRedirect() == 'PC') {
     ISMB = true;
 }
 
-console.log(ISPC)
-console.log(ISMB)
+// console.log(ISPC)
+// console.log(ISMB)
 // Event bindings and Function invoking
 $(document).ready(() => {
     let TOC = $('#table-of-contents');
-
 
     $('body').addClass('animated fadeIn slow');     // Add animate effects.
     $('.title').click(toggleColor);                 // Toggle color of site.
@@ -40,14 +39,14 @@ $(document).ready(() => {
     $('body').on('touchstart', touchStart);
     $('body').on('touchend', touchEnd);
 
-    
     if(TOC) TOC.click(hideDir);                     // Hide directory when click it of Mobile.   
     if(TOC && ISPC) {          // Auto adjust TOC width to avoid it hover the main contents.
         let t_w = '' + -parseInt(TOC.width() / $(document).width() * 100) + '%';
         TOC.css('left', t_w)
         TOC.mouseenter(() => TOC.css('left', 0) );
         TOC.mouseleave(() => TOC.css('left', t_w) );
-    }             
+    }
+
     // Customize home page style
     if(ISHOME) {                                    // Hide nav and top button in index page.
 
@@ -59,19 +58,6 @@ $(document).ready(() => {
         $('table').css({
             background: 'rgba(255, 255, 255, 0.86)'
         })
-
-        // Set background pic
-        if(ISPC) {
-            $('#content').css({ 
-                background: '#fff url(\'../images/girls.gif\') no-repeat right',
-                'z-index': -2
-            })
-        } else {
-            $('#content').css({ 
-                background: '#fff url(\'../images/girls.gif\') no-repeat right',
-                'background-size': '2.8rem'
-            })
-        }
 
         // Customize table showwing
         $('tbody').hide();
@@ -90,10 +76,8 @@ $(document).ready(() => {
         $('thead th').css({ 'min-width': '1.6rem' });       
     }
 
-    
     $('.validation').html('<div id="license-note">&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.0.90 (<a href="https://orgmode.org">Org</a> mode 9.3.6)</div>'); // Update copyright.
     $('.timestamp-wrapper').parent().css({ 'color': '#666', 'font-size': '.14rem' }); // Update timestamp style.
-
 
     // Listen mousewheel event
     // Firefox
@@ -103,37 +87,6 @@ $(document).ready(() => {
     // IE
     window.addEventListener('mousewheel', scrollFunc);
     document.addEventListener('mousewheel', scrollFunc);
-    
-    // Add mouse click animate
-    if(ISPC) {
-
-        $(document).click(e => {    
-            let size = 120                                      // size of water block
-            $('body').append("<div class='water-animate'>")     // create a water block
-    
-            $('.water-animate')
-                .css({                                          // init style
-                    position: 'fixed',                          // set position as 'fixed'
-                    left: e.clientX,
-                    top: e.clientY,
-                    borderRadius: size + 'px',
-                    border: '2px solid #19f',
-                    'z-index': -1
-                })
-                .stop()                                         // to stop non-end previous animate
-                .animate({
-                        width: size,
-                        height: size,
-                        left: e.clientX - size / 2,
-                        top: e.clientY - size / 2,
-                        opacity: '0'
-                    }, 
-                    'slow',
-                    () => $('body .water-animate').remove()            
-                )
-        })
-    }
-
 })
 
 
