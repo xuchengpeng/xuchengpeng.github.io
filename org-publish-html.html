@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-12-26 Tue 20:48 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Publishing Org-mode files to HTML</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="js/darkreader.js"></script>
+<script src="js/main.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Publishing Org-mode files to HTML</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org484f713">Basics</a></li>
+<li><a href="#org1e919f7">Publishing the org project</a></li>
+</ul>
+</div>
+</div>
+<blockquote>
+<p>
+Emacs is the best editor in the world.
+</p>
+</blockquote>
+
+<div id="outline-container-org484f713" class="outline-2">
+<h2 id="org484f713">Basics</h2>
+<div class="outline-text-2" id="text-org484f713">
+<p>
+Create your blog files and css files.
+</p>
+
+<pre class="example">
+~/blog/org/
+   |- css/
+   |  `- worg.css
+   |- img/
+   |- index.org
+   `- remember.org
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1e919f7" class="outline-2">
+<h2 id="org1e919f7">Publishing the org project</h2>
+<div class="outline-text-2" id="text-org1e919f7">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #c099ff;">require</span> '<span style="color: #ff966c;">ox-publish</span>)
+(<span style="color: #c099ff;">setq</span> org-publish-project-alist
+      '(<span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">Publish the posts</span>
+        (<span style="color: #c3e88d;">"blog-notes"</span>
+         <span style="color: #fca7ea;">:base-directory</span> <span style="color: #c3e88d;">"~/blog/org"</span>
+         <span style="color: #fca7ea;">:base-extension</span> <span style="color: #c3e88d;">"org"</span>
+         <span style="color: #fca7ea;">:publishing-directory</span> <span style="color: #c3e88d;">"~/blog/public"</span>
+         <span style="color: #fca7ea;">:recursive</span> t
+         <span style="color: #fca7ea;">:publishing-function</span> org-html-publish-to-html
+         <span style="color: #fca7ea;">:headline-levels</span> 4
+         <span style="color: #fca7ea;">:section-numbers</span> nil
+         <span style="color: #fca7ea;">:with-author</span> nil
+         <span style="color: #fca7ea;">:with-creator</span> nil
+         <span style="color: #fca7ea;">:with-email</span> nil
+         <span style="color: #fca7ea;">:with-timestamps</span> nil
+         <span style="color: #fca7ea;">:auto-preamble</span> t
+         <span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">:auto-postamble nil</span>
+         <span style="color: #fca7ea;">:html-head</span> <span style="color: #c3e88d;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg.css\"/&gt;"</span>
+         <span style="color: #fca7ea;">:html-head-include-default-style</span> nil
+         <span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">:html-head-include-scripts nil</span>
+         <span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">:html-preamble nil</span>
+         <span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">:html-postamble nil</span>
+         <span style="color: #fca7ea;">:html-link-home</span> <span style="color: #c3e88d;">"index.html"</span>
+         <span style="color: #fca7ea;">:html-link-up</span> <span style="color: #c3e88d;">"sitemap.html"</span>
+         <span style="color: #fca7ea;">:html-metadata-timestamp-format</span> <span style="color: #c3e88d;">"%Y-%m-%d %H:%M"</span>
+         <span style="color: #fca7ea;">:htmlized-source</span> t
+         <span style="color: #fca7ea;">:auto-sitemap</span> t
+         <span style="color: #fca7ea;">:sitemap-filename</span> <span style="color: #c3e88d;">"sitemap.org"</span>
+         <span style="color: #fca7ea;">:sitemap-title</span> <span style="color: #c3e88d;">"Sitemap"</span>
+         <span style="color: #fca7ea;">:author</span> <span style="color: #c3e88d;">"xuchengpeng"</span>
+         <span style="color: #fca7ea;">:email</span> <span style="color: #c3e88d;">"xucp@outlook.com"</span>
+         )
+
+        <span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">For static files that should remain untouched</span>
+        (<span style="color: #c3e88d;">"blog-static"</span>
+         <span style="color: #fca7ea;">:base-directory</span> <span style="color: #c3e88d;">"~/blog/org"</span>
+         <span style="color: #fca7ea;">:base-extension</span> <span style="color: #c3e88d;">"css</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">js</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">png</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">jpg</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">gif</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">pdf</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">mp3</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">ogg</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">swf</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">eot</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">svg</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">woff</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">woff2</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">ttf"</span>
+         <span style="color: #fca7ea;">:publishing-directory</span> <span style="color: #c3e88d;">"~/blog/public"</span>
+         <span style="color: #fca7ea;">:recursive</span> t
+         <span style="color: #fca7ea;">:publishing-function</span> org-publish-attachment
+         )
+
+        <span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">Combine the two previous components in a single one</span>
+        (<span style="color: #c3e88d;">"blog"</span> <span style="color: #fca7ea;">:components</span> (<span style="color: #c3e88d;">"blog-notes"</span> <span style="color: #c3e88d;">"blog-static"</span>))))
+</pre>
+</div>
+
+<p>
+Then run <code>org-publish-project</code> to generate html files to <code>~/blog/public</code> folder.
+</p>
+
+<div class="article-comments">
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-12-28 Sat 23:03</p>
+<p class="date">Created: 2023-12-26 Tue 20:48</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

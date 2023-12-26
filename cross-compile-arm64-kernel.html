@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- 2023-12-26 Tue 20:48 -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>交叉编译ARM64内核</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script src="js/darkreader.js"></script>
+<script src="js/main.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">交叉编译ARM64内核</h1>
+<p>
+从 <a href="https://www.kernel.org/">kernel.org</a> 下载 Linux 内核，从 <a href="https://www.linaro.org/downloads/">linaro</a> 或者 <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-a">arm</a> 下载交叉编译工具链。
+</p>
+
+<p>
+解压内核源码和工具链：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">tar -Jxf linux-4.20.3.tar.xz
+tar -Jxf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
+</pre>
+</div>
+
+<p>
+拷贝默认配置：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #fca7ea;">cd</span> linux-4.20.3
+cp arch/arm64/configs/defconfig .config
+</pre>
+</div>
+
+<p>
+配置选项：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">make -j8 <span style="color: #c8d3f5;">ARCH</span>=arm64 <span style="color: #c8d3f5;">CROSS_COMPILE</span>=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- menuconfig
+</pre>
+</div>
+
+<p>
+编译内核：
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">make -j8 <span style="color: #c8d3f5;">ARCH</span>=arm64 <span style="color: #c8d3f5;">CROSS_COMPILE</span>=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
+</pre>
+</div>
+
+<p>
+代码根目录下会生成 <code>vmlinux</code> ， <code>arch/arm64/boot</code> 目录下会生成 <code>Image</code> 和
+<code>Image.gz</code> 。
+</p>
+
+<div class="article-comments">
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-12-28 Sat 23:03</p>
+<p class="date">Created: 2023-12-26 Tue 20:48</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
