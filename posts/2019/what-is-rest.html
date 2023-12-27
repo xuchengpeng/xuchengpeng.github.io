@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-12-26 Tue 21:03 -->
+<!-- 2023-12-27 Wed 13:45 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>What is REST</title>
 <meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script src="js/darkreader.js"></script>
-<script src="js/main.js"></script>
+         <link rel="stylesheet" type="text/css" href="https://cdn.simplecss.org/simple.css">
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+<div id="preamble" class="status">
+<header>
+                  <nav>
+                    <a href="/index.html" class="current">Home</a>
+                    <a href="/posts/index.html">Posts</a>
+                    <a href="/about.html">About</a>
+                  </nav>
+                </header>
+</div>
 <div id="content" class="content">
 <h1 class="title">What is REST</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd433b93">Guiding Principles of REST</a></li>
-<li><a href="#orgcf68b97">Resource</a></li>
-<li><a href="#org33272b1">Resource Methods</a></li>
-<li><a href="#org8988015">REST and HTTP are not same !!</a></li>
+<li><a href="#org809a4df">Guiding Principles of REST</a></li>
+<li><a href="#orgbe465ab">Resource</a></li>
+<li><a href="#org54236a0">Resource Methods</a></li>
+<li><a href="#org428a660">REST and HTTP are not same !!</a></li>
 </ul>
 </div>
 </div>
@@ -36,9 +41,9 @@ REST is acronym for REpresentational State Transfer. It is architectural style f
 Like any other architectural style, REST also does have it's own <a href="https://restfulapi.net/rest-architectural-constraints/">6 guiding constraints</a> which must be satisfied if an interface needs to be referred as <b>RESTful</b>. These principles are listed below.
 </p>
 
-<div id="outline-container-orgd433b93" class="outline-2">
-<h2 id="orgd433b93">Guiding Principles of REST</h2>
-<div class="outline-text-2" id="text-orgd433b93">
+<div id="outline-container-org809a4df" class="outline-2">
+<h2 id="org809a4df">Guiding Principles of REST</h2>
+<div class="outline-text-2" id="text-org809a4df">
 <ol class="org-ol">
 <li><b>Client-server</b> - By separating the user interface concerns from the data
 storage concerns, we improve the portability of the user interface across
@@ -72,9 +77,9 @@ pre-implemented.</li>
 </div>
 </div>
 
-<div id="outline-container-orgcf68b97" class="outline-2">
-<h2 id="orgcf68b97">Resource</h2>
-<div class="outline-text-2" id="text-orgcf68b97">
+<div id="outline-container-orgbe465ab" class="outline-2">
+<h2 id="orgbe465ab">Resource</h2>
+<div class="outline-text-2" id="text-orgbe465ab">
 <p>
 The key abstraction of information in REST is a <b>resource</b>. Any information that can be named can be a resource: a document or image, a temporal service, a collection of other resources, a non-virtual object (e.g. a person), and so on. REST uses a <b>resource identifier</b> to identify the particular resource involved in an interaction between components.
 </p>
@@ -130,9 +135,9 @@ CDATA-encoded href attribute."
 </div>
 </div>
 
-<div id="outline-container-org33272b1" class="outline-2">
-<h2 id="org33272b1">Resource Methods</h2>
-<div class="outline-text-2" id="text-org33272b1">
+<div id="outline-container-org54236a0" class="outline-2">
+<h2 id="org54236a0">Resource Methods</h2>
+<div class="outline-text-2" id="text-org54236a0">
 <p>
 Other important thing associated with REST is <b>resource methods</b> to be used to
 perform the desired transition. A large number of people wrongly relate resource
@@ -169,9 +174,9 @@ not by arrays of original resource representations because query is not a substi
 </div>
 </div>
 
-<div id="outline-container-org8988015" class="outline-2">
-<h2 id="org8988015">REST and HTTP are not same !!</h2>
-<div class="outline-text-2" id="text-org8988015">
+<div id="outline-container-org428a660" class="outline-2">
+<h2 id="org428a660">REST and HTTP are not same !!</h2>
+<div class="outline-text-2" id="text-org428a660">
 <p>
 A lot of people prefer to compare HTTP with REST. <b>REST and HTTP are not same</b>.
 </p>
@@ -238,9 +243,11 @@ References:
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-12-28 Sat 23:03</p>
-<p class="date">Created: 2023-12-26 Tue 21:03</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<footer>
+                  <p>
+                    &copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)
+                  </p>
+                </footer>
 </div>
 </body>
 </html>

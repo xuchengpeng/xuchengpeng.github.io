@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2023-12-26 Tue 21:03 -->
+<!-- 2023-12-27 Wed 13:45 -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Publishing Org-mode files to HTML</title>
 <meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css" />
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script src="js/darkreader.js"></script>
-<script src="js/main.js"></script>
+         <link rel="stylesheet" type="text/css" href="https://cdn.simplecss.org/simple.css">
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+<div id="preamble" class="status">
+<header>
+                  <nav>
+                    <a href="/index.html" class="current">Home</a>
+                    <a href="/posts/index.html">Posts</a>
+                    <a href="/about.html">About</a>
+                  </nav>
+                </header>
+</div>
 <div id="content" class="content">
 <h1 class="title">Publishing Org-mode files to HTML</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org484f713">Basics</a></li>
-<li><a href="#org1e919f7">Publishing the org project</a></li>
+<li><a href="#org707adbc">Basics</a></li>
+<li><a href="#org0536b6a">Publishing the org project</a></li>
 </ul>
 </div>
 </div>
@@ -32,9 +37,9 @@ Emacs is the best editor in the world.
 </p>
 </blockquote>
 
-<div id="outline-container-org484f713" class="outline-2">
-<h2 id="org484f713">Basics</h2>
-<div class="outline-text-2" id="text-org484f713">
+<div id="outline-container-org707adbc" class="outline-2">
+<h2 id="org707adbc">Basics</h2>
+<div class="outline-text-2" id="text-org707adbc">
 <p>
 Create your blog files and css files.
 </p>
@@ -50,9 +55,9 @@ Create your blog files and css files.
 </div>
 </div>
 
-<div id="outline-container-org1e919f7" class="outline-2">
-<h2 id="org1e919f7">Publishing the org project</h2>
-<div class="outline-text-2" id="text-org1e919f7">
+<div id="outline-container-org0536b6a" class="outline-2">
+<h2 id="org0536b6a">Publishing the org project</h2>
+<div class="outline-text-2" id="text-org0536b6a">
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(<span style="color: #c099ff;">require</span> '<span style="color: #ff966c;">ox-publish</span>)
 (<span style="color: #c099ff;">setq</span> org-publish-project-alist
@@ -127,9 +132,11 @@ Then run <code>org-publish-project</code> to generate html files to <code>~/blog
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-12-28 Sat 23:03</p>
-<p class="date">Created: 2023-12-26 Tue 21:03</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+<footer>
+                  <p>
+                    &copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)
+                  </p>
+                </footer>
 </div>
 </body>
 </html>
