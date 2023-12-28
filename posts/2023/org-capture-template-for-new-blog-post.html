@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>为新建博客文章增加Org Capture模板</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<header>
+                  <nav>
+                    <a href="/index.html" class="current">Home</a>
+                    <a href="/posts/index.html">Posts</a>
+                    <a href="/about.html">About</a>
+                  </nav>
+                  <h1>为新建博客文章增加Org Capture模板</h1>
+                </header>
+</div>
+<div id="content" class="content">
+<p>
+<code>dotemacs-org-post-file</code> 函数会在博客文件夹对应的年份目录下新建文章；
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #c099ff;">defun</span> <span style="color: #82aaff;">dotemacs-org-post-file</span> ()
+  (<span style="color: #c099ff;">let*</span> ((filename (read-from-minibuffer <span style="color: #c3e88d;">"New post filename: "</span>))
+         (post-dir (concat dotemacs-org-site-dir <span style="color: #c3e88d;">"/org/posts/"</span> (format-time-string <span style="color: #c3e88d;">"%Y"</span>))))
+    (<span style="color: #c099ff;">unless</span> (file-exists-p post-dir)
+      (make-directory post-dir t))
+    (find-file (expand-file-name filename post-dir))
+    (tempel-insert 'blog-title)))
+(<span style="color: #c099ff;">setq</span> org-capture-templates
+      `((<span style="color: #c3e88d;">"p"</span> <span style="color: #c3e88d;">"Post"</span> plain
+         (<span style="color: #c099ff;">function</span> dotemacs-org-post-file)
+         <span style="color: #c3e88d;">""</span> <span style="color: #fca7ea;">:jump-to-captured</span> t <span style="color: #fca7ea;">:immediate-finish</span> t)))
+</pre>
+</div>
+
+<p>
+此外，这里会调用 <a href="https://github.com/minad/tempel">tempel</a> 自动增加文章头部，org-mode中 <code>blog-title</code> 的定义如下：
+</p>
+
+<pre class="example">
+(blog-title "#+TITLE: " n "#+DATE: " (format-time-string "&lt;%Y-%m-%d %a %H:%M&gt;") n "#+STARTUP: hideblocks" n "#+OPTIONS: toc:nil" n)
+</pre>
+
+<p>
+然后，就可以愉快的写作啦！
+</p>
+
+<div class="article-comments">
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<footer>
+                  <p>
+                    &copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)
+                  </p>
+                </footer>
+</div>
+</body>
+</html>
