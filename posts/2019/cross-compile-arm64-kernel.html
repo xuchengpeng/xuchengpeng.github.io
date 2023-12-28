@@ -10,17 +10,14 @@
 </head>
 <body>
 <div id="preamble" class="status">
-<header>
-                  <nav>
-                    <a href="/index.html" class="current">Home</a>
-                    <a href="/posts/index.html">Posts</a>
-                    <a href="/about.html">About</a>
-                  </nav>
-                  <h1>交叉编译ARM64内核</h1>
-                </header>
+<a href="/index.html">Home</a>
+                 <a href="/posts/index.html">Posts</a>
+                 <a href="/about.html">About</a>
 </div>
 <div id="content" class="content">
-<p>
+<header>
+<h1 class="title">交叉编译ARM64内核</h1>
+</header><p>
 从 <a href="https://www.kernel.org/">kernel.org</a> 下载 Linux 内核，从 <a href="https://www.linaro.org/downloads/">linaro</a> 或者 <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-a">arm</a> 下载交叉编译工具链。
 </p>
 
@@ -83,11 +80,17 @@ cp arch/arm64/configs/defconfig .config
 </div>
 </div>
 <div id="postamble" class="status">
-<footer>
+<div class="top-btn">
+                  <a href="#top">Top</a>
+                 </div>
+                 <div class="nav-btn">
+                  <a href="/index.html">Home</a>
+                 </div>
+                 <footer>
                   <p>
                     &copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)
                   </p>
-                </footer>
+                 </footer>
 </div>
 </body>
 </html>

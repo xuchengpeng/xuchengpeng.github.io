@@ -1,777 +1,549 @@
-/* Global variables. */
-:root,
-::backdrop {
-  /* Set sans-serif & mono fonts */
-  --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
-    "Nimbus Sans L", Roboto, "Noto Sans", "Segoe UI", Arial, Helvetica,
-    "Helvetica Neue", sans-serif;
-  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  --standard-border-radius: 5px;
+/* Import google fonts */
+/* import url(https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Droid+Serif); */
 
-  /* Default (light) theme */
-  --bg: #fff;
-  --accent-bg: #f5f7ff;
-  --text: #212121;
-  --text-light: #585858;
-  --border: #898EA4;
-  --accent: #0d47a1;
-  --accent-text: var(--bg);
-  --code: #d81b60;
-  --preformatted: #444;
-  --marked: #ffdd33;
-  --disabled: #efefef;
-}
 
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
+/* Site init style of TAOBAO */
 
-  :root,
-  ::backdrop {
-    color-scheme: dark;
-    --bg: #212121;
-    --accent-bg: #2b2b2b;
-    --text: #dcdcdc;
-    --text-light: #ababab;
-    --accent: #ffb300;
-    --accent-text: var(--bg);
-    --code: #f06292;
-    --preformatted: #ccc;
-    --disabled: #111;
-  }
-
-  /* Add a bit of transparency so light media isn't so glaring in dark mode */
-  img,
-  video {
-    opacity: 0.8;
-  }
-}
-
-/* Reset box-sizing */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Reset default appearance */
-textarea,
-select,
-input,
-progress {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
-
-html {
-  /* Set the font globally */
-  font-family: var(--sans-font);
-  scroll-behavior: smooth;
-}
-
-/* Make the body a nice central block */
-body {
-  color: var(--text);
-  background-color: var(--bg);
-  font-size: 1.15rem;
-  line-height: 1.5;
-  display: grid;
-  grid-template-columns: 1fr min(55rem, 90%) 1fr;
-  margin: 0;
-}
-
-body>* {
-  grid-column: 2;
-}
-
-/* Make the header bg full width, but the content inline with body */
-body>header {
-  background-color: var(--accent-bg);
-  border-bottom: 1px solid var(--border);
-  text-align: center;
-  padding: 0 0.5rem 2rem 0.5rem;
-  grid-column: 1 / -1;
-}
-
-body>header>*:only-child {
-  margin-block-start: 2rem;
-}
-
-body>header h1 {
-  max-width: 1200px;
-  margin: 1rem auto;
-}
-
-body>header p {
-  max-width: 40rem;
-  margin: 1rem auto;
-}
-
-/* Add a little padding to ensure spacing is correct between content and header > nav */
-main {
-  padding-top: 1.5rem;
-}
-
-body>footer {
-  margin-top: 4rem;
-  padding: 2rem 1rem 1.5rem 1rem;
-  color: var(--text-light);
-  font-size: 0.9rem;
-  text-align: center;
-  border-top: 1px solid var(--border);
-}
-
-body>div>header {
-  background-color: var(--accent-bg);
-  border-bottom: 1px solid var(--border);
-  text-align: center;
-  padding: 0 0.5rem 0 0.5rem;
-  grid-column: 1 / -1;
-}
-
-body>div>header h1 {
-  max-width: 1200px;
-  margin: 1rem auto;
-}
-
-body>div>header p {
-  max-width: 40rem;
-  margin: 1rem auto;
-}
-
-body>div>footer {
-  margin-top: 4rem;
-  padding: 0.5rem 1rem 1.5rem 1rem;
-  color: var(--text-light);
-  font-size: 0.9rem;
-  text-align: center;
-  border-top: 1px solid var(--border);
-}
-
-/* Format headers */
-h1 {
-  font-size: 3rem;
-}
-
-h2 {
-  font-size: 2.6rem;
-  margin-top: 3rem;
-}
-
-h3 {
-  font-size: 2rem;
-  margin-top: 3rem;
-}
-
-h4 {
-  font-size: 1.44rem;
-}
-
-h5 {
-  font-size: 1.15rem;
-}
-
-h6 {
-  font-size: 0.96rem;
-}
-
-p {
-  margin: 1.5rem 0;
-}
-
-/* Prevent long strings from overflowing container */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
 p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+/* body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }  */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+  font-size: 100%;
 }
 
-/* Fix line height when title wraps */
-h1,
-h2,
-h3 {
-  line-height: 1.1;
+/* address, cite, dfn, em, var { font-style:normal; }  */
+/* code, kbd, pre, samp { font-family:couriernew, courier, monospace; } small{ font-size:12px; } */
+/* ul, ol { list-style:none; } */
+a {
+  text-decoration: none;
 }
 
-/* Reduce header size on mobile */
-@media only screen and (max-width: 720px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2.1rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  h4 {
-    font-size: 1.25rem;
-  }
+/* a:hover { text-decoration:underline; } */
+/* sup { vertical-align:text-top; } */
+/* sub{ vertical-align:text-bottom; } */
+/* legend { color:#000; } */
+/* fieldset, img { border:0; } */
+/* button, input, select, textarea { font-size:100%; } */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/* Format links & buttons */
-a,
-a:visited {
-  color: var(--accent);
+
+/* Basic Style */
+
+html {
+  font-size: 100px;
+}
+
+body {
+  /* Monaco, Consolas, "kaiti",  */
+  /* font-family: "Droid Serif", "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans", Verdana, sans-serif;   */
+  font-family: Monaco, Consolas, "kaiti";
+  width: 55%;
+  margin: 0 auto;
+  font-size: .16rem;
+  line-height: 1.5;
+}
+
+#content {
+  position: relative;
+}
+
+/* header line */
+/* i.e. h1 */
+.title {
+  font-size: .32rem;
+  width: 100%;
+  border-bottom: 2px solid #369;
+  border-image: linear-gradient(to right, #147, #f66) 30 30;
+  padding: 0;
+  margin: .36rem 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+a {
+  color: #19f;
 }
 
 a:hover {
-  text-decoration: none;
+  color: #E69;
+  text-shadow: 0px 0px 1px #E69;
 }
 
-button,
-.button,
-a.button,
-/* extra specificity to override a */
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-label[type="button"] {
-  border: 1px solid var(--accent);
-  background-color: var(--accent);
-  color: var(--accent-text);
-  padding: 0.5rem 0.9rem;
-  text-decoration: none;
-  line-height: normal;
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: .20rem;
+  margin: .16rem 0;
 }
 
-.button[aria-disabled="true"],
-input:disabled,
-textarea:disabled,
-select:disabled,
-button[disabled] {
-  cursor: not-allowed;
-  background-color: var(--disabled);
-  border-color: var(--disabled);
-  color: var(--text-light);
+h2 code:last-child,
+h3 code:last-child,
+h4 code:last-child,
+h5 code:last-child,
+h6 code:last-child {
+  border-radius: 3px;
+  background: #363;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
 }
 
-input[type="range"] {
-  padding: 0;
+h2 {
+  color: #668BB6;
 }
 
-/* Set the cursor to '?' on an abbreviation and style the abbreviation to show that there is more information underneath */
-abbr[title] {
-  cursor: help;
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
+h2:before {
+  content: "# ";
 }
 
-button:enabled:hover,
-.button:not([aria-disabled="true"]):hover,
-input[type="submit"]:enabled:hover,
-input[type="reset"]:enabled:hover,
-input[type="button"]:enabled:hover,
-label[type="button"]:hover {
-  filter: brightness(1.4);
-  cursor: pointer;
+h3 {
+  color: #c396d8;
 }
 
-.button:focus-visible,
-button:focus-visible:where(:enabled),
-input:enabled:focus-visible:where([type="submit"],
-  [type="reset"],
-  [type="button"]) {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
+h3:before {
+  content: "## ";
 }
 
-/* Format navigation */
-header>nav {
-  font-size: 1rem;
-  line-height: 2;
-  padding: 1rem 0 0 0;
+h4 {
+  color: #6fbfb1;
 }
 
-/* Use flexbox to allow items to wrap, as needed */
-header>nav ul,
-header>nav ol {
-  align-content: space-around;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+h4:before {
+  content: "### ";
 }
 
-/* List items are inline elements, make them behave more like blocks */
-header>nav ul li,
-header>nav ol li {
-  display: inline-block;
+h5 {
+  color: #e77724;
 }
 
-header>nav a,
-header>nav a:visited {
-  margin: 0 0.5rem 1rem 0.5rem;
-  border: 1px solid var(--border);
-  border-radius: var(--standard-border-radius);
-  color: var(--text);
-  display: inline-block;
-  padding: 0.1rem 1rem;
-  text-decoration: none;
+h5:before {
+  content: "#### ";
 }
 
-header>nav a:hover,
-header>nav a.current,
-header>nav a[aria-current="page"] {
-  border-color: var(--accent);
-  color: var(--accent);
-  cursor: pointer;
+
+/* paragrapn */
+p {
+  margin: .16rem 0;
 }
 
-/* Reduce nav side on mobile */
-@media only screen and (max-width: 720px) {
-  header>nav a {
-    border: none;
-    padding: 0;
-    text-decoration: underline;
-    line-height: 1;
-  }
-}
-
-/* Consolidate box styling */
-aside,
-details,
-pre,
-progress {
-  background-color: var(--accent-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--standard-border-radius);
-  margin-bottom: 1rem;
-}
-
-aside {
-  font-size: 1rem;
-  width: 30%;
-  padding: 0 15px;
-  margin-inline-start: 15px;
-  float: right;
-}
-
-*[dir="rtl"] aside {
-  float: left;
-}
-
-/* Make aside full-width on mobile */
-@media only screen and (max-width: 720px) {
-  aside {
-    width: 100%;
-    float: none;
-    margin-inline-start: 0;
-  }
-}
-
-article,
-fieldset,
-dialog {
-  border: 1px solid var(--border);
-  padding: 1rem;
-  border-radius: var(--standard-border-radius);
-  margin-bottom: 1rem;
-}
-
-article h2:first-child,
-section h2:first-child {
-  margin-top: 1rem;
-}
-
-section {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 2rem 1rem;
-  margin: 3rem 0;
-}
-
-/* Don't double separators when chaining sections */
-section+section,
-section:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-section:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-details {
-  padding: 0.7rem 1rem;
-}
-
-summary {
-  cursor: pointer;
-  font-weight: bold;
-  padding: 0.7rem 1rem;
-  margin: -0.7rem -1rem;
-  word-break: break-all;
-}
-
-details[open]>summary+* {
-  margin-top: 0;
-}
-
-details[open]>summary {
-  margin-bottom: 0.5rem;
-}
-
-details[open]> :last-child {
-  margin-bottom: 0;
-}
-
-/* Format tables */
-table {
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-}
-
-td,
-th {
-  border: 1px solid var(--border);
-  text-align: start;
-  padding: 0.5rem;
-}
-
-th {
-  background-color: var(--accent-bg);
-  font-weight: bold;
-}
-
-tr:nth-child(even) {
-  /* Set every other cell slightly darker. Improves readability. */
-  background-color: var(--accent-bg);
-}
-
-table caption {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-/* Format forms */
-textarea,
-select,
-input,
-button,
-.button {
-  font-size: inherit;
-  font-family: inherit;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  border-radius: var(--standard-border-radius);
-  box-shadow: none;
+/* img */
+img {
   max-width: 100%;
-  display: inline-block;
 }
 
-textarea,
-select,
-input {
-  color: var(--text);
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-}
-
-label {
-  display: block;
-}
-
-textarea:not([cols]) {
-  width: 100%;
-}
-
-/* Add arrow to drop-down */
-select:not([multiple]) {
-  background-image: linear-gradient(45deg, transparent 49%, var(--text) 51%),
-    linear-gradient(135deg, var(--text) 51%, transparent 49%);
-  background-position: calc(100% - 15px), calc(100% - 10px);
-  background-size: 5px 5px, 5px 5px;
-  background-repeat: no-repeat;
-  padding-inline-end: 25px;
-}
-
-*[dir="rtl"] select:not([multiple]) {
-  background-position: 10px, 15px;
-}
-
-/* checkbox and radio button style */
-input[type="checkbox"],
-input[type="radio"] {
-  vertical-align: middle;
-  position: relative;
-  width: min-content;
-}
-
-input[type="checkbox"]+label,
-input[type="radio"]+label {
-  display: inline-block;
-}
-
-input[type="radio"] {
-  border-radius: 100%;
-}
-
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-  background-color: var(--accent);
-}
-
-input[type="checkbox"]:checked::after {
-  /* Creates a rectangle with colored right and bottom borders which is rotated to look like a check mark */
-  content: " ";
-  width: 0.18em;
-  height: 0.32em;
-  border-radius: 0;
-  position: absolute;
-  top: 0.05em;
-  left: 0.17em;
-  background-color: transparent;
-  border-right: solid var(--bg) 0.08em;
-  border-bottom: solid var(--bg) 0.08em;
-  font-size: 1.8em;
-  transform: rotate(45deg);
-}
-
-input[type="radio"]:checked::after {
-  /* creates a colored circle for the checked radio button  */
-  content: " ";
-  width: 0.25em;
-  height: 0.25em;
-  border-radius: 100%;
-  position: absolute;
-  top: 0.125em;
-  background-color: var(--bg);
-  left: 0.125em;
-  font-size: 32px;
-}
-
-/* Makes input fields wider on smaller screens */
-@media only screen and (max-width: 720px) {
-
-  textarea,
-  select,
-  input {
-    width: 100%;
-  }
-}
-
-/* Set a height for color input */
-input[type="color"] {
-  height: 2.5rem;
-  padding: 0.2rem;
-}
-
-/* do not show border around file selector button */
-input[type="file"] {
-  border: 0;
-}
-
-/* Misc body elements */
-hr {
-  border: none;
-  height: 1px;
-  background: var(--border);
-  margin: 1rem auto;
-}
-
-mark {
-  padding: 2px 5px;
-  border-radius: var(--standard-border-radius);
-  background-color: var(--marked);
-  color: black;
-}
-
-mark a {
-  color: #0d47a1;
-}
-
-img,
-video {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--standard-border-radius);
-}
-
-figure {
-  margin: 0;
-  display: block;
-  overflow-x: auto;
-}
-
-figcaption {
+/* img caption */
+.figure p:last-child {
+  color: #666;
+  font-size: .14rem;
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-light);
-  margin-bottom: 1rem;
+  margin: .06rem 0;
 }
 
+
+/* blockquote */
 blockquote {
-  margin-inline-start: 2rem;
-  margin-inline-end: 0;
-  margin-block: 2rem;
-  padding: 0.4rem 0.8rem;
-  border-inline-start: 0.35rem solid var(--accent);
-  color: var(--text-light);
-  font-style: italic;
+  /* background: #eee; */
+  color: #369;
+  border-left: 1px solid #369;
+  padding-left: .16rem;
 }
 
-cite {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  font-style: normal;
-}
 
-dt {
-  color: var(--text-light);
-}
+/* code */
 
-/* Use mono font for code elements */
-code,
-pre,
-pre span,
-kbd,
-samp {
-  font-family: var(--mono-font);
-  color: var(--code);
-}
-
-kbd {
-  color: var(--preformatted);
-  border: 1px solid var(--preformatted);
-  border-bottom: 3px solid var(--preformatted);
-  border-radius: var(--standard-border-radius);
-  padding: 0.1rem 0.4rem;
+code {
+  color: #135;
+  /* font-family: "Droid Sans Mono"; */
+  font-family: Monaco, Consolas, 'monospace', "kaiti";
+  font-size: 0.14rem;
 }
 
 pre {
-  padding: 1rem 1.4rem;
-  max-width: 100%;
+  /* font-family: "Droid Sans Mono"; */
+  font-family: Monaco, Consolas, 'monospace', "kaiti";
+  color: #135;
+  font-size: 0.14rem;
+  padding: .14rem;
+  border: 2px solid #eee;
+  margin: .16rem 0;
+
+  overflow: hidden;
+}
+
+pre:hover {
   overflow: auto;
-  color: var(--preformatted);
 }
 
-/* Fix embedded code within pre */
-pre code {
-  color: var(--preformatted);
-  background: none;
-  margin: 0;
-  padding: 0;
+
+/* list */
+ul,
+ol {
+  list-style-position: inside;
 }
 
-/* Progress bars */
-/* Declarations are repeated because you */
-/* cannot combine vendor-specific selectors */
-progress {
-  width: 100%;
+li>ul,
+li>ol {
+  padding-left: .16rem;
 }
 
-progress:indeterminate {
-  background-color: var(--accent-bg);
+
+/* table */
+.t-above {
+  font-size: .14rem;
+  color: #666;
+  margin: .06rem 0;
 }
 
-progress::-webkit-progress-bar {
-  border-radius: var(--standard-border-radius);
-  background-color: var(--accent-bg);
+table {
+  margin: .24rem 0;
 }
 
-progress::-webkit-progress-value {
-  border-radius: var(--standard-border-radius);
-  background-color: var(--accent);
+thead tr {
+  border-top: 2px solid #369;
 }
 
-progress::-moz-progress-bar {
-  border-radius: var(--standard-border-radius);
-  background-color: var(--accent);
-  transition-property: width;
-  transition-duration: 0.3s;
+tbody {
+  border-top: 2px solid #369;
 }
 
-progress:indeterminate::-moz-progress-bar {
-  background-color: var(--accent-bg);
+tbody tr {
+  border-bottom: 1px solid #369;
 }
 
-dialog {
-  max-width: 40rem;
-  margin: auto;
+tbody tr:last-child {
+  border-bottom: 2px solid #369;
 }
 
-dialog::backdrop {
-  background-color: var(--bg);
-  opacity: 0.8;
+th,
+td {
+  border-right: 1px solid #369;
+  padding: 3px 6px;
 }
 
-@media only screen and (max-width: 720px) {
-  dialog {
-    max-width: 100%;
-    margin: auto 1em;
-  }
+.org-center {
+  text-align: center;
 }
 
-/* Superscript & Subscript */
-/* Prevent scripts from affecting line-height. */
-sup,
-sub {
-  vertical-align: baseline;
-  position: relative;
+.org-right {
+  text-align: right;
 }
 
-sup {
-  top: -0.4em;
+th:first-child,
+td:first-child {
+  border-left: rgba(255, 255, 255, 0);
 }
 
-sub {
-  top: 0.3em;
+th:last-child,
+td:last-child {
+  border-right: rgba(255, 255, 255, 0);
 }
 
-/* Classes for notices */
-.notice {
-  background: var(--accent-bg);
-  border: 2px solid var(--border);
-  border-radius: var(--standard-border-radius);
-  padding: 1.5rem;
-  margin: 2rem 0;
-}
 
+/* directory */
 #table-of-contents {
-  float: right;
-  border: 1px solid;
-  overflow: auto;
-  font-size: 14px;
   position: fixed;
-  right: 0;
-  top: 30px;
-  background: white;
-  z-index: 999;
-  max-height: 80%;
-  max-width: 50%;
+  box-shadow: 1px 0 3px #999;
+
+  left: -16%;
+  top: 0;
+  min-width: 16%;
+  min-height: 100%;
+  height: 100%;
+  font-size: .16rem;
+  font-size: 90%;
+  color: #369;
+  padding: 0 1%;
+  transition: .3s all ease-in-out;
+  overflow: hidden;
+  opacity: 0;
 }
 
-#table-of-contents h2 {
-  font-size: 14px;
-  font-weight: normal;
-  margin-top: 0.75rem;
-  padding-left: 0.5em;
-	padding-right: 0.5em;
-	padding-top: 0.05em;
-	padding-bottom: 0.05em;
+#table-of-contents a {
+  text-decoration: none;
 }
 
-#table-of-contents:hover #text-table-of-contents {
-  display: block;
+#table-of-contents:hover {
+  opacity: 1;
+  left: 0;
+  border-right: 1px solid #eee;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.86);
 }
 
-#text-table-of-contents {
-  display: none
+#table-of-contents h2:before {
+  content: "";
 }
 
-#text-table-of-contents ul {
-  padding-left: 20px
+
+/* Highlight TOC active item */
+.link-active {
+  color: #fff;
+  background: #19f;
+  padding: 1px 2px;
+}
+
+
+/* #postamble, .status */
+.status {
+  color: #666;
+  border-top: 1px solid #369;
+  border-image: linear-gradient(to right, #f66, #147) 30 30;
+  margin: .1rem 0 .1rem 0;
+  padding-top: .1rem;
+}
+
+.status p {
+  margin: 0;
+}
+
+.status p:last-child {
+  margin-top: .1rem;
+  text-align: center;
+  color: #369;
+
+}
+
+.validation a {
+  color: #19f;
+}
+
+
+
+/* Inline Format */
+.underline {
+  border-bottom: 1px solid #333;
+}
+
+
+/* Contect with Me */
+.me {
+  margin-top: .48rem;
+}
+
+.me span {
+  color: #333;
+}
+
+.contect {
+  padding: .16rem 0;
+}
+
+.contect i {
+  color: #369;
+  font-size: .20rem;
+  padding-right: .08rem;
+}
+
+
+/* Top Buttom */
+.top-btn {
+  /* background: #eee; */
+  opacity: .3;
+  box-shadow: 0 0 1px #666;
+  display: inline-block;
+  width: .64rem;
+  height: .32rem;
+  line-height: .32rem;
+  text-align: center;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  font-size: .12rem;
+  color: #222;
+  background: #eee;
+  transition: .3s all ease-in-out;
+}
+
+.top-btn:hover {
+  opacity: 1;
+  background: #eee;
+}
+
+
+/* Nav Button */
+.nav-btn {
+  /* background: #eee; */
+  opacity: .3;
+  box-shadow: 0 0 1px #666;
+  display: inline-block;
+  width: .64rem;
+  height: .32rem;
+  line-height: .32rem;
+  text-align: center;
+  position: fixed;
+  bottom: 8%;
+  right: 2%;
+  font-size: .12rem;
+  color: #222;
+  background: #eee;
+  transition: .3s all ease-in-out;
+}
+
+.nav-btn:hover {
+  opacity: 1;
+  background: #eee;
+}
+
+
+.nav-show-hide {
+  background: #eee;
+  opacity: 1;
+}
+
+
+
+/* GTD Style */
+.todo {
+  border-radius: 3px;
+  background: #911;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+}
+
+.done {
+  border-radius: 3px;
+  background: #147;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+}
+
+.tag span {
+  border-radius: 3px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #c60;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+  display: inline-block;
+}
+
+.priority {
+  border-radius: 3px;
+  background: #991;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+}
+
+/* .timestamp-wrapper */
+/* In CSS&CSS3, there has no a selector to get parentNode. Now via js. */
+
+.org-ul .on code {
+  color: #009;
+  font-weight: 900;
+}
+
+.org-ul .off code {
+  color: #900;
+  font-weight: 900;
+}
+
+/* Footnotes */
+
+.footpara {
+  display: inline;
+  font-size: .14rem;
+  color: #333;
+}
+
+
+/* Mobile UI */
+@media screen and (max-width: 1026px) {
+
+  body {
+    width: 96%;
+  }
+
+  .title {
+    font-size: .28rem;
+    white-space: nowrap;
+    overflow: auto;
+  }
+
+  #table-of-contents {
+    height: 400px;
+    min-height: 400px;
+    width: 100%;
+    top: -380px;
+    left: 0;
+    color: #369;
+    opacity: 0;
+    box-shadow: 0 1px 3px #999;
+    background: #fff;
+  }
+
+  #table-of-contents:hover {
+    top: 0px;
+    opacity: 1;
+  }
+
+  .link-active {
+    color: #fff;
+    background: #19f;
+    padding: 1px 2px;
+  }
+
+  pre {
+    overflow: auto;
+  }
+
+  .top-btn {
+    opacity: .1;
+    bottom: 1%;
+    right: 0;
+  }
+
+  .top-btn:hover {
+    opacity: .1;
+  }
+
+  .nav-btn {
+    opacity: .1;
+    bottom: 7%;
+    right: 0;
+  }
+
+  .nav-btn:hover {
+    opacity: .1;
+  }
 }
