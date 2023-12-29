@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs本地变量</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" style="text-decoration:underline">Home</a>
+                 <a href="/posts/index.html" style="text-decoration:underline">Posts</a>
+                 <a href="/about.html" style="text-decoration:underline">About</a>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Emacs本地变量</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#per-directory-local-variables">Per-Directory Local Variables</a></li>
+<li><a href="#specifying-file-variables">Specifying File Variables</a></li>
+<li><a href="#safety-of-file-variables">Safety of File Variables</a></li>
+</ul>
+</div>
+</nav>
+<p>
+一般情况下，我们在 <code>init.el</code> 中设置一些变量可以全局生效，如果想针对不同的目录、不同的mode设置不同的变量，可以借助Emcas提供的 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Variables.html">Local Variables</a> 机制。
+</p>
+
+<div id="outline-container-per-directory-local-variables" class="outline-2">
+<h2 id="per-directory-local-variables">Per-Directory Local Variables</h2>
+<div class="outline-text-2" id="text-per-directory-local-variables">
+<p>
+为一个目录定义本地变量时，在目录下的 <code>.dir-locals.el</code> 中增加配置，该目录以及子目录的所有文件打开时配置会生效，未打开和之前已打开的不会生效。
+除了 <code>.dir-locals.el</code> 外，还可以额外定义 <code>.dir-locals-2.el</code> ，一般 <code>.dir-locals.el</code> 在仓库中作为共享配置， <code>.dir-locals-2.el</code> 可以进行个性化配置。
+</p>
+
+<p>
+示例：
+</p>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">((nil . ((indent-tabs-mode . t)
+         (fill-column . 80)
+         (mode . auto-fill)))
+ (c-mode . ((c-file-style . <span style="color: #c3e88d;">"BSD"</span>)
+            (subdirs . nil)))
+ (<span style="color: #c3e88d;">"src/imported"</span>
+  . ((nil . ((change-log-default-name
+              . <span style="color: #c3e88d;">"ChangeLog.local"</span>))))))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-specifying-file-variables" class="outline-2">
+<h2 id="specifying-file-variables">Specifying File Variables</h2>
+<div class="outline-text-2" id="text-specifying-file-variables">
+<p>
+为某个文件设置本地变量时，一般有两种形式。
+</p>
+
+<p>
+第一种形式，在文件第一行的注释中增加本地变量，像下面这样：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">-*- mode: Lisp; fill-column: 75; comment-column: 50; -*-</span>
+</pre>
+</div>
+
+<p>
+另一种形式，在文件末尾的注释中增加，像下面这样：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">/* Local Variables&#58;  */
+/* mode: c           */
+/* comment-column: 0 */
+/* End:              */
+</pre>
+</div>
+
+<p>
+还有一些特殊的本地变量，如 <code>mode</code> ， <code>coding</code> ， <code>eval</code> ， <code>unibyte</code> ，它们不是真的变量，将他们设置在其他上下文中没有特殊的含义。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">-*- mode: my-old<span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">mode: my-new -*-</span>
+</pre>
+</div>
+
+<p>
+Emacs将使用它能找到的最终 <code>major mode</code> 定义，所以在旧的Emacs版本中，它将忽略 <code>my-new-mode</code> ，而在定义 <code>my-new-mode</code> 的Emcas版本中，它将忽略 <code>my-old-mode</code> 。
+类似的，在文件末尾的定义形式如下：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">Local Variables&#58;</span>
+<span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">mode: my-old</span>
+<span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">mode: my-new</span>
+<span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">End:</span>
+</pre>
+</div>
+
+<p>
+不要使用 <code>mode</code> 关键字定义 <code>minor mode</code> ，而应该使用 <code>eval</code> 运行lisp代码来启用或者关闭 <code>minor mode</code> 。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp"><span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">Local Variables&#58;</span>
+<span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">eval: (eldoc-mode)</span>
+<span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">eval: (font-lock-mode -1)</span>
+<span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">End:</span>
+</pre>
+</div>
+
+<p>
+可以使用命令 <b>M-x normal-mode</b> 来重置文件的本地变量和 <code>major-mode</code> 。
+</p>
+</div>
+</div>
+
+<div id="outline-container-safety-of-file-variables" class="outline-2">
+<h2 id="safety-of-file-variables">Safety of File Variables</h2>
+<div class="outline-text-2" id="text-safety-of-file-variables">
+<p>
+文件局部变量很危险，当你访问别人的文件时，你无法知道它的局部变量列表会对Emacs做什么。
+因此每当Emacs遇到未知安全的文件局部变量值时，它会显示文件的整个局部变量列表，在设置之前请求确认。详情参考 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Safe-File-Variables.html">Safety of File Variables</a>。
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/index.html">Home</a></div>
+                 <div class="top-btn"><a href="#top">Top</a></div>
+                 <footer>
+                  <p>&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)</p>
+                 </footer>
+</div>
+</body>
+</html>
