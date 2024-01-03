@@ -331,6 +331,7 @@ td:last-child {
 
 .status p:last-child {
   margin-top: .1rem;
+  margin-bottom: .1rem;
   text-align: center;
   color: #369;
 
@@ -481,7 +482,6 @@ td:last-child {
   font-size: .14rem;
   color: #333;
 }
-
 
 /* Mobile UI */
 @media screen and (max-width: 1026px) {
