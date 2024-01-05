@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>强大的Org Capture</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" style="text-decoration:underline">Home</a>
+                 <a href="/posts/index.html" style="text-decoration:underline">Posts</a>
+                 <a href="/about.html" style="text-decoration:underline">About</a>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">强大的Org Capture</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#capture-templates">Capture templates</a></li>
+<li><a href="#template-elements">Template elements</a></li>
+<li><a href="#template-expansion">Template expansion</a></li>
+</ul>
+</div>
+</nav>
+<p>
+Capture让你快速的保存笔记，并且让你的工作流中很少被打断。
+</p>
+
+<p>
+Capture的配置比较复杂，主要是Capture templates。
+</p>
+
+<div id="outline-container-capture-templates" class="outline-2">
+<h2 id="capture-templates">Capture templates<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup></h2>
+<div class="outline-text-2" id="text-capture-templates">
+<p>
+配置Capture templates的基本形式是：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #c099ff;">setq</span> org-capture-templates
+      '((<span style="color: #c3e88d;">"t"</span> <span style="color: #c3e88d;">"Todo"</span> entry (file+headline <span style="color: #c3e88d;">"~/org/gtd.org"</span> <span style="color: #c3e88d;">"Tasks"</span>)
+         <span style="color: #c3e88d;">"* </span><span style="color: #ff966c; font-weight: bold;">TODO</span><span style="color: #c3e88d;"> %?\n  %i\n  %a"</span>)
+        (<span style="color: #c3e88d;">"j"</span> <span style="color: #c3e88d;">"Journal"</span> entry (file+datetree <span style="color: #c3e88d;">"~/org/journal.org"</span>)
+         <span style="color: #c3e88d;">"* %?\nEntered on %U\n  %i\n  %a"</span>)))
+</pre>
+</div>
+
+<p>
+在Capture菜单中按下 <code>t</code> 时，Org会准备Todo模板：
+</p>
+</div>
+</div>
+
+<div id="outline-container-template-elements" class="outline-2">
+<h2 id="template-elements">Template elements<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup></h2>
+<div class="outline-text-2" id="text-template-elements">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">关键字</th>
+<th scope="col" class="org-left">对应内容</th>
+<th scope="col" class="org-left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">keys</td>
+<td class="org-left">"t"</td>
+<td class="org-left">用来选择模板的key，一般1～2个字符</td>
+</tr>
+
+<tr>
+<td class="org-left">description</td>
+<td class="org-left">"Todo"</td>
+<td class="org-left">模板的简短描述</td>
+</tr>
+
+<tr>
+<td class="org-left">type</td>
+<td class="org-left">entry</td>
+<td class="org-left">模板的类型</td>
+</tr>
+
+<tr>
+<td class="org-left">target</td>
+<td class="org-left">(file+headline "~/org/gtd.org" "Tasks")</td>
+<td class="org-left">模板的存储位置</td>
+</tr>
+
+<tr>
+<td class="org-left">template</td>
+<td class="org-left">"* TODO %?\n %i\n %a"</td>
+<td class="org-left">模板的内容</td>
+</tr>
+
+<tr>
+<td class="org-left">properties</td>
+<td class="org-left">:prepend t</td>
+<td class="org-left">模板的参数</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+模板的类型支持以下几种：
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">entry</td>
+<td class="org-left">带有headline的Org mode节点</td>
+</tr>
+
+<tr>
+<td class="org-left">item</td>
+<td class="org-left">列表项</td>
+</tr>
+
+<tr>
+<td class="org-left">checkitem</td>
+<td class="org-left">checkbox列表项</td>
+</tr>
+
+<tr>
+<td class="org-left">table-line</td>
+<td class="org-left">表格行</td>
+</tr>
+
+<tr>
+<td class="org-left">plane</td>
+<td class="org-left">普通文本</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+模板的存储位置：
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">description</th>
+<th scope="col" class="org-left">example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">file</td>
+<td class="org-left">文件</td>
+<td class="org-left">(file "/path/to/file")</td>
+</tr>
+
+<tr>
+<td class="org-left">id</td>
+<td class="org-left">特定ID</td>
+<td class="org-left">(id "id of existing org entry")</td>
+</tr>
+
+<tr>
+<td class="org-left">file+headline</td>
+<td class="org-left">文件中唯一的headline</td>
+<td class="org-left">(file+headline "filename" "node headline")</td>
+</tr>
+
+<tr>
+<td class="org-left">file+olp</td>
+<td class="org-left">非唯一headline，全路径</td>
+<td class="org-left">(file+olp "filename" "Level 1 heading" "Level 2" &#x2026;)</td>
+</tr>
+
+<tr>
+<td class="org-left">file+regexp</td>
+<td class="org-left">正则匹配的headline</td>
+<td class="org-left">(file+regexp "filename" "regexp to find location")</td>
+</tr>
+
+<tr>
+<td class="org-left">file+olp+datetree</td>
+<td class="org-left">文件中当日所在的headline</td>
+<td class="org-left">(file+olp+datetree "filename" [ "Level 1 heading" &#x2026;])</td>
+</tr>
+
+<tr>
+<td class="org-left">file+function</td>
+<td class="org-left">文件中寻找正确位置的函数</td>
+<td class="org-left">(file+function "filename" function-finding-location)</td>
+</tr>
+
+<tr>
+<td class="org-left">clock</td>
+<td class="org-left">文件到当前正在计时的条目</td>
+<td class="org-left">(clock)</td>
+</tr>
+
+<tr>
+<td class="org-left">function</td>
+<td class="org-left">自定义函数</td>
+<td class="org-left">(function function-finding-location)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-template-expansion" class="outline-2">
+<h2 id="template-expansion">Template expansion<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup></h2>
+<div class="outline-text-2" id="text-template-expansion">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">%[FILE]</td>
+<td class="org-left">插入文件内容</td>
+</tr>
+
+<tr>
+<td class="org-left">%(EXP)</td>
+<td class="org-left">插入Elisp表达式的结果</td>
+</tr>
+
+<tr>
+<td class="org-left">%&lt;FORMAT&gt;</td>
+<td class="org-left">格式化时间</td>
+</tr>
+
+<tr>
+<td class="org-left">%t</td>
+<td class="org-left">日期</td>
+</tr>
+
+<tr>
+<td class="org-left">%T</td>
+<td class="org-left">日期和时间</td>
+</tr>
+
+<tr>
+<td class="org-left">%u, %U</td>
+<td class="org-left">类似%t和%T，未激活的时间戳</td>
+</tr>
+
+<tr>
+<td class="org-left">%i</td>
+<td class="org-left">插入当前buffer选中的内容</td>
+</tr>
+
+<tr>
+<td class="org-left">%a</td>
+<td class="org-left">注释，通常是 <code>org-store-link</code> 创建的链接</td>
+</tr>
+
+<tr>
+<td class="org-left">%A</td>
+<td class="org-left">类型%a，但是弹出描述部分</td>
+</tr>
+
+<tr>
+<td class="org-left">%l</td>
+<td class="org-left">类似%a，但是只插入字面上的链接</td>
+</tr>
+
+<tr>
+<td class="org-left">%L</td>
+<td class="org-left">类型%l，但是没有括号</td>
+</tr>
+
+<tr>
+<td class="org-left">%c</td>
+<td class="org-left">当前kill ring的head</td>
+</tr>
+
+<tr>
+<td class="org-left">%x</td>
+<td class="org-left">剪切板中的内容</td>
+</tr>
+
+<tr>
+<td class="org-left">%k</td>
+<td class="org-left">当前计时任务的标题</td>
+</tr>
+
+<tr>
+<td class="org-left">%K</td>
+<td class="org-left">当前计时任务的链接</td>
+</tr>
+
+<tr>
+<td class="org-left">%n</td>
+<td class="org-left"><code>user-full-name</code></td>
+</tr>
+
+<tr>
+<td class="org-left">%f</td>
+<td class="org-left">打开org-capture时当前的buffer</td>
+</tr>
+
+<tr>
+<td class="org-left">%F</td>
+<td class="org-left">当前buffer的全路径</td>
+</tr>
+
+<tr>
+<td class="org-left">%:keyword</td>
+<td class="org-left">特殊链接</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%^g</code></td>
+<td class="org-left">弹出目标文件中tags</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%^G</code></td>
+<td class="org-left">弹出所有agenda文件中的tags</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%^t</code></td>
+<td class="org-left">类似%t，但是弹出日期， <code>%^T,%^u,%^U</code> 类似</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%^C</code></td>
+<td class="org-left">交互式选择kill ring或剪切板中的内容</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%^L</code></td>
+<td class="org-left">类似 <code>%^C</code> ，以链接的方式插入</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%^{PROP}p</code></td>
+<td class="org-left">弹出PROP属性的值</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%^{PROMPT}</code></td>
+<td class="org-left">弹出让用户输入</td>
+</tr>
+
+<tr>
+<td class="org-left">%\N</td>
+<td class="org-left">插入第N个 <code>%^{PROMPT}</code> 中的标记</td>
+</tr>
+
+<tr>
+<td class="org-left">%?</td>
+<td class="org-left">模板插入完成后定位的位置</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+特殊链接类型：
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Link type</th>
+<th scope="col" class="org-left">Available keywords</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">bbdb</td>
+<td class="org-left">%:name, %:company</td>
+</tr>
+
+<tr>
+<td class="org-left">irc</td>
+<td class="org-left">%:server, %:port, %:nick</td>
+</tr>
+
+<tr>
+<td class="org-left">mh, rmail</td>
+<td class="org-left">%:type, %:subject, %:message-id, %:from, %:fromname, %:fromaddress, %:to, %:toname, %:toaddress, %:date, %:date-timestamp, %:date-timestamp-inactive, %:fromto</td>
+</tr>
+
+<tr>
+<td class="org-left">gnus</td>
+<td class="org-left">%:group</td>
+</tr>
+
+<tr>
+<td class="org-left">w3, w3m</td>
+<td class="org-left">%:url</td>
+</tr>
+
+<tr>
+<td class="org-left">info</td>
+<td class="org-left">%:file, %:node</td>
+</tr>
+
+<tr>
+<td class="org-left">calendar</td>
+<td class="org-left">%:date</td>
+</tr>
+
+<tr>
+<td class="org-left">org-protocol</td>
+<td class="org-left">%:link, %:description, %:annotation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://orgmode.org/manual/Capture-templates.html">https://orgmode.org/manual/Capture-templates.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://orgmode.org/manual/Template-elements.html">https://orgmode.org/manual/Template-elements.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://orgmode.org/manual/Template-expansion.html">https://orgmode.org/manual/Template-expansion.html</a>
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/index.html">Home</a></div>
+                 <div class="top-btn"><a href="#top">Top</a></div>
+                 <footer>
+                  <p>&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)</p>
+                 </footer>
+</div>
+</body>
+</html>
