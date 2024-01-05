@@ -54,50 +54,50 @@ Create your blog files and css files.
 <h2 id="publishing-the-org-project">Publishing the org project</h2>
 <div class="outline-text-2" id="text-publishing-the-org-project">
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #c099ff;">require</span> '<span style="color: #ff966c;">ox-publish</span>)
-(<span style="color: #c099ff;">setq</span> org-publish-project-alist
-      '(<span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">Publish the posts</span>
-        (<span style="color: #c3e88d;">"blog-notes"</span>
-         <span style="color: #fca7ea;">:base-directory</span> <span style="color: #c3e88d;">"~/blog/org"</span>
-         <span style="color: #fca7ea;">:base-extension</span> <span style="color: #c3e88d;">"org"</span>
-         <span style="color: #fca7ea;">:publishing-directory</span> <span style="color: #c3e88d;">"~/blog/public"</span>
-         <span style="color: #fca7ea;">:recursive</span> t
-         <span style="color: #fca7ea;">:publishing-function</span> org-html-publish-to-html
-         <span style="color: #fca7ea;">:headline-levels</span> 4
-         <span style="color: #fca7ea;">:section-numbers</span> nil
-         <span style="color: #fca7ea;">:with-author</span> nil
-         <span style="color: #fca7ea;">:with-creator</span> nil
-         <span style="color: #fca7ea;">:with-email</span> nil
-         <span style="color: #fca7ea;">:with-timestamps</span> nil
-         <span style="color: #fca7ea;">:auto-preamble</span> t
-         <span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">:auto-postamble nil</span>
-         <span style="color: #fca7ea;">:html-head</span> <span style="color: #c3e88d;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg.css\"/&gt;"</span>
-         <span style="color: #fca7ea;">:html-head-include-default-style</span> nil
-         <span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">:html-head-include-scripts nil</span>
-         <span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">:html-preamble nil</span>
-         <span style="color: #7a88cf;">; </span><span style="color: #7a88cf;">:html-postamble nil</span>
-         <span style="color: #fca7ea;">:html-link-home</span> <span style="color: #c3e88d;">"index.html"</span>
-         <span style="color: #fca7ea;">:html-link-up</span> <span style="color: #c3e88d;">"sitemap.html"</span>
-         <span style="color: #fca7ea;">:html-metadata-timestamp-format</span> <span style="color: #c3e88d;">"%Y-%m-%d %H:%M"</span>
-         <span style="color: #fca7ea;">:htmlized-source</span> t
-         <span style="color: #fca7ea;">:auto-sitemap</span> t
-         <span style="color: #fca7ea;">:sitemap-filename</span> <span style="color: #c3e88d;">"sitemap.org"</span>
-         <span style="color: #fca7ea;">:sitemap-title</span> <span style="color: #c3e88d;">"Sitemap"</span>
-         <span style="color: #fca7ea;">:author</span> <span style="color: #c3e88d;">"xuchengpeng"</span>
-         <span style="color: #fca7ea;">:email</span> <span style="color: #c3e88d;">"xucp@outlook.com"</span>
+<pre class="src src-emacs-lisp">(<span style="color: #531ab6;">require</span> '<span style="color: #0000b0;">ox-publish</span>)
+(<span style="color: #531ab6;">setq</span> org-publish-project-alist
+      '(<span style="color: #595959;">;; </span><span style="color: #595959;">Publish the posts</span>
+        (<span style="color: #3548cf;">"blog-notes"</span>
+         <span style="color: #8f0075;">:base-directory</span> <span style="color: #3548cf;">"~/blog/org"</span>
+         <span style="color: #8f0075;">:base-extension</span> <span style="color: #3548cf;">"org"</span>
+         <span style="color: #8f0075;">:publishing-directory</span> <span style="color: #3548cf;">"~/blog/public"</span>
+         <span style="color: #8f0075;">:recursive</span> t
+         <span style="color: #8f0075;">:publishing-function</span> org-html-publish-to-html
+         <span style="color: #8f0075;">:headline-levels</span> 4
+         <span style="color: #8f0075;">:section-numbers</span> nil
+         <span style="color: #8f0075;">:with-author</span> nil
+         <span style="color: #8f0075;">:with-creator</span> nil
+         <span style="color: #8f0075;">:with-email</span> nil
+         <span style="color: #8f0075;">:with-timestamps</span> nil
+         <span style="color: #8f0075;">:auto-preamble</span> t
+         <span style="color: #595959;">; </span><span style="color: #595959;">:auto-postamble nil</span>
+         <span style="color: #8f0075;">:html-head</span> <span style="color: #3548cf;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg.css\"/&gt;"</span>
+         <span style="color: #8f0075;">:html-head-include-default-style</span> nil
+         <span style="color: #595959;">; </span><span style="color: #595959;">:html-head-include-scripts nil</span>
+         <span style="color: #595959;">; </span><span style="color: #595959;">:html-preamble nil</span>
+         <span style="color: #595959;">; </span><span style="color: #595959;">:html-postamble nil</span>
+         <span style="color: #8f0075;">:html-link-home</span> <span style="color: #3548cf;">"index.html"</span>
+         <span style="color: #8f0075;">:html-link-up</span> <span style="color: #3548cf;">"sitemap.html"</span>
+         <span style="color: #8f0075;">:html-metadata-timestamp-format</span> <span style="color: #3548cf;">"%Y-%m-%d %H:%M"</span>
+         <span style="color: #8f0075;">:htmlized-source</span> t
+         <span style="color: #8f0075;">:auto-sitemap</span> t
+         <span style="color: #8f0075;">:sitemap-filename</span> <span style="color: #3548cf;">"sitemap.org"</span>
+         <span style="color: #8f0075;">:sitemap-title</span> <span style="color: #3548cf;">"Sitemap"</span>
+         <span style="color: #8f0075;">:author</span> <span style="color: #3548cf;">"xuchengpeng"</span>
+         <span style="color: #8f0075;">:email</span> <span style="color: #3548cf;">"xucp@outlook.com"</span>
          )
 
-        <span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">For static files that should remain untouched</span>
-        (<span style="color: #c3e88d;">"blog-static"</span>
-         <span style="color: #fca7ea;">:base-directory</span> <span style="color: #c3e88d;">"~/blog/org"</span>
-         <span style="color: #fca7ea;">:base-extension</span> <span style="color: #c3e88d;">"css</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">js</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">png</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">jpg</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">gif</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">pdf</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">mp3</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">ogg</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">swf</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">eot</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">svg</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">woff</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">woff2</span><span style="color: #ffc777;">\\</span><span style="color: #c099ff;">|</span><span style="color: #c3e88d;">ttf"</span>
-         <span style="color: #fca7ea;">:publishing-directory</span> <span style="color: #c3e88d;">"~/blog/public"</span>
-         <span style="color: #fca7ea;">:recursive</span> t
-         <span style="color: #fca7ea;">:publishing-function</span> org-publish-attachment
+        <span style="color: #595959;">;; </span><span style="color: #595959;">For static files that should remain untouched</span>
+        (<span style="color: #3548cf;">"blog-static"</span>
+         <span style="color: #8f0075;">:base-directory</span> <span style="color: #3548cf;">"~/blog/org"</span>
+         <span style="color: #8f0075;">:base-extension</span> <span style="color: #3548cf;">"css</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">js</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">png</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">jpg</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">gif</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">pdf</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">mp3</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">ogg</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">swf</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">eot</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">svg</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">woff</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">woff2</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">ttf"</span>
+         <span style="color: #8f0075;">:publishing-directory</span> <span style="color: #3548cf;">"~/blog/public"</span>
+         <span style="color: #8f0075;">:recursive</span> t
+         <span style="color: #8f0075;">:publishing-function</span> org-publish-attachment
          )
 
-        <span style="color: #7a88cf;">;; </span><span style="color: #7a88cf;">Combine the two previous components in a single one</span>
-        (<span style="color: #c3e88d;">"blog"</span> <span style="color: #fca7ea;">:components</span> (<span style="color: #c3e88d;">"blog-notes"</span> <span style="color: #c3e88d;">"blog-static"</span>))))
+        <span style="color: #595959;">;; </span><span style="color: #595959;">Combine the two previous components in a single one</span>
+        (<span style="color: #3548cf;">"blog"</span> <span style="color: #8f0075;">:components</span> (<span style="color: #3548cf;">"blog-notes"</span> <span style="color: #3548cf;">"blog-static"</span>))))
 </pre>
 </div>
 

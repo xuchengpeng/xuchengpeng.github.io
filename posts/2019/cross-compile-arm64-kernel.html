@@ -34,7 +34,7 @@ tar -Jxf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
 拷贝默认配置：
 </p>
 <div class="org-src-container">
-<pre class="src src-shell"><span style="color: #fca7ea;">cd</span> linux-4.20.3
+<pre class="src src-shell"><span style="color: #8f0075;">cd</span> linux-4.20.3
 cp arch/arm64/configs/defconfig .config
 </pre>
 </div>
@@ -43,7 +43,7 @@ cp arch/arm64/configs/defconfig .config
 配置选项：
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">make -j8 <span style="color: #c8d3f5;">ARCH</span>=arm64 <span style="color: #c8d3f5;">CROSS_COMPILE</span>=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- menuconfig
+<pre class="src src-shell">make -j8 <span style="color: #005e8b;">ARCH</span>=arm64 <span style="color: #005e8b;">CROSS_COMPILE</span>=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- menuconfig
 </pre>
 </div>
 
@@ -51,7 +51,7 @@ cp arch/arm64/configs/defconfig .config
 编译内核：
 </p>
 <div class="org-src-container">
-<pre class="src src-shell">make -j8 <span style="color: #c8d3f5;">ARCH</span>=arm64 <span style="color: #c8d3f5;">CROSS_COMPILE</span>=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
+<pre class="src src-shell">make -j8 <span style="color: #005e8b;">ARCH</span>=arm64 <span style="color: #005e8b;">CROSS_COMPILE</span>=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
 </pre>
 </div>
 

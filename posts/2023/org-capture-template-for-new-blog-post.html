@@ -22,17 +22,17 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #c099ff;">defun</span> <span style="color: #82aaff;">dotemacs-org-post-file</span> ()
-  (<span style="color: #c099ff;">let*</span> ((filename (read-from-minibuffer <span style="color: #c3e88d;">"New post filename: "</span>))
-         (post-dir (concat dotemacs-org-site-dir <span style="color: #c3e88d;">"/org/posts/"</span> (format-time-string <span style="color: #c3e88d;">"%Y"</span>))))
-    (<span style="color: #c099ff;">unless</span> (file-exists-p post-dir)
+<pre class="src src-emacs-lisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">dotemacs-org-post-file</span> ()
+  (<span style="color: #531ab6;">let*</span> ((filename (read-from-minibuffer <span style="color: #3548cf;">"New post filename: "</span>))
+         (post-dir (concat dotemacs-org-site-dir <span style="color: #3548cf;">"/org/posts/"</span> (format-time-string <span style="color: #3548cf;">"%Y"</span>))))
+    (<span style="color: #531ab6;">unless</span> (file-exists-p post-dir)
       (make-directory post-dir t))
     (find-file (expand-file-name filename post-dir))
     (tempel-insert 'blog-title)))
-(<span style="color: #c099ff;">setq</span> org-capture-templates
-      `((<span style="color: #c3e88d;">"p"</span> <span style="color: #c3e88d;">"Post"</span> plain
-         (<span style="color: #c099ff;">function</span> dotemacs-org-post-file)
-         <span style="color: #c3e88d;">""</span> <span style="color: #fca7ea;">:jump-to-captured</span> t <span style="color: #fca7ea;">:immediate-finish</span> t)))
+(<span style="color: #531ab6;">setq</span> org-capture-templates
+      `((<span style="color: #3548cf;">"p"</span> <span style="color: #3548cf;">"Post"</span> plain
+         (<span style="color: #531ab6;">function</span> dotemacs-org-post-file)
+         <span style="color: #3548cf;">""</span> <span style="color: #8f0075;">:jump-to-captured</span> t <span style="color: #8f0075;">:immediate-finish</span> t)))
 </pre>
 </div>
 
