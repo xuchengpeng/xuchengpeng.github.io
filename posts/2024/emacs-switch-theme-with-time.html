@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs根据时间切换主题</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="images/rose-red.png" type="image/x-icon" />
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" style="text-decoration:underline">Home</a>
+                 <a href="/posts/index.html" style="text-decoration:underline">Posts</a>
+                 <a href="/about.html" style="text-decoration:underline">About</a>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Emacs根据时间切换主题</h1>
+</header><p>
+每小时运行一次，早上6点和晚上18点自动切换主题。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #531ab6;">setq</span> day-theme 'modus-operandi)
+(<span style="color: #531ab6;">setq</span> dark-theme 'modus-vivendi)
+(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">switch-theme</span> ()
+    (<span style="color: #531ab6;">setq</span> hour
+          (string-to-number
+            (substring (current-time-string) 11 13)))
+    (<span style="color: #531ab6;">if</span> (member hour (number-sequence 6 18))
+        (<span style="color: #531ab6;">setq</span> now day-theme)
+      (<span style="color: #531ab6;">setq</span> now dark-theme))
+    (load-theme now)
+)
+(run-with-timer 0 3600 'switch-theme)
+</pre>
+</div>
+
+<p>
+自动切换主题的包：<a href="https://github.com/guidoschmidt/circadian.el">circadian.el</a>
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/index.html">Home</a></div>
+                 <div class="top-btn"><a href="#top">Top</a></div>
+                 <footer>
+                  <p>&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)</p>
+                 </footer>
+</div>
+</body>
+</html>
