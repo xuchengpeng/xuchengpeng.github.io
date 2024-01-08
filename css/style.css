@@ -70,7 +70,7 @@ html {
 
 body {
   /* font-family: "Droid Serif", "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans", Verdana, sans-serif;   */
-  font-family: Monaco, Consolas, "Microsoft YaHei", "kaiti";
+  font-family: "Source Code Pro", Monaco, Consolas, "Microsoft YaHei", "kaiti";
   width: 55%;
   margin: 0 auto;
   font-size: .16rem;
@@ -187,13 +187,13 @@ blockquote {
 code {
   color: #135;
   /* font-family: "Droid Sans Mono"; */
-  font-family: Monaco, Consolas, 'monospace', "Microsoft YaHei", "kaiti";
+  font-family: "Source Code Pro", Monaco, Consolas, 'monospace', "Microsoft YaHei", "kaiti";
   font-size: 0.14rem;
 }
 
 pre {
   /* font-family: "Droid Sans Mono"; */
-  font-family: Monaco, Consolas, 'monospace', "Microsoft YaHei", "kaiti";
+  font-family: "Source Code Pro", Monaco, Consolas, 'monospace', "Microsoft YaHei", "kaiti";
   color: #135;
   font-size: 0.14rem;
   padding: .14rem;

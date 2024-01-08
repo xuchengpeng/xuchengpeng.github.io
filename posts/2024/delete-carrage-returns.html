@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GitHub: Announcing unlimited free private repos</title>
+<title>删除文件中的Windows换行符</title>
 <meta name="generator" content="Org Mode" />
 <link rel="shortcut icon" href="/images/rose-red.png" type="image/x-icon" />
          <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -16,18 +16,34 @@
 </div>
 <div id="content" class="content">
 <header>
-<h1 class="title">GitHub: Announcing unlimited free private repos</h1>
+<h1 class="title">删除文件中的Windows换行符</h1>
 </header><p>
-<a href="https://github.com/">GitHub</a> is announcing unlimited free private repos and unified Enterprise offering.
+在Windows中创建的文件如果使用了Windows换行符，那么在Linux中打开时每一行行末会显示 <code>^M</code> 。
 </p>
 
-<ul class="org-ul">
-<li>GitHub Free now includes unlimited private repositories. For the first time, developers can use GitHub for their private projects with up to three collaborators per repository for free. Many developers want to use private repos to apply for a job, work on a side project, or try something out in private before releasing it publicly. Starting today, those scenarios, and many more, are possible on GitHub at no cost. Public repositories are still free (of course—no changes there) and include unlimited collaborators.</li>
-<li>GitHub Enterprise is the new unified product for Enterprise Cloud (formerly GitHub Business Cloud) and Enterprise Server (formerly GitHub Enterprise). Organizations that want the flexibility to use GitHub in a cloud or self-hosted configuration can now access both at one per-seat price. And with GitHub Connect, these products can be securely linked, providing a hybrid option so developers can work seamlessly across both environments.</li>
-</ul>
+<p>
+可以使用replace命令<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>删除： <b>M-x replace-string RET C-q C-m RET RET</b> ，或者使用 <b>query-replace</b> 命令，会询问你是否进行替换。
+</p>
 
 <p>
-<a href="https://github.com/pricing">Learn more</a>
+还可以封装一个函数，直接执行进行删除替换：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">delete-carrage-returns</span> ()
+  (<span style="color: #531ab6;">interactive</span>)
+  (<span style="color: #531ab6;">save-excursion</span>
+    (goto-char 0)
+    (<span style="color: #531ab6;">while</span> (search-forward <span style="color: #3548cf;">"\r"</span> nil <span style="color: #8f0075;">:noerror</span>)
+      (replace-match <span style="color: #3548cf;">""</span>))))
+</pre>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Replace.html">https://www.gnu.org/software/emacs/manual/html_node/emacs/Replace.html</a>
 </p>
 
 <div class="giscus-comments">
@@ -48,8 +64,11 @@
     crossorigin="anonymous"
     async>
   </script>
+</div></div></div>
+
+
 </div>
-</div>
+</div></div>
 <div id="postamble" class="status">
 <div class="nav-btn"><a href="/index.html">Home</a></div>
                  <div class="top-btn"><a href="#top">Top</a></div>
