@@ -486,6 +486,21 @@ td:last-child {
   color: #333;
 }
 
+.org-src-container {
+  position: relative;
+}
+
+/* Copy Code button */
+.org-src-container button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.org-src-container button:hover {
+  cursor: pointer;
+}
+
 /* Mobile UI */
 @media screen and (max-width: 1026px) {
 
