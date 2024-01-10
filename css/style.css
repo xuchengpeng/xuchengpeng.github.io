@@ -233,6 +233,8 @@ table {
 
 thead tr {
   border-top: 2px solid #369;
+  border-left: 2px solid #369;
+  border-right: 2px solid #369;
 }
 
 tbody {
@@ -241,6 +243,8 @@ tbody {
 
 tbody tr {
   border-bottom: 1px solid #369;
+  border-left: 2px solid #369;
+  border-right: 2px solid #369;
 }
 
 tbody tr:last-child {
