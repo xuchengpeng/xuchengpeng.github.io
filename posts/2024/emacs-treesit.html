@@ -172,7 +172,7 @@ Emacs内置了一些语言解析器，通过 <code>&lt;LANGUAGE&gt;-ts-mode</cod
 
 <div class="org-src-container">
 <pre class="src src-emacs-lisp">(add-hook 'emacs-lisp-mode-hook (<span style="color: #531ab6;">lambda</span> ()
-                                  (<span style="color: #531ab6;">when</span> (treesit-ready-p 'elisp)
+                                  (<span style="color: #531ab6;">when</span> (treesit-language-available-p 'elisp)
                                     (treesit-parser-create 'elisp))))
 </pre>
 </div>
