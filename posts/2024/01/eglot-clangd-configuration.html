@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eglot: clangd配置</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="/images/rose-red.png" type="image/x-icon">
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
+         <script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" style="text-decoration:underline">Home</a>
+                 <a href="/posts/index.html" style="text-decoration:underline">Posts</a>
+                 <a href="/about.html" style="text-decoration:underline">About</a>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Eglot: clangd配置</h1>
+</header><p>
+<a href="https://joaotavora.github.io/eglot/">Eglot</a>是Emacs内置的<a href="https://microsoft.github.io/language-server-protocol/">LSP</a>客户端。Eglot内置已支持大量的LSP服务端<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>。
+</p>
+
+<p>
+以C++语言为例，Eglot支持clangd和ccls两种服务端模式。
+</p>
+
+<p>
+以我常用的clangd来说，Eglot默认启动clangd不附带任何参数，对于clangd来说，最重要的参数莫过于 <b>CompilationDatabase</b> ，即 <code>compile_commands.json</code> 文件所在的目录，默认情况下，clangd会查找源代码文件所在目录的所有父目录。
+</p>
+
+<p>
+当前C/C++工程代码很流行使用<a href="https://cmake.org/">CMake</a>替代之前的Makefile作为编译构建的工程文件，通常使用CMake命令对代码工程进行配置时，会将生成的中间文件统一在一个目录下管理（比如代码工程根目录下的cmake-build目录），而不是默认生成在代码工程根目录，这样造成一个问题就是clangd无法找到此目录下的 <code>compile_commands.json</code> 文件。
+</p>
+
+<p>
+解决这个问题的办法就需要在clangd启动时指定 <code>compile_commands.json</code> 所在的目录，方法有很多种。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">with-eval-after-load</span> 'eglot
+  (add-to-list 'eglot-server-programs
+               `((c-mode c-ts-mode c++-mode c++-ts-mode objc-mode)
+                 . (<span style="color: #3548cf;">"clangd"</span> <span style="color: #3548cf;">"--compile-commands-dir=cmake-build"</span>))))
+</pre>
+</div>
+
+<p>
+可以在emacs的配置中，修改默认LSP服务端的启动参数，但是每个工程所对应的目录可能不一样，这里无法做到统一。
+</p>
+
+<p>
+此时就可以使用 <code>.dir-locals.el</code><sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> 文件来对每个工程来配置。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">((nil . ((eglot-server-programs
+          . (((c-mode c-ts-mode c++-mode c++-ts-mode objc-mode)
+              . (<span style="color: #3548cf;">"clangd"</span>
+                 <span style="color: #3548cf;">"--compile-commands-dir=cmake-build"</span>)))))))
+</pre>
+</div>
+
+<p>
+还有一种配置方法，就是clangd自身对应的配置文件，可以是clangd的全局配置文件 <code>config.yaml</code> ，也可以是每个工程对应的配置文件 <code>.clangd</code> 。一般我们会针对工程进行个性化配置。
+</p>
+
+<pre class="example">
+CompileFlags:
+  CompilationDatabase: "cmake-build"
+</pre>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+内置支持的LSP服务端参见eglot-server-programs参数。
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html">Per-Directory Local Variables</a>
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/index.html">Home</a></div>
+                 <div class="top-btn"><a href="#top">Top</a></div>
+                 <footer>
+                  <p>&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)</p>
+                 </footer>
+</div>
+</body>
+</html>
