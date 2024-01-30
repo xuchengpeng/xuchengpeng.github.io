@@ -1,8 +1,5 @@
 /* Import google fonts */
-/* import url(https://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Droid+Serif); */
-
-
-/* Site init style of TAOBAO */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Cousine);
 
 body,
 h1,
@@ -33,7 +30,6 @@ td {
   padding: 0;
 }
 
-/* body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }  */
 h1,
 h2,
 h3,
@@ -43,24 +39,14 @@ h6 {
   font-size: 100%;
 }
 
-/* address, cite, dfn, em, var { font-style:normal; }  */
-/* code, kbd, pre, samp { font-family:couriernew, courier, monospace; } small{ font-size:12px; } */
-/* ul, ol { list-style:none; } */
 a {
   text-decoration: none;
 }
 
-/* a:hover { text-decoration:underline; } */
-/* sup { vertical-align:text-top; } */
-/* sub{ vertical-align:text-bottom; } */
-/* legend { color:#000; } */
-/* fieldset, img { border:0; } */
-/* button, input, select, textarea { font-size:100%; } */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
 
 /* Basic Style */
 
@@ -69,8 +55,7 @@ html {
 }
 
 body {
-  /* font-family: "Droid Serif", "Lucida Grande", "Lucida Sans Unicode", "DejaVu Sans", Verdana, sans-serif;   */
-  font-family: "Source Code Pro", Monaco, Consolas, "Microsoft YaHei", "kaiti";
+  font-family: "Open Sans", Arial, sans-serif;
   width: 55%;
   margin: 0 auto;
   font-size: .16rem;
@@ -186,16 +171,14 @@ blockquote {
 
 code {
   color: #135;
-  /* font-family: "Droid Sans Mono"; */
-  font-family: "Source Code Pro", Monaco, Consolas, 'monospace', "Microsoft YaHei", "kaiti";
-  font-size: 0.14rem;
+  font-family: 'Cousine', monospace;
+  font-size: 0.15rem;
 }
 
 pre {
-  /* font-family: "Droid Sans Mono"; */
-  font-family: "Source Code Pro", Monaco, Consolas, 'monospace', "Microsoft YaHei", "kaiti";
+  font-family: 'Cousine', monospace;
   color: #135;
-  font-size: 0.14rem;
+  font-size: 0.15rem;
   padding: .14rem;
   border: 2px solid #eee;
   margin: .16rem 0;
@@ -482,7 +465,7 @@ td:last-child {
 
 .footpara {
   display: inline;
-  font-size: .14rem;
+  font-size: .15rem;
   color: #333;
 }
 
