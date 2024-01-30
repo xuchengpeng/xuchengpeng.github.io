@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Disable Annoying Audio Notifications</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="/images/rose-red.png" type="image/x-icon">
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
+         <script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" style="text-decoration:underline">Home</a>
+                 <a href="/posts/index.html" style="text-decoration:underline">Posts</a>
+                 <a href="/about.html" style="text-decoration:underline">About</a>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Disable Annoying Audio Notifications</h1>
+</header><p>
+By default Emacs ring the bell to attract the user's attention, this is annoying.
+</p>
+
+<p>
+To get a visual signal instead, set <code>visual-bell</code> with <code>t</code> Emacs should flash the screen to represent a bell.
+</p>
+
+<p>
+We can also customize <code>ring-bell-function</code> to just flash the modeline.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #595959;">;;;</span><span style="color: #595959;">###</span><span style="color: #884900;">autoload</span>
+(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">dotemacs-ring-bell-fn</span> ()
+  <span style="color: #2a5045;">"Blink the mode-line."</span>
+  (<span style="color: #531ab6;">let</span> ((buf (current-buffer)))
+    (invert-face 'mode-line)
+    (run-with-timer 0.05 nil
+                    (<span style="color: #531ab6;">lambda</span> ()
+                      (<span style="color: #531ab6;">with-current-buffer</span> buf
+                        (invert-face 'mode-line))))))
+
+(<span style="color: #531ab6;">setq</span> ring-bell-function 'dotemacs-ring-bell-fn
+      visible-bell t)
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/index.html">Home</a></div>
+                 <div class="top-btn"><a href="#top">Top</a></div>
+                 <footer>
+                  <p>&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)</p>
+                 </footer>
+</div>
+</body>
+</html>
