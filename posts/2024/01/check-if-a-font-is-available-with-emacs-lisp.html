@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Check if a Font is Available with Emacs Lisp</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="/images/rose-red.png" type="image/x-icon">
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
+         <script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" style="text-decoration:underline">Home</a>
+                 <a href="/posts/index.html" style="text-decoration:underline">Posts</a>
+                 <a href="/about.html" style="text-decoration:underline">About</a>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Check if a Font is Available with Emacs Lisp</h1>
+</header><p>
+In Emacs Lisp, <code>find-font</code> function return a font-entity matching with FONT-SPEC. So we can make a helper function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">font-available-p</span> (font-name)
+  (find-font (font-spec <span style="color: #8f0075;">:name</span> font-name)))
+</pre>
+</div>
+
+<p>
+Before setting a font, we can check with this helper function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">when</span> (font-available-p <span style="color: #3548cf;">"Fira Code"</span>)
+  (set-face-attribute 'default nil <span style="color: #8f0075;">:font</span> (font-spec <span style="color: #8f0075;">:family</span> <span style="color: #3548cf;">"Fira Code"</span> <span style="color: #8f0075;">:size</span> 17)))
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/index.html">Home</a></div>
+                 <div class="top-btn"><a href="#top">Top</a></div>
+                 <footer>
+                  <p>&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)</p>
+                 </footer>
+</div>
+</body>
+</html>
