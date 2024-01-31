@@ -25,23 +25,127 @@
 <div id="outline-container-posts" class="outline-2">
 <h2 id="posts">Posts</h2>
 <div class="outline-text-2" id="text-posts">
-<ul class="org-ul">
-<li>2024-01-30 <a href="posts/2024/01/install-a-package-from-a-vcs-repository.html">Install a Package from a VCS Repository</a></li>
-<li>2024-01-30 <a href="posts/2024/01/disable-annoying-audio-notifications.html">Disable Annoying Audio Notifications</a></li>
-<li>2024-01-30 <a href="posts/2024/01/check-if-a-font-is-available-with-emacs-lisp.html">Check if a Font is Available with Emacs Lisp</a></li>
-<li>2024-01-30 <a href="posts/2024/01/converting-between-symbols-and-strings.html">Converting Between Symbols and Strings</a></li>
-<li>2024-01-29 <a href="posts/2024/01/eglot-clangd-configuration.html">Eglot: clangd配置</a></li>
-<li>2024-01-26 <a href="posts/2024/01/treatment-based-on-syndrome-differentiation.html">中医：辩证论治</a></li>
-<li>2024-01-24 <a href="posts/2024/01/tcm-five-organs-and-five-elements.html">中医：五脏与五行</a></li>
-<li>2024-01-23 <a href="posts/2024/01/aspell-personal-dictionaries.html">Aspell: Personal Dictionaries</a></li>
-<li>2024-01-22 <a href="posts/2024/01/elisp-lexical-and-dynamic-binding.html">Elisp: Lexical and Dynamic Binding</a></li>
-<li>2024-01-19 <a href="posts/2024/01/elisp-list-processing.html">Elisp: List Processing</a></li>
-<li>2024-01-18 <a href="posts/2024/01/emacs-treesit.html">Emacs treesit</a></li>
-<li>2024-01-08 <a href="posts/2024/01/delete-carrage-returns.html">删除文件中的Windows换行符</a></li>
-<li>2024-01-05 <a href="posts/2024/01/emacs-switch-theme-with-time.html">Emacs根据时间切换主题</a></li>
-<li>2024-01-05 <a href="posts/2024/01/powerful-org-capture.html">强大的Org Capture</a></li>
-<li>2024-01-03 <a href="posts/2024/01/yellow-crane-tower.html">黄鹤楼</a></li>
-</ul>
+</div>
+<div id="outline-container-install-a-package-from-a-vcs-repository" class="outline-3">
+<h3 id="install-a-package-from-a-vcs-repository"><a href="posts/2024/01/install-a-package-from-a-vcs-repository.html">Install a Package from a VCS Repository</a></h3>
+<div class="outline-text-3" id="text-install-a-package-from-a-vcs-repository">
+<p>
+Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers <code>package-vc-install</code> to install these codes easily.
+</p>
+
+<p>
+For example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(package-vc-install <span style="color: #3548cf;">"https://github.com/clojure-emacs/clojure-ts-mode"</span>)
+</pre>
+</div>
+
+<p>
+The function offers a few more parameters that allow you to specify the name of the package and a particular revision (commit) you want to use:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(package-vc-install PACKAGE <span style="color: #005f5f;">&amp;optional</span> REV BACKEND)
+</pre>
+</div>
+
+<p>
+If <code>PACKAGE</code> is a string containing an URL, download the package from the repository at that URL.
+</p>
+
+<p>
+By default, this function installs the last revision of the package available from its repository. If <code>REV</code> is a string, it describes the revision to install, as interpreted by the VC backend.
+</p>
+
+<p>
+Optional argument <code>BACKEND</code> specifies the VC backend to use for cloning the package's repository. If <code>BACKEND</code> is nil, the function uses <code>package-vc-heuristic-alist</code> to guess the backend.
+</p>
+<hr><br>
+</div>
+</div>
+
+<div id="outline-container-disable-annoying-audio-notifications" class="outline-3">
+<h3 id="disable-annoying-audio-notifications"><a href="posts/2024/01/disable-annoying-audio-notifications.html">Disable Annoying Audio Notifications</a></h3>
+<div class="outline-text-3" id="text-disable-annoying-audio-notifications">
+<p>
+By default Emacs ring the bell to attract the user's attention, this is annoying.
+</p>
+
+<p>
+To get a visual signal instead, set <code>visual-bell</code> with <code>t</code> Emacs should flash the screen to represent a bell.
+</p>
+
+<p>
+We can also customize <code>ring-bell-function</code> to just flash the modeline.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #595959;">;;;</span><span style="color: #595959;">###</span><span style="color: #884900;">autoload</span>
+(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">dotemacs-ring-bell-fn</span> ()
+  <span style="color: #2a5045;">"Blink the mode-line."</span>
+  (<span style="color: #531ab6;">let</span> ((buf (current-buffer)))
+    (invert-face 'mode-line)
+    (run-with-timer 0.05 nil
+                    (<span style="color: #531ab6;">lambda</span> ()
+                      (<span style="color: #531ab6;">with-current-buffer</span> buf
+                        (invert-face 'mode-line))))))
+
+(<span style="color: #531ab6;">setq</span> ring-bell-function 'dotemacs-ring-bell-fn
+      visible-bell t)
+</pre>
+</div>
+<hr><br>
+</div>
+</div>
+
+<div id="outline-container-check-if-a-font-is-available-with-emacs-lisp" class="outline-3">
+<h3 id="check-if-a-font-is-available-with-emacs-lisp"><a href="posts/2024/01/check-if-a-font-is-available-with-emacs-lisp.html">Check if a Font is Available with Emacs Lisp</a></h3>
+<div class="outline-text-3" id="text-check-if-a-font-is-available-with-emacs-lisp">
+<p>
+In Emacs Lisp, <code>find-font</code> function return a font-entity matching with FONT-SPEC. So we can make a helper function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">font-available-p</span> (font-name)
+  (find-font (font-spec <span style="color: #8f0075;">:name</span> font-name)))
+</pre>
+</div>
+
+<p>
+Before setting a font, we can check with this helper function.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">when</span> (font-available-p <span style="color: #3548cf;">"Fira Code"</span>)
+  (set-face-attribute 'default nil <span style="color: #8f0075;">:font</span> (font-spec <span style="color: #8f0075;">:family</span> <span style="color: #3548cf;">"Fira Code"</span> <span style="color: #8f0075;">:size</span> 17)))
+</pre>
+</div>
+<hr><br>
+</div>
+</div>
+
+<div id="outline-container-converting-between-symbols-and-strings" class="outline-3">
+<h3 id="converting-between-symbols-and-strings"><a href="posts/2024/01/converting-between-symbols-and-strings.html">Converting Between Symbols and Strings</a></h3>
+<div class="outline-text-3" id="text-converting-between-symbols-and-strings">
+<p>
+Sometimes you might need to convert a symbol to string in Emacs Lisp. You start looking for functions like <code>symbol-to-string</code> and <code>string-to-symbol</code> but, they do not exist.
+</p>
+
+<p>
+With Emacs Lisp, you can do it like this.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(symbol-name 'some-symbol)
+<span style="color: #595959;">; </span><span style="color: #595959;">==&gt; "some-symbol"</span>
+(intern <span style="color: #3548cf;">"some-symbol"</span>)
+<span style="color: #595959;">; </span><span style="color: #595959;">==&gt; some-symbol</span>
+</pre>
+</div>
+<hr><br>
+</div>
 </div>
 </div>
 
