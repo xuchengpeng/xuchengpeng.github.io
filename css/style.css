@@ -30,24 +30,6 @@ td {
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 100%;
-}
-
-a {
-  text-decoration: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
 /* Basic Style */
 
 html {
@@ -56,7 +38,7 @@ html {
 
 body {
   font-family: "Open Sans", Arial, sans-serif;
-  width: 55%;
+  max-width: 900px;
   margin: 0 auto;
   font-size: .16rem;
   line-height: 1.5;
@@ -78,20 +60,27 @@ body {
 
 a {
   color: #19f;
+  text-decoration: none;
 }
 
 a:hover {
   color: #E69;
-  text-shadow: 0px 0px 1px #E69;
+  text-decoration: underline;
 }
+
+h1 { font-size: .32rem; }
+h2 { font-size: .28rem; }
+h3 { font-size: .24rem; }
+h4 { font-size: .20rem; }
+h5 { font-size: .18rem; }
+h6 { font-size: .16rem; }
 
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-size: .20rem;
-  margin: .16rem 0;
+  margin: .1rem 0;
 }
 
 h2 code:last-child,
@@ -211,6 +200,8 @@ li>ol {
 }
 
 table {
+  border-collapse: collapse;
+  border-spacing: 0;
   margin: .24rem 0;
 }
 
@@ -327,13 +318,10 @@ td:last-child {
   color: #19f;
 }
 
-
-
 /* Inline Format */
 .underline {
   border-bottom: 1px solid #333;
 }
-
 
 /* Contect with Me */
 .me {
@@ -354,11 +342,10 @@ td:last-child {
   padding-right: .08rem;
 }
 
-
 /* Top Buttom */
 .top-btn {
   /* background: #eee; */
-  opacity: .3;
+  opacity: .5;
   box-shadow: 0 0 1px #666;
   display: inline-block;
   width: .64rem;
@@ -383,7 +370,7 @@ td:last-child {
 /* Nav Button */
 .nav-btn {
   /* background: #eee; */
-  opacity: .3;
+  opacity: .5;
   box-shadow: 0 0 1px #666;
   display: inline-block;
   width: .64rem;
@@ -404,13 +391,10 @@ td:last-child {
   background: #eee;
 }
 
-
 .nav-show-hide {
   background: #eee;
   opacity: 1;
 }
-
-
 
 /* GTD Style */
 .todo {
@@ -485,7 +469,7 @@ td:last-child {
 }
 
 /* Mobile UI */
-@media screen and (max-width: 1026px) {
+@media screen and (max-width: 900px) {
 
   body {
     width: 96%;
