@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs tokyonight-themes</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="/images/rose-red.png" type="image/x-icon">
+         <link rel="stylesheet" type="text/css" href="/css/style.css">
+         <script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<a href="/index.html" style="text-decoration:underline; margin-right: 10px">Home</a>
+                 <a href="/posts/index.html" style="text-decoration:underline; margin-right: 10px">Posts</a>
+                 <a href="/about.html" style="text-decoration:underline; margin-right: 10px">About</a>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Emacs tokyonight-themes</h1>
+</header><blockquote>
+<p>
+A clean dark Visual Studio Code theme that celebrates the lights of Downtown <a href="https://www.google.com/search?q=tokyo+night&amp;newwindow=1&amp;sxsrf=ACYBGNRiOGCstG_Xohb8CgG5UGwBRpMIQg:1571032079139&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwiayIfIhpvlAhUGmuAKHbfRDaIQ_AUIEigB&amp;biw=1280&amp;bih=666&amp;dpr=2">Tokyo at night</a>.
+</p>
+</blockquote>
+
+<p>
+Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now it has many <a href="https://github.com/enkia/tokyo-night-vscode-theme#other-ports">other ports</a>.
+</p>
+
+<p>
+Rawley make a <a href="https://github.com/rawleyfowler/tokyo-theme.el">tokyo-theme.el</a> for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
+</p>
+
+<p>
+So I want to make it for myself, <a href="https://github.com/xuchengpeng/.emacs.d/tree/main/lisp/tokyonight-themes">here</a> it is. The theme templates were taken from <a href="https://github.com/protesilaos/modus-themes">modus-themes</a>, and the color palettes were taken from <a href="https://github.com/folke/tokyonight.nvim">tokyonight.nvim</a>, these two themes are very popular and awesome with GNU Emacs or <a href="https://github.com/neovim/neovim">Neovim</a>.
+</p>
+
+<p>
+This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
+</p>
+
+<p>
+If you like it, clone the theme, and add support for your plugins into the theme code. Also, you can use theme colors in code with <code>tokyonight-themes-with-colors</code>.
+</p>
+
+<p>
+For example, add support for git-gutter-fr package.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">tokyonight-themes-with-colors</span>
+  (custom-set-faces
+    `(git-gutter-fr:added ((,c <span style="color: #8f0075;">:foreground</span> ,green)))
+    `(git-gutter-fr:deleted ((,c <span style="color: #8f0075;">:foreground</span> ,red)))
+    `(git-gutter-fr:modified ((,c <span style="color: #8f0075;">:foreground</span> ,yellow)))))
+</pre>
+</div>
+
+<p>
+Evaluate the code with a function after the tokyonight-themes load.
+</p>
+
+<p>
+If you want to change the color palettes, we have a option for palette overrides. Customize <code>tokyonight-&lt;style&gt;-palette-overrides</code> before you load the tokyonight-themes, style is an choice with storm, moon, night or day.
+</p>
+
+<p>
+For example, change the blue and cyan color for tokyonight-day-theme.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">setq</span> tokyonight-day-palette-overrides
+      '((blue . <span style="color: #3548cf;">"#2e7de9"</span>)
+        (cyan . <span style="color: #3548cf;">"#007197"</span>)))
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/index.html">Home</a></div>
+                 <div class="top-btn"><a href="#top">Top</a></div>
+                 <footer>
+                  <p>&copy xuchengpeng <a href="http://www.gnu.org/software/emacs/">Emacs</a> 29.x  (<a href="https://orgmode.org">Org</a> mode 9.x)</p>
+                 </footer>
+</div>
+</body>
+</html>
