@@ -1,5 +1,5 @@
 /* Import google fonts */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans|Cousine&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|IBM+Plex+Mono&display=swap);
 
 body,
 h1,
@@ -59,12 +59,16 @@ body {
 }
 
 a {
-  color: #19f;
+  color: #2a7ae2;
   text-decoration: none;
 }
 
+a:visited {
+  color: #1756a9;
+}
+
 a:hover {
-  color: #E69;
+  color: #f66;
   text-decoration: underline;
 }
 
@@ -94,39 +98,6 @@ h6 code:last-child {
   font-size: .12rem;
   padding: 2px 6px;
 }
-
-h2 {
-  color: #668BB6;
-}
-
-h2:before {
-  content: "# ";
-}
-
-h3 {
-  color: #c396d8;
-}
-
-h3:before {
-  content: "## ";
-}
-
-h4 {
-  color: #6fbfb1;
-}
-
-h4:before {
-  content: "### ";
-}
-
-h5 {
-  color: #e77724;
-}
-
-h5:before {
-  content: "#### ";
-}
-
 
 /* paragrapn */
 p {
@@ -160,16 +131,16 @@ blockquote {
 
 code {
   color: #135;
-  font-family: 'Cousine', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 0.15rem;
 }
 
 pre {
-  font-family: 'Cousine', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   color: #135;
   font-size: 0.15rem;
   padding: .14rem;
-  border: 2px solid #eee;
+  border: 1px solid #ccc;
   margin: .16rem 0;
 
   overflow: hidden;
@@ -249,8 +220,6 @@ td:last-child {
   border-right: rgba(255, 255, 255, 0);
 }
 
-
-/* directory */
 #table-of-contents {
   position: fixed;
   box-shadow: 1px 0 3px #999;
@@ -269,10 +238,6 @@ td:last-child {
   opacity: 0;
 }
 
-#table-of-contents a {
-  text-decoration: none;
-}
-
 #table-of-contents:hover {
   opacity: 1;
   left: 0;
@@ -285,16 +250,15 @@ td:last-child {
   content: "";
 }
 
-
 /* Highlight TOC active item */
 .link-active {
   color: #fff;
-  background: #19f;
+  background: #2a7ae2;
   padding: 1px 2px;
 }
 
 
-/* #postamble, .status */
+/* #preamble, #postamble, .status */
 .status {
   color: #666;
   border-top: 1px solid #369;
@@ -310,12 +274,10 @@ td:last-child {
   margin-top: .1rem;
   margin-bottom: .1rem;
   text-align: center;
-  color: #369;
-
 }
 
 .validation a {
-  color: #19f;
+  color: #2a7ae2;
 }
 
 /* Inline Format */
@@ -344,7 +306,6 @@ td:last-child {
 
 /* Top Buttom */
 .top-btn {
-  /* background: #eee; */
   opacity: .5;
   box-shadow: 0 0 1px #666;
   display: inline-block;
@@ -369,7 +330,6 @@ td:last-child {
 
 /* Nav Button */
 .nav-btn {
-  /* background: #eee; */
   opacity: .5;
   box-shadow: 0 0 1px #666;
   display: inline-block;
@@ -500,7 +460,7 @@ td:last-child {
 
   .link-active {
     color: #fff;
-    background: #19f;
+    background: #2a7ae2;
     padding: 1px 2px;
   }
 
