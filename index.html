@@ -26,6 +26,40 @@
 <h2 id="posts">Posts</h2>
 <div class="outline-text-2" id="text-posts">
 </div>
+<div id="outline-container-emacs-new-keymap-functions" class="outline-3">
+<h3 id="emacs-new-keymap-functions"><a href="posts/2024/02/emacs-new-keymap-functions.html">Emacs: New Keymap Functions</a></h3>
+<div class="outline-text-3" id="text-emacs-new-keymap-functions">
+<p>
+Emacs 29 comes with new functions for defining and manipulating keystrokes.
+</p>
+
+<p>
+These all take the syntax defined by <code>key-valid-p</code>, which is basically the same syntax as the one accepted by the <code>kbd</code> macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
+</p>
+<ul class="org-ul">
+<li>Use <code>keymap-set</code> instead of <code>define-key</code>.</li>
+<li>Use <code>keymap-global-set</code> instead of <code>global-set-key</code>.</li>
+<li>Use <code>keymap-local-set</code> instead of <code>local-set-key</code>.</li>
+<li>Use <code>keymap-global-unset</code> instead of <code>global-unset-key</code>.</li>
+<li>Use <code>keymap-local-unset</code> instead of <code>local-unset-key</code>.</li>
+<li>Use <code>keymap-substitute</code> instead of <code>substitute-key-definition</code>.</li>
+<li>Use <code>keymap-set-after</code> instead of <code>define-key-after</code>.</li>
+<li>Use <code>keymap-lookup</code> instead of <code>lookup-key</code> and <code>key-binding</code>.</li>
+<li>Use <code>keymap-local-lookup</code> instead of <code>local-key-binding</code>.</li>
+<li>Use <code>keymap-global-lookup</code> instead of <code>global-key-binding</code>.</li>
+</ul>
+
+<p>
+New function <code>key-valid-p</code> predicate does a stricter check of the syntax. New function <code>key-parse</code> is like <code>kbd</code>, but only returns vectors instead of a mix of vectors and strings.
+</p>
+
+<p>
+New function <code>define-keymap</code> allows defining a number of keystrokes with one form. New macro <code>defvar-keymap</code> allows defining keymap variables more conveniently, can specify <code>repeat-mode</code> behavior for the keymap.
+</p>
+<hr><br>
+</div>
+</div>
+
 <div id="outline-container-true-emacs-transparency" class="outline-3">
 <h3 id="true-emacs-transparency"><a href="posts/2024/02/true-emacs-transparency.html">True Emacs Transparency</a></h3>
 <div class="outline-text-3" id="text-true-emacs-transparency">
