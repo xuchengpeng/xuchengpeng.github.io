@@ -1,5 +1,5 @@
 /* Import google fonts */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans|IBM+Plex+Mono&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Cousine&display=swap);
 
 body,
 h1,
@@ -130,19 +130,22 @@ blockquote {
 /* code */
 
 code {
-  color: #135;
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Cousine', monospace;
   font-size: 0.15rem;
+  padding: 1px 4px;
+  border: 1px solid #eff0f2;
+  border-radius: 3px;
+  background-color: #eff0f2;
 }
 
 pre {
-  font-family: 'IBM Plex Mono', monospace;
-  color: #135;
+  font-family: 'Cousine', monospace;
   font-size: 0.15rem;
   padding: .14rem;
-  border: 1px solid #ccc;
+  border: 1px solid #f6f6f8;
+  border-radius: 3px;
+  background-color: #f6f6f8;
   margin: .16rem 0;
-
   overflow: hidden;
 }
 
