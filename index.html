@@ -35,19 +35,6 @@
 Emacs 29 comes with new functions for defining and manipulating keystrokes.
 </p>
 
-<ul class="org-ul">
-<li>Use <code>keymap-set</code> instead of <code>define-key</code>.</li>
-<li>Use <code>keymap-global-set</code> instead of <code>global-set-key</code>.</li>
-<li>Use <code>keymap-local-set</code> instead of <code>local-set-key</code>.</li>
-<li>Use <code>keymap-global-unset</code> instead of <code>global-unset-key</code>.</li>
-<li>Use <code>keymap-local-unset</code> instead of <code>local-unset-key</code>.</li>
-<li>Use <code>keymap-substitute</code> instead of <code>substitute-key-definition</code>.</li>
-<li>Use <code>keymap-set-after</code> instead of <code>define-key-after</code>.</li>
-<li>Use <code>keymap-lookup</code> instead of <code>lookup-key</code> and <code>key-binding</code>.</li>
-<li>Use <code>keymap-local-lookup</code> instead of <code>local-key-binding</code>.</li>
-<li>Use <code>keymap-global-lookup</code> instead of <code>global-key-binding</code>.</li>
-</ul>
-
 <p>
 These all take the syntax defined by <code>key-valid-p</code>, which is basically the same syntax as the one accepted by the <code>kbd</code> macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
 </p>
@@ -116,27 +103,6 @@ For example:
 <pre class="src src-elisp">(package-vc-install <span style="color: #3548cf;">"https://github.com/clojure-emacs/clojure-ts-mode"</span>)
 </pre>
 </div>
-
-<p>
-The function offers a few more parameters that allow you to specify the name of the package and a particular revision (commit) you want to use:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp">(package-vc-install PACKAGE <span style="color: #005f5f;">&amp;optional</span> REV BACKEND)
-</pre>
-</div>
-
-<p>
-If <code>PACKAGE</code> is a string containing an URL, download the package from the repository at that URL.
-</p>
-
-<p>
-By default, this function installs the last revision of the package available from its repository. If <code>REV</code> is a string, it describes the revision to install, as interpreted by the VC backend.
-</p>
-
-<p>
-Optional argument <code>BACKEND</code> specifies the VC backend to use for cloning the package's repository. If <code>BACKEND</code> is nil, the function uses <code>package-vc-heuristic-alist</code> to guess the backend.
-</p>
 <hr><br>
 </div>
 </div>

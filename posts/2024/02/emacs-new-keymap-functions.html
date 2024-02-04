@@ -24,6 +24,10 @@
 Emacs 29 comes with new functions for defining and manipulating keystrokes.
 </p>
 
+<p>
+These all take the syntax defined by <code>key-valid-p</code>, which is basically the same syntax as the one accepted by the <code>kbd</code> macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
+</p>
+
 <ul class="org-ul">
 <li>Use <code>keymap-set</code> instead of <code>define-key</code>.</li>
 <li>Use <code>keymap-global-set</code> instead of <code>global-set-key</code>.</li>
@@ -36,10 +40,6 @@ Emacs 29 comes with new functions for defining and manipulating keystrokes.
 <li>Use <code>keymap-local-lookup</code> instead of <code>local-key-binding</code>.</li>
 <li>Use <code>keymap-global-lookup</code> instead of <code>global-key-binding</code>.</li>
 </ul>
-
-<p>
-These all take the syntax defined by <code>key-valid-p</code>, which is basically the same syntax as the one accepted by the <code>kbd</code> macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
-</p>
 
 <p>
 New function <code>key-valid-p</code> predicate does a stricter check of the syntax. New function <code>key-parse</code> is like <code>kbd</code>, but only returns vectors instead of a mix of vectors and strings.
