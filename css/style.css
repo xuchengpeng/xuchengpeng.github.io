@@ -307,6 +307,11 @@ td:last-child {
   padding-right: .08rem;
 }
 
+.nav-link {
+  text-decoration: underline;
+  margin-right: 10px;
+}
+
 /* Top Buttom */
 .top-btn {
   opacity: .5;
