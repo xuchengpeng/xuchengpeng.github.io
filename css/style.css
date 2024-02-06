@@ -40,11 +40,13 @@ body {
   font-family: "Open Sans", Arial, sans-serif;
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 10px;
   font-size: .16rem;
   line-height: 1.5;
 }
 
 #content {
+  padding: 20px 0;
   position: relative;
 }
 
@@ -53,8 +55,6 @@ body {
 .title {
   font-size: .32rem;
   width: 100%;
-  border-bottom: 2px solid #369;
-  border-image: linear-gradient(to right, #147, #f66) 30 30;
   padding: 0;
 }
 
@@ -277,6 +277,39 @@ td:last-child {
   text-align: center;
 }
 
+.site-header {
+  width: 100%;
+  border-bottom: 3px solid #369;
+  border-image: linear-gradient(to right, #147, #f66) 30 30;
+  min-height: 55px;
+  position: relative;
+}
+
+.site-title {
+  font-size: .32rem;
+  line-height: 54px;
+  float: left;
+}
+
+.site-title,
+.site-title:visited {
+  color: #111
+}
+
+.site-nav {
+  line-height: 54px;
+  float: right;
+}
+
+.site-nav .nav-link {
+  color: #111;
+  line-height: 1.5
+}
+
+.site-nav .nav-link:not(:last-child) {
+  margin-right: 10px
+}
+
 .validation a {
   color: #2a7ae2;
 }
@@ -308,11 +341,6 @@ td:last-child {
 .post-meta {
   font-size: 0.14rem;
   color: #828282;
-}
-
-.nav-link {
-  text-decoration: underline;
-  margin-right: 10px;
 }
 
 /* Top Buttom */
@@ -440,7 +468,7 @@ td:last-child {
 }
 
 /* Mobile UI */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
 
   body {
     width: 96%;
