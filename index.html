@@ -31,6 +31,7 @@
 <div id="outline-container-emacs-proxy" class="outline-3">
 <h3 id="emacs-proxy"><a href="posts/2024/02/emacs-proxy.html">Emacs Proxy</a></h3>
 <div class="outline-text-3" id="text-emacs-proxy">
+<span class="post-meta">February 5, 2024</span>
 <p>
 Proxy servers are commonly used to provide gateways through firewalls or as caches serving some more-or-less local network. Each protocol (HTTP, FTP, etc.) can have a different gateway server. Proxying is conventionally configured commonly amongst different programs through environment variables of the form <i>protocol-proxy</i>, where <i>protocol</i> is one of the supported network protocols (http, ftp, etc.). The library recognized such variables in either upper or lower case.
 </p>
@@ -41,6 +42,7 @@ Proxy servers are commonly used to provide gateways through firewalls or as cach
 <div id="outline-container-emacs-new-keymap-functions" class="outline-3">
 <h3 id="emacs-new-keymap-functions"><a href="posts/2024/02/emacs-new-keymap-functions.html">Emacs New Keymap Functions</a></h3>
 <div class="outline-text-3" id="text-emacs-new-keymap-functions">
+<span class="post-meta">February 2, 2024</span>
 <p>
 Emacs 29 comes with new functions for defining and manipulating keystrokes.
 </p>
@@ -55,6 +57,7 @@ These all take the syntax defined by <code>key-valid-p</code>, which is basicall
 <div id="outline-container-true-emacs-transparency" class="outline-3">
 <h3 id="true-emacs-transparency"><a href="posts/2024/02/true-emacs-transparency.html">True Emacs Transparency</a></h3>
 <div class="outline-text-3" id="text-true-emacs-transparency">
+<span class="post-meta">February 1, 2024</span>
 <p>
 Before Emacs 29, we can set the <code>alpha</code> frame parameter to adjust the opacity of the frame. The issue with <code>alpha</code> is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
 </p>
@@ -73,6 +76,7 @@ From Emacs 29, it supports <a href="https://git.savannah.gnu.org/cgit/emacs.git/
 <div id="outline-container-emacs-tokyonight-themes" class="outline-3">
 <h3 id="emacs-tokyonight-themes"><a href="posts/2024/02/emacs-tokyonight-themes.html">Emacs tokyonight-themes</a></h3>
 <div class="outline-text-3" id="text-emacs-tokyonight-themes">
+<span class="post-meta">February 1, 2024</span>
 <blockquote>
 <p>
 A clean dark Visual Studio Code theme that celebrates the lights of Downtown <a href="https://www.google.com/search?q=tokyo+night&amp;newwindow=1&amp;sxsrf=ACYBGNRiOGCstG_Xohb8CgG5UGwBRpMIQg:1571032079139&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwiayIfIhpvlAhUGmuAKHbfRDaIQ_AUIEigB&amp;biw=1280&amp;bih=666&amp;dpr=2">Tokyo at night</a>.
@@ -101,6 +105,7 @@ This theme has four color palettes, as same sa tokyonight.nvim. I have add suppo
 <div id="outline-container-install-a-package-from-a-vcs-repository" class="outline-3">
 <h3 id="install-a-package-from-a-vcs-repository"><a href="posts/2024/01/install-a-package-from-a-vcs-repository.html">Install a Package from a VCS Repository</a></h3>
 <div class="outline-text-3" id="text-install-a-package-from-a-vcs-repository">
+<span class="post-meta">January 30, 2024</span>
 <p>
 Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers <code>package-vc-install</code> to install these codes easily.
 </p>
@@ -120,6 +125,7 @@ For example:
 <div id="outline-container-disable-annoying-audio-notifications" class="outline-3">
 <h3 id="disable-annoying-audio-notifications"><a href="posts/2024/01/disable-annoying-audio-notifications.html">Disable Annoying Audio Notifications</a></h3>
 <div class="outline-text-3" id="text-disable-annoying-audio-notifications">
+<span class="post-meta">January 30, 2024</span>
 <p>
 By default Emacs ring the bell to attract the user's attention, this is annoying.
 </p>
@@ -154,6 +160,7 @@ We can also customize <code>ring-bell-function</code> to just flash the modeline
 <div id="outline-container-check-if-a-font-is-available-with-emacs-lisp" class="outline-3">
 <h3 id="check-if-a-font-is-available-with-emacs-lisp"><a href="posts/2024/01/check-if-a-font-is-available-with-emacs-lisp.html">Check if a Font is Available with Emacs Lisp</a></h3>
 <div class="outline-text-3" id="text-check-if-a-font-is-available-with-emacs-lisp">
+<span class="post-meta">January 30, 2024</span>
 <p>
 In Emacs Lisp, <code>find-font</code> function return a font-entity matching with FONT-SPEC. So we can make a helper function.
 </p>
@@ -180,6 +187,7 @@ Before setting a font, we can check with this helper function.
 <div id="outline-container-converting-between-symbols-and-strings" class="outline-3">
 <h3 id="converting-between-symbols-and-strings"><a href="posts/2024/01/converting-between-symbols-and-strings.html">Converting Between Symbols and Strings</a></h3>
 <div class="outline-text-3" id="text-converting-between-symbols-and-strings">
+<span class="post-meta">January 30, 2024</span>
 <p>
 Sometimes you might need to convert a symbol to string in Emacs Lisp. You start looking for functions like <code>symbol-to-string</code> and <code>string-to-symbol</code> but, they do not exist.
 </p>

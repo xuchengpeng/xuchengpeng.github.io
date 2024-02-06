@@ -101,7 +101,7 @@ h6 code:last-child {
 
 /* paragrapn */
 p {
-  margin: .16rem 0;
+  margin: .12rem 0;
 }
 
 /* img */
@@ -117,10 +117,8 @@ img {
   margin: .06rem 0;
 }
 
-
 /* blockquote */
 blockquote {
-  /* background: #eee; */
   color: #369;
   border-left: 1px solid #369;
   padding-left: .16rem;
@@ -145,7 +143,7 @@ pre {
   border: 1px solid #f6f6f8;
   border-radius: 3px;
   background-color: #f6f6f8;
-  margin: .16rem 0;
+  margin: .12rem 0;
   overflow: hidden;
 }
 
@@ -305,6 +303,11 @@ td:last-child {
   color: #369;
   font-size: .20rem;
   padding-right: .08rem;
+}
+
+.post-meta {
+  font-size: 0.14rem;
+  color: #828282;
 }
 
 .nav-link {
