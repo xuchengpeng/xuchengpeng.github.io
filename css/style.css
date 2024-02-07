@@ -71,12 +71,29 @@ a:hover {
   text-decoration: underline;
 }
 
-h1 { font-size: .32rem; }
-h2 { font-size: .28rem; }
-h3 { font-size: .24rem; }
-h4 { font-size: .20rem; }
-h5 { font-size: .18rem; }
-h6 { font-size: .16rem; }
+h1 {
+  font-size: .32rem;
+}
+
+h2 {
+  font-size: .28rem;
+}
+
+h3 {
+  font-size: .24rem;
+}
+
+h4 {
+  font-size: .20rem;
+}
+
+h5 {
+  font-size: .18rem;
+}
+
+h6 {
+  font-size: .16rem;
+}
 
 h2,
 h3,
@@ -465,6 +482,74 @@ td:last-child {
 
 .org-src-container button:hover {
   cursor: pointer;
+}
+
+/* Search box */
+.search {
+  display: none;
+  width: 100%;
+  height: 30px;
+  padding: 10px 0;
+  z-index: 1
+}
+
+.search .search-icon {
+  float: left;
+  height: 100%;
+  font-size: .28rem;
+  line-height: 30px;
+  cursor: pointer;
+  user-select: none
+}
+
+.search .search-input {
+  float: left;
+  width: 80%;
+  height: 30px;
+  font-size: .16rem;
+  line-height: 30px;
+  margin: 0;
+  padding-left: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: #111
+}
+
+.search .search-clear {
+  display: none;
+  line-height: 30px;
+}
+
+.search .search-results {
+  display: none;
+  width: 80%;
+  max-height: 60vh;
+  margin: 10px 0;
+  overflow: auto;
+  text-align: left;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background: #fafafa
+}
+
+.search .search-results .result-title {
+  color: #000;
+  padding: 10px 10px;
+}
+
+.search .search-results .result-item {
+  padding: 10px 10px;
+}
+
+.search .search-results .result-item .result-item-title {
+  color: #000;
+  font-size: .20rem;
+  font-weight: bold;
+}
+
+.search .search-results .result-item .result-item-detail a {
+  text-transform: none !important;
 }
 
 /* Mobile UI */
