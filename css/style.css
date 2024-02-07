@@ -38,15 +38,14 @@ html {
 
 body {
   font-family: "Open Sans", Arial, sans-serif;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 10px;
   font-size: .16rem;
   line-height: 1.5;
 }
 
 #content {
-  padding: 20px 0;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 10px;
   position: relative;
 }
 
@@ -258,31 +257,23 @@ td:last-child {
   padding: 1px 2px;
 }
 
-
-/* #preamble, #postamble, .status */
-.status {
-  color: #666;
-  border-top: 1px solid #369;
-  border-image: linear-gradient(to right, #f66, #147) 30 30;
-  margin: .05rem 0 .05rem 0;
-}
-
-.status p {
-  margin: 0;
-}
-
-.status p:last-child {
-  margin-top: .1rem;
-  margin-bottom: .1rem;
-  text-align: center;
-}
-
-.site-header {
-  width: 100%;
-  border-bottom: 3px solid #369;
+.header-wrapper {
+  border-top: 5px solid #424242;
+  border-bottom: 1px solid #e8e8e8;
   border-image: linear-gradient(to right, #147, #f66) 30 30;
   min-height: 55px;
   position: relative;
+}
+
+.footer-wrapper {
+  border-top: 1px solid #e8e8e8;
+  border-image: linear-gradient(to right, #147, #f66) 30 30;
+}
+
+.site-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .site-title {
@@ -308,6 +299,15 @@ td:last-child {
 
 .site-nav .nav-link:not(:last-child) {
   margin-right: 10px
+}
+
+.site-footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  font-size: .15rem;
+  color: #666;
+  text-align: center;
 }
 
 .validation a {
@@ -469,11 +469,6 @@ td:last-child {
 
 /* Mobile UI */
 @media screen and (max-width: 600px) {
-
-  body {
-    width: 96%;
-  }
-
   .title {
     font-size: .28rem;
     white-space: nowrap;
