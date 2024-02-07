@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Chuck</title><link>https://xuchengpeng.github.io/</link><description>Valar Morghulis. Valar Dohaeris.</description><language>en-US</language><webMaster>330476629@qq.com</webMaster><lastBuildDate>Wed, 07 Feb 2024 13:25:27 GMT</lastBuildDate><generator>rfeed v1.0.0</generator><docs>https://github.com/svpino/rfeed/blob/master/README.md</docs><item><title>Posts</title><link>https://xuchengpeng.github.io/posts/index.html</link><description>Posts
+Table of Contents
+2024
+Archives
+2024
+[02-05] Emacs Proxy
+[02-02] Emacs New Keymap Functions
+[02-01] True Emacs Transparency
+[02-01] Emacs tokyonight-themes
+[01-30] Install a Package from a VCS Repository
+[01-30] Disable Annoying Audio Notifications
+[01-30] Check if a Font is Available with Emacs Lisp
+[01-30] Converting Between Symbols and Strings
+[01-28] Eglot: clangd配置
+[01-26] 中医：辩证论治
+[01-24] 中医：五脏与五行
+[01-23] Aspell: Personal Dictionaries
+[01-22] Elisp: Lexical and Dynamic Binding
+[01-19] Elisp: List Processing
+[01-18] Emacs treesit
+[01-08] 删除文件中的Windows换行符
+[01-05] Emacs根据时间切换主题
+[01-05] 强大的Org Capture
+[01-03] 黄鹤楼
+Archives
+Archives of 2023
+Archives of 2019
+My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:44 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/index.html</guid></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.github.io/posts/2024/02/true-emacs-transparency.html</link><description>True Emacs Transparency
+February 1, 2024
+Before Emacs 29, we can set the alpha frame parameter to adjust the opacity of the frame. The issue with alpha is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
+The solution came from a patch make by Håkon Flatval. The patch adds the alpha-background frame parameter which make only the background of a frame transparent.
+From Emacs 29, it supports true transparency. The alpha-background frame parameter set the background transparency of the frame. Unlike the alpha frame parameter, this only controls the transparency of the background while keeping foreground elements such as text fully opaque. It should be an integer between 0 and 100, where 0 means completely transparent and 100 means completely opaque (default).
+Here I make a helper function to adjust transparency.
+(defun dotemacs-adjust-transparency (frame incr)
+  "Adjust the background transparency of FRAME by increment INCR."
+  (let* ((oldalpha (or (frame-parameter frame 'alpha-background) 100))
+         (newalpha (+ incr oldalpha)))
+    (when (and (&lt;= 0 newalpha) (&gt;= 100 newalpha))
+      (set-frame-parameter frame 'alpha-background newalpha))))
+(keymap-global-set "C-M-8" (lambda () (interactive) (dotemacs-adjust-transparency nil -2)))
+(keymap-global-set "C-M-9" (lambda () (interactive) (dotemacs-adjust-transparency nil 2)))
+(keymap-global-set "C-M-0" (lambda () (interactive) (set-frame-parameter nil 'alpha-background 100)))</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:44 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/02/true-emacs-transparency.html</guid></item><item><title>Emacs tokyonight-themes</title><link>https://xuchengpeng.github.io/posts/2024/02/emacs-tokyonight-themes.html</link><description>Emacs tokyonight-themes
+February 1, 2024
+A clean dark Visual Studio Code theme that celebrates the lights of Downtown Tokyo at night.
+Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now it has many other ports.
+Rawley make a tokyo-theme.el for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
+So I want to make it for myself, here it is. The theme templates were taken from modus-themes, and the color palettes were taken from tokyonight.nvim, these two themes are very popular and awesome with GNU Emacs or Neovim.
+This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
+If you like it, clone the theme, and add support for your plugins into the theme code. Also, you can use theme colors in code with tokyonight-themes-with-colors.
+For example, add support for git-gutter-fr package.
+(tokyonight-themes-with-colors
+  (custom-set-faces
+    `(git-gutter-fr:added ((,c :foreground ,green)))
+    `(git-gutter-fr:deleted ((,c :foreground ,red)))
+    `(git-gutter-fr:modified ((,c :foreground ,yellow)))))
+Evaluate the code with a function after the tokyonight-themes load.
+If you want to change the color palettes, we have a option for palette overrides. Customize tokyonight-&lt;style&gt;-palette-overrides before you load the tokyonight-themes, style is an choice with storm, moon, night or day.
+For example, change the blue and cyan color for tokyonight-day-theme.
+(setq tokyonight-day-palette-overrides
+      '((blue . "#2e7de9")
+        (cyan . "#007197")))</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:44 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/02/emacs-tokyonight-themes.html</guid></item><item><title>Emacs Proxy</title><link>https://xuchengpeng.github.io/posts/2024/02/emacs-proxy.html</link><description>Emacs Proxy
+Table of Contents
+System Proxy
+URL Proxy Services
+Socks Proxy
+February 5, 2024
+Proxy servers are commonly used to provide gateways through firewalls or as caches serving some more-or-less local network. Each protocol (HTTP, FTP, etc.) can have a different gateway server. Proxying is conventionally configured commonly amongst different programs through environment variables of the form protocol-proxy, where protocol is one of the supported network protocols (http, ftp, etc.). The library recognized such variables in either upper or lower case.
+System Proxy
+export http_proxy=http://username:password@proxy.xxx.com:8080
+export https_proxy=${http_proxy}
+URL Proxy Services
+Proxies are supported by URL package, by setting url-proxy-services to an assoc list mapping url services and the proxy servers that support them.
+(setq url-proxy-services
+      '(("http"     . "proxy.example.com:8080")
+        ("https"    . "proxy.example.com:8080")
+          ("no_proxy" . "^.*example.com")))
+If the proxy services need to be authorized, we need to customize url-http-proxy-basic-auth-storage.
+(setq url-http-proxy-basic-auth-storage
+      (list (list "proxy.example.com:8080"
+                  (cons "Input your LDAP UID !"
+                        (base64-encode-string "LOGIN:PASSWORD")))))
+Socks Proxy
+Enable socks proxy:
+(setq url-gateway-method 'socks
+      socks-server '("Default Server" "socks.proxy.com" 1080 5)
+      socks-noproxy '("localhost"))
+If the socks-server need to be authorized, socks-username and socks-password need to be customized.
+Disable socks proxy:
+(setq url-gateway-method 'native
+      socks-server nil
+      socks-noproxy nil)</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:43 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/02/emacs-proxy.html</guid></item><item><title>Emacs New Keymap Functions</title><link>https://xuchengpeng.github.io/posts/2024/02/emacs-new-keymap-functions.html</link><description>Emacs New Keymap Functions
+February 2, 2024
+Emacs 29 comes with new functions for defining and manipulating keystrokes.
+These all take the syntax defined by key-valid-p, which is basically the same syntax as the one accepted by the kbd macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
+Use keymap-set instead of define-key.
+Use keymap-global-set instead of global-set-key.
+Use keymap-local-set instead of local-set-key.
+Use keymap-global-unset instead of global-unset-key.
+Use keymap-local-unset instead of local-unset-key.
+Use keymap-substitute instead of substitute-key-definition.
+Use keymap-set-after instead of define-key-after.
+Use keymap-lookup instead of lookup-key and key-binding.
+Use keymap-local-lookup instead of local-key-binding.
+Use keymap-global-lookup instead of global-key-binding.
+New function key-valid-p predicate does a stricter check of the syntax. New function key-parse is like kbd, but only returns vectors instead of a mix of vectors and strings.
+New function define-keymap allows defining a number of keystrokes with one form. New macro defvar-keymap allows defining keymap variables more conveniently, can specify repeat-mode behavior for the keymap.
+I have already redefine my own keybinds with these new functions.
+Protesilaos Stavrou posted a video on nested key maps. The video shows how to define a prefix key in Emacs 29 using built-in functionality. The idea is to organise our keys in an efficient way. Using this method, we can have nested key maps as well, meaning that the prefix key can have access to the contents of another map which holds more key bindings. The video also shows us how to describe the keymaps with which-key.
+Here is the example, we can have C-z as a prefix, C-z b as a nested key maps for buffer-related commands, and C-z f for file-related commands.
+;; Read this to learn about key binding conventions so that you know
+;; which keys are safe for users:
+;;
+;;     (info "(elisp) Key Binding Conventions")
+;; Sample of a generic command with a corresponding key binding
+(defun test-command ()
+  (interactive)
+  (message "Hello world"))
+(keymap-set global-map "C-z" #'test-command)
+;; Define key maps that will then be added to the prefix map
+(defvar-keymap test-prefix-buffer-map
+  :doc "My prefix key map for buffers."
+  "s" #'save-buffer
+  "w" #'write-file
+  "p" #'previous-buffer
+  "n" #'next-buffer)
+(defvar-keymap test-prefix-mode-map
+  :doc "My prefix key map for minor modes."
+  "l" #'display-line-numbers-mode
+  "h" #'hl-line-mode)
+;; Define a key map with commands and nested key maps
+(defvar-keymap test-prefix-map
+  :doc "My prefix key map."
+  "b" test-prefix-buffer-map
+  "m" test-prefix-mode-map
+  "f" #'find-file
+  "d" #'dired)
+;; Define how the nested keymaps are labelled in `which-key-mode'.
+(which-key-add-keymap-based-replacements test-prefix-map
+  "b" `("Buffer" . ,test-prefix-buffer-map)
+  "m" `("Testing" . ,test-prefix-mode-map))
+;; Bind the prefix key map to a key.  Notice the absence of a quote for
+;; the map's symbol.
+(keymap-set global-map "C-z" test-prefix-map)</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:43 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/02/emacs-new-keymap-functions.html</guid></item><item><title>黄鹤楼</title><link>https://xuchengpeng.github.io/posts/2024/01/yellow-crane-tower.html</link><description>黄鹤楼
+黄鹤楼
+唐 崔颢
+昔人已乘黄鹤去，此地空余黄鹤楼。
+黄鹤一去不复返，白云千载空悠悠。
+晴川历历汉阳树，芳草萋萋鹦鹉洲。
+日暮乡关何处是？烟波江上使人愁。</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:43 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/yellow-crane-tower.html</guid></item><item><title>中医：辩证论治</title><link>https://xuchengpeng.github.io/posts/2024/01/treatment-based-on-syndrome-differentiation.html</link><description>中医：辩证论治
+辩证论治 是中医认识疾病和治疗疾病的基本原则，是中医学对疾病的一种特殊的研究和处理方法。
+辩证即是认证识证的过程。证是对机体在疾病发展过程中某一阶段的病理反映的概括，包含病变的部位、原因、性质以及邪正关系，反映这一阶段病理变化的本质。因而，证比症状更全面、更深刻、更正确的揭示疾病的本质。所谓辩证，就是根据望、闻、问、切四诊所收集的资料，通过分析、综合、辨清疾病的病因、性质、部分，以及邪正之间的关系，概括、判断为某种性质证。
+论治，是根据辩证的结果，确定相应的治疗原则和具体治法。辩证和论治是诊治疾病过程中相互联系不可分离的两部分。辩证是决定治疗的前提和依据，论治是治疗的手段和方法。通过论治的效果可以检验辩证的正确与否。
+辩证论治是认识疾病和解决疾病的过程，是理论与实践相结合的表现，是理法方药在临床上的具体运用，是指导中医临床工作的基本原则。</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:43 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/treatment-based-on-syndrome-differentiation.html</guid></item><item><title>中医：五脏与五行</title><link>https://xuchengpeng.github.io/posts/2024/01/tcm-five-organs-and-five-elements.html</link><description>中医：五脏与五行
+中医腑脏1通常成为五脏六腑。五脏是：肝、心、脾、肺、肾，主要功能为生化和蓄存精气；六腑是：胆、小肠、胃、大肠、膀胱、三焦2，主要功能为受乘和传化水谷并积存精气。
+《黄帝内经》中，五行与五脏相互对应，即心火、肝木、脾土、肺金、肾水。各脏器之间又相生相克。
+相生：肝生心，心生脾，脾生肺，肺生肾，肾生肝。
+相克：肝克脾，脾克肾，肾克心，心克肺，肺克肝。
+心：《黄帝内经》说：“心者五脏六腑之大主”。主神志，主血脉，在液为汗，开窍于舌。位于胸腔之内，斜位于胸腔中纵隔内，隔膜之上，两肺之间，三分之二位于正中线左侧，三分之一位于正中线右侧，心尖朝向左前下方。形似倒垂未开之莲蕊，外有心包护卫。心为神之舍，血之主，脉之宗，在五行属火，为阳中之阳，起着主宰人体生命活动的作用。手少阴心经与手太阳小肠经在小肠与心之间相互络属， 与小肠相表里 。
+肝：在五行属木，主疏泄，魂之处，藏血，其华在爪，其充在筋，开窍于目，在志为怒，在液为泪， 与胆相表里 。《素问》说：”肝者，将军之官，谋虑出焉”，表现在调节精神情志，促进消化吸收，以及维持气血、津液的运作三方面。肝位于上腹部，横隔之下。
+脾：在五行属土，主藏，统血，谓之主，开窍于口，主肌肉，运化水谷，主升清，后天之本，主四肢，其华在唇，统血益气，在志为思，藏意生思，思伤脾。在液为涎；藏营，司运动， 与胃相表里 。
+肺：在五行属金，专司呼吸，主宣发速降，通调水道，朝百脉，主治节，协助心君调节气血运行，故称“相傅之官”。其附属功能为：在志为忧（悲），在液为涕，在体合皮，其华在毛，在窍为鼻。 与大肠相表里 。阳中为少阳，三焦为上焦。
+肾：在五行属水，肾的主要功能是藏精，主生长发育和生殖；主水液、肾主纳气。与其它组织器官的关系是：肾主骨、生髓、通于脑，齿为骨之余。其华在发，开窍于耳及二阴，在志为恐，在液为唾。 与膀胱相表里 。
+五行
+五脏
+六腑
+季节
+五情
+五官
+五味
+五华
+五音
+五色
+火
+心
+小肠
+夏
+喜
+舌
+苦
+面
+宫
+红
+木
+肝
+胆
+春
+怒
+目
+酸
+爪
+商
+青
+土
+脾
+胃
+长夏
+思
+口
+甜
+唇
+角
+黄
+金
+肺
+大肠
+秋
+悲
+鼻
+辣
+皮毛
+幑
+白
+水
+肾
+膀胱
+冬
+恐
+耳
+咸
+发
+羽
+黑
+Footnotes: 
+1 
+中医的腑脏，和西医提出的腑脏的生理结构并非相同。西医传入中国时，寻找了中医中结构相近的器官进行翻译，功能上不完全对应。
+2 
+三焦为六腑之一，又名”决渎之官”，为上焦、中焦、下焦三者的统称，对应的脏为心包。焦古作膲，为皮下、肌间纹理之意。</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:43 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/tcm-five-organs-and-five-elements.html</guid></item><item><title>强大的Org Capture</title><link>https://xuchengpeng.github.io/posts/2024/01/powerful-org-capture.html</link><description>强大的Org Capture
+Table of Contents
+Capture templates
+Template elements
+Template expansion
+Capture让你快速的保存笔记，并且让你的工作流中很少被打断。
+Capture的配置比较复杂，主要是Capture templates。
+Capture templates1
+配置Capture templates的基本形式是：
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+在Capture菜单中按下 t 时，Org会准备Todo模板：
+Template elements2
+关键字
+对应内容
+描述
+keys
+"t"
+用来选择模板的key，一般1～2个字符
+description
+"Todo"
+模板的简短描述
+type
+entry
+模板的类型
+target
+(file+headline "~/org/gtd.org" "Tasks")
+模板的存储位置
+template
+"* TODO %?\n %i\n %a"
+模板的内容
+properties
+:prepend t
+模板的参数
+模板的类型支持以下几种：
+type
+description
+entry
+带有headline的Org mode节点
+item
+列表项
+checkitem
+checkbox列表项
+table-line
+表格行
+plane
+普通文本
+模板的存储位置：
+type
+description
+example
+file
+文件
+(file "/path/to/file")
+id
+特定ID
+(id "id of existing org entry")
+file+headline
+文件中唯一的headline
+(file+headline "filename" "node headline")
+file+olp
+非唯一headline，全路径
+(file+olp "filename" "Level 1 heading" "Level 2" …)
+file+regexp
+正则匹配的headline
+(file+regexp "filename" "regexp to find location")
+file+olp+datetree
+文件中当日所在的headline
+(file+olp+datetree "filename" [ "Level 1 heading" …])
+file+function
+文件中寻找正确位置的函数
+(file+function "filename" function-finding-location)
+clock
+文件到当前正在计时的条目
+(clock)
+function
+自定义函数
+(function function-finding-location)
+Template expansion3
+type
+description
+%[FILE]
+插入文件内容
+%(EXP)
+插入Elisp表达式的结果
+%&lt;FORMAT&gt;
+格式化时间
+%t
+日期
+%T
+日期和时间
+%u, %U
+类似%t和%T，未激活的时间戳
+%i
+插入当前buffer选中的内容
+%a
+注释，通常是 org-store-link 创建的链接
+%A
+类型%a，但是弹出描述部分
+%l
+类似%a，但是只插入字面上的链接
+%L
+类型%l，但是没有括号
+%c
+当前kill ring的head
+%x
+剪切板中的内容
+%k
+当前计时任务的标题
+%K
+当前计时任务的链接
+%n
+user-full-name
+%f
+打开org-capture时当前的buffer
+%F
+当前buffer的全路径
+%:keyword
+特殊链接
+%^g
+弹出目标文件中tags
+%^G
+弹出所有agenda文件中的tags
+%^t
+类似%t，但是弹出日期， %^T,%^u,%^U 类似
+%^C
+交互式选择kill ring或剪切板中的内容
+%^L
+类似 %^C ，以链接的方式插入
+%^{PROP}p
+弹出PROP属性的值
+%^{PROMPT}
+弹出让用户输入
+%\N
+插入第N个 %^{PROMPT} 中的标记
+%?
+模板插入完成后定位的位置
+特殊链接类型：
+Link type
+Available keywords
+bbdb
+%:name, %:company
+irc
+%:server, %:port, %:nick
+mh, rmail
+%:type, %:subject, %:message-id, %:from, %:fromname, %:fromaddress, %:to, %:toname, %:toaddress, %:date, %:date-timestamp, %:date-timestamp-inactive, %:fromto
+gnus
+%:group
+w3, w3m
+%:url
+info
+%:file, %:node
+calendar
+%:date
+org-protocol
+%:link, %:description, %:annotation
+Footnotes: 
+1 
+https://orgmode.org/manual/Capture-templates.html
+2 
+https://orgmode.org/manual/Template-elements.html
+3 
+https://orgmode.org/manual/Template-expansion.html</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:43 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/powerful-org-capture.html</guid></item><item><title>Install a Package from a VCS Repository</title><link>https://xuchengpeng.github.io/posts/2024/01/install-a-package-from-a-vcs-repository.html</link><description>Install a Package from a VCS Repository
+January 30, 2024
+Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers package-vc-install to install these codes easily.
+For example:
+(package-vc-install "https://github.com/clojure-emacs/clojure-ts-mode")
+The function offers a few more parameters that allow you to specify the name of the package and a particular revision (commit) you want to use:
+(package-vc-install PACKAGE &amp;optional REV BACKEND)
+If PACKAGE is a string containing an URL, download the package from the repository at that URL.
+By default, this function installs the last revision of the package available from its repository. If REV is a string, it describes the revision to install, as interpreted by the VC backend.
+Optional argument BACKEND specifies the VC backend to use for cloning the package's repository. If BACKEND is nil, the function uses package-vc-heuristic-alist to guess the backend.</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:42 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/install-a-package-from-a-vcs-repository.html</guid></item><item><title>Emacs treesit</title><link>https://xuchengpeng.github.io/posts/2024/01/emacs-treesit.html</link><description>Emacs treesit
+Table of Contents
+安装语言解析器
+使用预编译的语言解析器
+检查语言解析器是否可用
+使用tree-sitter
+tree-sitter 是一个解析器生成工具和增量解析库。它可以为源文件构建语法树，当源文件修改时可以高效的更新语法树。
+自Emacs 29开始，内置treesit模块实现了对tree-sitter的支持。
+安装语言解析器
+为某一个编程语言添加tree-sitter支持时，运行 M-x treesit-install-language-grammar 命令，会先clone语言解析器的仓库，然后在进行编译安装。
+通过设定 treesit-language-source-alist 变量来定义每种语言解析器的仓库地址，这样在进行命令安装时就不需要再输入仓库地址。
+;; M-x `treesit-install-language-grammar` to install language grammar.
+(setq treesit-language-source-alist
+      '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
+        (c . ("https://github.com/tree-sitter/tree-sitter-c"))
+        (cpp . ("https://github.com/tree-sitter/tree-sitter-cpp"))
+        (css . ("https://github.com/tree-sitter/tree-sitter-css"))
+        (cmake . ("https://github.com/uyha/tree-sitter-cmake"))
+        (csharp     . ("https://github.com/tree-sitter/tree-sitter-c-sharp.git"))
+        (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile"))
+        (elisp . ("https://github.com/Wilfred/tree-sitter-elisp"))
+        (elixir "https://github.com/elixir-lang/tree-sitter-elixir" "main" "src" nil nil)
+        (go . ("https://github.com/tree-sitter/tree-sitter-go"))
+        (gomod      . ("https://github.com/camdencheek/tree-sitter-go-mod.git"))
+        (haskell "https://github.com/tree-sitter/tree-sitter-haskell" "master" "src" nil nil)
+        (html . ("https://github.com/tree-sitter/tree-sitter-html"))
+        (java       . ("https://github.com/tree-sitter/tree-sitter-java.git"))
+        (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
+        (json . ("https://github.com/tree-sitter/tree-sitter-json"))
+        (lua . ("https://github.com/Azganoth/tree-sitter-lua"))
+        (make . ("https://github.com/alemuller/tree-sitter-make"))
+        (markdown . ("https://github.com/MDeiml/tree-sitter-markdown" nil "tree-sitter-markdown/src"))
+        (ocaml . ("https://github.com/tree-sitter/tree-sitter-ocaml" nil "ocaml/src"))
+        (org . ("https://github.com/milisims/tree-sitter-org"))
+        (python . ("https://github.com/tree-sitter/tree-sitter-python"))
+        (php . ("https://github.com/tree-sitter/tree-sitter-php"))
+        (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "typescript/src"))
+        (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" nil "tsx/src"))
+        (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
+        (rust . ("https://github.com/tree-sitter/tree-sitter-rust"))
+        (sql . ("https://github.com/m-novikov/tree-sitter-sql"))
+        (scala "https://github.com/tree-sitter/tree-sitter-scala" "master" "src" nil nil)
+        (toml "https://github.com/tree-sitter/tree-sitter-toml" "master" "src" nil nil)
+        (vue . ("https://github.com/merico-dev/tree-sitter-vue"))
+        (kotlin . ("https://github.com/fwcd/tree-sitter-kotlin"))
+        (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
+        (zig . ("https://github.com/GrayJack/tree-sitter-zig"))))
+Emacs会先在 treesit-extra-load-path 目录查找语言解析器，然后在 ~/.emacs.d/tree-sitter/ 目录查找语言解析器。
+使用预编译的语言解析器
+tree-sitter-langs 包提供了预编译的语言解析器，在release页面下载对应操作系统的语言解析器，将包内的库文件解压到 ~/.emacs.d/tree-sitter/ 目录下。
+需要将所有的 &lt;LANGUAGE&gt;.so 重命名为 libtree-sitter-&lt;LANGUAGE&gt;.so ，批量重命名的快捷命令如下：
+for f in * ; do mv -- "$f" "libtree-sitter-$f" ; done
+检查语言解析器是否可用
+Eval: (treesit-language-available-p 'python)
+t
+Eval: (treesit-language-available-p 'klingon)
+nil
+使用tree-sitter
+首先判断当前版本Emacs是否内置treesit支持。
+(and (fboundp 'treesit-available-p)
+     (treesit-available-p))
+Emacs内置了一些语言解析器，通过 &lt;LANGUAGE&gt;-ts-mode 可以打开tree-sitter支持。
+(setq major-mode-remap-alist
+      '((c-mode . c-ts-mode)
+        (c++-mode . c++-ts-mode)
+        (conf-toml-mode . toml-ts-mode)
+        (csharp-mode . csharp-ts-mode)
+        (css-mode . css-ts-mode)
+        (go-mode . go-ts-mode)
+        (go-mod-mode . go-mod-ts-mode)
+        (java-mode . java-ts-mode)
+        (javascript-mode . js-ts-mode)
+        (js-mode . js-ts-mode)
+        (js-json-mode . json-ts-mode)
+        (ruby-mode . ruby-ts-mode)
+        (sh-mode . bash-ts-mode)
+        (python-mode . python-ts-mode)))
+(add-to-list 'auto-mode-alist '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode))
+还有其它很多语言没有内置支持，可以使用 treesit-parser-create 来手动开启。
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+                                  (when (treesit-language-available-p 'elisp)
+                                    (treesit-parser-create 'elisp))))</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:42 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/emacs-treesit.html</guid></item><item><title>Emacs根据时间切换主题</title><link>https://xuchengpeng.github.io/posts/2024/01/emacs-switch-theme-with-time.html</link><description>Emacs根据时间切换主题
+每小时运行一次，早上6点和晚上18点自动切换主题。
+(setq day-theme 'modus-operandi)
+(setq dark-theme 'modus-vivendi)
+(defun switch-theme ()
+    (setq hour
+          (string-to-number
+            (substring (current-time-string) 11 13)))
+    (if (member hour (number-sequence 6 18))
+        (setq now day-theme)
+      (setq now dark-theme))
+    (load-theme now)
+)
+(run-with-timer 0 3600 'switch-theme)
+自动切换主题的包：circadian.el</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:42 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/emacs-switch-theme-with-time.html</guid></item><item><title>Elisp: List Processing</title><link>https://xuchengpeng.github.io/posts/2024/01/elisp-list-processing.html</link><description>Elisp: List Processing
+Lisp程序由表达式组成，表达式可以是列表或单个原子。
+列表由零个或多个原子、或内层列表组成，用空格分隔，括号包围。一个列表可以是空的。
+原子是多字符符号比如 forward-paragraph ，单字符符号比如 + ，双引号之间的字符串，或者数字。
+一个数字进行评估，得到的是其本身。
+一个双引号之间的字符串进行评估，得到的是其本身。
+当评估一个符号自身时，返回它的值。
+当评估一个列表时，Lisp解释器先查找列表中的第一个符号，然后查看绑定到该符号的函数定义。然后执行函数中定义的指令。
+一个单引号 ' 告诉Lisp解释器返回表达式本身，而不是像单引号不存在时评估它。
+参数是传递给函数的信息。函数的参数是通过评估该函数作为第一个元素的列表的其余元素来计算的。
+一个函数进行评估时总会返回一个值（除非出现错误）；此外，它可能执行一些有副作用的操作。在许多情况下，函数的主要目的就是产生副作用。</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:42 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/elisp-list-processing.html</guid></item><item><title>Elisp: Lexical and Dynamic Binding</title><link>https://xuchengpeng.github.io/posts/2024/01/elisp-lexical-and-dynamic-binding.html</link><description>Elisp: Lexical and Dynamic Binding
+在Lexical Binding下使用let绑定本地变量时，这些变量仅在let被包围的body中有效。在其他的代码中，它们有其他的含义，所以如果你在body中调用其他的函数，这些let绑定的本地变量对这些函数不可见。
+;;; -*- lexical-binding: t -*-
+(setq x 0)
+(defun getx ()
+  x)
+(setq x 1)
+(let ((x 2))
+  (getx))   ;; ==&gt; 1
+在Dynamic Binding下使用let绑定本地变量时，这些变量在let表达式的整个执行周期内都有效。所以如果你在body中调用其他的函数，这些let绑定的本地变量对这些函数是可见的。
+;;; -*- lexical-binding: nil -*-
+(setq x 0)
+(defun getx ()
+  x)
+(setq x 1)
+(let ((x 2))
+  (getx))   ;; ==&gt; 2</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:42 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/elisp-lexical-and-dynamic-binding.html</guid></item><item><title>Eglot: clangd配置</title><link>https://xuchengpeng.github.io/posts/2024/01/eglot-clangd-configuration.html</link><description>Eglot: clangd配置
+Eglot是Emacs内置的LSP客户端。Eglot内置已支持大量的LSP服务端1。
+以C++语言为例，Eglot支持clangd和ccls两种服务端模式。
+以我常用的clangd来说，Eglot默认启动clangd不附带任何参数，对于clangd来说，最重要的参数莫过于 CompilationDatabase ，即 compile_commands.json 文件所在的目录，默认情况下，clangd会查找源代码文件所在目录的所有父目录。
+当前C/C++工程代码很流行使用CMake替代之前的Makefile作为编译构建的工程文件，通常使用CMake命令对代码工程进行配置时，会将生成的中间文件统一在一个目录下管理（比如代码工程根目录下的cmake-build目录），而不是默认生成在代码工程根目录，这样造成一个问题就是clangd无法找到此目录下的 compile_commands.json 文件。
+解决这个问题的办法就需要在clangd启动时指定 compile_commands.json 所在的目录，方法有很多种。
+(with-eval-after-load 'eglot
+  (add-to-list 'eglot-server-programs
+               `((c-mode c-ts-mode c++-mode c++-ts-mode objc-mode)
+                 . ("clangd" "--compile-commands-dir=cmake-build"))))
+可以在emacs的配置中，修改默认LSP服务端的启动参数，但是每个工程所对应的目录可能不一样，这里无法做到统一。
+此时就可以使用 .dir-locals.el2 文件来对每个工程来配置。
+((nil . ((eglot-server-programs
+          . (((c-mode c-ts-mode c++-mode c++-ts-mode objc-mode)
+              . ("clangd"
+                 "--compile-commands-dir=cmake-build")))))))
+还有一种配置方法，就是clangd自身对应的配置文件，可以是clangd的全局配置文件 config.yaml ，也可以是每个工程对应的配置文件 .clangd 。一般我们会针对工程进行个性化配置。
+CompileFlags:
+  CompilationDatabase: "cmake-build"
+Footnotes: 
+1 
+内置支持的LSP服务端参见eglot-server-programs参数。
+2 
+Per-Directory Local Variables</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:41 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/eglot-clangd-configuration.html</guid></item><item><title>Disable Annoying Audio Notifications</title><link>https://xuchengpeng.github.io/posts/2024/01/disable-annoying-audio-notifications.html</link><description>Disable Annoying Audio Notifications
+January 30, 2024
+By default Emacs ring the bell to attract the user's attention, this is annoying.
+To get a visual signal instead, set visual-bell with t Emacs should flash the screen to represent a bell.
+We can also customize ring-bell-function to just flash the modeline.
+;;;###autoload
+(defun dotemacs-ring-bell-fn ()
+  "Blink the mode-line."
+  (let ((buf (current-buffer)))
+    (invert-face 'mode-line)
+    (run-with-timer 0.05 nil
+                    (lambda ()
+                      (with-current-buffer buf
+                        (invert-face 'mode-line))))))
+(setq ring-bell-function 'dotemacs-ring-bell-fn
+      visible-bell t)</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:41 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/disable-annoying-audio-notifications.html</guid></item><item><title>删除文件中的Windows换行符</title><link>https://xuchengpeng.github.io/posts/2024/01/delete-carrage-returns.html</link><description>删除文件中的Windows换行符
+在Windows中创建的文件如果使用了Windows换行符，那么在Linux中打开时每一行行末会显示 ^M 。
+可以使用replace命令1删除： M-x replace-string RET C-q C-m RET RET ，或者使用 query-replace 命令，会询问你是否进行替换。
+还可以封装一个函数，直接执行进行删除替换：
+(defun delete-carrage-returns ()
+  (interactive)
+  (save-excursion
+    (goto-char 0)
+    (while (search-forward "\r" nil :noerror)
+      (replace-match ""))))
+Footnotes: 
+1 
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Replace.html</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:41 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/delete-carrage-returns.html</guid></item><item><title>Converting Between Symbols and Strings</title><link>https://xuchengpeng.github.io/posts/2024/01/converting-between-symbols-and-strings.html</link><description>Converting Between Symbols and Strings
+January 30, 2024
+Sometimes you might need to convert a symbol to string in Emacs Lisp. You start looking for functions like symbol-to-string and string-to-symbol but, they do not exist.
+With Emacs Lisp, you can do it like this.
+(symbol-name 'some-symbol)
+; ==&gt; "some-symbol"
+(intern "some-symbol")
+; ==&gt; some-symbol</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:41 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/converting-between-symbols-and-strings.html</guid></item><item><title>Check if a Font is Available with Emacs Lisp</title><link>https://xuchengpeng.github.io/posts/2024/01/check-if-a-font-is-available-with-emacs-lisp.html</link><description>Check if a Font is Available with Emacs Lisp
+January 30, 2024
+In Emacs Lisp, find-font function return a font-entity matching with FONT-SPEC. So we can make a helper function.
+(defun font-available-p (font-name)
+  (find-font (font-spec :name font-name)))
+Before setting a font, we can check with this helper function.
+(when (font-available-p "Fira Code")
+  (set-face-attribute 'default nil :font (font-spec :family "Fira Code" :size 17)))</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:41 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/check-if-a-font-is-available-with-emacs-lisp.html</guid></item><item><title>Aspell: Personal Dictionaries</title><link>https://xuchengpeng.github.io/posts/2024/01/aspell-personal-dictionaries.html</link><description>Aspell: Personal Dictionaries
+Table of Contents
+Format of Personal Dictionary
+Format of Personal Replacement Dictionary
+GNU Aspell 是一个用来替换ispell的免费开源拼写检查器。
+Aspell除了可以安装官方提供的字典外，还可以自定义字典。
+Format of Personal Dictionary
+个人词典的文件名格式为 .aspell.&lt;lang&gt;.pws ，这个文件分为两部分。
+第一部分为文件头第一行： personal_ws-1.1 lang num [encoding] ，num为字典列表中单词的数目，encoding为可选项。
+第二部分为单词列表，一个单词占用一行。
+Format of Personal Replacement Dictionary
+个人替换词典的文件名格式为： .aspell.&lt;lang&gt;.prepl ，这个文件分为两部分。
+第一部分为文件头第一行： personal_repl-1.1 lang num [encoding] ，num当前未使用一直为0，encoding为可选项。
+第二部分为单词替换列表，一对替换组合占用一行，格式如： misspelled_word correction 。</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:41 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2024/01/aspell-personal-dictionaries.html</guid></item><item><title>为新建博客文章增加Org Capture模板</title><link>https://xuchengpeng.github.io/posts/2023/org-capture-template-for-new-blog-post.html</link><description>为新建博客文章增加Org Capture模板
+dotemacs-org-post-file 函数会在博客文件夹对应的年份目录下新建文章；
+(defun dotemacs-org-post-file ()
+  (let* ((filename (read-from-minibuffer "New post filename: "))
+         (post-dir (concat dotemacs-org-site-dir "/org/posts/" (format-time-string "%Y"))))
+    (unless (file-exists-p post-dir)
+      (make-directory post-dir t))
+    (find-file (expand-file-name filename post-dir))
+    (tempel-insert 'blog-title)))
+(setq org-capture-templates
+      `(("p" "Post" plain
+         (function dotemacs-org-post-file)
+         "" :jump-to-captured t :immediate-finish t)))
+此外，这里会调用 tempel 自动增加文章头部，org-mode中 blog-title 的定义如下：
+(blog-title "#+TITLE: " n "#+DATE: " (format-time-string "&lt;%Y-%m-%d %a %H:%M&gt;") n "#+STARTUP: hideblocks" n "#+OPTIONS: toc:nil" n)
+然后，就可以愉快的写作啦！</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:37:19 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2023/org-capture-template-for-new-blog-post.html</guid></item><item><title>Archives of 2023</title><link>https://xuchengpeng.github.io/posts/2023/index.html</link><description>Archives of 2023
+2023
+[12-29] Emacs本地变量
+[12-28] Emacs代码缩进
+[12-28] 为新建博客文章增加Org Capture模板</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:40 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2023/index.html</guid></item><item><title>Emacs本地变量</title><link>https://xuchengpeng.github.io/posts/2023/emacs-local-variables.html</link><description>Emacs本地变量
+Table of Contents
+Per-Directory Local Variables
+Specifying File Variables
+Safety of File Variables
+一般情况下，我们在 init.el 中设置一些变量可以全局生效，如果想针对不同的目录、不同的mode设置不同的变量，可以借助Emcas提供的Local Variables1机制。
+Per-Directory Local Variables
+为一个目录定义本地变量时，在目录下的 .dir-locals.el 中增加配置，该目录以及子目录的所有文件打开时配置会生效，未打开和之前已打开的不会生效。
+除了 .dir-locals.el 外，还可以额外定义 .dir-locals-2.el ，一般 .dir-locals.el 在仓库中作为共享配置， .dir-locals-2.el 可以进行个性化配置。
+示例：
+((nil . ((indent-tabs-mode . t)
+         (fill-column . 80)
+         (mode . auto-fill)))
+ (c-mode . ((c-file-style . "BSD")
+            (subdirs . nil)))
+ ("src/imported"
+  . ((nil . ((change-log-default-name
+              . "ChangeLog.local"))))))
+Specifying File Variables
+为某个文件设置本地变量时，一般有两种形式。
+第一种形式，在文件第一行的注释中增加本地变量，像下面这样：
+;; -*- mode: Lisp; fill-column: 75; comment-column: 50; -*-
+另一种形式，在文件末尾的注释中增加，像下面这样：
+/* Local Variables:  */
+/* mode: xx          */
+/* comment-column: 0 */
+/* End:              */
+还有一些特殊的本地变量，如 mode ， coding ， eval ， unibyte ，它们不是真的变量，将他们设置在其他上下文中没有特殊的含义。
+-*- mode: my-old; mode: my-new -*-
+Emacs将使用它能找到的最终 major mode 定义，所以在旧的Emacs版本中，它将忽略 my-new-mode ，而在定义 my-new-mode 的Emcas版本中，它将忽略 my-old-mode 。
+类似的，在文件末尾的定义形式如下：
+;; Local Variables:
+;; mode: my-old
+;; mode: my-new
+;; End:
+不要使用 mode 关键字定义 minor mode ，而应该使用 eval 运行lisp代码来启用或者关闭 minor mode 。
+;; Local Variables:
+;; eval: (eldoc-mode)
+;; eval: (font-lock-mode -1)
+;; End:
+可以使用命令 M-x normal-mode 来重置文件的本地变量和 major-mode 。
+Safety of File Variables2
+文件局部变量很危险，当你访问别人的文件时，你无法知道它的局部变量列表会对Emacs做什么。
+因此每当Emacs遇到未知安全的文件局部变量值时，它会显示文件的整个局部变量列表，在设置之前请求确认。
+Footnotes: 
+1 
+Local Variables: https://www.gnu.org/software/emacs/manual/html_node/emacs/Variables.html
+2 
+Safety of File Variables: https://www.gnu.org/software/emacs/manual/html_node/emacs/Safe-File-Variables.html</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:40 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2023/emacs-local-variables.html</guid></item><item><title>Emacs代码缩进</title><link>https://xuchengpeng.github.io/posts/2023/emacs-code-indent.html</link><description>Emacs代码缩进
+Emacs自带的 electric-indent-mode 或者第三方插件 aggressive-indent-mode 可以自动进行代码缩进。
+当需要手动调整缩进时，可以使用 indent-rigidly 命令：
+先选中需要调整缩进的代码;
+执行 M-x indent-rigidly ；
+此时使用 &lt;left&gt; 或 &lt;right&gt; 可每次左右缩进一个字符，使用 Shift+&lt;left&gt; 或 Shift+&lt;right&gt; 可每次左右缩进4个字符。</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:40 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2023/emacs-code-indent.html</guid></item><item><title>What is REST</title><link>https://xuchengpeng.github.io/posts/2019/what-is-rest.html</link><description>What is REST
+Table of Contents
+Guiding Principles of REST
+Resource
+Resource Methods
+REST and HTTP are not same !!
+REST is acronym for REpresentational State Transfer. It is architectural style for distributed hypermedia systems and was first presented by Roy Fielding in 2000 in his famous dissertation.
+Like any other architectural style, REST also does have it's own 6 guiding constraints which must be satisfied if an interface needs to be referred as RESTful. These principles are listed below.
+Guiding Principles of REST
+Client-server - By separating the user interface concerns from the data
+storage concerns, we improve the portability of the user interface across
+multiple platforms and improve scalability by simplifying the server
+components.
+Stateless - Each request from client to server must contain all of the
+information necessary to understand the request, and cannot take advantage of
+any stored context on the server. Session state is therefore kept entirely on
+the client.
+Cacheable - Cache constraints require that the data within a response to a
+request be implicitly or explicitly labeled as cacheable or non-cacheable. If
+a response is cacheable, then a client cache is given the right to reuse that
+response data for later, equivalent requests.
+Uniform interface - By applying the software engineering principle of
+generality to the component interface, the overall system architecture is
+simplified and the visibility of interactions is improved. In order to obtain
+a uniform interface, multiple architectural constraints are needed to guide
+the behavior of components. REST is defined by four interface constraints:
+identification of resources; manipulation of resources through
+representations; self-descriptive messages; and, hypermedia as the engine of
+application state.
+Layered system - The layered system style allows an architecture to be
+composed of hierarchical layers by constraining component behavior such that
+each component cannot "see" beyond the immediate layer with
+which they are interacting.
+Code on demmand (optional) - REST allows client functionality to be
+extended by downloading and executing code in the form of applets or scripts.
+This simplifies clients by reducing the number of features required to be
+pre-implemented.
+Resource
+The key abstraction of information in REST is a resource. Any information that can be named can be a resource: a document or image, a temporal service, a collection of other resources, a non-virtual object (e.g. a person), and so on. REST uses a resource identifier to identify the particular resource involved in an interaction between components.
+The state of resource at any particular timestamp is known as resource
+representation. A representation consists of data, metadata describing the data
+and hypermedia links which can help the clients in transition to next desired state.
+The data format of a representation is known as a media type. The media type
+identifies a specification that defines how a representation is to be processed.
+A truly RESTful API looks like hypertext. Every addressable unit of information
+carries an address, either explicitly (e.g., link and id attributes) or
+implicitly (e.g., derived from the media type definition and representation
+structure).
+According to Roy Fielding:
+Hypertext (or hypermedia) mean the simultaneous presentation of information
+and controls such that the information becomes the affordance through which the
+user (or automaton) obtains choices and selects actions. Remember that hypertext
+does not need to be HTML (or XML or JSON) on a browser. Machines can follow
+links when they understand the data format and relationship types.
+Further, resource representations shall be self-descriptive: the client does not
+need to know if a resource is employee or device. It should act on basis of
+media-type associated with resource. So in practice, you will end up creating
+lots of custom media-types - normally one media-type associated with one
+resource.
+Every media type defines a default processing model. For example, HTML defines a
+rendering process for hypertext and the browser behavior around each element. It
+has no relation to the resource methods GET/PUT/POST/DELETE/… other than the
+fact that some media type elements will define a process model that goes like
+"anchor elements with an href attribute create a hypertext link that, when
+selected, invokes a retrieval request (GET) on the URI corresponding to the
+CDATA-encoded href attribute."
+Resource Methods
+Other important thing associated with REST is resource methods to be used to
+perform the desired transition. A large number of people wrongly relate resource
+methods to HTTP GET/PUT/POST/DELETE methods.
+Roy Fielding has never mentioned any recommendation around which method to be
+used in which condition. All he emphasizes is that it should be uniform
+interface. If you decide HTTP POST will be used for updating a resource -
+rather than most people recommend HTTP PUT - it's alright and application
+interface will be RESTful.
+Ideally, everything that is needed to change the resource state shall be part of
+API response for that resource - including methods and in what state they will
+leave the representation.
+A REST API should be entered with no prior knowledge beyond the initial URI (bookmark) and set of standardized media types that are appropriate for the intended audience (i.e., expected to be understood by any client that might use the API). From that point on, all application state transitions must be driven by client selection of server-provided choices that are present in the received representations or implied by the user's manipulation of those representations. The transitions may be determined (or limited by) the client's knowledge of media types and resource communication mechanisms, both of which may be improved on-the-fly (e.g., code-on-demand).
+[Failure here implies that out-of-band information is driving interaction
+instead of hypertext.]
+Another thing which will help you while building RESTful APIs is that 
+query based API results should be represented by a list of links with summary information, 
+not by arrays of original resource representations because query is not a substitute for identification of resources.
+REST and HTTP are not same !!
+A lot of people prefer to compare HTTP with REST. REST and HTTP are not same.
+Though, because REST also intend to make web (internet) more streamline and
+standard, he advocate to use REST principles more strictly. And that's from
+where people try to start comparing REST with web (HTTP). Roy fielding, in his
+dissertation, nowhere mentioned any implementation directive - including any
+protocol preference and HTTP. Till the time, you are honoring the 6 guiding
+principles of REST, you can call your interface RESTful.
+In simplest words, in the REST architectural style, data and functionality are
+considered resources and are accessed using Uniform Resource Identifiers (URIs).
+The resources are acted upon by using a set of simple, well-defined operations.
+The clients and servers exchange representations of resources by using a
+standardized interface and protocol - typically HTTP.
+Resources are decoupled from their representation so that their content can be
+accessed in a variety of formats, such as HTML, XML, plain text, PDF, JPEG,
+JSON, and others. Metadata about the resource is available and used, for
+example, to control caching, detect transmission errors, negotiate the
+appropriate representation format, and perform authentication or access
+control.And most importantly, every interaction with a resource is stateless.
+All these principles help RESTful applications to be simple, lightweight, and
+fast.
+References:
+http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven
+https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:37:19 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2019/what-is-rest.html</guid></item><item><title>Publishing Org-mode files to HTML</title><link>https://xuchengpeng.github.io/posts/2019/org-publish-html.html</link><description>Publishing Org-mode files to HTML
+Table of Contents
+Basics
+Publishing the org project
+Emacs is the best editor in the world.
+Basics
+Create your blog files and css files.
+~/blog/org/
+   |- css/
+   |  `- worg.css
+   |- img/
+   |- index.org
+   `- remember.org
+Publishing the org project
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(;; Publish the posts
+        ("blog-notes"
+         :base-directory "~/blog/org"
+         :base-extension "org"
+         :publishing-directory "~/blog/public"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4
+         :section-numbers nil
+         :with-author nil
+         :with-creator nil
+         :with-email nil
+         :with-timestamps nil
+         :auto-preamble t
+         ; :auto-postamble nil
+         :html-head "&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg.css\"/&gt;"
+         :html-head-include-default-style nil
+         ; :html-head-include-scripts nil
+         ; :html-preamble nil
+         ; :html-postamble nil
+         :html-link-home "index.html"
+         :html-link-up "sitemap.html"
+         :html-metadata-timestamp-format "%Y-%m-%d %H:%M"
+         :htmlized-source t
+         :auto-sitemap t
+         :sitemap-filename "sitemap.org"
+         :sitemap-title "Sitemap"
+         :author "xuchengpeng"
+         :email "xucp@outlook.com"
+         )
+        ;; For static files that should remain untouched
+        ("blog-static"
+         :base-directory "~/blog/org"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|eot\\|svg\\|woff\\|woff2\\|ttf"
+         :publishing-directory "~/blog/public"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ;; Combine the two previous components in a single one
+        ("blog" :components ("blog-notes" "blog-static"))))
+Then run org-publish-project to generate html files to ~/blog/public folder.</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:37:19 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2019/org-publish-html.html</guid></item><item><title>Archives of 2019</title><link>https://xuchengpeng.github.io/posts/2019/index.html</link><description>Archives of 2019
+2019
+交叉编译ARM64内核
+What is REST
+GitHub: Announcing unlimited free private repos
+Publishing Org-mode files to HTML</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:40 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2019/index.html</guid></item><item><title>GitHub: Announcing unlimited free private repos</title><link>https://xuchengpeng.github.io/posts/2019/github-unlimited-free-private-repos.html</link><description>GitHub: Announcing unlimited free private repos
+GitHub is announcing unlimited free private repos and unified Enterprise offering.
+GitHub Free now includes unlimited private repositories. For the first time, developers can use GitHub for their private projects with up to three collaborators per repository for free. Many developers want to use private repos to apply for a job, work on a side project, or try something out in private before releasing it publicly. Starting today, those scenarios, and many more, are possible on GitHub at no cost. Public repositories are still free (of course—no changes there) and include unlimited collaborators.
+GitHub Enterprise is the new unified product for Enterprise Cloud (formerly GitHub Business Cloud) and Enterprise Server (formerly GitHub Enterprise). Organizations that want the flexibility to use GitHub in a cloud or self-hosted configuration can now access both at one per-seat price. And with GitHub Connect, these products can be securely linked, providing a hybrid option so developers can work seamlessly across both environments.
+Learn more</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:37:19 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2019/github-unlimited-free-private-repos.html</guid></item><item><title>交叉编译ARM64内核</title><link>https://xuchengpeng.github.io/posts/2019/cross-compile-arm64-kernel.html</link><description>交叉编译ARM64内核
+从 kernel.org 下载 Linux 内核，从 linaro 或者 arm 下载交叉编译工具链。
+解压内核源码和工具链：
+tar -Jxf linux-4.20.3.tar.xz
+tar -Jxf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
+拷贝默认配置：
+cd linux-4.20.3
+cp arch/arm64/configs/defconfig .config
+配置选项：
+make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- menuconfig
+编译内核：
+make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
+代码根目录下会生成 vmlinux ， arch/arm64/boot 目录下会生成 Image 和
+Image.gz 。</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:37:19 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/posts/2019/cross-compile-arm64-kernel.html</guid></item><item><title>Chuck</title><link>https://xuchengpeng.github.io/index.html</link><description>多少事，从来急；天地转，光阴迫。一万年太久，只争朝夕。
+Posts
+Emacs Proxy
+February 5, 2024
+Proxy servers are commonly used to provide gateways through firewalls or as caches serving some more-or-less local network. Each protocol (HTTP, FTP, etc.) can have a different gateway server. Proxying is conventionally configured commonly amongst different programs through environment variables of the form protocol-proxy, where protocol is one of the supported network protocols (http, ftp, etc.). The library recognized such variables in either upper or lower case.
+Emacs New Keymap Functions
+February 2, 2024
+Emacs 29 comes with new functions for defining and manipulating keystrokes.
+These all take the syntax defined by key-valid-p, which is basically the same syntax as the one accepted by the kbd macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
+True Emacs Transparency
+February 1, 2024
+Before Emacs 29, we can set the alpha frame parameter to adjust the opacity of the frame. The issue with alpha is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
+The solution came from a patch make by Håkon Flatval. The patch adds the alpha-background frame parameter which make only the background of a frame transparent.
+From Emacs 29, it supports true transparency. The alpha-background frame parameter set the background transparency of the frame. Unlike the alpha frame parameter, this only controls the transparency of the background while keeping foreground elements such as text fully opaque. It should be an integer between 0 and 100, where 0 means completely transparent and 100 means completely opaque (default).
+Emacs tokyonight-themes
+February 1, 2024
+A clean dark Visual Studio Code theme that celebrates the lights of Downtown Tokyo at night.
+Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now it has many other ports.
+Rawley make a tokyo-theme.el for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
+So I want to make it for myself, here it is. The theme templates were taken from modus-themes, and the color palettes were taken from tokyonight.nvim, these two themes are very popular and awesome with GNU Emacs or Neovim.
+This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
+Install a Package from a VCS Repository
+January 30, 2024
+Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers package-vc-install to install these codes easily.
+For example:
+(package-vc-install "https://github.com/clojure-emacs/clojure-ts-mode")
+The function offers a few more parameters that allow you to specify the name of the package and a particular revision (commit) you want to use:
+(package-vc-install PACKAGE &amp;optional REV BACKEND)
+Disable Annoying Audio Notifications
+January 30, 2024
+By default Emacs ring the bell to attract the user's attention, this is annoying.
+To get a visual signal instead, set visual-bell with t Emacs should flash the screen to represent a bell.
+We can also customize ring-bell-function to just flash the modeline.
+;;;###autoload
+(defun dotemacs-ring-bell-fn ()
+  "Blink the mode-line."
+  (let ((buf (current-buffer)))
+    (invert-face 'mode-line)
+    (run-with-timer 0.05 nil
+                    (lambda ()
+                      (with-current-buffer buf
+                        (invert-face 'mode-line))))))
+(setq ring-bell-function 'dotemacs-ring-bell-fn
+      visible-bell t)
+Check if a Font is Available with Emacs Lisp
+January 30, 2024
+In Emacs Lisp, find-font function return a font-entity matching with FONT-SPEC. So we can make a helper function.
+(defun font-available-p (font-name)
+  (find-font (font-spec :name font-name)))
+Before setting a font, we can check with this helper function.
+(when (font-available-p "Fira Code")
+  (set-face-attribute 'default nil :font (font-spec :family "Fira Code" :size 17)))
+Converting Between Symbols and Strings
+January 30, 2024
+Sometimes you might need to convert a symbol to string in Emacs Lisp. You start looking for functions like symbol-to-string and string-to-symbol but, they do not exist.
+With Emacs Lisp, you can do it like this.
+(symbol-name 'some-symbol)
+; ==&gt; "some-symbol"
+(intern "some-symbol")
+; ==&gt; some-symbol
+Resources
+Learning Emacs
+Emacs Manual
+Mastering Emacs
+Learning Emacs Lisp
+Introduction to Emacs Lisp
+Emacs Lisp Manual
+EmacsWiki
+Other Blogs
+Planet Emacslife
+Irreal
+Sacha Chua
+Xah Lee
+Emacs Redux
+Valar Morghulis. Valar Dohaeris.</description><author>xuchengpeng</author><pubDate>Wed, 07 Feb 2024 09:03:39 GMT</pubDate><guid isPermaLink="true">https://xuchengpeng.github.io/index.html</guid></item></channel></rss>
