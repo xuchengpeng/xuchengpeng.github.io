@@ -31,6 +31,26 @@
 <h2 id="posts">Posts</h2>
 <div class="outline-text-2" id="text-posts">
 </div>
+<div id="outline-container-generate-rss-for-blog" class="outline-3">
+<h3 id="generate-rss-for-blog"><a href="posts/2024/02/generate-rss-for-blog.html">Generate RSS For Blog</a></h3>
+<div class="outline-text-3" id="text-generate-rss-for-blog">
+<span class="post-meta">February 08, 2024</span>
+
+<p>
+I'm not sure how many people still use RSS, but I still want to have a RSS feed for my blog though I don't use RSS myself either.
+</p>
+
+<p>
+From what I known, many people recommend using <a href="https://github.com/benedicthw/ox-rss">ox-rss.el</a> to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of <a href="https://orgmode.org/worg/org-contrib/index.html">Org-mode Contributed Packages</a> right now.
+</p>
+
+<p>
+Luckily, Python has many modules which can generate and parse RSS feeds (<a href="https://github.com/lkiesow/python-feedgen">python-feedgen</a>, <a href="https://github.com/kurtmckee/feedparser">feedparser</a>, <a href="https://github.com/svpino/rfeed">rfeed</a>, etc.). I love Python, it is easy to use. So I decided to use python-feedgen to generate an RSS XML file from HTML files of my blog.
+</p>
+<hr><br>
+</div>
+</div>
+
 <div id="outline-container-emacs-proxy" class="outline-3">
 <h3 id="emacs-proxy"><a href="posts/2024/02/emacs-proxy.html">Emacs Proxy</a></h3>
 <div class="outline-text-3" id="text-emacs-proxy">

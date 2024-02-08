@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Generate RSS For Blog</title>
+<meta name="generator" content="Org Mode" />
+<link rel="shortcut icon" href="/images/rose-red.png" type="image/x-icon">
+       <link rel="stylesheet" type="text/css" href="/css/style.css">
+       <script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header-wrapper">
+               <div class="site-header">
+               <a class="site-title" href="/">Chuck</a>
+               <div class="site-nav">
+                 <a class="nav-link" href="/posts/index.html">Posts</a>
+                 <a class="nav-link" href="/search.html">Search</a>
+                 <a class="nav-link" href="/about.html">About</a>
+               </div>
+               </div>
+               </div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Generate RSS For Blog</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#getting-posts-list">Getting Posts List</a></li>
+<li><a href="#parsing-html">Parsing HTML</a></li>
+<li><a href="#generating-rss-xml">Generating RSS XML</a></li>
+</ul>
+</div>
+</nav>
+<span class="post-meta">February 08, 2024</span>
+
+<p>
+I'm not sure how many people still use RSS, but I still want to have a RSS feed for my blog though I don't use RSS myself either.
+</p>
+
+<p>
+From what I known, many people recommend using <a href="https://github.com/benedicthw/ox-rss">ox-rss.el</a> to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of <a href="https://orgmode.org/worg/org-contrib/index.html">Org-mode Contributed Packages</a> right now.
+</p>
+
+<p>
+Luckily, Python has many modules which can generate and parse RSS feeds (<a href="https://github.com/lkiesow/python-feedgen">python-feedgen</a>, <a href="https://github.com/kurtmckee/feedparser">feedparser</a>, <a href="https://github.com/svpino/rfeed">rfeed</a>, etc.). I love Python, it is easy to use. So I decided to use python-feedgen to generate an RSS XML file from HTML files of my blog.
+</p>
+
+<div id="outline-container-getting-posts-list" class="outline-2">
+<h2 id="getting-posts-list">Getting Posts List</h2>
+<div class="outline-text-2" id="text-getting-posts-list">
+<p>
+I published all of blog files into a <code>public</code> directory, firstly I need to filter all necessary HTML files.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #531ab6;">import</span> os
+<span style="color: #531ab6;">import</span> fnmatch
+
+<span style="color: #005e8b;">htmls</span> = [<span style="color: #3548cf;">"public/index.html"</span>]
+<span style="color: #531ab6;">for</span> root, dirs, files <span style="color: #531ab6;">in</span> os.walk(os.getcwd() + <span style="color: #3548cf;">"/public/posts"</span>):
+    <span style="color: #005e8b;">relpath</span> = os.path.relpath(root)
+    <span style="color: #531ab6;">for</span> filename <span style="color: #531ab6;">in</span> fnmatch.<span style="color: #8f0075;">filter</span>(files, <span style="color: #3548cf;">"*.html"</span>):
+        <span style="color: #005e8b;">filename</span> = os.path.join(relpath, filename)
+        <span style="color: #005e8b;">filename</span> = filename.replace(<span style="color: #3548cf;">"</span><span style="color: #0000b0;">\\</span><span style="color: #3548cf;">"</span>, <span style="color: #3548cf;">"/"</span>)
+        htmls.append(filename)
+htmls.sort(reverse=<span style="color: #0000b0;">True</span>)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-parsing-html" class="outline-2">
+<h2 id="parsing-html">Parsing HTML</h2>
+<div class="outline-text-2" id="text-parsing-html">
+<p>
+<a href="https://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a> is a powerful library that make it easy to scrape information from HTML files. I need to scrape <code>title</code> and page <code>content</code> from HTML files, and remove all blank lines in <code>content</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #531ab6;">from</span> bs4 <span style="color: #531ab6;">import</span> BeautifulSoup
+
+<span style="color: #005e8b;">soup</span> = BeautifulSoup(htmlfile, <span style="color: #3548cf;">"html.parser"</span>)
+<span style="color: #005e8b;">title</span> = soup.title.string
+<span style="color: #005e8b;">description</span> = soup.html.find(<span style="color: #3548cf;">"div"</span>, class_=<span style="color: #3548cf;">"content"</span>).text
+<span style="color: #595959;"># </span><span style="color: #595959;">delete blank lines</span>
+<span style="color: #005e8b;">description</span> = <span style="color: #3548cf;">"</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">"</span>.join([line <span style="color: #531ab6;">for</span> line <span style="color: #531ab6;">in</span> description.split(<span style="color: #3548cf;">"</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">"</span>) <span style="color: #531ab6;">if</span> line.strip()])
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-generating-rss-xml" class="outline-2">
+<h2 id="generating-rss-xml">Generating RSS XML</h2>
+<div class="outline-text-2" id="text-generating-rss-xml">
+<p>
+It is easy to <a href="https://github.com/lkiesow/python-feedgen#create-a-feed">create a feed</a> and <a href="https://github.com/lkiesow/python-feedgen#generate-the-feed">generate a feed</a> by following the <a href="https://lkiesow.github.io/python-feedgen/">documentation</a>. The most important elements are <code>title</code>, <code>link</code> and <code>description</code>. 
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/">Home</a></div>
+               <div class="top-btn"><a href="#top">Top</a></div>
+               <div class="footer-wrapper">
+               <div class="site-footer">
+                &copy xuchengpeng. <a href="/feed.xml">RSS Feed</a>
+               </div>
+               </div>
+</div>
+</body>
+</html>
