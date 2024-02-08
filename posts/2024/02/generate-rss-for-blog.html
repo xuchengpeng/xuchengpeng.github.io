@@ -42,7 +42,7 @@ I'm not sure how many people still use RSS, but I still want to have a RSS feed 
 </p>
 
 <p>
-From what I known, many people recommend using <a href="https://github.com/benedicthw/ox-rss">ox-rss.el</a> to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of <a href="https://orgmode.org/worg/org-contrib/index.html">Org-mode Contributed Packages</a> right now.
+From what I known, many people recommend using <a href="https://github.com/benedicthw/ox-rss">ox-rss.el</a> to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of <a href="https://orgmode.org/worg/org-contrib/index.html">org-contrib</a> right now.
 </p>
 
 <p>
@@ -85,7 +85,7 @@ htmls.sort(reverse=<span style="color: #0000b0;">True</span>)
 
 <span style="color: #005e8b;">soup</span> = BeautifulSoup(htmlfile, <span style="color: #3548cf;">"html.parser"</span>)
 <span style="color: #005e8b;">title</span> = soup.title.string
-<span style="color: #005e8b;">description</span> = soup.html.find(<span style="color: #3548cf;">"div"</span>, class_=<span style="color: #3548cf;">"content"</span>).text
+<span style="color: #005e8b;">description</span> = soup.find(<span style="color: #3548cf;">"div"</span>, class_=<span style="color: #3548cf;">"content"</span>).text
 <span style="color: #595959;"># </span><span style="color: #595959;">delete blank lines</span>
 <span style="color: #005e8b;">description</span> = <span style="color: #3548cf;">"</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">"</span>.join([line <span style="color: #531ab6;">for</span> line <span style="color: #531ab6;">in</span> description.split(<span style="color: #3548cf;">"</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">"</span>) <span style="color: #531ab6;">if</span> line.strip()])
 </pre>

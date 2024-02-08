@@ -41,7 +41,7 @@ I'm not sure how many people still use RSS, but I still want to have a RSS feed 
 </p>
 
 <p>
-From what I known, many people recommend using <a href="https://github.com/benedicthw/ox-rss">ox-rss.el</a> to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of <a href="https://orgmode.org/worg/org-contrib/index.html">Org-mode Contributed Packages</a> right now.
+From what I known, many people recommend using <a href="https://github.com/benedicthw/ox-rss">ox-rss.el</a> to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of <a href="https://orgmode.org/worg/org-contrib/index.html">org-contrib</a> right now.
 </p>
 
 <p>
@@ -125,124 +125,6 @@ So I want to make it for myself, <a href="https://github.com/xuchengpeng/.emacs.
 <p>
 This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
 </p>
-<hr><br>
-</div>
-</div>
-
-<div id="outline-container-install-a-package-from-a-vcs-repository" class="outline-3">
-<h3 id="install-a-package-from-a-vcs-repository"><a href="posts/2024/01/install-a-package-from-a-vcs-repository.html">Install a Package from a VCS Repository</a></h3>
-<div class="outline-text-3" id="text-install-a-package-from-a-vcs-repository">
-<span class="post-meta">January 30, 2024</span>
-
-<p>
-Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers <code>package-vc-install</code> to install these codes easily.
-</p>
-
-<p>
-For example:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-elisp">(package-vc-install <span style="color: #3548cf;">"https://github.com/clojure-emacs/clojure-ts-mode"</span>)
-</pre>
-</div>
-
-<p>
-The function offers a few more parameters that allow you to specify the name of the package and a particular revision (commit) you want to use:
-</p>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp">(package-vc-install PACKAGE <span style="color: #005f5f;">&amp;optional</span> REV BACKEND)
-</pre>
-</div>
-<hr><br>
-</div>
-</div>
-
-<div id="outline-container-disable-annoying-audio-notifications" class="outline-3">
-<h3 id="disable-annoying-audio-notifications"><a href="posts/2024/01/disable-annoying-audio-notifications.html">Disable Annoying Audio Notifications</a></h3>
-<div class="outline-text-3" id="text-disable-annoying-audio-notifications">
-<span class="post-meta">January 30, 2024</span>
-
-<p>
-By default Emacs ring the bell to attract the user's attention, this is annoying.
-</p>
-
-<p>
-To get a visual signal instead, set <code>visual-bell</code> with <code>t</code> Emacs should flash the screen to represent a bell.
-</p>
-
-<p>
-We can also customize <code>ring-bell-function</code> to just flash the modeline.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-elisp"><span style="color: #595959;">;;;</span><span style="color: #595959;">###</span><span style="color: #884900;">autoload</span>
-(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">dotemacs-ring-bell-fn</span> ()
-  <span style="color: #2a5045;">"Blink the mode-line."</span>
-  (<span style="color: #531ab6;">let</span> ((buf (current-buffer)))
-    (invert-face 'mode-line)
-    (run-with-timer 0.05 nil
-                    (<span style="color: #531ab6;">lambda</span> ()
-                      (<span style="color: #531ab6;">with-current-buffer</span> buf
-                        (invert-face 'mode-line))))))
-
-(<span style="color: #531ab6;">setq</span> ring-bell-function 'dotemacs-ring-bell-fn
-      visible-bell t)
-</pre>
-</div>
-<hr><br>
-</div>
-</div>
-
-<div id="outline-container-check-if-a-font-is-available-with-emacs-lisp" class="outline-3">
-<h3 id="check-if-a-font-is-available-with-emacs-lisp"><a href="posts/2024/01/check-if-a-font-is-available-with-emacs-lisp.html">Check if a Font is Available with Emacs Lisp</a></h3>
-<div class="outline-text-3" id="text-check-if-a-font-is-available-with-emacs-lisp">
-<span class="post-meta">January 30, 2024</span>
-
-<p>
-In Emacs Lisp, <code>find-font</code> function return a font-entity matching with FONT-SPEC. So we can make a helper function.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">font-available-p</span> (font-name)
-  (find-font (font-spec <span style="color: #8f0075;">:name</span> font-name)))
-</pre>
-</div>
-
-<p>
-Before setting a font, we can check with this helper function.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="color: #531ab6;">when</span> (font-available-p <span style="color: #3548cf;">"Fira Code"</span>)
-  (set-face-attribute 'default nil <span style="color: #8f0075;">:font</span> (font-spec <span style="color: #8f0075;">:family</span> <span style="color: #3548cf;">"Fira Code"</span> <span style="color: #8f0075;">:size</span> 17)))
-</pre>
-</div>
-<hr><br>
-</div>
-</div>
-
-<div id="outline-container-converting-between-symbols-and-strings" class="outline-3">
-<h3 id="converting-between-symbols-and-strings"><a href="posts/2024/01/converting-between-symbols-and-strings.html">Converting Between Symbols and Strings</a></h3>
-<div class="outline-text-3" id="text-converting-between-symbols-and-strings">
-<span class="post-meta">January 30, 2024</span>
-
-<p>
-Sometimes you might need to convert a symbol to string in Emacs Lisp. You start looking for functions like <code>symbol-to-string</code> and <code>string-to-symbol</code> but, they do not exist.
-</p>
-
-<p>
-With Emacs Lisp, you can do it like this.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-elisp">(symbol-name 'some-symbol)
-<span style="color: #595959;">; </span><span style="color: #595959;">==&gt; "some-symbol"</span>
-(intern <span style="color: #3548cf;">"some-symbol"</span>)
-<span style="color: #595959;">; </span><span style="color: #595959;">==&gt; some-symbol</span>
-</pre>
-</div>
 <hr><br>
 </div>
 </div>
