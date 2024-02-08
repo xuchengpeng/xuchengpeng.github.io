@@ -511,7 +511,7 @@ td:last-child {
   margin: 0;
   padding-left: 10px;
   border: 1px solid #555;
-  border-radius: 5px;
+  border-radius: 4px;
   box-sizing: border-box;
   color: #111
 }
@@ -525,11 +525,11 @@ td:last-child {
   display: none;
   width: 80%;
   max-height: 60vh;
-  margin: 10px 0;
+  margin-top: 15px;
   overflow: auto;
   text-align: left;
   border: 1px solid #555;
-  border-radius: 5px;
+  border-radius: 2px;
   background: #fafafa
 }
 
