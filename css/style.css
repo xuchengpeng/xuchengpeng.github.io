@@ -253,6 +253,7 @@ td:last-child {
   transition: .3s all ease-in-out;
   overflow: hidden;
   opacity: 0;
+  z-index: 9999;
 }
 
 #table-of-contents:hover {
