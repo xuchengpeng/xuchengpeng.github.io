@@ -476,12 +476,14 @@ td:last-child {
 
 /* Copy Code button */
 .org-src-container button {
+  display: none;
   position: absolute;
   top: 2px;
   right: 2px;
 }
 
-.org-src-container button:hover {
+.org-src-container:hover button {
+  display: block;
   cursor: pointer;
 }
 

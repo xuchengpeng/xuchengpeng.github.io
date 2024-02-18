@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.github.io/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.github.io/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 08 Feb 2024 14:39:44 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.github.io/posts/index.html</link><description>Posts
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.github.io/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.github.io/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 18 Feb 2024 09:13:12 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.github.io/posts/index.html</link><description>Posts
 Table of Contents
 2024
 Archives
@@ -27,7 +27,7 @@ Archives
 Archives
 Archives of 2023
 Archives of 2019
-My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/index.html</guid><pubDate>Thu, 08 Feb 2024 12:32:13 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.github.io/posts/2024/02/true-emacs-transparency.html</link><description>True Emacs Transparency
+My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/index.html</guid><pubDate>Sat, 17 Feb 2024 16:22:42 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.github.io/posts/2024/02/true-emacs-transparency.html</link><description>True Emacs Transparency
 February 1, 2024
 Before Emacs 29, we can set the alpha frame parameter to adjust the opacity of the frame. The issue with alpha is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
 The solution came from a patch make by Håkon Flatval. The patch adds the alpha-background frame parameter which make only the background of a frame transparent.
@@ -647,11 +647,10 @@ dotemacs-org-post-file 函数会在博客文件夹对应的年份目录下新建
          "" :jump-to-captured t :immediate-finish t)))
 此外，这里会调用 tempel 自动增加文章头部，org-mode中 blog-title 的定义如下：
 (blog-title "#+TITLE: " n "#+DATE: " (format-time-string "&lt;%Y-%m-%d %a %H:%M&gt;") n "#+STARTUP: hideblocks" n "#+OPTIONS: toc:nil" n)
-然后，就可以愉快的写作啦！</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2023/org-capture-template-for-new-blog-post.html</guid><pubDate>Thu, 08 Feb 2024 14:31:08 +0800</pubDate></item><item><title>Archives of 2023</title><link>https://xuchengpeng.github.io/posts/2023/index.html</link><description>Archives of 2023
-2023
+然后，就可以愉快的写作啦！</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2023/org-capture-template-for-new-blog-post.html</guid><pubDate>Sun, 18 Feb 2024 09:10:25 +0800</pubDate></item><item><title>Archives of 2023</title><link>https://xuchengpeng.github.io/posts/2023/index.html</link><description>Archives of 2023
 [12-29] Emacs本地变量
 [12-28] Emacs代码缩进
-[12-28] 为新建博客文章增加Org Capture模板</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2023/index.html</guid><pubDate>Thu, 08 Feb 2024 11:08:51 +0800</pubDate></item><item><title>Emacs本地变量</title><link>https://xuchengpeng.github.io/posts/2023/emacs-local-variables.html</link><description>Emacs本地变量
+[12-28] 为新建博客文章增加Org Capture模板</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2023/index.html</guid><pubDate>Sat, 17 Feb 2024 16:19:18 +0800</pubDate></item><item><title>Emacs本地变量</title><link>https://xuchengpeng.github.io/posts/2023/emacs-local-variables.html</link><description>Emacs本地变量
 Table of Contents
 Per-Directory Local Variables
 Specifying File Variables
@@ -811,7 +810,7 @@ All these principles help RESTful applications to be simple, lightweight, and
 fast.
 References:
 http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven
-https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/what-is-rest.html</guid><pubDate>Thu, 08 Feb 2024 14:31:08 +0800</pubDate></item><item><title>Publishing Org-mode files to HTML</title><link>https://xuchengpeng.github.io/posts/2019/org-publish-html.html</link><description>Publishing Org-mode files to HTML
+https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/what-is-rest.html</guid><pubDate>Sun, 18 Feb 2024 09:10:24 +0800</pubDate></item><item><title>Publishing Org-mode files to HTML</title><link>https://xuchengpeng.github.io/posts/2019/org-publish-html.html</link><description>Publishing Org-mode files to HTML
 Table of Contents
 Basics
 Publishing the org project
@@ -867,16 +866,15 @@ Publishing the org project
          )
         ;; Combine the two previous components in a single one
         ("blog" :components ("blog-notes" "blog-static"))))
-Then run org-publish-project to generate html files to ~/blog/public folder.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/org-publish-html.html</guid><pubDate>Thu, 08 Feb 2024 14:31:08 +0800</pubDate></item><item><title>Archives of 2019</title><link>https://xuchengpeng.github.io/posts/2019/index.html</link><description>Archives of 2019
-2019
+Then run org-publish-project to generate html files to ~/blog/public folder.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/org-publish-html.html</guid><pubDate>Sun, 18 Feb 2024 09:10:24 +0800</pubDate></item><item><title>Archives of 2019</title><link>https://xuchengpeng.github.io/posts/2019/index.html</link><description>Archives of 2019
 交叉编译ARM64内核
 What is REST
 GitHub: Announcing unlimited free private repos
-Publishing Org-mode files to HTML</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/index.html</guid><pubDate>Thu, 08 Feb 2024 11:08:50 +0800</pubDate></item><item><title>GitHub: Announcing unlimited free private repos</title><link>https://xuchengpeng.github.io/posts/2019/github-unlimited-free-private-repos.html</link><description>GitHub: Announcing unlimited free private repos
+Publishing Org-mode files to HTML</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/index.html</guid><pubDate>Sat, 17 Feb 2024 16:19:18 +0800</pubDate></item><item><title>GitHub: Announcing unlimited free private repos</title><link>https://xuchengpeng.github.io/posts/2019/github-unlimited-free-private-repos.html</link><description>GitHub: Announcing unlimited free private repos
 GitHub is announcing unlimited free private repos and unified Enterprise offering.
 GitHub Free now includes unlimited private repositories. For the first time, developers can use GitHub for their private projects with up to three collaborators per repository for free. Many developers want to use private repos to apply for a job, work on a side project, or try something out in private before releasing it publicly. Starting today, those scenarios, and many more, are possible on GitHub at no cost. Public repositories are still free (of course—no changes there) and include unlimited collaborators.
 GitHub Enterprise is the new unified product for Enterprise Cloud (formerly GitHub Business Cloud) and Enterprise Server (formerly GitHub Enterprise). Organizations that want the flexibility to use GitHub in a cloud or self-hosted configuration can now access both at one per-seat price. And with GitHub Connect, these products can be securely linked, providing a hybrid option so developers can work seamlessly across both environments.
-Learn more</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/github-unlimited-free-private-repos.html</guid><pubDate>Thu, 08 Feb 2024 14:31:07 +0800</pubDate></item><item><title>交叉编译ARM64内核</title><link>https://xuchengpeng.github.io/posts/2019/cross-compile-arm64-kernel.html</link><description>交叉编译ARM64内核
+Learn more</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/github-unlimited-free-private-repos.html</guid><pubDate>Sun, 18 Feb 2024 09:10:24 +0800</pubDate></item><item><title>交叉编译ARM64内核</title><link>https://xuchengpeng.github.io/posts/2019/cross-compile-arm64-kernel.html</link><description>交叉编译ARM64内核
 从 kernel.org 下载 Linux 内核，从 linaro 或者 arm 下载交叉编译工具链。
 解压内核源码和工具链：
 tar -Jxf linux-4.20.3.tar.xz
@@ -889,7 +887,7 @@ make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linu
 编译内核：
 make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
 代码根目录下会生成 vmlinux ， arch/arm64/boot 目录下会生成 Image 和
-Image.gz 。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/cross-compile-arm64-kernel.html</guid><pubDate>Thu, 08 Feb 2024 14:31:07 +0800</pubDate></item><item><title>Chuck</title><link>https://xuchengpeng.github.io/index.html</link><description>多少事，从来急；天地转，光阴迫。一万年太久，只争朝夕。
+Image.gz 。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/posts/2019/cross-compile-arm64-kernel.html</guid><pubDate>Sun, 18 Feb 2024 09:10:24 +0800</pubDate></item><item><title>Chuck</title><link>https://xuchengpeng.github.io/index.html</link><description>多少事，从来急；天地转，光阴迫。一万年太久，只争朝夕。
 Posts
 Generate RSS For Blog
 February 08, 2024
@@ -929,4 +927,4 @@ Irreal
 Sacha Chua
 Xah Lee
 Emacs Redux
-Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/index.html</guid><pubDate>Thu, 08 Feb 2024 14:31:07 +0800</pubDate></item></channel></rss>
+Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.github.io/index.html</guid><pubDate>Sun, 18 Feb 2024 09:10:24 +0800</pubDate></item></channel></rss>
