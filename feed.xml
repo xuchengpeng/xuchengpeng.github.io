@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sun, 18 Feb 2024 14:45:50 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 19 Feb 2024 10:24:39 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
 Table of Contents
 2024
 Archives
@@ -887,7 +887,7 @@ make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linu
 编译内核：
 make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
 代码根目录下会生成 vmlinux ， arch/arm64/boot 目录下会生成 Image 和
-Image.gz 。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2019/cross-compile-arm64-kernel.html</guid><pubDate>Sun, 18 Feb 2024 14:37:25 +0800</pubDate></item><item><title>Chuck</title><link>https://xuchengpeng.cn/index.html</link><description>多少事，从来急；天地转，光阴迫。一万年太久，只争朝夕。
+Image.gz 。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2019/cross-compile-arm64-kernel.html</guid><pubDate>Sun, 18 Feb 2024 14:37:25 +0800</pubDate></item><item><title>Chuck</title><link>https://xuchengpeng.cn/index.html</link><description>如有一味绝境，非历十方生死。
 Posts
 Generate RSS For Blog
 February 08, 2024
@@ -927,4 +927,4 @@ Irreal
 Sacha Chua
 Xah Lee
 Emacs Redux
-Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Sun, 18 Feb 2024 14:37:25 +0800</pubDate></item></channel></rss>
+Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Mon, 19 Feb 2024 10:23:59 +0800</pubDate></item></channel></rss>
