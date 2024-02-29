@@ -11,6 +11,38 @@
        <link rel="manifest" href="/site.webmanifest">
        <link rel="stylesheet" type="text/css" href="/css/style.css">
        <script src="/js/copycode.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -34,6 +66,27 @@
 <h2 id="posts">Posts</h2>
 <div class="outline-text-2" id="text-posts">
 </div>
+<div id="outline-container-math-equation-with-org-mode" class="outline-3">
+<h3 id="math-equation-with-org-mode"><a href="posts/2024/02/math-equation-with-org-mode.html">Math Equation With Org Mode</a></h3>
+<div class="outline-text-3" id="text-math-equation-with-org-mode">
+<span class="post-meta">February 29, 2024</span>
+
+<p>
+<a href="https://www.latex-project.org">LaTeX</a> math snippets can be displayed on HTML pages which exported with org-mode. The default is to use the <a href="https://www.mathjax.org">MathJax</a>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-latex">If <span style="color: #3548cf;">$a^2=b$</span> and <span style="color: #531ab6;">\(</span> b=2 <span style="color: #531ab6;">\)</span>, then the solution must be either <span style="color: #3548cf;">$$ a=+\sqrt{2} $$</span> or <span style="color: #531ab6;">\[</span> a=-<span style="color: #531ab6;">\sqrt</span>{2} <span style="color: #531ab6;">\]</span>.
+</pre>
+</div>
+
+<p>
+If \(a^2=b\) and \( b=2 \), then the solution must be either \[ a=+\sqrt{2} \] or \[ a=-\sqrt{2} \].
+</p>
+<hr><br>
+</div>
+</div>
+
 <div id="outline-container-generate-rss-for-blog" class="outline-3">
 <h3 id="generate-rss-for-blog"><a href="posts/2024/02/generate-rss-for-blog.html">Generate RSS For Blog</a></h3>
 <div class="outline-text-3" id="text-generate-rss-for-blog">

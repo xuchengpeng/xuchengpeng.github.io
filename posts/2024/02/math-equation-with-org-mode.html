@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Math Equation With Org Mode</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+       <link rel="manifest" href="/site.webmanifest">
+       <link rel="stylesheet" type="text/css" href="/css/style.css">
+       <script src="/js/copycode.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header-wrapper">
+               <div class="site-header">
+               <a class="site-title" href="/">Chuck</a>
+               <div class="site-nav">
+                 <a class="nav-link" href="/posts/index.html">Posts</a>
+                 <a class="nav-link" href="/search.html">Search</a>
+                 <a class="nav-link" href="/about.html">About</a>
+               </div>
+               </div>
+               </div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Math Equation With Org Mode</h1>
+</header><span class="post-meta">February 29, 2024</span>
+
+<p>
+<a href="https://www.latex-project.org">LaTeX</a> math snippets can be displayed on HTML pages which exported with org-mode. The default is to use the <a href="https://www.mathjax.org">MathJax</a>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-latex">If <span style="color: #3548cf;">$a^2=b$</span> and <span style="color: #531ab6;">\(</span> b=2 <span style="color: #531ab6;">\)</span>, then the solution must be either <span style="color: #3548cf;">$$ a=+\sqrt{2} $$</span> or <span style="color: #531ab6;">\[</span> a=-<span style="color: #531ab6;">\sqrt</span>{2} <span style="color: #531ab6;">\]</span>.
+</pre>
+</div>
+
+<p>
+If \(a^2=b\) and \( b=2 \), then the solution must be either \[ a=+\sqrt{2} \] or \[ a=-\sqrt{2} \].
+</p>
+
+<p>
+Some Mathjax display options can be configured via <code>org-html-mathjax-options</code>, or in the buffer, with <code>#+HTML_MATHJAX</code> or <code>#+OPTIONS</code> settings.
+</p>
+
+<p>
+Here comes with some complex examples.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #531ab6;">\begin</span>{<span style="color: #721045;">equation</span>}
+  <span style="color: #531ab6;">\sqrt</span>{3x-1}+(1+x)^2
+<span style="color: #531ab6;">\end</span>{<span style="color: #721045;">equation</span>}
+</pre>
+</div>
+
+\begin{equation}
+  \sqrt{3x-1}+(1+x)^2
+\end{equation}
+
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #531ab6;">\begin</span>{<span style="color: #721045;">eqnarray</span>}
+  <span style="color: #531ab6;">\nabla</span> <span style="color: #531ab6;">\times</span> <span style="color: #531ab6;">\vec</span>{<span style="color: #531ab6;">\mathbf</span>{B}} -<span style="color: #531ab6;">\,</span> <span style="color: #531ab6;">\frac</span>1c<span style="color: #531ab6;">\,</span> <span style="color: #531ab6;">\frac</span>{<span style="color: #531ab6;">\partial\vec</span>{<span style="color: #531ab6;">\mathbf</span>{E}}}{<span style="color: #531ab6;">\partial</span> t} &amp; = <span style="color: #531ab6;">\frac</span>{4<span style="color: #531ab6;">\pi</span>}{c}<span style="color: #531ab6;">\vec</span>{<span style="color: #531ab6;">\mathbf</span>{j}} <span style="color: #884900;">\newline</span>
+  <span style="color: #531ab6;">\nabla</span> <span style="color: #531ab6;">\cdot</span> <span style="color: #531ab6;">\vec</span>{<span style="color: #531ab6;">\mathbf</span>{E}} &amp; = 4 <span style="color: #531ab6;">\pi</span> <span style="color: #531ab6;">\rho</span> <span style="color: #884900;">\newline</span>
+  <span style="color: #531ab6;">\nabla</span> <span style="color: #531ab6;">\times</span> <span style="color: #531ab6;">\vec</span>{<span style="color: #531ab6;">\mathbf</span>{E}}<span style="color: #531ab6;">\,</span> +<span style="color: #531ab6;">\,</span> <span style="color: #531ab6;">\frac</span>1c<span style="color: #531ab6;">\,</span> <span style="color: #531ab6;">\frac</span>{<span style="color: #531ab6;">\partial\vec</span>{<span style="color: #531ab6;">\mathbf</span>{B}}}{<span style="color: #531ab6;">\partial</span> t} &amp; = <span style="color: #531ab6;">\vec</span>{<span style="color: #531ab6;">\mathbf</span>{0}} <span style="color: #884900;">\newline</span>
+  <span style="color: #531ab6;">\nabla</span> <span style="color: #531ab6;">\cdot</span> <span style="color: #531ab6;">\vec</span>{<span style="color: #531ab6;">\mathbf</span>{B}} &amp; = 0
+<span style="color: #531ab6;">\end</span>{<span style="color: #721045;">eqnarray</span>}
+</pre>
+</div>
+
+\begin{eqnarray}
+  \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \newline
+  \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \newline
+  \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \newline
+  \nabla \cdot \vec{\mathbf{B}} & = 0
+\end{eqnarray}
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/">Home</a></div>
+               <div class="top-btn"><a href="#top">Top</a></div>
+               <div class="footer-wrapper">
+               <div class="site-footer">
+                &copy xuchengpeng. <a href="/feed.xml">RSS Feed</a>
+               </div>
+               </div>
+</div>
+</body>
+</html>
