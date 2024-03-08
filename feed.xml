@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 29 Feb 2024 13:40:13 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 08 Mar 2024 16:03:49 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
 Table of Contents
 2024
 Archives
 2024
+[03-08] Build Emacs From Source
 [02-29] Math Equation With Org Mode
 [02-08] Generate RSS For Blog
 [02-05] Emacs Proxy
@@ -28,7 +29,29 @@ Archives
 Archives
 Archives of 2023
 Archives of 2019
-My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/index.html</guid><pubDate>Thu, 29 Feb 2024 13:12:49 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.cn/posts/2024/02/true-emacs-transparency.html</link><description>True Emacs Transparency
+My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/index.html</guid><pubDate>Fri, 08 Mar 2024 16:02:48 +0800</pubDate></item><item><title>Build Emacs From Source</title><link>https://xuchengpeng.cn/posts/2024/03/build-emacs-from-source.html</link><description>Build Emacs From Source
+March 08, 2024
+Windows 11 features built-in support for running Linux GUI applications. Emacs 29 has became a real GTK application, gone with the blurry fonts problem.
+Firstly, install essential packages in WSL2 Ubuntu 22.04.
+apt-get update
+apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev autoconf
+And in Emacs 29, support for tree-sitter is built-in. Now build tree-sitter from source code.
+git clone https://github.com/tree-sitter/tree-sitter.git
+cd tree-sitter
+git checkout v0.21.0
+make
+make install
+Now tree-sitter library has been installed into /usr/local/lib.
+export LD_LIBRARY_PATH=/usr/local/lib/
+Now build emacs with pgtk and tree-sitter.
+git clone https://git.savannah.gnu.org/git/emacs.git -b emacs-29
+cd emacs
+./autogen.sh
+./configure --prefix=/usr/local/emacs --with-pgtk --with-tree-sitter --with-json
+make -j 8
+make install
+You may get some GTK warning on Emacs startup about the GNOME theme, fix this by installing adwaita-icon-theme-full.
+apt-get install adwaita-icon-theme-full</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/03/build-emacs-from-source.html</guid><pubDate>Fri, 08 Mar 2024 16:02:48 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.cn/posts/2024/02/true-emacs-transparency.html</link><description>True Emacs Transparency
 February 1, 2024
 Before Emacs 29, we can set the alpha frame parameter to adjust the opacity of the frame. The issue with alpha is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
 The solution came from a patch make by Håkon Flatval. The patch adds the alpha-background frame parameter which make only the background of a frame transparent.
@@ -914,6 +937,13 @@ make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linu
 代码根目录下会生成 vmlinux ， arch/arm64/boot 目录下会生成 Image 和
 Image.gz 。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2019/cross-compile-arm64-kernel.html</guid><pubDate>Sun, 18 Feb 2024 14:37:25 +0800</pubDate></item><item><title>Chuck</title><link>https://xuchengpeng.cn/index.html</link><description>如有一味绝境，非历十方生死。
 Posts
+Build Emacs From Source
+March 08, 2024
+Windows 11 features built-in support for running Linux GUI applications. Emacs 29 has became a real GTK application, gone with the blurry fonts problem.
+Firstly, install essential packages in WSL2 Ubuntu 22.04.
+apt-get update
+apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev autoconf
+&lt;hr&gt;&lt;br&gt;
 Math Equation With Org Mode
 February 29, 2024
 LaTeX math snippets can be displayed on HTML pages which exported with org-mode. The default is to use the MathJax.
@@ -957,4 +987,4 @@ Irreal
 Sacha Chua
 Xah Lee
 Emacs Redux
-Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Thu, 29 Feb 2024 13:39:25 +0800</pubDate></item></channel></rss>
+Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Fri, 08 Mar 2024 16:02:48 +0800</pubDate></item></channel></rss>
