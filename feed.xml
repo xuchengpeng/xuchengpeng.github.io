@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 08 Mar 2024 16:03:49 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 02 Apr 2024 12:17:43 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
 Table of Contents
 2024
 Archives
 2024
+[04-01] Build Emacs On Windows
 [03-08] Build Emacs From Source
 [02-29] Math Equation With Org Mode
 [02-08] Generate RSS For Blog
@@ -29,7 +30,101 @@ Archives
 Archives
 Archives of 2023
 Archives of 2019
-My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/index.html</guid><pubDate>Fri, 08 Mar 2024 16:02:48 +0800</pubDate></item><item><title>Build Emacs From Source</title><link>https://xuchengpeng.cn/posts/2024/03/build-emacs-from-source.html</link><description>Build Emacs From Source
+My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/index.html</guid><pubDate>Mon, 01 Apr 2024 19:00:06 +0800</pubDate></item><item><title>Build Emacs On Windows</title><link>https://xuchengpeng.cn/posts/2024/04/build-emacs-on-windows.html</link><description>Build Emacs On Windows
+April 01, 2024
+On Windows, we can build GNU Emacs with MSYS2 and MinGW-w64. 
+First, install some necessary packages. The packages include the base developer tools, the compiler toolchain, several image libraries, and XML library, the GnuTLS library, zlib for decompressing text, HarfBuzz for use as the shaping engine, libgccjit for native-compilation support, SQLite3 for accessing SQL databases, and the tree-sitter library used by some major modes. You can select only part of the libraries if you don't need them all.
+pacman --noconfirm -S --needed \
+    base-devel \
+    mingw-w64-x86_64-toolchain \
+    mingw-w64-x86_64-xpm-nox \
+    mingw-w64-x86_64-gmp \
+    mingw-w64-x86_64-gnutls \
+    mingw-w64-x86_64-libtiff \
+    mingw-w64-x86_64-giflib \
+    mingw-w64-x86_64-libpng \
+    mingw-w64-x86_64-libjpeg-turbo \
+    mingw-w64-x86_64-librsvg \
+    mingw-w64-x86_64-libwebp \
+    mingw-w64-x86_64-lcms2 \
+    mingw-w64-x86_64-jansson \
+    mingw-w64-x86_64-libxml2 \
+    mingw-w64-x86_64-zlib \
+    mingw-w64-x86_64-harfbuzz \
+    mingw-w64-x86_64-libgccjit \
+    mingw-w64-x86_64-sqlite3 \
+    mingw-w64-x86_64-tree-sitter
+Then, use git to clone the repository, we also need autotools to generate the configure script.
+pacman --noconfirm -S git autotools
+git config --global core.autocrlf false
+You now have a complete build environment for Emacs.
+mkdir /c/emacs
+cd /c/emacs
+git clone --depth=1 https://git.savannah.gnu.org/git/emacs.git emacs-master
+cd /c/emacs/emacs-master
+./autogen.sh
+./configure --prefix=/c/programs/emacs --without-dbus --without-native-compilation
+NPROC=$(nproc)
+make -j${NPROC}
+make install
+After building and installing, we need to copy necessary DLLs into Emacs's bin directory if we run Emacs outside the mingw64 shell.
+cp -v /mingw64/bin/libbrotlicommon.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libbrotlidec.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libbz*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libcairo-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libcairo-gobject-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libdatrie-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libdeflate.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libexpat-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libffi-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libfontconfig-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libfreetype-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libfribidi-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgcc_s_seh-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgdk_pixbuf-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgif-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgio-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libglib-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgmodule-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgmp-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgnutls-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgobject-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libgraphite*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libharfbuzz-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libhogweed-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libiconv-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libidn*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libintl-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libjansson-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libjbig-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libjpeg-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/liblcms*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libLerc.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/liblzma-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libnettle-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libp11-kit-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libpango-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libpangocairo-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libpangoft*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libpangowin32-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libpcre*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libpixman-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libpng*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/librsvg*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libsqlite*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libstdc++-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libtasn1-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libthai-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libtiff-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libtree-sitter.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libunistring-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libwebp-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libwebpdemux-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libwinpthread-*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libxml*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libXpm*.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/libzstd.dll /c/programs/emacs/bin
+cp -v /mingw64/bin/zlib*.dll /c/programs/emacs/bin</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/04/build-emacs-on-windows.html</guid><pubDate>Tue, 02 Apr 2024 12:17:04 +0800</pubDate></item><item><title>Build Emacs From Source</title><link>https://xuchengpeng.cn/posts/2024/03/build-emacs-from-source.html</link><description>Build Emacs From Source
 March 08, 2024
 Windows 11 features built-in support for running Linux GUI applications. Emacs 29 has became a real GTK application, gone with the blurry fonts problem.
 Firstly, install essential packages in WSL2 Ubuntu 22.04.
@@ -937,13 +1032,16 @@ make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linu
 代码根目录下会生成 vmlinux ， arch/arm64/boot 目录下会生成 Image 和
 Image.gz 。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2019/cross-compile-arm64-kernel.html</guid><pubDate>Sun, 18 Feb 2024 14:37:25 +0800</pubDate></item><item><title>Chuck</title><link>https://xuchengpeng.cn/index.html</link><description>如有一味绝境，非历十方生死。
 Posts
+Build Emacs On Windows
+April 01, 2024
+On Windows, we can build GNU Emacs with MSYS2 and MinGW-w64. 
+First, install some necessary packages. The packages include the base developer tools, the compiler toolchain, several image libraries, and XML library, the GnuTLS library, zlib for decompressing text, HarfBuzz for use as the shaping engine, libgccjit for native-compilation support, SQLite3 for accessing SQL databases, and the tree-sitter library used by some major modes. You can select only part of the libraries if you don't need them all.
 Build Emacs From Source
 March 08, 2024
 Windows 11 features built-in support for running Linux GUI applications. Emacs 29 has became a real GTK application, gone with the blurry fonts problem.
 Firstly, install essential packages in WSL2 Ubuntu 22.04.
 apt-get update
 apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev autoconf
-&lt;hr&gt;&lt;br&gt;
 Math Equation With Org Mode
 February 29, 2024
 LaTeX math snippets can be displayed on HTML pages which exported with org-mode. The default is to use the MathJax.
@@ -987,4 +1085,4 @@ Irreal
 Sacha Chua
 Xah Lee
 Emacs Redux
-Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Fri, 08 Mar 2024 16:02:48 +0800</pubDate></item></channel></rss>
+Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Tue, 02 Apr 2024 12:17:03 +0800</pubDate></item></channel></rss>
