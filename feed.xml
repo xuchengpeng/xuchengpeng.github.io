@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 02 Apr 2024 12:17:43 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 03 Apr 2024 11:03:07 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
 Table of Contents
 2024
 Archives
 2024
+[04-03] 苏轼《定风波》
 [04-01] Build Emacs On Windows
 [03-08] Build Emacs From Source
 [02-29] Math Equation With Org Mode
@@ -30,7 +31,10 @@ Archives
 Archives
 Archives of 2023
 Archives of 2019
-My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/index.html</guid><pubDate>Mon, 01 Apr 2024 19:00:06 +0800</pubDate></item><item><title>Build Emacs On Windows</title><link>https://xuchengpeng.cn/posts/2024/04/build-emacs-on-windows.html</link><description>Build Emacs On Windows
+My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/index.html</guid><pubDate>Wed, 03 Apr 2024 10:58:29 +0800</pubDate></item><item><title>苏轼《定风波》</title><link>https://xuchengpeng.cn/posts/2024/04/sushi-dingfengbo.html</link><description>苏轼《定风波》
+April 03, 2024
+莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。
+料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/04/sushi-dingfengbo.html</guid><pubDate>Wed, 03 Apr 2024 11:01:46 +0800</pubDate></item><item><title>Build Emacs On Windows</title><link>https://xuchengpeng.cn/posts/2024/04/build-emacs-on-windows.html</link><description>Build Emacs On Windows
 April 01, 2024
 On Windows, we can build GNU Emacs with MSYS2 and MinGW-w64. 
 First, install some necessary packages. The packages include the base developer tools, the compiler toolchain, several image libraries, and XML library, the GnuTLS library, zlib for decompressing text, HarfBuzz for use as the shaping engine, libgccjit for native-compilation support, SQLite3 for accessing SQL databases, and the tree-sitter library used by some major modes. You can select only part of the libraries if you don't need them all.
@@ -1032,6 +1036,10 @@ make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linu
 代码根目录下会生成 vmlinux ， arch/arm64/boot 目录下会生成 Image 和
 Image.gz 。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2019/cross-compile-arm64-kernel.html</guid><pubDate>Sun, 18 Feb 2024 14:37:25 +0800</pubDate></item><item><title>Chuck</title><link>https://xuchengpeng.cn/index.html</link><description>如有一味绝境，非历十方生死。
 Posts
+苏轼《定风波》
+April 03, 2024
+莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。
+料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。
 Build Emacs On Windows
 April 01, 2024
 On Windows, we can build GNU Emacs with MSYS2 and MinGW-w64. 
@@ -1052,18 +1060,6 @@ February 08, 2024
 I'm not sure how many people still use RSS, but I still want to have a RSS feed for my blog though I don't use RSS myself either.
 From what I known, many people recommend using ox-rss.el to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of org-contrib right now.
 Luckily, Python has many modules which can generate and parse RSS feeds (python-feedgen, feedparser, rfeed, etc.). I love Python, it is easy to use. So I decided to use python-feedgen to generate an RSS XML file from HTML files of my blog.
-Emacs Proxy
-February 5, 2024
-Proxy servers are commonly used to provide gateways through firewalls or as caches serving some more-or-less local network. Each protocol (HTTP, FTP, etc.) can have a different gateway server. Proxying is conventionally configured commonly amongst different programs through environment variables of the form protocol-proxy, where protocol is one of the supported network protocols (http, ftp, etc.). The library recognized such variables in either upper or lower case.
-Emacs New Keymap Functions
-February 2, 2024
-Emacs 29 comes with new functions for defining and manipulating keystrokes.
-These all take the syntax defined by key-valid-p, which is basically the same syntax as the one accepted by the kbd macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
-True Emacs Transparency
-February 1, 2024
-Before Emacs 29, we can set the alpha frame parameter to adjust the opacity of the frame. The issue with alpha is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
-The solution came from a patch make by Håkon Flatval. The patch adds the alpha-background frame parameter which make only the background of a frame transparent.
-From Emacs 29, it supports true transparency. The alpha-background frame parameter set the background transparency of the frame. Unlike the alpha frame parameter, this only controls the transparency of the background while keeping foreground elements such as text fully opaque. It should be an integer between 0 and 100, where 0 means completely transparent and 100 means completely opaque (default).
 Emacs tokyonight-themes
 February 1, 2024
 A clean dark Visual Studio Code theme that celebrates the lights of Downtown Tokyo at night.
@@ -1071,18 +1067,4 @@ Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now 
 Rawley make a tokyo-theme.el for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
 So I want to make it for myself, here it is. The theme templates were taken from modus-themes, and the color palettes were taken from tokyonight.nvim, these two themes are very popular and awesome with GNU Emacs or Neovim.
 This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
-Resources
-Learning Emacs
-Emacs Manual
-Mastering Emacs
-Learning Emacs Lisp
-Introduction to Emacs Lisp
-Emacs Lisp Manual
-EmacsWiki
-Other Blogs
-Planet Emacslife
-Irreal
-Sacha Chua
-Xah Lee
-Emacs Redux
-Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Tue, 02 Apr 2024 12:17:03 +0800</pubDate></item></channel></rss>
+Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Wed, 03 Apr 2024 11:02:41 +0800</pubDate></item></channel></rss>

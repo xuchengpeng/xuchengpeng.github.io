@@ -66,6 +66,22 @@
 <h2 id="posts">Posts</h2>
 <div class="outline-text-2" id="text-posts">
 </div>
+<div id="outline-container-sushi-dingfengbo" class="outline-3">
+<h3 id="sushi-dingfengbo"><a href="posts/2024/04/sushi-dingfengbo.html">苏轼《定风波》</a></h3>
+<div class="outline-text-3" id="text-sushi-dingfengbo">
+<span class="post-meta">April 03, 2024</span>
+
+<p>
+莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。
+</p>
+
+<p>
+料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。
+</p>
+<hr><br>
+</div>
+</div>
+
 <div id="outline-container-build-emacs-on-windows" class="outline-3">
 <h3 id="build-emacs-on-windows"><a href="posts/2024/04/build-emacs-on-windows.html">Build Emacs On Windows</a></h3>
 <div class="outline-text-3" id="text-build-emacs-on-windows">
@@ -145,54 +161,6 @@ Luckily, Python has many modules which can generate and parse RSS feeds (<a href
 </div>
 </div>
 
-<div id="outline-container-emacs-proxy" class="outline-3">
-<h3 id="emacs-proxy"><a href="posts/2024/02/emacs-proxy.html">Emacs Proxy</a></h3>
-<div class="outline-text-3" id="text-emacs-proxy">
-<span class="post-meta">February 5, 2024</span>
-
-<p>
-Proxy servers are commonly used to provide gateways through firewalls or as caches serving some more-or-less local network. Each protocol (HTTP, FTP, etc.) can have a different gateway server. Proxying is conventionally configured commonly amongst different programs through environment variables of the form <i>protocol-proxy</i>, where <i>protocol</i> is one of the supported network protocols (http, ftp, etc.). The library recognized such variables in either upper or lower case.
-</p>
-<hr><br>
-</div>
-</div>
-
-<div id="outline-container-emacs-new-keymap-functions" class="outline-3">
-<h3 id="emacs-new-keymap-functions"><a href="posts/2024/02/emacs-new-keymap-functions.html">Emacs New Keymap Functions</a></h3>
-<div class="outline-text-3" id="text-emacs-new-keymap-functions">
-<span class="post-meta">February 2, 2024</span>
-
-<p>
-Emacs 29 comes with new functions for defining and manipulating keystrokes.
-</p>
-
-<p>
-These all take the syntax defined by <code>key-valid-p</code>, which is basically the same syntax as the one accepted by the <code>kbd</code> macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
-</p>
-<hr><br>
-</div>
-</div>
-
-<div id="outline-container-true-emacs-transparency" class="outline-3">
-<h3 id="true-emacs-transparency"><a href="posts/2024/02/true-emacs-transparency.html">True Emacs Transparency</a></h3>
-<div class="outline-text-3" id="text-true-emacs-transparency">
-<span class="post-meta">February 1, 2024</span>
-
-<p>
-Before Emacs 29, we can set the <code>alpha</code> frame parameter to adjust the opacity of the frame. The issue with <code>alpha</code> is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
-</p>
-
-<p>
-The solution came from a <a href="https://lists.gnu.org/archive/html/emacs-devel/2022-01/msg01215.html">patch</a> make by Håkon Flatval. The patch adds the <code>alpha-background</code> frame parameter which make only the background of a frame transparent.
-</p>
-
-<p>
-From Emacs 29, it supports <a href="https://git.savannah.gnu.org/cgit/emacs.git/commit/?id=b944841173f12134e4c68d269d5b82b1820b2a40">true transparency</a>. The <code>alpha-background</code> frame parameter set the background transparency of the frame. Unlike the <code>alpha</code> frame parameter, this only controls the transparency of the background while keeping foreground elements such as text fully opaque. It should be an integer between 0 and 100, where 0 means completely transparent and 100 means completely opaque (default).
-</p>
-<hr><br>
-</div>
-</div>
-
 <div id="outline-container-emacs-tokyonight-themes" class="outline-3">
 <h3 id="emacs-tokyonight-themes"><a href="posts/2024/02/emacs-tokyonight-themes.html">Emacs tokyonight-themes</a></h3>
 <div class="outline-text-3" id="text-emacs-tokyonight-themes">
@@ -220,46 +188,6 @@ So I want to make it for myself, <a href="https://github.com/xuchengpeng/.emacs.
 This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
 </p>
 <hr><br>
-</div>
-</div>
-</div>
-
-<div id="outline-container-resources" class="outline-2">
-<h2 id="resources">Resources</h2>
-<div class="outline-text-2" id="text-resources">
-</div>
-
-<div id="outline-container-learning-emacs" class="outline-3">
-<h3 id="learning-emacs">Learning Emacs</h3>
-<div class="outline-text-3" id="text-learning-emacs">
-<ul class="org-ul">
-<li><a href="https://www.gnu.org/software/emacs/manual/">Emacs Manual</a></li>
-<li><a href="https://www.masteringemacs.org/">Mastering Emacs</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-learning-emacs-lisp" class="outline-3">
-<h3 id="learning-emacs-lisp">Learning Emacs Lisp</h3>
-<div class="outline-text-3" id="text-learning-emacs-lisp">
-<ul class="org-ul">
-<li><a href="https://www.gnu.org/software/emacs/manual/eintr.html">Introduction to Emacs Lisp</a></li>
-<li><a href="https://www.gnu.org/software/emacs/manual/elisp.html">Emacs Lisp Manual</a></li>
-<li><a href="https://www.emacswiki.org">EmacsWiki</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-other-blogs" class="outline-3">
-<h3 id="other-blogs">Other Blogs</h3>
-<div class="outline-text-3" id="text-other-blogs">
-<ul class="org-ul">
-<li><a href="https://planet.emacslife.com/">Planet Emacslife</a></li>
-<li><a href="https://irreal.org/blog/">Irreal</a></li>
-<li><a href="https://sachachua.com/blog/">Sacha Chua</a></li>
-<li><a href="http://xahlee.info/emacs/emacs/emacs.html">Xah Lee</a></li>
-<li><a href="https://emacsredux.com/">Emacs Redux</a></li>
-</ul>
 
 <p>
 Valar Morghulis. Valar Dohaeris.
