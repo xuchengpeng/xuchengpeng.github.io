@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Define Emacs Formatter</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+       <link rel="manifest" href="/site.webmanifest">
+       <link rel="stylesheet" type="text/css" href="/css/style.css">
+       <script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header-wrapper">
+               <div class="site-header">
+               <a class="site-title" href="/">Chuck</a>
+               <div class="site-nav">
+                 <a class="nav-link" href="/posts/index.html">Posts</a>
+                 <a class="nav-link" href="/search.html">Search</a>
+                 <a class="nav-link" href="/about.html">About</a>
+               </div>
+               </div>
+               </div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Define Emacs Formatter</h1>
+</header><span class="post-meta">April 09, 2024</span>
+
+<p>
+Steve Purcell has created a package <a href="https://github.com/purcell/emacs-reformatter">reformatter</a>, which can define commands to format the current Emacs buffer.
+</p>
+
+<p>
+The <code>reformatter-define</code> macro expands to code which generates <code>xxx-buffer</code> and <code>xxx-region</code> interactive commands, and a local minor mode called <code>xxx-on-save-mode</code>. The <code>:args</code> and <code>:program</code> expressions will be evaluated at runtime, so they can refer to variables that may have a buffer-local value. A custom variable will be generated for the mode lighter, with the supplied value becoming the default.
+</p>
+
+<p>
+For example, we can use <a href="https://github.com/mvdan/sh">shfmt</a> to format shell scripts.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">with-eval-after-load</span> 'sh-script
+  (<span style="color: #531ab6;">reformatter-define</span> shfmt
+    <span style="color: #8f0075;">:program</span> <span style="color: #3548cf;">"shfmt"</span>
+    <span style="color: #8f0075;">:args</span> `(<span style="color: #3548cf;">"-i"</span> ,(number-to-string sh-basic-offset))))
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/">Home</a></div>
+               <div class="top-btn"><a href="#top">Top</a></div>
+               <div class="footer-wrapper">
+               <div class="site-footer">
+                &copy xuchengpeng. <a href="/feed.xml">RSS Feed</a>
+               </div>
+               </div>
+</div>
+</body>
+</html>

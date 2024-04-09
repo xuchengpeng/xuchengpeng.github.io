@@ -1,9 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 03 Apr 2024 11:03:07 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 09 Apr 2024 17:15:29 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
 Table of Contents
 2024
 Archives
 2024
+[04-09] Define Emacs Formatter
 [04-03] 苏轼《定风波》
 [04-01] Build Emacs On Windows
 [03-08] Build Emacs From Source
@@ -31,10 +32,18 @@ Archives
 Archives
 Archives of 2023
 Archives of 2019
-My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/index.html</guid><pubDate>Wed, 03 Apr 2024 10:58:29 +0800</pubDate></item><item><title>苏轼《定风波》</title><link>https://xuchengpeng.cn/posts/2024/04/sushi-dingfengbo.html</link><description>苏轼《定风波》
+My old blogs(hugo-blog, hexo-blog) were written in Markdown, now they are archived.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/index.html</guid><pubDate>Tue, 09 Apr 2024 17:07:48 +0800</pubDate></item><item><title>苏轼《定风波》</title><link>https://xuchengpeng.cn/posts/2024/04/sushi-dingfengbo.html</link><description>苏轼《定风波》
 April 03, 2024
 莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。
-料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/04/sushi-dingfengbo.html</guid><pubDate>Wed, 03 Apr 2024 11:01:46 +0800</pubDate></item><item><title>Build Emacs On Windows</title><link>https://xuchengpeng.cn/posts/2024/04/build-emacs-on-windows.html</link><description>Build Emacs On Windows
+料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/04/sushi-dingfengbo.html</guid><pubDate>Wed, 03 Apr 2024 11:01:46 +0800</pubDate></item><item><title>Define Emacs Formatter</title><link>https://xuchengpeng.cn/posts/2024/04/define-emacs-formatter.html</link><description>Define Emacs Formatter
+April 09, 2024
+Steve Purcell has created a package reformatter, which can define commands to format the current Emacs buffer.
+The reformatter-define macro expands to code which generates xxx-buffer and xxx-region interactive commands, and a local minor mode called xxx-on-save-mode. The :args and :program expressions will be evaluated at runtime, so they can refer to variables that may have a buffer-local value. A custom variable will be generated for the mode lighter, with the supplied value becoming the default.
+For example, we can use shfmt to format shell scripts.
+(with-eval-after-load 'sh-script
+  (reformatter-define shfmt
+    :program "shfmt"
+    :args `("-i" ,(number-to-string sh-basic-offset))))</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/04/define-emacs-formatter.html</guid><pubDate>Tue, 09 Apr 2024 17:15:10 +0800</pubDate></item><item><title>Build Emacs On Windows</title><link>https://xuchengpeng.cn/posts/2024/04/build-emacs-on-windows.html</link><description>Build Emacs On Windows
 April 01, 2024
 On Windows, we can build GNU Emacs with MSYS2 and MinGW-w64. 
 First, install some necessary packages. The packages include the base developer tools, the compiler toolchain, several image libraries, and XML library, the GnuTLS library, zlib for decompressing text, HarfBuzz for use as the shaping engine, libgccjit for native-compilation support, SQLite3 for accessing SQL databases, and the tree-sitter library used by some major modes. You can select only part of the libraries if you don't need them all.
@@ -1036,6 +1045,10 @@ make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linu
 代码根目录下会生成 vmlinux ， arch/arm64/boot 目录下会生成 Image 和
 Image.gz 。</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2019/cross-compile-arm64-kernel.html</guid><pubDate>Sun, 18 Feb 2024 14:37:25 +0800</pubDate></item><item><title>Chuck</title><link>https://xuchengpeng.cn/index.html</link><description>如有一味绝境，非历十方生死。
 Posts
+Define Emacs Formatter
+April 09, 2024
+Steve Purcell has created a package reformatter, which can define commands to format the current Emacs buffer.
+The reformatter-define macro expands to code which generates xxx-buffer and xxx-region interactive commands, and a local minor mode called xxx-on-save-mode. The :args and :program expressions will be evaluated at runtime, so they can refer to variables that may have a buffer-local value. A custom variable will be generated for the mode lighter, with the supplied value becoming the default.
 苏轼《定风波》
 April 03, 2024
 莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。
@@ -1067,4 +1080,4 @@ Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now 
 Rawley make a tokyo-theme.el for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
 So I want to make it for myself, here it is. The theme templates were taken from modus-themes, and the color palettes were taken from tokyonight.nvim, these two themes are very popular and awesome with GNU Emacs or Neovim.
 This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
-Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Wed, 03 Apr 2024 11:02:41 +0800</pubDate></item></channel></rss>
+Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Tue, 09 Apr 2024 17:15:10 +0800</pubDate></item></channel></rss>
