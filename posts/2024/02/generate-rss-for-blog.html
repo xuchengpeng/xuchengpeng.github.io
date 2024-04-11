@@ -18,9 +18,9 @@
                <div class="site-header">
                <a class="site-title" href="/">Chuck</a>
                <div class="site-nav">
-                 <a class="nav-link" href="/posts/index.html">Posts</a>
-                 <a class="nav-link" href="/search.html">Search</a>
-                 <a class="nav-link" href="/about.html">About</a>
+                 <a class="nav-link" href="/posts/">Posts</a>
+                 <a class="nav-link" href="/search/">Search</a>
+                 <a class="nav-link" href="/about/">About</a>
                </div>
                </div>
                </div>
@@ -102,6 +102,20 @@ htmls.sort(reverse=<span style="color: #0000b0;">True</span>)
 <p>
 It is easy to <a href="https://github.com/lkiesow/python-feedgen#create-a-feed">create a feed</a> and <a href="https://github.com/lkiesow/python-feedgen#generate-the-feed">generate a feed</a> by following the <a href="https://lkiesow.github.io/python-feedgen/">documentation</a>. The most important elements are <code>title</code>, <code>link</code> and <code>description</code>. 
 </p>
+
+<p>
+This blog is published by org, here is a trick to generate rss automatically.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">with-eval-after-load</span> 'ox-publish
+  (<span style="color: #531ab6;">defun</span> <span style="color: #721045;">dotemacs-generate-rss</span> (project <span style="color: #005f5f;">&amp;optional</span> force async)
+    (<span style="color: #531ab6;">let</span> ((default-directory dotemacs-org-site-dir))
+      (dotemacs-call-process <span style="color: #3548cf;">"python"</span> <span style="color: #3548cf;">"rss.py"</span>))
+    (message <span style="color: #3548cf;">"dotemacs generate rss in %s"</span> dotemacs-org-site-dir))
+  (advice-add 'org-publish-project <span style="color: #8f0075;">:after</span> #'dotemacs-generate-rss))
+</pre>
+</div>
 
 <div class="giscus-comments">
   <br>
