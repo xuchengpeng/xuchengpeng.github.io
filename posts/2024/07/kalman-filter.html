@@ -68,6 +68,7 @@
 <li><a href="#what-can-we-do-with-a-kalman-filter">我们能用卡尔曼滤波做什么</a></li>
 <li><a href="#how-a-kalman-filter-sees-your-problem">卡尔曼滤波如何看待你的问题</a></li>
 <li><a href="#describing-the-problem-with-matrices">使用矩阵来描述问题</a></li>
+<li><a href="#external-influence">外部控制量</a></li>
 </ul>
 </div>
 </nav>
@@ -100,7 +101,7 @@
 </p>
 
 
-<figure id="org1231fee">
+<figure id="orgda91f7a">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -122,7 +123,7 @@
 </p>
 
 
-<figure id="org33ef4f5">
+<figure id="org8d17947">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -155,7 +156,7 @@ v
 </p>
 
 
-<figure id="orge845c24">
+<figure id="org4d4f7ac">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -165,7 +166,7 @@ v
 </p>
 
 
-<figure id="orgf3f1d9c">
+<figure id="orgadcef25">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
@@ -175,7 +176,7 @@ v
 </p>
 
 
-<figure id="orgdc07716">
+<figure id="orgc11cd65">
 <img src="../../../images/gauss_2.png" alt="gauss_2.png">
 
 </figure>
@@ -189,7 +190,7 @@ v
 </p>
 
 
-<figure id="org28b6903">
+<figure id="orgfd6609e">
 <img src="../../../images/gauss_3.png" alt="gauss_3.png">
 
 </figure>
@@ -221,7 +222,7 @@ v
 </p>
 
 
-<figure id="org7beb830">
+<figure id="org19da4e3">
 <img src="../../../images/gauss_4.jpg" alt="gauss_4.jpg">
 
 </figure>
@@ -231,7 +232,7 @@ v
 </p>
 
 
-<figure id="org2b44af7">
+<figure id="orge554f23">
 <img src="../../../images/gauss_5.jpg" alt="gauss_5.jpg">
 
 </figure>
@@ -241,8 +242,8 @@ v
 </p>
 
 \begin{split} 
-\color{deeppink}{p_k} &= \color{royalblue}{p_{k-1}} + \Delta t &\color{royalblue}{v_{k-1}} \\ 
-\color{deeppink}{v_k} &= &\color{royalblue}{v_{k-1}} 
+{\color{deeppink}{p_k}} &= {\color{royalblue}{p_{k-1}}} + \Delta t &{\color{royalblue}{v_{k-1}}} \\ 
+{\color{deeppink}{v_k}} &= &{\color{royalblue}{v_{k-1}}} 
 \end{split}
 
 <p>
@@ -250,11 +251,11 @@ v
 </p>
 
 \begin{align} 
-\color{deeppink}{\mathbf{\hat{x}}_k} &= \begin{bmatrix} 
+{\color{deeppink}{\mathbf{\hat{x}}_k}} &= \begin{bmatrix} 
 1 & \Delta t \\ 
 0 & 1 
-\end{bmatrix} \color{royalblue}{\mathbf{\hat{x}}_{k-1}} \\ 
-&= \mathbf{F}_k \color{royalblue}{\mathbf{\hat{x}}_{k-1}} \label{statevars} 
+\end{bmatrix} {\color{royalblue}{\mathbf{\hat{x}}_{k-1}}} \\ 
+&= \mathbf{F}_k {\color{royalblue}{\mathbf{\hat{x}}_{k-1}}} \label{statevars} 
 \end{align}
 
 <p>
@@ -268,7 +269,7 @@ v
 \begin{equation} 
 \begin{split} 
 Cov(x) &= \Sigma\\ 
-Cov(\color{firebrick}{\mathbf{A}}x) &= \color{firebrick}{\mathbf{A}} \Sigma \color{firebrick}{\mathbf{A}}^T 
+Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma {\color{firebrick}{\mathbf{A}}}^T 
 \end{split} \label{covident} 
 \end{equation}
 
@@ -278,10 +279,49 @@ Cov(\color{firebrick}{\mathbf{A}}x) &= \color{firebrick}{\mathbf{A}} \Sigma \col
 
 \begin{equation} 
 \begin{split} 
-\color{deeppink}{\mathbf{\hat{x}}_k} &= \mathbf{F}_k \color{royalblue}{\mathbf{\hat{x}}_{k-1}} \\ 
-\color{deeppink}{\mathbf{P}_k} &= \mathbf{F_k} \color{royalblue}{\mathbf{P}_{k-1}} \mathbf{F}_k^T 
+{\color{deeppink}{\mathbf{\hat{x}}_k}} &= \mathbf{F}_k {\color{royalblue}{\mathbf{\hat{x}}_{k-1}}} \\ 
+{\color{deeppink}{\mathbf{P}_k}} &= \mathbf{F_k} {\color{royalblue}{\mathbf{P}_{k-1}}} \mathbf{F}_k^T 
 \end{split} 
 \end{equation}
+</div>
+</div>
+<div id="outline-container-external-influence" class="outline-2">
+<h2 id="external-influence">外部控制量</h2>
+<div class="outline-text-2" id="text-external-influence">
+<p>
+我们并没有捕捉到一切信息，可能存在外部因素会对系统进行控制，带来一些与系统自身状态没有相关性的改变。
+</p>
+
+<p>
+以火车的运动状态模型为例，火车司机可能会操纵油门，让火车加速。相同地，在我们机器人这个例子中，导航软件可能会发出一个指令让轮子转向或者停止。如果知道这些额外的信息，我们可以用一个向量 \(\color{darkorange}{\vec{\mathbf{u}_k}}\) 来表示，将它加到我们的预测方程中做修正。
+</p>
+
+<p>
+假设由于油门的设置或控制命令，我们知道了期望的加速度 \(\color{darkorange}{a}\) ，根据基本的运动学方程可以得到：
+</p>
+
+\begin{split} 
+{\color{deeppink}{p_k}} &= {\color{royalblue}{p_{k-1}}} + {\Delta t} &{\color{royalblue}{v_{k-1}}} + &\frac{1}{2} {\color{darkorange}{a}} {\Delta t}^2 \\ 
+{\color{deeppink}{v_k}} &= &{\color{royalblue}{v_{k-1}}} + & {\color{darkorange}{a}} {\Delta t} 
+\end{split}
+
+<p>
+用矩阵的形式表示：
+</p>
+
+\begin{equation} 
+\begin{split} 
+{\color{deeppink}{\mathbf{\hat{x}}_k}} &= \mathbf{F}_k {\color{royalblue}{\mathbf{\hat{x}}_{k-1}}} + \begin{bmatrix} 
+\frac{\Delta t^2}{2} \\ 
+\Delta t 
+\end{bmatrix} {\color{darkorange}{a}} \\ 
+&= \mathbf{F}_k {\color{royalblue}{\mathbf{\hat{x}}_{k-1}}} + \mathbf{B}_k {\color{darkorange}{\vec{\mathbf{u}_k}} }
+\end{split} 
+\end{equation}
+
+<p>
+\(\mathbf{B}_k\) 称为控制矩阵， \(\color{darkorange}{\vec{\mathbf{u}_k}}\) 称为控制向量（对于没有外部控制的简单系统来说，这部分可以忽略）。让我们再思考一下，如果我们的预测并不是100%准确的，该怎么办呢？
+</p>
 
 <p>
 未完待续&#x2026;
