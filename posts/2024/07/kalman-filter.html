@@ -99,7 +99,7 @@
 </p>
 
 
-<figure id="org33c9073">
+<figure id="org8921b3f">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -121,7 +121,7 @@
 </p>
 
 
-<figure id="org5122d0a">
+<figure id="org5453f6b">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -154,7 +154,7 @@ v
 </p>
 
 
-<figure id="orgeb813c9">
+<figure id="orgc2e5814">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -164,10 +164,24 @@ v
 </p>
 
 
-<figure id="org083021d">
+<figure id="org397f9d4">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
+
+<p>
+在上图中，位置和速度是不相关的，这意味着由其中一个变量的状态无法推测出另一个变量可能的值。下面的例子更有趣：位置和速度是相关的，观测特定位置的可能性取决于当前的速度：
+</p>
+
+
+<figure id="org35331e3">
+<img src="../../../images/gauss_2.png" alt="gauss_2.png">
+
+</figure>
+
+<p>
+这种情况是有可能发生的，例如，我们基于旧的位置来估计新位置。如果速度过高，我们可能已经移动很远了。如果缓慢移动，则距离不会很远。跟踪这种关系是非常重要的，因为它带给我们更多的信息：其中一个测量值告诉了我们其它变量可能的值，这就是卡尔曼滤波的目的，尽可能地在包含不确定性的测量数据中提取更多信息！
+</p>
 
 <p>
 未完待续&#x2026;
