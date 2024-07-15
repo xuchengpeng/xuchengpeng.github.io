@@ -67,6 +67,7 @@
 <li><a href="#what-is-it">什么是卡尔曼滤波</a></li>
 <li><a href="#what-can-we-do-with-a-kalman-filter">我们能用卡尔曼滤波做什么</a></li>
 <li><a href="#how-a-kalman-filter-sees-your-problem">卡尔曼滤波如何看待你的问题</a></li>
+<li><a href="#describing-the-problem-with-matrices">使用矩阵来描述问题</a></li>
 </ul>
 </div>
 </nav>
@@ -99,7 +100,7 @@
 </p>
 
 
-<figure id="orgf2fe631">
+<figure id="org1231fee">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -121,7 +122,7 @@
 </p>
 
 
-<figure id="orgf0411c1">
+<figure id="org33ef4f5">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -154,7 +155,7 @@ v
 </p>
 
 
-<figure id="org4051d39">
+<figure id="orge845c24">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -164,7 +165,7 @@ v
 </p>
 
 
-<figure id="org9c49f58">
+<figure id="orgf3f1d9c">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
@@ -174,7 +175,7 @@ v
 </p>
 
 
-<figure id="org77720af">
+<figure id="orgdc07716">
 <img src="../../../images/gauss_2.png" alt="gauss_2.png">
 
 </figure>
@@ -188,10 +189,99 @@ v
 </p>
 
 
-<figure id="org9411add">
+<figure id="org28b6903">
 <img src="../../../images/gauss_3.png" alt="gauss_3.png">
 
 </figure>
+</div>
+</div>
+<div id="outline-container-describing-the-problem-with-matrices" class="outline-2">
+<h2 id="describing-the-problem-with-matrices">使用矩阵来描述问题</h2>
+<div class="outline-text-2" id="text-describing-the-problem-with-matrices">
+<p>
+我们基于高斯分布来建立状态变量，所以在时刻 \(k\) 需要两个信息：最佳估计 \(\mathbf{\hat{x}_k}\)（即均值，其它地方常用 \(\mu\) 表示），以及协方差矩阵 \(\mathbf{P_k}\)。
+</p>
+
+\begin{equation} \label{eq:statevars} 
+\begin{aligned} 
+\mathbf{\hat{x}}_k &= \begin{bmatrix} 
+\text{position}\\ 
+\text{velocity} 
+\end{bmatrix}\\ 
+\mathbf{P}_k &= 
+\begin{bmatrix} 
+\Sigma_{pp} & \Sigma_{pv} \\ 
+\Sigma_{vp} & \Sigma_{vv} \\ 
+\end{bmatrix} 
+\end{aligned} 
+\end{equation}
+
+<p>
+（当然，在这里我们只用到了位置和速度，实际上这个状态可以包含多个变量，代表任何你想表示的信息）。接下来，我们需要根据当前状态（k-1 时刻）来预测下一状态（k 时刻）。记住，我们并不知道对下一状态的所有预测中哪个是“真实”的，但我们的预测函数并不在乎。它对所有的可能性进行预测，并给出新的高斯分布。
+</p>
+
+
+<figure id="org7beb830">
+<img src="../../../images/gauss_4.jpg" alt="gauss_4.jpg">
+
+</figure>
+
+<p>
+我们可以用矩阵 \(\mathbf{F_k}\) 来表示这个预测过程：
+</p>
+
+
+<figure id="org2b44af7">
+<img src="../../../images/gauss_5.jpg" alt="gauss_5.jpg">
+
+</figure>
+
+<p>
+它将我们原始估计中的每个点都移动到了一个新的预测位置，如果原始估计是正确的话，这个新的预测位置就是系统下一步会移动到的位置。那我们又如何用矩阵来预测下一个时刻的位置和速度呢？下面用一个基本的运动学公式来表示：
+</p>
+
+\begin{split} 
+\color{deeppink}{p_k} &= \color{royalblue}{p_{k-1}} + \Delta t &\color{royalblue}{v_{k-1}} \\ 
+\color{deeppink}{v_k} &= &\color{royalblue}{v_{k-1}} 
+\end{split}
+
+<p>
+换句话说：
+</p>
+
+\begin{align} 
+\color{deeppink}{\mathbf{\hat{x}}_k} &= \begin{bmatrix} 
+1 & \Delta t \\ 
+0 & 1 
+\end{bmatrix} \color{royalblue}{\mathbf{\hat{x}}_{k-1}} \\ 
+&= \mathbf{F}_k \color{royalblue}{\mathbf{\hat{x}}_{k-1}} \label{statevars} 
+\end{align}
+
+<p>
+现在，我们有了一个预测矩阵来表示下一时刻的状态，但是，我们仍然不知道怎么更新协方差矩阵。此时，我们需要引入另一个公式，如果我们将分布中的每个点都乘以矩阵 \(\color{firebrick}{\mathbf{A}}\)，那么它的协方差矩阵 \(\Sigma\) 会怎样变化呢？
+</p>
+
+<p>
+很简单，下面给出公式：
+</p>
+
+\begin{equation} 
+\begin{split} 
+Cov(x) &= \Sigma\\ 
+Cov(\color{firebrick}{\mathbf{A}}x) &= \color{firebrick}{\mathbf{A}} \Sigma \color{firebrick}{\mathbf{A}}^T 
+\end{split} \label{covident} 
+\end{equation}
+
+<p>
+结合方程（4）和（3）得到：
+</p>
+
+\begin{equation} 
+\begin{split} 
+\color{deeppink}{\mathbf{\hat{x}}_k} &= \mathbf{F}_k \color{royalblue}{\mathbf{\hat{x}}_{k-1}} \\ 
+\color{deeppink}{\mathbf{P}_k} &= \mathbf{F_k} \color{royalblue}{\mathbf{P}_{k-1}} \mathbf{F}_k^T 
+\end{split} 
+\end{equation}
 
 <p>
 未完待续&#x2026;
