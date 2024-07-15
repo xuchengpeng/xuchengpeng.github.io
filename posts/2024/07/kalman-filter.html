@@ -66,6 +66,7 @@
 <ul>
 <li><a href="#what-is-it">什么是卡尔曼滤波</a></li>
 <li><a href="#what-can-we-do-with-a-kalman-filter">我们能用卡尔曼滤波做什么</a></li>
+<li><a href="#how-a-kalman-filter-sees-your-problem">卡尔曼滤波如何看待你的问题</a></li>
 </ul>
 </div>
 </nav>
@@ -98,7 +99,7 @@
 </p>
 
 
-<figure id="org1288f04">
+<figure id="org95181b7">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -120,7 +121,7 @@
 </p>
 
 
-<figure id="org0a4fa3d">
+<figure id="org09ffd22">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -132,6 +133,31 @@
 <p>
 GPS 传感器告诉了我们一些状态信息，我们的预测告诉了我们机器人会怎样运动，但都只是间接的，并且伴随着一些不确定和不准确性。但是，如果使用所有对我们可用的信息，我们能得到一个比任何依据自身估计更好的结果吗？回答当然是YES，这就是卡尔曼滤波的用处。
 </p>
+</div>
+</div>
+<div id="outline-container-how-a-kalman-filter-sees-your-problem" class="outline-2">
+<h2 id="how-a-kalman-filter-sees-your-problem">卡尔曼滤波如何看待你的问题</h2>
+<div class="outline-text-2" id="text-how-a-kalman-filter-sees-your-problem">
+<p>
+下面我们继续以只有位置和速度这两个状态的简单例子做解释。
+</p>
+
+<p>
+\[ \vec{x} = \begin{bmatrix} 
+p\\ 
+v 
+\end{bmatrix} \]
+</p>
+
+<p>
+我们并不知道实际的位置和速度，它们之间有很多种可能正确的组合，但其中一些的可能性要大于其它部分：
+</p>
+
+
+<figure id="org04aeb6c">
+<img src="../../../images/gauss_0.png" alt="gauss_0.png">
+
+</figure>
 
 <p>
 未完待续&#x2026;
