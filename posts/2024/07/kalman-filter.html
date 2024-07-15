@@ -99,7 +99,7 @@
 </p>
 
 
-<figure id="org8921b3f">
+<figure id="orgf2fe631">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -121,7 +121,7 @@
 </p>
 
 
-<figure id="org5453f6b">
+<figure id="orgf0411c1">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -154,7 +154,7 @@ v
 </p>
 
 
-<figure id="orgc2e5814">
+<figure id="org4051d39">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -164,7 +164,7 @@ v
 </p>
 
 
-<figure id="org397f9d4">
+<figure id="org9c49f58">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
@@ -174,7 +174,7 @@ v
 </p>
 
 
-<figure id="org35331e3">
+<figure id="org77720af">
 <img src="../../../images/gauss_2.png" alt="gauss_2.png">
 
 </figure>
@@ -182,6 +182,16 @@ v
 <p>
 这种情况是有可能发生的，例如，我们基于旧的位置来估计新位置。如果速度过高，我们可能已经移动很远了。如果缓慢移动，则距离不会很远。跟踪这种关系是非常重要的，因为它带给我们更多的信息：其中一个测量值告诉了我们其它变量可能的值，这就是卡尔曼滤波的目的，尽可能地在包含不确定性的测量数据中提取更多信息！
 </p>
+
+<p>
+这种相关性用协方差矩阵来表示，简而言之，矩阵中的每个元素 \(\Sigma_{ij}\) 表示第 i 个和第 j 个状态变量之间的相关度。（你可能已经猜到协方差矩阵是一个对称矩阵，这意味着可以任意交换 i 和 j）。协方差矩阵通常用“\(\mathbf{\Sigma}\)”来表示，其中的元素则表示为“\(\Sigma_{ij}\)”。
+</p>
+
+
+<figure id="org9411add">
+<img src="../../../images/gauss_3.png" alt="gauss_3.png">
+
+</figure>
 
 <p>
 未完待续&#x2026;
