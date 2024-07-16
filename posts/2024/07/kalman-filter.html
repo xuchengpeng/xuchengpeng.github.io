@@ -69,6 +69,7 @@
 <li><a href="#how-a-kalman-filter-sees-your-problem">卡尔曼滤波如何看待你的问题</a></li>
 <li><a href="#describing-the-problem-with-matrices">使用矩阵来描述问题</a></li>
 <li><a href="#external-influence">外部控制量</a></li>
+<li><a href="#external-uncertainty">外部干扰</a></li>
 </ul>
 </div>
 </nav>
@@ -101,7 +102,7 @@
 </p>
 
 
-<figure id="orgda91f7a">
+<figure id="org060c0a7">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -123,7 +124,7 @@
 </p>
 
 
-<figure id="org8d17947">
+<figure id="org21e5aab">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -156,7 +157,7 @@ v
 </p>
 
 
-<figure id="org4d4f7ac">
+<figure id="orgecc0f1c">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -166,7 +167,7 @@ v
 </p>
 
 
-<figure id="orgadcef25">
+<figure id="org9d53515">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
@@ -176,7 +177,7 @@ v
 </p>
 
 
-<figure id="orgc11cd65">
+<figure id="orgecc08d3">
 <img src="../../../images/gauss_2.png" alt="gauss_2.png">
 
 </figure>
@@ -190,7 +191,7 @@ v
 </p>
 
 
-<figure id="orgfd6609e">
+<figure id="org9b68c7e">
 <img src="../../../images/gauss_3.png" alt="gauss_3.png">
 
 </figure>
@@ -222,7 +223,7 @@ v
 </p>
 
 
-<figure id="org19da4e3">
+<figure id="orga741773">
 <img src="../../../images/gauss_4.jpg" alt="gauss_4.jpg">
 
 </figure>
@@ -232,7 +233,7 @@ v
 </p>
 
 
-<figure id="orge554f23">
+<figure id="org02e75ad">
 <img src="../../../images/gauss_5.jpg" alt="gauss_5.jpg">
 
 </figure>
@@ -321,6 +322,32 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 
 <p>
 \(\mathbf{B}_k\) 称为控制矩阵， \(\color{darkorange}{\vec{\mathbf{u}_k}}\) 称为控制向量（对于没有外部控制的简单系统来说，这部分可以忽略）。让我们再思考一下，如果我们的预测并不是100%准确的，该怎么办呢？
+</p>
+</div>
+</div>
+<div id="outline-container-external-uncertainty" class="outline-2">
+<h2 id="external-uncertainty">外部干扰</h2>
+<div class="outline-text-2" id="text-external-uncertainty">
+<p>
+如果这些状态量是基于系统自身的属性或者已知的外部控制作用来变化的，则不会出现什么问题。
+</p>
+
+<p>
+但是，如果存在未知的干扰呢？例如，假设我们跟踪一个四旋翼飞行器，它可能会受到风的干扰，如果我们跟踪一个轮式机器人，轮子可能会打滑，或者路面上的小坡会让它减速。这样的话我们就不能继续对这些状态进行跟踪，如果没有把这些外部干扰考虑在内，我们的预测就会出现偏差。
+</p>
+
+<p>
+在每次预测之后，我们可以添加一些新的不确定性来建立这种与“外界”（即我们没有跟踪的干扰）之间的不确定性模型：
+</p>
+
+
+<figure id="orgc9bd866">
+<img src="../../../images/gauss_6.jpg" alt="gauss_6.jpg">
+
+</figure>
+
+<p>
+原始估计中的每个状态变量更新到新的状态后，仍然服从高斯分布。我们可以说 \(\color{royalblue}{\mathbf{\hat{x}}_{k-1}}\) 的每个状态变量移动到了一个新的服从高斯分布的区域，协方差为 \(\color{mediumaquamarine}{\mathbf{Q}_k}\)。换句话说就是，我们将这些没有被跟踪的干扰当作协方差为 \(\color{mediumaquamarine}{\mathbf{Q}_k}\) 的噪声来处理。
 </p>
 
 <p>
