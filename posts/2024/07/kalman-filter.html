@@ -71,6 +71,8 @@
 <li><a href="#external-influence">外部控制量</a></li>
 <li><a href="#external-uncertainty">外部干扰</a></li>
 <li><a href="#refining-the-estimate-with-measurements">用测量值来修正估计值</a></li>
+<li><a href="#combining-gaussians">融合高斯分布</a></li>
+<li><a href="#putting-it-all-together">将所有公式整合起来</a></li>
 </ul>
 </div>
 </nav>
@@ -103,7 +105,7 @@
 </p>
 
 
-<figure id="org0e65d4a">
+<figure id="org1421d15">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -125,7 +127,7 @@
 </p>
 
 
-<figure id="org976791c">
+<figure id="org83ee0c0">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -158,7 +160,7 @@ v
 </p>
 
 
-<figure id="orgb81dd72">
+<figure id="orgda59b5e">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -168,7 +170,7 @@ v
 </p>
 
 
-<figure id="org31131bd">
+<figure id="org1303683">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
@@ -178,7 +180,7 @@ v
 </p>
 
 
-<figure id="org70a12a4">
+<figure id="org5414db5">
 <img src="../../../images/gauss_2.png" alt="gauss_2.png">
 
 </figure>
@@ -192,7 +194,7 @@ v
 </p>
 
 
-<figure id="org0fe6fee">
+<figure id="org8c18a93">
 <img src="../../../images/gauss_3.png" alt="gauss_3.png">
 
 </figure>
@@ -224,7 +226,7 @@ v
 </p>
 
 
-<figure id="org0f593e5">
+<figure id="org026e97b">
 <img src="../../../images/gauss_4.jpg" alt="gauss_4.jpg">
 
 </figure>
@@ -234,7 +236,7 @@ v
 </p>
 
 
-<figure id="org1c4ac95">
+<figure id="org9a63c00">
 <img src="../../../images/gauss_5.jpg" alt="gauss_5.jpg">
 
 </figure>
@@ -342,7 +344,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org39b86d2">
+<figure id="orgc817574">
 <img src="../../../images/gauss_6.jpg" alt="gauss_6.jpg">
 
 </figure>
@@ -352,7 +354,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org3988f34">
+<figure id="orgd0cab60">
 <img src="../../../images/gauss_7.jpg" alt="gauss_7.jpg">
 
 </figure>
@@ -362,7 +364,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org2307d58">
+<figure id="org9bb6410">
 <img src="../../../images/gauss_8.jpg" alt="gauss_8.jpg">
 
 </figure>
@@ -400,7 +402,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org9083bd0">
+<figure id="org98d98a2">
 <img src="../../../images/gauss_9.jpg" alt="gauss_9.jpg">
 
 </figure>
@@ -410,7 +412,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="orgac370b8">
+<figure id="org55fb785">
 <img src="../../../images/gauss_10.jpg" alt="gauss_10.jpg">
 
 </figure>
@@ -431,7 +433,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org4e399ef">
+<figure id="org1d0a003">
 <img src="../../../images/gauss_11.jpg" alt="gauss_11.jpg">
 
 </figure>
@@ -441,7 +443,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org3e53cf9">
+<figure id="orgd90dac1">
 <img src="../../../images/gauss_12.jpg" alt="gauss_12.jpg">
 
 </figure>
@@ -455,7 +457,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org25be70d">
+<figure id="org8f3bdc9">
 <img src="../../../images/gauss_13.jpg" alt="gauss_13.jpg">
 
 </figure>
@@ -473,7 +475,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org3257744">
+<figure id="org0c2b0a0">
 <img src="../../../images/gauss_14.png" alt="gauss_14.png">
 
 </figure>
@@ -487,7 +489,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="orgeb9a006">
+<figure id="orgd6cdf2d">
 <img src="../../../images/gauss_15.png" alt="gauss_15.png">
 
 </figure>
@@ -495,6 +497,122 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 <p>
 如你所见，把两个具有不同均值和方差的高斯分布相乘，你会得到一个新的具有独立均值和方差的高斯分布！下面用公式讲解。
 </p>
+</div>
+</div>
+<div id="outline-container-combining-gaussians" class="outline-2">
+<h2 id="combining-gaussians">融合高斯分布</h2>
+<div class="outline-text-2" id="text-combining-gaussians">
+<p>
+先以一维高斯分布来分析比较简单点，具有方差 \(\sigma^2\) 和 \(\mu\) 的高斯曲线可以用下式表示：
+</p>
+
+\begin{equation} \label{gaussformula} 
+\mathcal{N}(x, \mu,\sigma) = \frac{1}{ \sigma \sqrt{ 2\pi } } e^{ -\frac{ (x – \mu)^2 }{ 2\sigma^2 } } 
+\end{equation}
+
+<p>
+如果把两个服从高斯分布的函数相乘会得到什么呢？
+</p>
+
+
+<figure id="orged9fa36">
+<img src="../../../images/gauss_joint.png" alt="gauss_joint.png">
+
+</figure>
+
+\begin{equation} \label{gaussequiv} 
+\mathcal{N}(x, {\color{fuchsia}{\mu_0}}, {\color{deeppink}{\sigma_0}}) \cdot \mathcal{N}(x, {\color{yellowgreen}{\mu_1}}, {\color{mediumaquamarine}{\sigma_1}}) \stackrel{?}{=} \mathcal{N}(x, {\color{royalblue}{\mu’}}, {\color{mediumblue}{\sigma’}}) 
+\end{equation}
+
+<p>
+将式（9）代入到式（10）中（注意重新归一化，使总概率为1）可以得到：
+</p>
+
+\begin{equation} \label{fusionformula} 
+\begin{aligned} 
+{\color{royalblue}{\mu’}} &= \mu_0 + \frac{\sigma_0^2 (\mu_1 – \mu_0)} {\sigma_0^2 + \sigma_1^2}\\ 
+{\color{mediumblue}{\sigma’}}^2 &= \sigma_0^2 – \frac{\sigma_0^4} {\sigma_0^2 + \sigma_1^2} 
+\end{aligned} 
+\end{equation}
+
+<p>
+将式（11）中的两个式子相同的部分用 \(\color{purple}{\mathbf{k}}\) 表示：
+</p>
+
+\begin{equation} \label{gainformula} 
+{\color{purple}{\mathbf{k}}} = \frac{\sigma_0^2}{\sigma_0^2 + \sigma_1^2} 
+\end{equation}
+
+\begin{equation} 
+\begin{split} 
+{\color{royalblue}{\mu’}} &= \mu_0 + &{\color{purple}{\mathbf{k}}} (\mu_1 – \mu_0)\\ 
+{\color{mediumblue}{\sigma’}}^2 &= \sigma_0^2 – &{\color{purple}{\mathbf{k}}} \sigma_0^2 
+\end{split} \label{update} 
+\end{equation}
+
+<p>
+下面进一步将式（12）和（13）写成矩阵的形式，如果 \(\Sigma\) 表示高斯分布的协方差，\(\vec{\mu}\) 表示每个维度的均值，则：
+</p>
+
+\begin{equation} \label{matrixgain} 
+{\color{purple}{\mathbf{K}}} = \Sigma_0 (\Sigma_0 + \Sigma_1)^{-1} 
+\end{equation}
+
+\begin{equation} 
+\begin{split} 
+{\color{royalblue}{\vec{\mu}’}} &= \vec{\mu_0} + &{\color{purple}{\mathbf{K}}} (\vec{\mu_1} – \vec{\mu_0})\\ 
+{\color{mediumblue}{\Sigma’}} &= \Sigma_0 – &{\color{purple}{\mathbf{K}}} \Sigma_0 
+\end{split} \label{matrixupdate} 
+\end{equation}
+
+<p>
+矩阵 \(\color{purple}{\mathbf{K}}\) 称为卡尔曼增益，下面将会用到。放松！我们快要完成了！
+</p>
+</div>
+</div>
+<div id="outline-container-putting-it-all-together" class="outline-2">
+<h2 id="putting-it-all-together">将所有公式整合起来</h2>
+<div class="outline-text-2" id="text-putting-it-all-together">
+<p>
+我们有两个高斯分布，预测部分 \(({\color{fuchsia}{\mu_0}}, {\color{deeppink}{\Sigma_0}}) = ({\color{fuchsia}{\mathbf{H}_k} \mathbf{\hat{x}}_k}, {\color{deeppink}{\mathbf{H}_k} \mathbf{P}_k \mathbf{H}_k^T})\)，和测量部分 \(({\color{yellowgreen}{\mu_1}}, {\color{mediumaquamarine}{\Sigma_1}}) = ({\color{yellowgreen}{\vec{\mathbf{z}_k}}}, {\color{mediumaquamarine}{\mathbf{R}_k}})\)，将它们放到式（15）中算出它们之间的重叠部分：
+</p>
+
+\begin{equation} 
+\begin{aligned} 
+\mathbf{H}_k {\color{royalblue}{\mathbf{\hat{x}}_k’}} &= {\color{fuchsia}{\mathbf{H}_k} \mathbf{\hat{x}}_k} & + & {\color{purple}{\mathbf{K}}} ( {\color{yellowgreen}{\vec{\mathbf{z}_k}}} – {\color{fuchsia}{\mathbf{H}_k} \mathbf{\hat{x}}_k} ) \\ 
+\mathbf{H}_k {\color{royalblue}{\mathbf{P}_k’}} \mathbf{H}_k^T &= {\color{deeppink}{\mathbf{H}_k} \mathbf{P}_k \mathbf{H}_k^T} & – & {\color{purple}{\mathbf{K}}} {\color{deeppink}{\mathbf{H}_k} \mathbf{P}_k \mathbf{H}_k^T} 
+\end{aligned} \label {kalunsimplified} 
+\end{equation}
+
+<p>
+由式（14）可得卡尔曼增益为：
+</p>
+
+\begin{equation} \label{eq:kalgainunsimplified} 
+{\color{purple}{\mathbf{K}}} = {\color{deeppink}{\mathbf{H}_k} \mathbf{P}_k \mathbf{H}_k^T} ( {\color{deeppink}{\mathbf{H}_k} \mathbf{P}_k \mathbf{H}_k^T} + {\color{mediumaquamarine}{\mathbf{R}_k}})^{-1} 
+\end{equation}
+
+<p>
+将式（16）和式（17）的两边同时左乘矩阵的逆（注意 \(\color{purple}{\mathbf{K}}\) 里面包含了 \(\mathbf{H}_k\)）将其约掉，再将式（16）的第二个等式两边同时右乘矩阵 \(\mathbf{H}_k^T\) 的逆得到以下等式：
+</p>
+
+\begin{equation} 
+\begin{split} 
+{\color{royalblue}{\mathbf{\hat{x}}_k’}} &= {\color{fuchsia}{\mathbf{\hat{x}}_k}} & + & {\color{purple}{\mathbf{K}’}} ( {\color{yellowgreen}{\vec{\mathbf{z}_k}}} – {\color{fuchsia}{\mathbf{H}_k} \mathbf{\hat{x}}_k} ) \\ 
+{\color{royalblue}{\mathbf{P}_k’}} &= {\color{deeppink}{\mathbf{P}_k}} & – & {\color{purple}{\mathbf{K}’}} {\color{deeppink}{\mathbf{H}_k} \mathbf{P}_k} 
+\end{split} 
+\label{kalupdatefull} 
+\end{equation}
+
+\begin{equation} 
+{\color{purple}{\mathbf{K}’}} = {\color{deeppink}{\mathbf{P}_k} \mathbf{H}_k^T} ( {\color{deeppink}{\mathbf{H}_k} \mathbf{P}_k \mathbf{H}_k^T} + {\color{mediumaquamarine}{\mathbf{R}_k}})^{-1} 
+\label{kalgainfull} 
+\end{equation}
+
+<p>
+上式给出了完整的更新步骤方程。\(\color{royalblue}{\mathbf{\hat{x}}_k’}\) 就是新的最优估计，我们可以将它和 \(\color{royalblue}{\mathbf{P}_k’}\) 放到下一个预测和更新方程中不断迭代。
+</p>
+
 
 <p>
 未完待续&#x2026;
