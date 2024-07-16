@@ -102,7 +102,7 @@
 </p>
 
 
-<figure id="org7a64488">
+<figure id="org486844e">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -124,7 +124,7 @@
 </p>
 
 
-<figure id="orga11fb8c">
+<figure id="orgbd2cbe8">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -157,7 +157,7 @@ v
 </p>
 
 
-<figure id="org13ffa8a">
+<figure id="org0ca8cee">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -167,7 +167,7 @@ v
 </p>
 
 
-<figure id="org980b53e">
+<figure id="orgf0ae29c">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
@@ -177,7 +177,7 @@ v
 </p>
 
 
-<figure id="orgb9d6e43">
+<figure id="org34f0aaf">
 <img src="../../../images/gauss_2.png" alt="gauss_2.png">
 
 </figure>
@@ -191,7 +191,7 @@ v
 </p>
 
 
-<figure id="org240356f">
+<figure id="org0f6d0c6">
 <img src="../../../images/gauss_3.png" alt="gauss_3.png">
 
 </figure>
@@ -223,7 +223,7 @@ v
 </p>
 
 
-<figure id="org1c58bd2">
+<figure id="orgb43ed45">
 <img src="../../../images/gauss_4.jpg" alt="gauss_4.jpg">
 
 </figure>
@@ -233,7 +233,7 @@ v
 </p>
 
 
-<figure id="orgb30242d">
+<figure id="orgbd5094a">
 <img src="../../../images/gauss_5.jpg" alt="gauss_5.jpg">
 
 </figure>
@@ -341,7 +341,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org79222a6">
+<figure id="org37d2c81">
 <img src="../../../images/gauss_6.jpg" alt="gauss_6.jpg">
 
 </figure>
@@ -351,13 +351,43 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org837b606">
+<figure id="org20c78d1">
 <img src="../../../images/gauss_7.jpg" alt="gauss_7.jpg">
 
 </figure>
 
 <p>
 这产生了具有不同协方差（但是具有相同的均值）的新的高斯分布。
+</p>
+
+
+<figure id="org799e7ed">
+<img src="../../../images/gauss_8.jpg" alt="gauss_8.jpg">
+
+</figure>
+
+<p>
+我们通过简单地添加 \({\color{mediumaquamarine}{\mathbf{Q}_k}}\) 得到扩展的协方差，下面给出预测步骤的完整表达式：
+</p>
+
+\begin{equation} 
+\begin{split} 
+{\color{deeppink}{\mathbf{\hat{x}}_k}} &= \mathbf{F}_k {\color{royalblue}{\mathbf{\hat{x}}_{k-1}}} + \mathbf{B}_k {\color{darkorange}{\vec{\mathbf{u}_k}}} \\ 
+{\color{deeppink}{\mathbf{P}_k}} &= \mathbf{F_k} {\color{royalblue}{\mathbf{P}_{k-1}}} \mathbf{F}_k^T + {\color{mediumaquamarine}{\mathbf{Q}_k}} 
+\end{split} 
+\label{kalpredictfull} 
+\end{equation}
+
+<p>
+由上式可知，新的最优估计是根据上一最优估计预测得到的，并加上已知外部控制量的修正。
+</p>
+
+<p>
+而新的不确定性由上一不确定性预测得到，并加上外部环境的干扰。
+</p>
+
+<p>
+好了，我们对系统可能的动向有了一个模糊的估计，用 \(\color{deeppink}{\mathbf{\hat{x}}_k}\) 和 \(\color{deeppink}{\mathbf{P}_k}\) 来表示。如果再结合传感器的数据会怎样呢？
 </p>
 
 <p>
