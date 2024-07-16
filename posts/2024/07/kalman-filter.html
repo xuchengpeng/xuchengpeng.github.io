@@ -103,7 +103,7 @@
 </p>
 
 
-<figure id="org05a651d">
+<figure id="org112dcb4">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -125,7 +125,7 @@
 </p>
 
 
-<figure id="org04cf504">
+<figure id="org6a0f0a8">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -158,7 +158,7 @@ v
 </p>
 
 
-<figure id="org906f11f">
+<figure id="org8d0e7f0">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -168,7 +168,7 @@ v
 </p>
 
 
-<figure id="org2381f3c">
+<figure id="org274084c">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
@@ -178,7 +178,7 @@ v
 </p>
 
 
-<figure id="org67b37de">
+<figure id="org6e163db">
 <img src="../../../images/gauss_2.png" alt="gauss_2.png">
 
 </figure>
@@ -192,7 +192,7 @@ v
 </p>
 
 
-<figure id="orgb94b0d2">
+<figure id="org3fdcfea">
 <img src="../../../images/gauss_3.png" alt="gauss_3.png">
 
 </figure>
@@ -224,7 +224,7 @@ v
 </p>
 
 
-<figure id="org71fce38">
+<figure id="orgf31a79b">
 <img src="../../../images/gauss_4.jpg" alt="gauss_4.jpg">
 
 </figure>
@@ -234,7 +234,7 @@ v
 </p>
 
 
-<figure id="org2807780">
+<figure id="org88f546a">
 <img src="../../../images/gauss_5.jpg" alt="gauss_5.jpg">
 
 </figure>
@@ -342,7 +342,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="orgd0a40a8">
+<figure id="orgdf2e008">
 <img src="../../../images/gauss_6.jpg" alt="gauss_6.jpg">
 
 </figure>
@@ -352,7 +352,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="orgc29862f">
+<figure id="orgf8165f3">
 <img src="../../../images/gauss_7.jpg" alt="gauss_7.jpg">
 
 </figure>
@@ -362,7 +362,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="orga465ccf">
+<figure id="orge0be059">
 <img src="../../../images/gauss_8.jpg" alt="gauss_8.jpg">
 
 </figure>
@@ -400,7 +400,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="orgd098f97">
+<figure id="org082166e">
 <img src="../../../images/gauss_9.jpg" alt="gauss_9.jpg">
 
 </figure>
@@ -409,6 +409,22 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 注意，传感器读取的数据的单位和尺度有可能与我们要跟踪的状态的单位和尺度不一样，我们用矩阵 \(\mathbf{H}_k\) 来表示传感器的数据。
 </p>
 
+
+<figure id="orgcdb5fa6">
+<img src="../../../images/gauss_10.jpg" alt="gauss_10.jpg">
+
+</figure>
+
+<p>
+我们可以计算出传感器读数的分布，用之前的表示方法如下式所示：
+</p>
+
+\begin{equation} 
+\begin{aligned} 
+\vec{\mu}_{\text{expected}} &= \mathbf{H}_k {\color{deeppink}{\mathbf{\hat{x}}_k}} \\ 
+\mathbf{\Sigma}_{\text{expected}} &= \mathbf{H}_k {\color{deeppink}{\mathbf{P}_k}} \mathbf{H}_k^T 
+\end{aligned} 
+\end{equation}
 
 <p>
 未完待续&#x2026;
