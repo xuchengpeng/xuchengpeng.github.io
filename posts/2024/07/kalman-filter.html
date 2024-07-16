@@ -103,7 +103,7 @@
 </p>
 
 
-<figure id="orgf98100b">
+<figure id="org716b268">
 <img src="../../../images/robot_forest-300x160.png" alt="robot_forest-300x160.png">
 
 </figure>
@@ -125,7 +125,7 @@
 </p>
 
 
-<figure id="orgef51c40">
+<figure id="org2fbb0ad">
 <img src="../../../images/robot_ohnoes-300x283.png" alt="robot_ohnoes-300x283.png">
 
 </figure>
@@ -158,7 +158,7 @@ v
 </p>
 
 
-<figure id="org7066234">
+<figure id="orgb839681">
 <img src="../../../images/gauss_0.png" alt="gauss_0.png">
 
 </figure>
@@ -168,7 +168,7 @@ v
 </p>
 
 
-<figure id="org58776ee">
+<figure id="orge79a1c3">
 <img src="../../../images/gauss_1.png" alt="gauss_1.png">
 
 </figure>
@@ -178,7 +178,7 @@ v
 </p>
 
 
-<figure id="orgc63854e">
+<figure id="orgb795db2">
 <img src="../../../images/gauss_2.png" alt="gauss_2.png">
 
 </figure>
@@ -192,7 +192,7 @@ v
 </p>
 
 
-<figure id="orgebff82c">
+<figure id="orgc53f8a2">
 <img src="../../../images/gauss_3.png" alt="gauss_3.png">
 
 </figure>
@@ -224,7 +224,7 @@ v
 </p>
 
 
-<figure id="org02e1510">
+<figure id="org317a417">
 <img src="../../../images/gauss_4.jpg" alt="gauss_4.jpg">
 
 </figure>
@@ -234,7 +234,7 @@ v
 </p>
 
 
-<figure id="orgb8d4b35">
+<figure id="orgd2bba33">
 <img src="../../../images/gauss_5.jpg" alt="gauss_5.jpg">
 
 </figure>
@@ -342,7 +342,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org74b98b6">
+<figure id="orgc9fa616">
 <img src="../../../images/gauss_6.jpg" alt="gauss_6.jpg">
 
 </figure>
@@ -352,7 +352,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org51b7896">
+<figure id="org289d33d">
 <img src="../../../images/gauss_7.jpg" alt="gauss_7.jpg">
 
 </figure>
@@ -362,7 +362,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org1dafbb0">
+<figure id="org1d5419a">
 <img src="../../../images/gauss_8.jpg" alt="gauss_8.jpg">
 
 </figure>
@@ -400,7 +400,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="orgebc1b2d">
+<figure id="org64ca4d3">
 <img src="../../../images/gauss_9.jpg" alt="gauss_9.jpg">
 
 </figure>
@@ -410,7 +410,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org7cbb14e">
+<figure id="org683e5eb">
 <img src="../../../images/gauss_10.jpg" alt="gauss_10.jpg">
 
 </figure>
@@ -431,7 +431,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="org4d26b87">
+<figure id="org43bd598">
 <img src="../../../images/gauss_11.jpg" alt="gauss_11.jpg">
 
 </figure>
@@ -441,7 +441,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 </p>
 
 
-<figure id="orge66ea23">
+<figure id="org0699856">
 <img src="../../../images/gauss_12.jpg" alt="gauss_12.jpg">
 
 </figure>
@@ -452,6 +452,24 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &= {\color{firebrick}{\mathbf{A}}} \Sigma 
 
 <p>
 现在我们有了两个高斯分布，一个是在预测值附近，一个是在传感器读数附近。
+</p>
+
+
+<figure id="orga22fe92">
+<img src="../../../images/gauss_13.jpg" alt="gauss_13.jpg">
+
+</figure>
+
+<p>
+我们必须在预测值（粉红色）和传感器测量值（绿色）之间找到最优解。
+</p>
+
+<p>
+那么，我们最有可能的状态是什么呢？对于任何可能的读数 \((z_1,z_2)\)，有两种情况：（1）传感器的测量值；（2）由前一状态得到的预测值。
+</p>
+
+<p>
+如果我们想知道这两种情况都可能发生的概率，将这两个高斯分布相乘就可以了。
 </p>
 
 
