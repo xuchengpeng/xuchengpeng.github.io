@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 16 Jul 2024 09:49:29 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 16 Jul 2024 11:42:48 +0800</lastBuildDate><item><title>Posts</title><link>https://xuchengpeng.cn/posts/index.html</link><description>Posts
 Table of Contents
 2024
 Archives
@@ -237,7 +237,7 @@ Cov({\color{firebrick}{\mathbf{A}}}x) &amp;= {\color{firebrick}{\mathbf{A}}} \Si
 总结
 以上所有公式中，你只需要用到式（7）、（18）、（19）。（如果忘了的话，你可以根据式（4）和（15）重新推导一下）
 我们可以用这些公式对任何线性系统建立精确的模型，对于非线性系统来说，我们使用扩展卡尔曼滤波，区别在于EKF多了一个把预测和测量部分进行线性化的过程。
-原文出处：How a Kalman filter works, in pictures</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/kalman-filter.html</guid><pubDate>Tue, 16 Jul 2024 09:48:46 +0800</pubDate></item><item><title>李白《侠客行》</title><link>https://xuchengpeng.cn/posts/2024/05/libai-xiakexing.html</link><description>李白《侠客行》
+原文出处：How a Kalman filter works, in pictures</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/kalman-filter.html</guid><pubDate>Tue, 16 Jul 2024 11:42:40 +0800</pubDate></item><item><title>李白《侠客行》</title><link>https://xuchengpeng.cn/posts/2024/05/libai-xiakexing.html</link><description>李白《侠客行》
 May 23, 2024
 赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。
 十步杀一人，千里不留行。事了拂衣去，深藏身与名。
@@ -1314,4 +1314,4 @@ Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now 
 Rawley make a tokyo-theme.el for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
 So I want to make it for myself, here it is. The theme templates were taken from modus-themes, and the color palettes were taken from tokyonight.nvim, these two themes are very popular and awesome with GNU Emacs or Neovim.
 This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
-Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Tue, 16 Jul 2024 09:49:17 +0800</pubDate></item></channel></rss>
+Valar Morghulis. Valar Dohaeris.</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/index.html</guid><pubDate>Tue, 16 Jul 2024 11:42:40 +0800</pubDate></item></channel></rss>
