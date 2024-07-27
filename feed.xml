@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 16 Jul 2024 16:26:16 +0800</lastBuildDate><item><title>卡尔曼滤波</title><link>https://xuchengpeng.cn/posts/2024/07/kalman-filter.html</link><description>卡尔曼滤波
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 27 Jul 2024 08:24:34 +0800</lastBuildDate><item><title>卡尔曼滤波</title><link>https://xuchengpeng.cn/posts/2024/07/kalman-filter.html</link><description>卡尔曼滤波
 Table of Contents
 什么是卡尔曼滤波
 我们能用卡尔曼滤波做什么
@@ -44,7 +44,7 @@ Firstly, install essential packages in WSL2 Ubuntu 22.04.
 apt-get update
 apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev autoconf
 And in Emacs 29, support for tree-sitter is built-in. Now build tree-sitter from source code.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/03/build-emacs-from-source.html</guid><pubDate>Thu, 11 Apr 2024 14:57:41 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.cn/posts/2024/02/true-emacs-transparency.html</link><description>True Emacs Transparency
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/03/build-emacs-from-source.html</guid><pubDate>Sat, 27 Jul 2024 08:24:02 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.cn/posts/2024/02/true-emacs-transparency.html</link><description>True Emacs Transparency
 February 1, 2024
 Before Emacs 29, we can set the alpha frame parameter to adjust the opacity of the frame. The issue with alpha is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
 The solution came from a patch make by Håkon Flatval. The patch adds the alpha-background frame parameter which make only the background of a frame transparent.

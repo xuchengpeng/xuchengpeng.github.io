@@ -71,10 +71,10 @@ Now build emacs with pgtk and tree-sitter.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell">git clone https://git.savannah.gnu.org/git/emacs.git -b emacs-29
+<pre class="src src-shell">git clone https://git.savannah.gnu.org/git/emacs.git -b emacs-30
 <span style="color: #8f0075;">cd</span> emacs
 ./autogen.sh
-./configure --prefix=/usr/local/emacs --with-pgtk --with-tree-sitter --with-json
+./configure --prefix=/usr/local/emacs --with-pgtk --with-tree-sitter --without-native-compilation
 make -j 8
 make install
 </pre>
