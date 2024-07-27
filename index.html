@@ -58,6 +58,31 @@
                </div>
 </div>
 <div id="content" class="content">
+<div id="outline-container-cpp-variadic-function-templates" class="outline-2">
+<h2 id="cpp-variadic-function-templates"><a href="posts/2024/07/cpp-variadic-function-templates.html">C++可变参函数模板</a></h2>
+<div class="outline-text-2" id="text-cpp-variadic-function-templates">
+<span class="post-meta">July 27, 2024</span>
+
+<p>
+可变参模板的英文为Variadic Templates，是C++11标准引入的，可变参模板允许模板定义中含有0到多个模板参数。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #531ab6;">template</span> &lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
+<span style="color: #005f5f;">void</span> <span style="color: #721045;">myvtfunct</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+{
+    cout &lt;&lt; <span style="color: #531ab6;">sizeof</span>...(args) &lt;&lt; endl;
+    cout &lt;&lt; <span style="color: #531ab6;">sizeof</span>...(T) &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<p>
+typename后面的3个点代表参数包，然后才修饰T。T后面带了3个点，所以将T称为可变参类型，实际上其中包含了0到多个不同的类型（一包类型），args成为一包或一堆参数。
+</p>
+<hr><br>
+</div>
+</div>
 <div id="outline-container-kalman-filter" class="outline-2">
 <h2 id="kalman-filter"><a href="posts/2024/07/kalman-filter.html">卡尔曼滤波</a></h2>
 <div class="outline-text-2" id="text-kalman-filter">
@@ -198,54 +223,6 @@ apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif
 
 <p>
 If \(a^2=b\) and \( b=2 \), then the solution must be either \[ a=+\sqrt{2} \] or \[ a=-\sqrt{2} \].
-</p>
-<hr><br>
-</div>
-</div>
-<div id="outline-container-generate-rss-for-blog" class="outline-2">
-<h2 id="generate-rss-for-blog"><a href="posts/2024/02/generate-rss-for-blog.html">Generate RSS For Blog</a></h2>
-<div class="outline-text-2" id="text-generate-rss-for-blog">
-<span class="post-meta">February 08, 2024</span>
-
-<p>
-I'm not sure how many people still use RSS, but I still want to have a RSS feed for my blog though I don't use RSS myself either.
-</p>
-
-<p>
-From what I known, many people recommend using <a href="https://github.com/benedicthw/ox-rss">ox-rss.el</a> to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of <a href="https://orgmode.org/worg/org-contrib/index.html">org-contrib</a> right now.
-</p>
-
-<p>
-Luckily, Python has many modules which can generate and parse RSS feeds (<a href="https://github.com/lkiesow/python-feedgen">python-feedgen</a>, <a href="https://github.com/kurtmckee/feedparser">feedparser</a>, <a href="https://github.com/svpino/rfeed">rfeed</a>, etc.). I love Python, it is easy to use. So I decided to use python-feedgen to generate an RSS XML file from HTML files of my blog.
-</p>
-<hr><br>
-</div>
-</div>
-<div id="outline-container-emacs-tokyonight-themes" class="outline-2">
-<h2 id="emacs-tokyonight-themes"><a href="posts/2024/02/emacs-tokyonight-themes.html">Emacs tokyonight-themes</a></h2>
-<div class="outline-text-2" id="text-emacs-tokyonight-themes">
-<span class="post-meta">February 1, 2024</span>
-
-<blockquote>
-<p>
-A clean dark Visual Studio Code theme that celebrates the lights of Downtown <a href="https://www.google.com/search?q=tokyo+night&amp;newwindow=1&amp;sxsrf=ACYBGNRiOGCstG_Xohb8CgG5UGwBRpMIQg:1571032079139&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwiayIfIhpvlAhUGmuAKHbfRDaIQ_AUIEigB&amp;biw=1280&amp;bih=666&amp;dpr=2">Tokyo at night</a>.
-</p>
-</blockquote>
-
-<p>
-Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now it has many <a href="https://github.com/enkia/tokyo-night-vscode-theme#other-ports">other ports</a>.
-</p>
-
-<p>
-Rawley make a <a href="https://github.com/rawleyfowler/tokyo-theme.el">tokyo-theme.el</a> for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
-</p>
-
-<p>
-So I want to make it for myself, <a href="https://github.com/xuchengpeng/tokyonight-themes">here it is</a>. The theme templates were taken from <a href="https://github.com/protesilaos/modus-themes">modus-themes</a>, and the color palettes were taken from <a href="https://github.com/folke/tokyonight.nvim">tokyonight.nvim</a>, these two themes are very popular and awesome with GNU Emacs or <a href="https://github.com/neovim/neovim">Neovim</a>.
-</p>
-
-<p>
-This theme has four color palettes, as same sa tokyonight.nvim. I have add support with some popular packages which I often use with GNU Emacs, like Corfu, vertico, orderless, dired, diff-hl, hl-todo, multiple-cursors, symbol-overlay, vundo and so on.
 </p>
 <hr><br>
 

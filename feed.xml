@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 27 Jul 2024 08:24:34 +0800</lastBuildDate><item><title>卡尔曼滤波</title><link>https://xuchengpeng.cn/posts/2024/07/kalman-filter.html</link><description>卡尔曼滤波
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 27 Jul 2024 08:55:18 +0800</lastBuildDate><item><title>卡尔曼滤波</title><link>https://xuchengpeng.cn/posts/2024/07/kalman-filter.html</link><description>卡尔曼滤波
 Table of Contents
 什么是卡尔曼滤波
 我们能用卡尔曼滤波做什么
@@ -17,7 +17,28 @@ July 15, 2024
 你可以在任何含有不确定信息的动态系统中使用卡尔曼滤波，对系统下一步的走向做出有根据的预测，即使伴随着各种干扰，卡尔曼滤波总是能指出真实发生的情况。
 在连续变化的系统中使用卡尔曼滤波是非常理想的，它具有占用内存小的优点（除了前一个状态量外，不需要保留其它历史数据），并且速度很快，很适合应用于实时问题和嵌入式系统。
 在Google上找到的大多数关于实现卡尔曼滤波的数学公式看起来有点晦涩难懂，这个状况有点糟糕。实际上，如果以正确的方式看待它，卡尔曼滤波是非常简单和容易理解的，下面我将用漂亮的图片和色彩清晰的阐述它，你只需要懂一些基本的概率和矩阵的知识就可以了。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/kalman-filter.html</guid><pubDate>Tue, 16 Jul 2024 11:42:40 +0800</pubDate></item><item><title>李白《侠客行》</title><link>https://xuchengpeng.cn/posts/2024/05/libai-xiakexing.html</link><description>李白《侠客行》
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/kalman-filter.html</guid><pubDate>Tue, 16 Jul 2024 11:42:40 +0800</pubDate></item><item><title>C++可变参函数模板</title><link>https://xuchengpeng.cn/posts/2024/07/cpp-variadic-function-templates.html</link><description>C++可变参函数模板
+July 27, 2024
+可变参模板的英文为Variadic Templates，是C++11标准引入的，可变参模板允许模板定义中含有0到多个模板参数。
+template &lt;typename... T&gt;
+void myvtfunct(T... args)
+{
+    cout &lt;&lt; sizeof...(args) &lt;&lt; endl;
+    cout &lt;&lt; sizeof...(T) &lt;&lt; endl;
+}
+typename后面的3个点代表参数包，然后才修饰T。T后面带了3个点，所以将T称为可变参类型，实际上其中包含了0到多个不同的类型（一包类型），args成为一包或一堆参数。
+可变参函数模板的展开一般是用递归函数。
+template &lt;typename T, typename... U&gt;
+void myvtfunct(T firstarg, U... otherargs)
+{
+    cout &lt;&lt; firstarg &lt;&lt; endl;
+    myvtfunct(otherargs...);
+}
+void myvtfunct()
+{
+}
+在C++17标准中，引入了编译期间if语句，在if后面又增加了一个constexpr关键字，这个关键字代表常量或编译期求值。通过编译期间if语句，可以把上述递归终止函数省略。
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/cpp-variadic-function-templates.html</guid><pubDate>Sat, 27 Jul 2024 08:45:47 +0800</pubDate></item><item><title>李白《侠客行》</title><link>https://xuchengpeng.cn/posts/2024/05/libai-xiakexing.html</link><description>李白《侠客行》
 May 23, 2024
 赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。
 十步杀一人，千里不留行。事了拂衣去，深藏身与名。

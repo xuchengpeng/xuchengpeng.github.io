@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>C++可变参函数模板</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+       <link rel="manifest" href="/site.webmanifest">
+       <link rel="stylesheet" type="text/css" href="/css/style.css">
+       <script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header-wrapper">
+               <div class="site-header">
+               <a class="site-title" href="/">Chuck</a>
+               <div class="site-nav">
+                 <a class="nav-link" href="/posts/">Posts</a>
+                 <a class="nav-link" href="/search/">Search</a>
+                 <a class="nav-link" href="/about/">About</a>
+               </div>
+               </div>
+               </div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">C++可变参函数模板</h1>
+</header><span class="post-meta">July 27, 2024</span>
+
+<p>
+可变参模板的英文为Variadic Templates，是C++11标准引入的，可变参模板允许模板定义中含有0到多个模板参数。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #531ab6;">template</span> &lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
+<span style="color: #005f5f;">void</span> <span style="color: #721045;">myvtfunct</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+{
+    cout &lt;&lt; <span style="color: #531ab6;">sizeof</span>...(args) &lt;&lt; endl;
+    cout &lt;&lt; <span style="color: #531ab6;">sizeof</span>...(T) &lt;&lt; endl;
+}
+</pre>
+</div>
+
+<p>
+typename后面的3个点代表参数包，然后才修饰T。T后面带了3个点，所以将T称为可变参类型，实际上其中包含了0到多个不同的类型（一包类型），args成为一包或一堆参数。
+</p>
+
+<p>
+可变参函数模板的展开一般是用递归函数。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #531ab6;">template</span> &lt;<span style="color: #531ab6;">typename</span> <span style="color: #005f5f;">T</span>, <span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">U</span>&gt;
+<span style="color: #005f5f;">void</span> <span style="color: #721045;">myvtfunct</span>(<span style="color: #005f5f;">T</span> <span style="color: #005e8b;">firstarg</span>, <span style="color: #005f5f;">U</span>... <span style="color: #005e8b;">otherargs</span>)
+{
+    cout &lt;&lt; firstarg &lt;&lt; endl;
+    myvtfunct(otherargs...);
+}
+
+<span style="color: #005f5f;">void</span> <span style="color: #721045;">myvtfunct</span>()
+{
+}
+</pre>
+</div>
+
+<p>
+在C++17标准中，引入了编译期间if语句，在if后面又增加了一个constexpr关键字，这个关键字代表常量或编译期求值。通过编译期间if语句，可以把上述递归终止函数省略。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #531ab6;">template</span> &lt;<span style="color: #531ab6;">typename</span> <span style="color: #005f5f;">T</span>, <span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">U</span>&gt;
+<span style="color: #005f5f;">void</span> <span style="color: #721045;">myvtfunct</span>(<span style="color: #005f5f;">T</span> <span style="color: #005e8b;">firstarg</span>, <span style="color: #005f5f;">U</span>... <span style="color: #005e8b;">otherargs</span>)
+{
+    cout &lt;&lt; firstarg &lt;&lt; endl;
+    <span style="color: #531ab6;">if</span> <span style="color: #531ab6;">constexpr</span> (<span style="color: #531ab6;">sizeof</span>...(otherargs) &gt; 0) {
+        myvtfunct(otherargs...);
+    }
+}
+</pre>
+</div>
+
+<p>
+可变参函数模板也可以重载。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp"><span style="color: #531ab6;">template</span> &lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
+<span style="color: #005f5f;">void</span> <span style="color: #721045;">myfunc</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">arg</span>)
+{
+}
+
+<span style="color: #531ab6;">template</span> &lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
+<span style="color: #005f5f;">void</span> <span style="color: #721045;">myfunc</span>(<span style="color: #005f5f;">T</span>*... <span style="color: #005e8b;">arg</span>)
+{
+}
+
+<span style="color: #005f5f;">void</span> <span style="color: #721045;">myfunc</span>(<span style="color: #005f5f;">int</span> <span style="color: #005e8b;">arg</span>)
+{
+}
+</pre>
+</div>
+
+<p>
+一般来讲，当调用一个普通函数和调用实例化后的函数模板都合适的时候，编译器会优先选择普通函数。
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/">Home</a></div>
+               <div class="top-btn"><a href="#top">Top</a></div>
+               <div class="footer-wrapper">
+               <div class="site-footer">
+                &copy xuchengpeng. <a href="/feed.xml">RSS Feed</a>
+               </div>
+               </div>
+</div>
+</body>
+</html>
