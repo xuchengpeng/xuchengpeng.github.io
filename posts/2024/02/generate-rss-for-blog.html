@@ -38,8 +38,6 @@
 </ul>
 </div>
 </nav>
-<span class="post-meta">February 08, 2024</span>
-
 <p>
 I'm not sure how many people still use RSS, but I still want to have a RSS feed for my blog though I don't use RSS myself either.
 </p>
@@ -51,7 +49,6 @@ From what I known, many people recommend using <a href="https://github.com/bened
 <p>
 Luckily, Python has many modules which can generate and parse RSS feeds (<a href="https://github.com/lkiesow/python-feedgen">python-feedgen</a>, <a href="https://github.com/kurtmckee/feedparser">feedparser</a>, <a href="https://github.com/svpino/rfeed">rfeed</a>, etc.). I love Python, it is easy to use. So I decided to use python-feedgen to generate an RSS XML file from HTML files of my blog.
 </p>
-
 <div id="outline-container-getting-posts-list" class="outline-2">
 <h2 id="getting-posts-list">Getting Posts List</h2>
 <div class="outline-text-2" id="text-getting-posts-list">
@@ -63,19 +60,18 @@ I published all of blog files into a <code>public</code> directory, firstly I ne
 <pre class="src src-python"><span style="color: #531ab6;">import</span> os
 <span style="color: #531ab6;">import</span> fnmatch
 
-<span style="color: #005e8b;">htmls</span> = [<span style="color: #3548cf;">"public/index.html"</span>]
-<span style="color: #531ab6;">for</span> root, dirs, files <span style="color: #531ab6;">in</span> os.walk(os.getcwd() + <span style="color: #3548cf;">"/public/posts"</span>):
-    <span style="color: #005e8b;">relpath</span> = os.path.relpath(root)
+<span style="color: #005e8b;">htmls</span> <span style="color: #000000;">=</span> [<span style="color: #3548cf;">"public/index.html"</span>]
+<span style="color: #531ab6;">for</span> root, dirs, files <span style="color: #531ab6;">in</span> os.walk(os.getcwd() <span style="color: #000000;">+</span> <span style="color: #3548cf;">"/public/posts"</span>):
+    <span style="color: #005e8b;">relpath</span> <span style="color: #000000;">=</span> os.path.relpath(root)
     <span style="color: #531ab6;">for</span> filename <span style="color: #531ab6;">in</span> fnmatch.<span style="color: #8f0075;">filter</span>(files, <span style="color: #3548cf;">"*.html"</span>):
-        <span style="color: #005e8b;">filename</span> = os.path.join(relpath, filename)
-        <span style="color: #005e8b;">filename</span> = filename.replace(<span style="color: #3548cf;">"</span><span style="color: #0000b0;">\\</span><span style="color: #3548cf;">"</span>, <span style="color: #3548cf;">"/"</span>)
+        <span style="color: #005e8b;">filename</span> <span style="color: #000000;">=</span> os.path.join(relpath, filename)
+        <span style="color: #005e8b;">filename</span> <span style="color: #000000;">=</span> filename.replace(<span style="color: #3548cf;">"</span><span style="color: #0000b0;">\\</span><span style="color: #3548cf;">"</span>, <span style="color: #3548cf;">"/"</span>)
         htmls.append(filename)
-htmls.sort(reverse=<span style="color: #0000b0;">True</span>)
+htmls.sort(reverse<span style="color: #000000;">=</span><span style="color: #0000b0;">True</span>)
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-parsing-html" class="outline-2">
 <h2 id="parsing-html">Parsing HTML</h2>
 <div class="outline-text-2" id="text-parsing-html">
@@ -86,16 +82,15 @@ htmls.sort(reverse=<span style="color: #0000b0;">True</span>)
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #531ab6;">from</span> bs4 <span style="color: #531ab6;">import</span> BeautifulSoup
 
-<span style="color: #005e8b;">soup</span> = BeautifulSoup(htmlfile, <span style="color: #3548cf;">"html.parser"</span>)
-<span style="color: #005e8b;">title</span> = soup.title.string
-<span style="color: #005e8b;">description</span> = soup.find(<span style="color: #3548cf;">"div"</span>, class_=<span style="color: #3548cf;">"content"</span>).text
+<span style="color: #005e8b;">soup</span> <span style="color: #000000;">=</span> BeautifulSoup(htmlfile, <span style="color: #3548cf;">"html.parser"</span>)
+<span style="color: #005e8b;">title</span> <span style="color: #000000;">=</span> soup.title.string
+<span style="color: #005e8b;">description</span> <span style="color: #000000;">=</span> soup.find(<span style="color: #3548cf;">"div"</span>, class_<span style="color: #000000;">=</span><span style="color: #3548cf;">"content"</span>).text
 <span style="color: #595959;"># </span><span style="color: #595959;">delete blank lines</span>
-<span style="color: #005e8b;">description</span> = <span style="color: #3548cf;">"</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">"</span>.join([line <span style="color: #531ab6;">for</span> line <span style="color: #531ab6;">in</span> description.split(<span style="color: #3548cf;">"</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">"</span>) <span style="color: #531ab6;">if</span> line.strip()])
+<span style="color: #005e8b;">description</span> <span style="color: #000000;">=</span> <span style="color: #3548cf;">"</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">"</span>.join([line <span style="color: #531ab6;">for</span> line <span style="color: #531ab6;">in</span> description.split(<span style="color: #3548cf;">"</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">"</span>) <span style="color: #531ab6;">if</span> line.strip()])
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-generating-rss-xml" class="outline-2">
 <h2 id="generating-rss-xml">Generating RSS XML</h2>
 <div class="outline-text-2" id="text-generating-rss-xml">
