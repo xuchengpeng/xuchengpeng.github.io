@@ -58,6 +58,36 @@
                </div>
 </div>
 <div id="content" class="content">
+<div id="outline-container-wsl-import-export" class="outline-2">
+<h2 id="wsl-import-export"><a href="posts/2024/08/wsl-import-export.html">WSL导入导出</a></h2>
+<div class="outline-text-2" id="text-wsl-import-export">
+<p>
+默认情况WSL会安装在C盘，可以将其迁移到其他盘，这里使用WSL提供的导入和导出命令。
+</p>
+
+<p>
+关闭所有的WSL，查询要导出的名称:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">PS &gt; wsl --shutdown
+PS &gt; wsl -l -v
+  NAME            STATE           VERSION
+  Ubuntu-22.04    Stopped         2
+</pre>
+</div>
+
+<p>
+将要导出的WSL保存到D盘：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">PS &gt; wsl --export Ubuntu-22.04 D:\Ubuntu-22.04.tar
+</pre>
+</div>
+<hr><br>
+</div>
+</div>
 <div id="outline-container-use-tldraw-in-vite" class="outline-2">
 <h2 id="use-tldraw-in-vite"><a href="posts/2024/07/use-tldraw-in-vite.html">Use tldraw in Vite</a></h2>
 <div class="outline-text-2" id="text-use-tldraw-in-vite">

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WSL导入导出</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+       <link rel="manifest" href="/site.webmanifest">
+       <link rel="stylesheet" type="text/css" href="/css/style.css">
+       <script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header-wrapper">
+               <div class="site-header">
+               <a class="site-title" href="/">Chuck</a>
+               <div class="site-nav">
+                 <a class="nav-link" href="/posts/">Posts</a>
+                 <a class="nav-link" href="/search/">Search</a>
+                 <a class="nav-link" href="/about/">About</a>
+               </div>
+               </div>
+               </div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">WSL导入导出</h1>
+</header><p>
+默认情况WSL会安装在C盘，可以将其迁移到其他盘，这里使用WSL提供的导入和导出命令。
+</p>
+
+<p>
+关闭所有的WSL，查询要导出的名称:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">PS &gt; wsl --shutdown
+PS &gt; wsl -l -v
+  NAME            STATE           VERSION
+  Ubuntu-22.04    Stopped         2
+</pre>
+</div>
+
+<p>
+将要导出的WSL保存到D盘：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">PS &gt; wsl --export Ubuntu-22.04 D:\Ubuntu-22.04.tar
+</pre>
+</div>
+
+<p>
+注销原有的WSL：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">PS &gt; wsl --unregister Ubuntu-22.04
+</pre>
+</div>
+
+<p>
+在D盘安装WSL：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">PS &gt; wsl --import Ubuntu-22.04 D:\WSL\Ubuntu-22.04 D:\Ubuntu-22.04.tar
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/">Home</a></div>
+               <div class="top-btn"><a href="#top">Top</a></div>
+               <div class="footer-wrapper">
+               <div class="site-footer">
+                &copy xuchengpeng. <a href="/feed.xml">RSS Feed</a>
+               </div>
+               </div>
+</div>
+</body>
+</html>
