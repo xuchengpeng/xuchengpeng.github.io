@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 13 Aug 2024 12:51:29 +0800</lastBuildDate><item><title>WSL导入导出</title><link>https://xuchengpeng.cn/posts/2024/08/wsl-import-export.html</link><description>WSL导入导出
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 10 Sep 2024 16:20:07 +0800</lastBuildDate><item><title>刚体变换</title><link>https://xuchengpeng.cn/posts/2024/09/rigid-body-transformation.html</link><description>刚体变换
+三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \(R_{A}^{B} = \begin{bmatrix} u_{x}  &amp; v_{x} &amp; w_{x} \\ u_{y}  &amp; v_{y} &amp; w_{y} \\ u_{z}  &amp; v_{z} &amp; w_{z} \end{bmatrix}\) 表示旋转矩阵，用 \(t_{A}^{B} = \begin{bmatrix} t_{x} \\ t_{y} \\ t_{z} \end{bmatrix}\) 表示平移矩阵。
+坐标系A到B刚体变换形式为：
+\[\begin{bmatrix} x^{'} \\ y^{'} \\ z^{'} \end{bmatrix} = R_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \end{bmatrix} + t_{A}^{B}\]
+用齐次变换矩阵 \(T_{A}^{B}\) 的表示形式为：
+\begin{equation}
+\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} &amp; t_{A}^{B} \\ 0 &amp; 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/09/rigid-body-transformation.html</guid><pubDate>Tue, 10 Sep 2024 16:12:34 +0800</pubDate></item><item><title>WSL导入导出</title><link>https://xuchengpeng.cn/posts/2024/08/wsl-import-export.html</link><description>WSL导入导出
 默认情况WSL会安装在C盘，可以将其迁移到其他盘，这里使用WSL提供的导入和导出命令。
 关闭所有的WSL，查询要导出的名称:
 PS &gt; wsl --shutdown

@@ -58,6 +58,31 @@
                </div>
 </div>
 <div id="content" class="content">
+<div id="outline-container-rigid-body-transformation" class="outline-2">
+<h2 id="rigid-body-transformation"><a href="posts/2024/09/rigid-body-transformation.html">刚体变换</a></h2>
+<div class="outline-text-2" id="text-rigid-body-transformation">
+<p>
+三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \(R_{A}^{B} = \begin{bmatrix} u_{x}  & v_{x} & w_{x} \\ u_{y}  & v_{y} & w_{y} \\ u_{z}  & v_{z} & w_{z} \end{bmatrix}\) 表示旋转矩阵，用 \(t_{A}^{B} = \begin{bmatrix} t_{x} \\ t_{y} \\ t_{z} \end{bmatrix}\) 表示平移矩阵。
+</p>
+
+<p>
+坐标系A到B刚体变换形式为：
+</p>
+
+<p>
+\[\begin{bmatrix} x^{'} \\ y^{'} \\ z^{'} \end{bmatrix} = R_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \end{bmatrix} + t_{A}^{B}\]
+</p>
+
+<p>
+用齐次变换矩阵 \(T_{A}^{B}\) 的表示形式为：
+</p>
+
+\begin{equation}
+\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+\end{equation}
+<hr><br>
+</div>
+</div>
 <div id="outline-container-wsl-import-export" class="outline-2">
 <h2 id="wsl-import-export"><a href="posts/2024/08/wsl-import-export.html">WSL导入导出</a></h2>
 <div class="outline-text-2" id="text-wsl-import-export">
@@ -113,10 +138,10 @@ PS &gt; wsl -l -v
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #531ab6;">template</span>&lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
-<span style="color: #531ab6;">auto</span> <span style="color: #721045;">add_val</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+<pre class="src src-cpp"><span style="color: #b6a0ff;">template</span>&lt;<span style="color: #b6a0ff;">typename</span>... <span style="color: #6ae4b9;">T</span>&gt;
+<span style="color: #b6a0ff;">auto</span> <span style="color: #feacd0;">add_val</span>(<span style="color: #6ae4b9;">T</span>... <span style="color: #00d3d0;">args</span>)
 {
-    <span style="color: #531ab6;">return</span> (... + args);
+    <span style="color: #b6a0ff;">return</span> (... + args);
 }
 </pre>
 </div>
@@ -135,11 +160,11 @@ PS &gt; wsl -l -v
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #531ab6;">template</span> &lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
-<span style="color: #005f5f;">void</span> <span style="color: #721045;">myvtfunct</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+<pre class="src src-cpp"><span style="color: #b6a0ff;">template</span> &lt;<span style="color: #b6a0ff;">typename</span>... <span style="color: #6ae4b9;">T</span>&gt;
+<span style="color: #6ae4b9;">void</span> <span style="color: #feacd0;">myvtfunct</span>(<span style="color: #6ae4b9;">T</span>... <span style="color: #00d3d0;">args</span>)
 {
-    cout &lt;&lt; <span style="color: #531ab6;">sizeof</span>...(args) &lt;&lt; endl;
-    cout &lt;&lt; <span style="color: #531ab6;">sizeof</span>...(T) &lt;&lt; endl;
+    cout &lt;&lt; <span style="color: #b6a0ff;">sizeof</span>...(args) &lt;&lt; endl;
+    cout &lt;&lt; <span style="color: #b6a0ff;">sizeof</span>...(T) &lt;&lt; endl;
 }
 </pre>
 </div>
@@ -270,7 +295,7 @@ apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif
 </p>
 
 <div class="org-src-container">
-<pre class="src src-latex">If <span style="color: #3548cf;">$a^2=b$</span> and <span style="color: #531ab6;">\(</span> b=2 <span style="color: #531ab6;">\)</span>, then the solution must be either <span style="color: #3548cf;">$$ a=+\sqrt{2} $$</span> or <span style="color: #531ab6;">\[</span> a=-<span style="color: #531ab6;">\sqrt</span>{2} <span style="color: #531ab6;">\]</span>.
+<pre class="src src-latex">If <span style="color: #79a8ff;">$a^2=b$</span> and <span style="color: #b6a0ff;">\(</span> b=2 <span style="color: #b6a0ff;">\)</span>, then the solution must be either <span style="color: #79a8ff;">$$ a=+\sqrt{2} $$</span> or <span style="color: #b6a0ff;">\[</span> a=-<span style="color: #b6a0ff;">\sqrt</span>{2} <span style="color: #b6a0ff;">\]</span>.
 </pre>
 </div>
 

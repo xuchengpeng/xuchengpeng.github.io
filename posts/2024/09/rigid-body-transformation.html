@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>刚体变换</title>
+<meta name="generator" content="Org Mode" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+       <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+       <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+       <link rel="manifest" href="/site.webmanifest">
+       <link rel="stylesheet" type="text/css" href="/css/style.css">
+       <script src="/js/copycode.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<div class="header-wrapper">
+               <div class="site-header">
+               <a class="site-title" href="/">Chuck</a>
+               <div class="site-nav">
+                 <a class="nav-link" href="/posts/">Posts</a>
+                 <a class="nav-link" href="/search/">Search</a>
+                 <a class="nav-link" href="/about/">About</a>
+               </div>
+               </div>
+               </div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">刚体变换</h1>
+</header><p>
+三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \(R_{A}^{B} = \begin{bmatrix} u_{x}  & v_{x} & w_{x} \\ u_{y}  & v_{y} & w_{y} \\ u_{z}  & v_{z} & w_{z} \end{bmatrix}\) 表示旋转矩阵，用 \(t_{A}^{B} = \begin{bmatrix} t_{x} \\ t_{y} \\ t_{z} \end{bmatrix}\) 表示平移矩阵。
+</p>
+
+<p>
+坐标系A到B刚体变换形式为：
+</p>
+
+<p>
+\[\begin{bmatrix} x^{'} \\ y^{'} \\ z^{'} \end{bmatrix} = R_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \end{bmatrix} + t_{A}^{B}\]
+</p>
+
+<p>
+用齐次变换矩阵 \(T_{A}^{B}\) 的表示形式为：
+</p>
+
+\begin{equation}
+\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
+\end{equation}
+
+<p>
+那么坐标系B到A的齐次变换矩阵就是求逆的过程。
+</p>
+
+<p>
+旋转矩阵的逆等于其转置：
+</p>
+
+\begin{equation}
+\left ( R_{A}^{B} \right ) ^ {-1} = \left ( R_{A}^{B} \right ) ^ T
+\end{equation}
+
+<p>
+于是：
+</p>
+
+\begin{equation}
+\begin{aligned}
+T_{B}^{A} &= \left ( T_{A}^{B} \right ) ^ {-1} \\
+&= \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \\ 0 & 1 \end{bmatrix} ^ {-1} \\
+&= \left ( \begin{bmatrix} E & t_{A}^{B} \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} R_{A}^{B} & 0 \\ 0 & 1 \end{bmatrix} \right ) ^ {-1} \\
+&= \begin{bmatrix} R_{A}^{B} & 0 \\ 0 & 1 \end{bmatrix} ^ {-1} \ast \begin{bmatrix} E & t_{A}^{B} \\ 0 & 1 \end{bmatrix} ^ {-1} \\
+&= \begin{bmatrix} \left ( R_{A}^{B} \right ) ^ {-1}  & 0 \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} E & -t_{A}^{B} \\ 0 & 1 \end{bmatrix} \\
+&= \begin{bmatrix} \left ( R_{A}^{B} \right ) ^ {T}  & 0 \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} E & -t_{A}^{B} \\ 0 & 1 \end{bmatrix} \\
+&= \begin{bmatrix} \left ( R_{A}^{B} \right ) ^ {T}  & -\left ( R_{A}^{B} \right ) ^ {T} t_{A}^{B} \\ 0 & 1 \end{bmatrix}
+\end{aligned}
+\end{equation}
+
+<p>
+在已知 \(T_{A}^{B}\) 和 \(T_{B}^{C}\) 时，可求解 \(T_{A}^{C}\) :
+</p>
+
+\begin{equation}
+\begin{aligned}
+T_{A}^{C} &= T_{B}^{C} \ast T_{A}^{B} \\
+&= \begin{bmatrix} R_{B}^{C} & t_{B}^{C} \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \\ 0 & 1 \end{bmatrix} \\
+&= \begin{bmatrix} R_{B}^{C}R_{A}^{B} & R_{B}^{C}t_{A}^{B} + t_{B}^{C} \\ 0 & 1 \end{bmatrix}
+\end{aligned}
+\end{equation}
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDOK90e9g"
+    data-category="Comments"
+    data-category-id="DIC_kwDOK90e9s4CcAQs"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+<div class="nav-btn"><a href="/">Home</a></div>
+               <div class="top-btn"><a href="#top">Top</a></div>
+               <div class="footer-wrapper">
+               <div class="site-footer">
+                &copy xuchengpeng. <a href="/feed.xml">RSS Feed</a>
+               </div>
+               </div>
+</div>
+</body>
+</html>
