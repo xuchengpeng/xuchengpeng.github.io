@@ -1,12 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 11 Sep 2024 20:11:08 +0800</lastBuildDate><item><title>刚体变换</title><link>https://xuchengpeng.cn/posts/2024/09/rigid-body-transformation.html</link><description>刚体变换
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Wed, 11 Sep 2024 20:17:38 +0800</lastBuildDate><item><title>刚体变换</title><link>https://xuchengpeng.cn/posts/2024/09/rigid-body-transformation.html</link><description>刚体变换
 三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \(R_{A}^{B} = \begin{bmatrix} u_{x}  &amp; v_{x} &amp; w_{x} \\ u_{y}  &amp; v_{y} &amp; w_{y} \\ u_{z}  &amp; v_{z} &amp; w_{z} \end{bmatrix}\) 表示旋转矩阵，用 \(t_{A}^{B} = \begin{bmatrix} t_{x} \\ t_{y} \\ t_{z} \end{bmatrix}\) 表示平移矩阵。
 坐标系A到B刚体变换形式为：
 \[\begin{bmatrix} x^{'} \\ y^{'} \\ z^{'} \end{bmatrix} = R_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \end{bmatrix} + t_{A}^{B}\]
 用齐次变换矩阵 \(T_{A}^{B}\) 的表示形式为：
-\begin{equation}
-\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} &amp; t_{A}^{B} \\ 0 &amp; 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/09/rigid-body-transformation.html</guid><pubDate>Tue, 10 Sep 2024 16:12:34 +0800</pubDate></item><item><title>仿射变换与透视变换</title><link>https://xuchengpeng.cn/posts/2024/09/affine_and_perspective_transformation.html</link><description>仿射变换与透视变换
+\[\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} &amp; t_{A}^{B} \\ 0 &amp; 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}\]
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/09/rigid-body-transformation.html</guid><pubDate>Wed, 11 Sep 2024 20:16:44 +0800</pubDate></item><item><title>仿射变换与透视变换</title><link>https://xuchengpeng.cn/posts/2024/09/affine_and_perspective_transformation.html</link><description>仿射变换与透视变换
 仿射变换是指在几何中，一个向量空间进行一次线性变换并接上一个平移，变换为另一个向量空间。
 基本的图像变换就是二维坐标的变换：从一个二维坐标 \((x, y)\) 到另一个二维坐标 \((u, v)\) 的线性变换：
 \begin{split}

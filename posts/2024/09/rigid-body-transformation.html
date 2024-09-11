@@ -76,9 +76,9 @@
 用齐次变换矩阵 \(T_{A}^{B}\) 的表示形式为：
 </p>
 
-\begin{equation}
-\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}
-\end{equation}
+<p>
+\[\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}\]
+</p>
 
 <p>
 那么坐标系B到A的齐次变换矩阵就是求逆的过程。
@@ -88,15 +88,15 @@
 旋转矩阵的逆等于其转置：
 </p>
 
-\begin{equation}
-\left ( R_{A}^{B} \right ) ^ {-1} = \left ( R_{A}^{B} \right ) ^ T
-\end{equation}
+<p>
+\[\left ( R_{A}^{B} \right ) ^ {-1} = \left ( R_{A}^{B} \right ) ^ T\]
+</p>
 
 <p>
 于是：
 </p>
 
-\begin{equation}
+\begin{split}
 \begin{aligned}
 T_{B}^{A} &= \left ( T_{A}^{B} \right ) ^ {-1} \\
 &= \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \\ 0 & 1 \end{bmatrix} ^ {-1} \\
@@ -106,19 +106,19 @@ T_{B}^{A} &= \left ( T_{A}^{B} \right ) ^ {-1} \\
 &= \begin{bmatrix} \left ( R_{A}^{B} \right ) ^ {T}  & 0 \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} E & -t_{A}^{B} \\ 0 & 1 \end{bmatrix} \\
 &= \begin{bmatrix} \left ( R_{A}^{B} \right ) ^ {T}  & -\left ( R_{A}^{B} \right ) ^ {T} t_{A}^{B} \\ 0 & 1 \end{bmatrix}
 \end{aligned}
-\end{equation}
+\end{split}
 
 <p>
 在已知 \(T_{A}^{B}\) 和 \(T_{B}^{C}\) 时，可求解 \(T_{A}^{C}\) :
 </p>
 
-\begin{equation}
+\begin{split}
 \begin{aligned}
 T_{A}^{C} &= T_{B}^{C} \ast T_{A}^{B} \\
 &= \begin{bmatrix} R_{B}^{C} & t_{B}^{C} \\ 0 & 1 \end{bmatrix} \ast \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \\ 0 & 1 \end{bmatrix} \\
 &= \begin{bmatrix} R_{B}^{C}R_{A}^{B} & R_{B}^{C}t_{A}^{B} + t_{B}^{C} \\ 0 & 1 \end{bmatrix}
 \end{aligned}
-\end{equation}
+\end{split}
 
 <div class="giscus-comments">
   <br>
