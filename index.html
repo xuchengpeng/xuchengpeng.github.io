@@ -58,6 +58,40 @@
                </div>
 </div>
 <div id="content" class="content">
+<div id="outline-container-affine_and_perspective_transformation" class="outline-2">
+<h2 id="affine_and_perspective_transformation"><a href="posts/2024/09/affine_and_perspective_transformation.html">仿射变换与透视变换</a></h2>
+<div class="outline-text-2" id="text-affine_and_perspective_transformation">
+<p>
+仿射变换是指在几何中，一个向量空间进行一次线性变换并接上一个平移，变换为另一个向量空间。
+</p>
+
+<p>
+基本的图像变换就是二维坐标的变换：从一个二维坐标 \((x, y)\) 到另一个二维坐标 \((u, v)\) 的线性变换：
+</p>
+
+\begin{split}
+u = a_{1}x+b_{1}y+c_{1} \\
+v = a_{2}x+b_{2}y+c_{2}
+\end{split}
+
+<p>
+写成矩阵的形式：
+</p>
+
+<p>
+\[\begin{bmatrix} u \\ v \end{bmatrix} = \begin{bmatrix} a_{1} & b_{1} \\ a_{2} & b_{2} \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix}\]
+</p>
+
+<p>
+\[R=\begin{bmatrix} a_{1} & b_{1} \\ a_{2} & b_{2} \end{bmatrix},t=\begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix},T=\begin{bmatrix} R & t \end{bmatrix}\]
+</p>
+
+<p>
+矩阵 \(T\) 就是仿射变换的变换矩阵，\(R\) 为线性变换矩阵，\(t\) 为平移矩阵，简单来说，仿射变换就是线性变换+平移。变换后直线依然是直线，平行线依然是平行线，直线间的相对位置关系不变，因此非共线的三个对应点便可确定唯一的一个仿射变换，线性变换 4 个自由度 + 平移 2 个自由度 →仿射变换自由度为 6。
+</p>
+<hr><br>
+</div>
+</div>
 <div id="outline-container-rigid-body-transformation" class="outline-2">
 <h2 id="rigid-body-transformation"><a href="posts/2024/09/rigid-body-transformation.html">刚体变换</a></h2>
 <div class="outline-text-2" id="text-rigid-body-transformation">
