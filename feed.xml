@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 14 Sep 2024 12:59:32 +0800</lastBuildDate><item><title>刚体变换</title><link>https://xuchengpeng.cn/posts/2024/09/rigid-body-transformation.html</link><description>刚体变换
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Mon, 23 Sep 2024 11:10:01 +0800</lastBuildDate><item><title>刚体变换</title><link>https://xuchengpeng.cn/posts/2024/09/rigid-body-transformation.html</link><description>刚体变换
 三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \(R_{A}^{B} = \begin{bmatrix} u_{x}  &amp; v_{x} &amp; w_{x} \\ u_{y}  &amp; v_{y} &amp; w_{y} \\ u_{z}  &amp; v_{z} &amp; w_{z} \end{bmatrix}\) 表示旋转矩阵，用 \(t_{A}^{B} = \begin{bmatrix} t_{x} \\ t_{y} \\ t_{z} \end{bmatrix}\) 表示平移矩阵。
 坐标系A到B刚体变换形式为：
 \[\begin{bmatrix} x^{'} \\ y^{'} \\ z^{'} \end{bmatrix} = R_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \end{bmatrix} + t_{A}^{B}\]
@@ -73,7 +73,7 @@ void myvtfunct()
 {
 }
 在C++17标准中，引入了编译期间if语句，在if后面又增加了一个constexpr关键字，这个关键字代表常量或编译期求值。通过编译期间if语句，可以把上述递归终止函数省略。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/cpp-variadic-function-templates.html</guid><pubDate>Mon, 29 Jul 2024 08:41:23 +0800</pubDate></item><item><title>C++折叠表达式</title><link>https://xuchengpeng.cn/posts/2024/07/cpp-fold-expressions.html</link><description>C++折叠表达式
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/cpp-variadic-function-templates.html</guid><pubDate>Mon, 23 Sep 2024 11:07:08 +0800</pubDate></item><item><title>C++折叠表达式</title><link>https://xuchengpeng.cn/posts/2024/07/cpp-fold-expressions.html</link><description>C++折叠表达式
 折叠表达式(Fold Expressions)是C++17标准引入的，引入折叠表达式的主要目的是计算某个值。这个值的特殊性在于：它与可变参有关，而不是与单独某个可变参有关。换句话说，所有的可变参都参与计算，才能求出该值。在可变参函数模板中，因为展开参数比较麻烦，如果要把传递进来的所有参数加在一起，可能要写很多代码，而通过折叠表达式，只需要一行代码就可以求出所有可变参的和。
 template&lt;typename... T&gt;
 auto add_val(T... args)
@@ -87,7 +87,7 @@ auto add_val(T... args)
 计算方式：(((参数1 运算符 参数2) 运算符 参数3)… 运算符 参数N)
 运算符指的是C++语言中的运算符，绝大部分运算符都可以用在这里。
 一元右折(Unary Right Fold):
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/cpp-fold-expressions.html</guid><pubDate>Mon, 29 Jul 2024 08:36:07 +0800</pubDate></item><item><title>李白《侠客行》</title><link>https://xuchengpeng.cn/posts/2024/05/libai-xiakexing.html</link><description>李白《侠客行》
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/2024/07/cpp-fold-expressions.html</guid><pubDate>Mon, 23 Sep 2024 11:06:19 +0800</pubDate></item><item><title>李白《侠客行》</title><link>https://xuchengpeng.cn/posts/2024/05/libai-xiakexing.html</link><description>李白《侠客行》
 赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。
 十步杀一人，千里不留行。事了拂衣去，深藏身与名。
 闲过信陵饮，脱剑膝前横。将炙啖朱亥，持觞劝侯嬴。

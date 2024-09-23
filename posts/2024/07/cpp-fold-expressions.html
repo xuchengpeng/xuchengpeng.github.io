@@ -33,10 +33,10 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #531ab6;">template</span>&lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
-<span style="color: #531ab6;">auto</span> <span style="color: #721045;">add_val</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+<pre class="src src-C">template&lt;typename... T&gt;
+<span style="color: #b6a0ff;">auto</span> add_val(T... args)
 {
-    <span style="color: #531ab6;">return</span> (... + args);
+    <span style="color: #b6a0ff;">return</span> (... + args);
 }
 </pre>
 </div>
@@ -78,20 +78,20 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #531ab6;">template</span>&lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
-<span style="color: #531ab6;">auto</span> <span style="color: #721045;">sub_val_left</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+<pre class="src src-C">template&lt;typename... T&gt;
+<span style="color: #b6a0ff;">auto</span> sub_val_left(T... args)
 {
-    <span style="color: #531ab6;">return</span> (... - args);
+    <span style="color: #b6a0ff;">return</span> (... - args);
 }
 
-<span style="color: #531ab6;">template</span>&lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
-<span style="color: #531ab6;">auto</span> <span style="color: #721045;">sub_val_right</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+template&lt;typename... T&gt;
+<span style="color: #b6a0ff;">auto</span> sub_val_right(T... args)
 {
-    <span style="color: #531ab6;">return</span> (args - ...);
+    <span style="color: #b6a0ff;">return</span> (args - ...);
 }
 
-cout &lt;&lt; sub_val_left(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: #595959;">// </span><span style="color: #595959;">(((10-20)-30))-40=-80</span>
-cout &lt;&lt; sub_val_right(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: #595959;">// </span><span style="color: #595959;">10-(20-(30-40))=-20</span>
+cout &lt;&lt; sub_val_left(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: #989898;">// </span><span style="color: #989898;">(((10-20)-30))-40=-80</span>
+cout &lt;&lt; sub_val_right(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: #989898;">// </span><span style="color: #989898;">10-(20-(30-40))=-20</span>
 </pre>
 </div>
 
@@ -120,27 +120,27 @@ cout &lt;&lt; sub_val_right(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #531ab6;">template</span>&lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
-<span style="color: #531ab6;">auto</span> <span style="color: #721045;">sub_val_left_b</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+<pre class="src src-C">template&lt;typename... T&gt;
+<span style="color: #b6a0ff;">auto</span> sub_val_left_b(T... args)
 {
-    <span style="color: #531ab6;">return</span> (200 - ... - args);
+    <span style="color: #b6a0ff;">return</span> (200 - ... - args);
 }
 
-<span style="color: #531ab6;">template</span>&lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
-<span style="color: #531ab6;">auto</span> <span style="color: #721045;">sub_val_right_b</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+template&lt;typename... T&gt;
+<span style="color: #b6a0ff;">auto</span> sub_val_right_b(T... args)
 {
-    <span style="color: #531ab6;">return</span> (args - ... - 200);
+    <span style="color: #b6a0ff;">return</span> (args - ... - 200);
 }
 
-cout &lt;&lt; sub_val_left_b(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: #595959;">// </span><span style="color: #595959;">(((200-10)-20)-30)-40=120</span>
-cout &lt;&lt; sub_val_right_b(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: #595959;">// </span><span style="color: #595959;">10-(20-(30-(40-200)))=200</span>
+cout &lt;&lt; sub_val_left_b(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: #989898;">// </span><span style="color: #989898;">(((200-10)-20)-30)-40=120</span>
+cout &lt;&lt; sub_val_right_b(10, 20, 30, 40) &lt;&lt; endl;  <span style="color: #989898;">// </span><span style="color: #989898;">10-(20-(30-(40-200)))=200</span>
 
-<span style="color: #531ab6;">template</span>&lt;<span style="color: #531ab6;">typename</span>... <span style="color: #005f5f;">T</span>&gt;
-<span style="color: #005f5f;">void</span> <span style="color: #721045;">print_val_left_b</span>(<span style="color: #005f5f;">T</span>... <span style="color: #005e8b;">args</span>)
+template&lt;typename... T&gt;
+<span style="color: #6ae4b9;">void</span> print_val_left_b(T... args)
 {
     (cout &lt;&lt; ... &lt;&lt; args);
 }
-print_val_left_b(10, <span style="color: #3548cf;">"abc"</span>, 30, <span style="color: #3548cf;">"def"</span>);  <span style="color: #595959;">// </span><span style="color: #595959;">10abc30def</span>
+print_val_left_b(10, <span style="color: #79a8ff;">"abc"</span>, 30, <span style="color: #79a8ff;">"def"</span>);  <span style="color: #989898;">// </span><span style="color: #989898;">10abc30def</span>
 </pre>
 </div>
 

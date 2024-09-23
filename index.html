@@ -181,8 +181,8 @@ PS &gt; wsl -l -v
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #b6a0ff;">template</span>&lt;<span style="color: #b6a0ff;">typename</span>... <span style="color: #6ae4b9;">T</span>&gt;
-<span style="color: #b6a0ff;">auto</span> <span style="color: #feacd0;">add_val</span>(<span style="color: #6ae4b9;">T</span>... <span style="color: #00d3d0;">args</span>)
+<pre class="src src-C">template&lt;typename... T&gt;
+<span style="color: #b6a0ff;">auto</span> add_val(T... args)
 {
     <span style="color: #b6a0ff;">return</span> (... + args);
 }
@@ -203,8 +203,8 @@ PS &gt; wsl -l -v
 </p>
 
 <div class="org-src-container">
-<pre class="src src-cpp"><span style="color: #b6a0ff;">template</span> &lt;<span style="color: #b6a0ff;">typename</span>... <span style="color: #6ae4b9;">T</span>&gt;
-<span style="color: #6ae4b9;">void</span> <span style="color: #feacd0;">myvtfunct</span>(<span style="color: #6ae4b9;">T</span>... <span style="color: #00d3d0;">args</span>)
+<pre class="src src-C">template &lt;typename... T&gt;
+<span style="color: #6ae4b9;">void</span> myvtfunct(T... args)
 {
     cout &lt;&lt; <span style="color: #b6a0ff;">sizeof</span>...(args) &lt;&lt; endl;
     cout &lt;&lt; <span style="color: #b6a0ff;">sizeof</span>...(T) &lt;&lt; endl;
