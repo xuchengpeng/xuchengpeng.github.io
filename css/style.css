@@ -1,0 +1,612 @@
+/* Import google fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans|Cousine&display=swap);
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic Style */
+
+html {
+  font-size: 100px;
+}
+
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: .16rem;
+  line-height: 1.5;
+}
+
+#content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  position: relative;
+}
+
+/* header line */
+/* i.e. h1 */
+.title {
+  font-size: .32rem;
+  width: 100%;
+  padding: 0;
+}
+
+a {
+  color: #2a7ae2;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #1756a9;
+}
+
+a:hover {
+  color: #f66;
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: .32rem;
+}
+
+h2 {
+  font-size: .28rem;
+}
+
+h3 {
+  font-size: .24rem;
+}
+
+h4 {
+  font-size: .20rem;
+}
+
+h5 {
+  font-size: .18rem;
+}
+
+h6 {
+  font-size: .16rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: .1rem 0;
+}
+
+h2 code:last-child,
+h3 code:last-child,
+h4 code:last-child,
+h5 code:last-child,
+h6 code:last-child {
+  border-radius: 3px;
+  background: #363;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+}
+
+/* paragrapn */
+p {
+  margin: .12rem 0;
+}
+
+/* img */
+img {
+  max-width: 100%;
+}
+
+/* img caption */
+.figure p:last-child {
+  color: #666;
+  font-size: .14rem;
+  text-align: center;
+  margin: .06rem 0;
+}
+
+/* blockquote */
+blockquote {
+  color: #369;
+  border-left: 1px solid #369;
+  padding-left: .16rem;
+}
+
+
+/* code */
+
+code {
+  font-family: 'Cousine', monospace;
+  font-size: 0.15rem;
+  padding: 1px 4px;
+  border: 1px solid #eff0f2;
+  border-radius: 3px;
+  background-color: #eff0f2;
+}
+
+pre {
+  font-family: 'Cousine', monospace;
+  font-size: 0.15rem;
+  padding: .14rem;
+  border: 1px solid #f6f6f8;
+  border-radius: 3px;
+  background-color: #f6f6f8;
+  margin: .12rem 0;
+  overflow: hidden;
+}
+
+pre:hover {
+  overflow: auto;
+}
+
+
+/* list */
+ul,
+ol {
+  list-style-position: inside;
+}
+
+li>ul,
+li>ol {
+  padding-left: .16rem;
+}
+
+
+/* table */
+.t-above {
+  font-size: .14rem;
+  color: #666;
+  margin: .06rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: .24rem 0;
+}
+
+thead tr {
+  border-top: 2px solid #369;
+  border-left: 2px solid #369;
+  border-right: 2px solid #369;
+}
+
+tbody {
+  border-top: 2px solid #369;
+}
+
+tbody tr {
+  border-bottom: 1px solid #369;
+  border-left: 2px solid #369;
+  border-right: 2px solid #369;
+}
+
+tbody tr:last-child {
+  border-bottom: 2px solid #369;
+}
+
+th,
+td {
+  border-right: 1px solid #369;
+  padding: 3px 6px;
+}
+
+.org-center {
+  text-align: center;
+}
+
+.org-right {
+  text-align: right;
+}
+
+th:first-child,
+td:first-child {
+  border-left: rgba(255, 255, 255, 0);
+}
+
+th:last-child,
+td:last-child {
+  border-right: rgba(255, 255, 255, 0);
+}
+
+#table-of-contents {
+  position: fixed;
+  box-shadow: 1px 0 3px #999;
+
+  left: -16%;
+  top: 0;
+  min-width: 16%;
+  min-height: 100%;
+  height: 100%;
+  font-size: .16rem;
+  font-size: 90%;
+  color: #369;
+  padding: 0 1%;
+  transition: .3s all ease-in-out;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 9999;
+}
+
+#table-of-contents:hover {
+  opacity: 1;
+  left: 0;
+  border-right: 1px solid #eee;
+  overflow: auto;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+#table-of-contents h2:before {
+  content: "";
+}
+
+/* Highlight TOC active item */
+.link-active {
+  color: #fff;
+  background: #2a7ae2;
+  padding: 1px 2px;
+}
+
+.header-wrapper {
+  border-top: 5px solid #424242;
+  border-bottom: 1px solid #e8e8e8;
+  border-image: linear-gradient(to right, #147, #f66) 30 30;
+  min-height: 55px;
+  position: relative;
+}
+
+.footer-wrapper {
+  border-top: 1px solid #e8e8e8;
+  border-image: linear-gradient(to right, #147, #f66) 30 30;
+}
+
+.site-header {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.site-title {
+  font-size: .32rem;
+  line-height: 54px;
+  float: left;
+}
+
+.site-title,
+.site-title:visited {
+  color: #111
+}
+
+.site-nav {
+  line-height: 54px;
+  float: right;
+}
+
+.site-nav .nav-link {
+  color: #111;
+  line-height: 1.5
+}
+
+.site-nav .nav-link:not(:last-child) {
+  margin-right: 10px
+}
+
+.site-footer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 10px;
+  font-size: .15rem;
+  color: #666;
+  text-align: center;
+}
+
+.validation a {
+  color: #2a7ae2;
+}
+
+/* Inline Format */
+.underline {
+  border-bottom: 1px solid #333;
+}
+
+/* Contect with Me */
+.me {
+  margin-top: .48rem;
+}
+
+.me span {
+  color: #333;
+}
+
+.contect {
+  padding: .16rem 0;
+}
+
+.contect i {
+  color: #369;
+  font-size: .20rem;
+  padding-right: .08rem;
+}
+
+.post-meta {
+  font-size: 0.14rem;
+  color: #828282;
+}
+
+/* Top Buttom */
+.top-btn {
+  opacity: .5;
+  box-shadow: 0 0 1px #666;
+  display: inline-block;
+  width: .64rem;
+  height: .32rem;
+  line-height: .32rem;
+  text-align: center;
+  position: fixed;
+  bottom: 2%;
+  right: 2%;
+  font-size: .12rem;
+  color: #222;
+  background: #eee;
+  transition: .3s all ease-in-out;
+}
+
+.top-btn:hover {
+  opacity: 1;
+  background: #eee;
+}
+
+
+/* Nav Button */
+.nav-btn {
+  opacity: .5;
+  box-shadow: 0 0 1px #666;
+  display: inline-block;
+  width: .64rem;
+  height: .32rem;
+  line-height: .32rem;
+  text-align: center;
+  position: fixed;
+  bottom: 8%;
+  right: 2%;
+  font-size: .12rem;
+  color: #222;
+  background: #eee;
+  transition: .3s all ease-in-out;
+}
+
+.nav-btn:hover {
+  opacity: 1;
+  background: #eee;
+}
+
+.nav-show-hide {
+  background: #eee;
+  opacity: 1;
+}
+
+/* GTD Style */
+.todo {
+  border-radius: 3px;
+  background: #911;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+}
+
+.done {
+  border-radius: 3px;
+  background: #147;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+}
+
+.tag span {
+  border-radius: 3px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #c60;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+  display: inline-block;
+}
+
+.priority {
+  border-radius: 3px;
+  background: #991;
+  color: #eee;
+  font-size: .12rem;
+  padding: 2px 6px;
+}
+
+/* .timestamp-wrapper */
+/* In CSS&CSS3, there has no a selector to get parentNode. Now via js. */
+
+.org-ul .on code {
+  color: #009;
+  font-weight: 900;
+}
+
+.org-ul .off code {
+  color: #900;
+  font-weight: 900;
+}
+
+/* Footnotes */
+
+.footpara {
+  display: inline;
+  font-size: .15rem;
+  color: #333;
+}
+
+.org-src-container {
+  position: relative;
+}
+
+/* Copy Code button */
+.org-src-container button {
+  display: none;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.org-src-container:hover button {
+  display: block;
+  cursor: pointer;
+}
+
+/* Search box */
+.search {
+  display: none;
+  width: 100%;
+  height: 30px;
+  padding: 10px 0;
+  z-index: 1
+}
+
+.search .search-icon {
+  float: left;
+  height: 100%;
+  font-size: .28rem;
+  line-height: 30px;
+  cursor: pointer;
+  user-select: none
+}
+
+.search .search-input {
+  float: left;
+  width: 80%;
+  height: 30px;
+  font-size: .16rem;
+  line-height: 30px;
+  margin: 0;
+  padding-left: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #111
+}
+
+.search .search-clear {
+  display: none;
+  line-height: 30px;
+}
+
+.search .search-results {
+  display: none;
+  width: 80%;
+  max-height: 60vh;
+  margin-top: 15px;
+  overflow: auto;
+  text-align: left;
+  border: 1px solid #555;
+  border-radius: 2px;
+  background: #fafafa
+}
+
+.search .search-results .result-title {
+  color: #000;
+  padding: 10px 10px;
+}
+
+.search .search-results .result-item {
+  padding: 10px 10px;
+}
+
+.search .search-results .result-item .result-item-title {
+  color: #000;
+  font-size: .20rem;
+  font-weight: bold;
+}
+
+.search .search-results .result-item .result-item-detail a {
+  text-transform: none !important;
+}
+
+/* Mobile UI */
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: .28rem;
+    white-space: nowrap;
+    overflow: auto;
+  }
+
+  #table-of-contents {
+    height: 400px;
+    min-height: 400px;
+    width: 100%;
+    top: -380px;
+    left: 0;
+    color: #369;
+    opacity: 0;
+    box-shadow: 0 1px 3px #999;
+    background: #fff;
+  }
+
+  #table-of-contents:hover {
+    top: 0px;
+    opacity: 1;
+  }
+
+  .link-active {
+    color: #fff;
+    background: #2a7ae2;
+    padding: 1px 2px;
+  }
+
+  pre {
+    overflow: auto;
+  }
+
+  .top-btn {
+    opacity: .1;
+    bottom: 1%;
+    right: 0;
+  }
+
+  .top-btn:hover {
+    opacity: .1;
+  }
+
+  .nav-btn {
+    opacity: .1;
+    bottom: 7%;
+    right: 0;
+  }
+
+  .nav-btn:hover {
+    opacity: .1;
+  }
+}
