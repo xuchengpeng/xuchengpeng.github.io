@@ -1,2 +1,48 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 24 Dec 2024 13:36:02 +0800</lastBuildDate></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 16:14:29 +0800</lastBuildDate><item><title>交叉编译ARM64内核</title><link>https://xuchengpeng.cn/posts/20191220-cross-compile-arm64-kernel.html</link><description>交叉编译ARM64内核
+从 kernel.org 下载 Linux 内核，从 linaro 或者 arm 下载交叉编译工具链。
+解压内核源码和工具链：
+tar -Jxf linux-4.20.3.tar.xz
+tar -Jxf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
+拷贝默认配置：
+cd linux-4.20.3
+cp arch/arm64/configs/defconfig .config
+配置选项：
+make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- menuconfig
+编译内核：
+make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
+代码根目录下会生成 vmlinux ， arch/arm64/boot 目录下会生成 Image 和
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191220-cross-compile-arm64-kernel.html</guid><pubDate>Thu, 26 Dec 2024 16:10:31 +0800</pubDate></item><item><title>GitHub: Announcing unlimited free private repos</title><link>https://xuchengpeng.cn/posts/20191208-github-unlimited-free-private-repos.html</link><description>GitHub: Announcing unlimited free private repos
+GitHub is announcing unlimited free private repos and unified Enterprise offering.
+GitHub Free now includes unlimited private repositories. For the first time, developers can use GitHub for their private projects with up to three collaborators per repository for free. Many developers want to use private repos to apply for a job, work on a side project, or try something out in private before releasing it publicly. Starting today, those scenarios, and many more, are possible on GitHub at no cost. Public repositories are still free (of course—no changes there) and include unlimited collaborators.
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191208-github-unlimited-free-private-repos.html</guid><pubDate>Thu, 26 Dec 2024 16:10:31 +0800</pubDate></item><item><title>What is REST</title><link>https://xuchengpeng.cn/posts/20191202-what-is-rest.html</link><description>What is REST
+Table of Contents
+Guiding Principles of REST
+Resource
+Resource Methods
+REST and HTTP are not same !!
+REST is acronym for REpresentational State Transfer. It is architectural style for distributed hypermedia systems and was first presented by Roy Fielding in 2000 in his famous dissertation.
+Like any other architectural style, REST also does have it's own 6 guiding constraints which must be satisfied if an interface needs to be referred as RESTful. These principles are listed below.
+Guiding Principles of REST
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191202-what-is-rest.html</guid><pubDate>Thu, 26 Dec 2024 16:10:31 +0800</pubDate></item><item><title>Publishing Org-mode files to HTML</title><link>https://xuchengpeng.cn/posts/20191201-org-publish-html.html</link><description>Publishing Org-mode files to HTML
+Table of Contents
+Basics
+Publishing the org project
+Emacs is the best editor in the world.
+This is a guide to show how to publish a static blog with Org mode.
+Basics
+Create your blog files and css files.
+~/blog/org/
+   |- css/
+   |  `- worg.css
+   |- img/
+   |- index.org
+   `- remember.org
+Publishing the org project
+(require 'ox-publish)
+(setq org-publish-project-alist
+      '(;; Publish the posts
+        ("blog-notes"
+         :base-directory "~/blog/org"
+         :base-extension "org"
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191201-org-publish-html.html</guid><pubDate>Thu, 26 Dec 2024 16:10:31 +0800</pubDate></item></channel></rss>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>What is REST</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">What is REST</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#guiding-principles-of-rest">Guiding Principles of REST</a></li>
+<li><a href="#resource">Resource</a></li>
+<li><a href="#resource-methods">Resource Methods</a></li>
+<li><a href="#rest-and-http-are-not-same">REST and HTTP are not same !!</a></li>
+</ul>
+</div>
+</nav>
+<div class="PREVIEW">
+<p>
+REST is acronym for REpresentational State Transfer. It is architectural style for <b>distributed hypermedia systems</b> and was first presented by Roy Fielding in 2000 in his famous <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">dissertation</a>.
+</p>
+
+<p>
+Like any other architectural style, REST also does have it's own <a href="https://restfulapi.net/rest-architectural-constraints/">6 guiding constraints</a> which must be satisfied if an interface needs to be referred as <b>RESTful</b>. These principles are listed below.
+</p>
+
+</div>
+<div id="outline-container-guiding-principles-of-rest" class="outline-2">
+<h2 id="guiding-principles-of-rest">Guiding Principles of REST</h2>
+<div class="outline-text-2" id="text-guiding-principles-of-rest">
+<ol class="org-ol">
+<li><b>Client-server</b> - By separating the user interface concerns from the data
+storage concerns, we improve the portability of the user interface across
+multiple platforms and improve scalability by simplifying the server
+components.</li>
+<li><b>Stateless</b> - Each request from client to server must contain all of the
+information necessary to understand the request, and cannot take advantage of
+any stored context on the server. Session state is therefore kept entirely on
+the client.</li>
+<li><b>Cacheable</b> - Cache constraints require that the data within a response to a
+request be implicitly or explicitly labeled as cacheable or non-cacheable. If
+a response is cacheable, then a client cache is given the right to reuse that
+response data for later, equivalent requests.</li>
+<li><b>Uniform interface</b> - By applying the software engineering principle of
+generality to the component interface, the overall system architecture is
+simplified and the visibility of interactions is improved. In order to obtain
+a uniform interface, multiple architectural constraints are needed to guide
+the behavior of components. REST is defined by four interface constraints:
+identification of resources; manipulation of resources through
+representations; self-descriptive messages; and, hypermedia as the engine of
+application state.</li>
+<li><b>Layered system</b> - The layered system style allows an architecture to be
+composed of hierarchical layers by constraining component behavior such that
+each component cannot "see" beyond the immediate layer with
+which they are interacting.</li>
+<li><b>Code on demmand (optional)</b> - REST allows client functionality to be
+extended by downloading and executing code in the form of applets or scripts.
+This simplifies clients by reducing the number of features required to be
+pre-implemented.</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-resource" class="outline-2">
+<h2 id="resource">Resource</h2>
+<div class="outline-text-2" id="text-resource">
+<p>
+The key abstraction of information in REST is a <b>resource</b>. Any information that can be named can be a resource: a document or image, a temporal service, a collection of other resources, a non-virtual object (e.g. a person), and so on. REST uses a <b>resource identifier</b> to identify the particular resource involved in an interaction between components.
+</p>
+
+<p>
+The state of resource at any particular timestamp is known as <b>resource
+representation</b>. A representation consists of data, metadata describing the data
+and <b>hypermedia</b> links which can help the clients in transition to next desired state.
+</p>
+
+<p>
+The data format of a representation is known as a <a href="https://www.iana.org/assignments/media-types/media-types.xhtml">media type</a>. The media type
+identifies a specification that defines how a representation is to be processed.
+<b>A truly RESTful API looks like hypertext</b>. Every addressable unit of information
+carries an address, either explicitly (e.g., link and id attributes) or
+implicitly (e.g., derived from the media type definition and representation
+structure).
+</p>
+
+<p>
+According to Roy Fielding:
+</p>
+
+<blockquote>
+<p>
+Hypertext (or hypermedia) mean the simultaneous presentation of information
+and controls such that the information becomes the affordance through which the
+user (or automaton) obtains choices and selects actions. Remember that hypertext
+does not need to be HTML (or XML or JSON) on a browser. Machines can follow
+links when they understand the data format and relationship types.
+</p>
+</blockquote>
+
+<p>
+Further, <b>resource representations shall be self-descriptive</b>: the client does not
+need to know if a resource is employee or device. It should act on basis of
+media-type associated with resource. So in practice, you will end up creating
+lots of <b>custom media-types</b> - normally one media-type associated with one
+resource.
+</p>
+
+<blockquote>
+<p>
+Every media type defines a default processing model. For example, HTML defines a
+rendering process for hypertext and the browser behavior around each element. It
+has no relation to the resource methods GET/PUT/POST/DELETE/&#x2026; other than the
+fact that some media type elements will define a process model that goes like
+"anchor elements with an href attribute create a hypertext link that, when
+selected, invokes a retrieval request (GET) on the URI corresponding to the
+CDATA-encoded href attribute."
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-resource-methods" class="outline-2">
+<h2 id="resource-methods">Resource Methods</h2>
+<div class="outline-text-2" id="text-resource-methods">
+<p>
+Other important thing associated with REST is <b>resource methods</b> to be used to
+perform the desired transition. A large number of people wrongly relate resource
+methods to HTTP <b>GET/PUT/POST/DELETE</b> methods.
+</p>
+
+<p>
+Roy Fielding has never mentioned any recommendation around which method to be
+used in which condition. All he emphasizes is that it should be <b>uniform
+interface</b>. If you decide HTTP POST will be used for updating a resource -
+rather than most people recommend HTTP PUT - it's alright and application
+interface will be RESTful.
+</p>
+
+<p>
+Ideally, everything that is needed to change the resource state shall be part of
+API response for that resource - including methods and in what state they will
+leave the representation.
+</p>
+
+<blockquote>
+<p>
+A REST API should be entered with no prior knowledge beyond the initial URI (bookmark) and set of standardized media types that are appropriate for the intended audience (i.e., expected to be understood by any client that might use the API). From that point on, all application state transitions must be driven by client selection of server-provided choices that are present in the received representations or implied by the user's manipulation of those representations. The transitions may be determined (or limited by) the client's knowledge of media types and resource communication mechanisms, both of which may be improved on-the-fly (e.g., code-on-demand).
+[Failure here implies that out-of-band information is driving interaction
+instead of hypertext.]
+</p>
+</blockquote>
+
+<p>
+Another thing which will help you while building RESTful APIs is that 
+<b>query based API results should be represented by a list of links with summary information</b>, 
+not by arrays of original resource representations because query is not a substitute for identification of resources.
+</p>
+</div>
+</div>
+<div id="outline-container-rest-and-http-are-not-same" class="outline-2">
+<h2 id="rest-and-http-are-not-same">REST and HTTP are not same !!</h2>
+<div class="outline-text-2" id="text-rest-and-http-are-not-same">
+<p>
+A lot of people prefer to compare HTTP with REST. <b>REST and HTTP are not same</b>.
+</p>
+
+<p>
+Though, because REST also intend to make web (internet) more streamline and
+standard, he advocate to use REST principles more strictly. And that's from
+where people try to start comparing REST with web (HTTP). Roy fielding, in his
+dissertation, nowhere mentioned any implementation directive - including any
+protocol preference and HTTP. Till the time, you are honoring the 6 guiding
+principles of REST, you can call your interface RESTful.
+</p>
+
+<p>
+In simplest words, in the REST architectural style, data and functionality are
+considered resources and are accessed using Uniform Resource Identifiers (URIs).
+The resources are acted upon by using a set of simple, well-defined operations.
+The clients and servers exchange representations of resources by using a
+standardized interface and protocol - typically HTTP.
+</p>
+
+<p>
+Resources are decoupled from their representation so that their content can be
+accessed in a variety of formats, such as HTML, XML, plain text, PDF, JPEG,
+JSON, and others. Metadata about the resource is available and used, for
+example, to control caching, detect transmission errors, negotiate the
+appropriate representation format, and perform authentication or access
+control.And most importantly, every interaction with a resource is stateless.
+</p>
+
+<p>
+All these principles help RESTful applications to be simple, lightweight, and
+fast.
+</p>
+
+<p>
+References:
+</p>
+
+<p>
+<a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven</a>
+<a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm</a>
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>

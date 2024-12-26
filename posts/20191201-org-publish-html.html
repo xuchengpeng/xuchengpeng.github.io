@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Publishing Org-mode files to HTML</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Publishing Org-mode files to HTML</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#basics">Basics</a></li>
+<li><a href="#publishing-the-org-project">Publishing the org project</a></li>
+</ul>
+</div>
+</nav>
+<div class="PREVIEW">
+<blockquote>
+<p>
+Emacs is the best editor in the world.
+</p>
+</blockquote>
+
+<p>
+This is a guide to show how to publish a static blog with Org mode.
+</p>
+
+</div>
+<div id="outline-container-basics" class="outline-2">
+<h2 id="basics">Basics</h2>
+<div class="outline-text-2" id="text-basics">
+<p>
+Create your blog files and css files.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">~/blog/org/
+   |- css/
+   |  <span style="color: #8f0075;">`- worg.css</span>
+<span style="color: #8f0075;">   |- img/</span>
+<span style="color: #8f0075;">   |- index.org</span>
+<span style="color: #8f0075;">   `</span>- remember.org
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-publishing-the-org-project" class="outline-2">
+<h2 id="publishing-the-org-project">Publishing the org project</h2>
+<div class="outline-text-2" id="text-publishing-the-org-project">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #531ab6;">require</span> '<span style="color: #0000b0;">ox-publish</span>)
+(<span style="color: #531ab6;">setq</span> org-publish-project-alist
+      '(<span style="color: #595959;">;; </span><span style="color: #595959;">Publish the posts</span>
+        (<span style="color: #3548cf;">"blog-notes"</span>
+         <span style="color: #8f0075;">:base-directory</span> <span style="color: #3548cf;">"~/blog/org"</span>
+         <span style="color: #8f0075;">:base-extension</span> <span style="color: #3548cf;">"org"</span>
+         <span style="color: #8f0075;">:publishing-directory</span> <span style="color: #3548cf;">"~/blog/public"</span>
+         <span style="color: #8f0075;">:recursive</span> t
+         <span style="color: #8f0075;">:publishing-function</span> org-html-publish-to-html
+         <span style="color: #8f0075;">:headline-levels</span> 4
+         <span style="color: #8f0075;">:section-numbers</span> nil
+         <span style="color: #8f0075;">:with-author</span> nil
+         <span style="color: #8f0075;">:with-creator</span> nil
+         <span style="color: #8f0075;">:with-email</span> nil
+         <span style="color: #8f0075;">:with-timestamps</span> nil
+         <span style="color: #8f0075;">:auto-preamble</span> t
+         <span style="color: #595959;">; </span><span style="color: #595959;">:auto-postamble nil</span>
+         <span style="color: #8f0075;">:html-head</span> <span style="color: #3548cf;">"&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg.css\"/&gt;"</span>
+         <span style="color: #8f0075;">:html-head-include-default-style</span> nil
+         <span style="color: #595959;">; </span><span style="color: #595959;">:html-head-include-scripts nil</span>
+         <span style="color: #595959;">; </span><span style="color: #595959;">:html-preamble nil</span>
+         <span style="color: #595959;">; </span><span style="color: #595959;">:html-postamble nil</span>
+         <span style="color: #8f0075;">:html-link-home</span> <span style="color: #3548cf;">"index.html"</span>
+         <span style="color: #8f0075;">:html-link-up</span> <span style="color: #3548cf;">"sitemap.html"</span>
+         <span style="color: #8f0075;">:html-metadata-timestamp-format</span> <span style="color: #3548cf;">"%Y-%m-%d %H:%M"</span>
+         <span style="color: #8f0075;">:htmlized-source</span> t
+         <span style="color: #8f0075;">:auto-sitemap</span> t
+         <span style="color: #8f0075;">:sitemap-filename</span> <span style="color: #3548cf;">"sitemap.org"</span>
+         <span style="color: #8f0075;">:sitemap-title</span> <span style="color: #3548cf;">"Sitemap"</span>
+         <span style="color: #8f0075;">:author</span> <span style="color: #3548cf;">"xuchengpeng"</span>
+         <span style="color: #8f0075;">:email</span> <span style="color: #3548cf;">"xucp@outlook.com"</span>
+         )
+
+        <span style="color: #595959;">;; </span><span style="color: #595959;">For static files that should remain untouched</span>
+        (<span style="color: #3548cf;">"blog-static"</span>
+         <span style="color: #8f0075;">:base-directory</span> <span style="color: #3548cf;">"~/blog/org"</span>
+         <span style="color: #8f0075;">:base-extension</span> <span style="color: #3548cf;">"css</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">js</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">png</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">jpg</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">gif</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">pdf</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">mp3</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">ogg</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">swf</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">eot</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">svg</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">woff</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">woff2</span><span style="color: #721045;">\\</span><span style="color: #00663f;">|</span><span style="color: #3548cf;">ttf"</span>
+         <span style="color: #8f0075;">:publishing-directory</span> <span style="color: #3548cf;">"~/blog/public"</span>
+         <span style="color: #8f0075;">:recursive</span> t
+         <span style="color: #8f0075;">:publishing-function</span> org-publish-attachment
+         )
+
+        <span style="color: #595959;">;; </span><span style="color: #595959;">Combine the two previous components in a single one</span>
+        (<span style="color: #3548cf;">"blog"</span> <span style="color: #8f0075;">:components</span> (<span style="color: #3548cf;">"blog-notes"</span> <span style="color: #3548cf;">"blog-static"</span>))))
+</pre>
+</div>
+
+<p>
+Then run <code>org-publish-project</code> to generate html files to <code>~/blog/public</code> folder.
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>
