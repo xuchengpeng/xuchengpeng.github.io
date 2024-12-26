@@ -1,5 +1,52 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 17:54:08 +0800</lastBuildDate><item><title>Use tldraw in Vite</title><link>https://xuchengpeng.cn/posts/20240731-use-tldraw-in-vite.html</link><description>Use tldraw in Vite
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 18:04:00 +0800</lastBuildDate><item><title>Safe Local Variable Directories</title><link>https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</link><description>Safe Local Variable Directories
+safe-local-variable-directories was introduced in Emacs 30.1.
+A list of directories where local variables are always enabled.
+Directory-local variables loaded from these directories, such as the variables in .dir-locals.el, will be enabled even if they are risky.
+The names of the directories in the list must be absolute, and must end in a slash.
+Remote directories can be included if the variable enable-remote-dir-locals is non-nil.
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</guid><pubDate>Thu, 26 Dec 2024 18:03:32 +0800</pubDate></item><item><title>删除Git Submodule</title><link>https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</link><description>删除Git Submodule
+删除子模块目录；
+删除 .gitmodules 中对应的子模块内容；
+删除 .git/config 中对应的子模块内容；
+删除 .git/modules/ 下对应的子模块目录；
+git rm --cached 子模块目录。
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</guid><pubDate>Thu, 26 Dec 2024 18:03:32 +0800</pubDate></item><item><title>Solutions to Introduction to Algorithms</title><link>https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</link><description>Solutions to Introduction to Algorithms
+https://github.com/walkccc/CLRS
+https://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html
+https://clrs.skanev.com/
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</guid><pubDate>Thu, 26 Dec 2024 18:03:31 +0800</pubDate></item><item><title>般若波罗蜜多心经</title><link>https://xuchengpeng.cn/posts/20240914-heart-sutra.html</link><description>般若波罗蜜多心经
+观自在菩萨，行深般若波罗蜜多时，照见五蕴皆空，度一切苦厄。舍利子，色不异空，空不异色；色即是空，空即是色。受、想、行、识，亦复如是。舍利子，是诸法空相，不生不灭，不垢不净，不增不减，是故空中无色，无受、想、行、识；无眼、耳、鼻、舌、身、意；无色、声、香、味、触、法；无眼界，乃至无意识界；无无明，亦无无明尽；乃至无老死，亦无老死尽。无苦、集、灭、道，无智亦无得。以无所得故，菩提萨埵，依般若波罗蜜多故，心无罣碍。无罣碍故，无有恐怖，远离颠倒梦想，究竟涅槃。三世诸佛，依般若波罗蜜多故，得阿耨多罗三藐三菩提。故知般若波罗蜜多，是大神咒，是大明咒，是无上咒，是无等等咒，能除一切苦，真实不虚。故说般若波罗蜜多咒，即说咒曰：“揭谛、揭谛，波罗揭谛，波罗僧揭谛，菩提萨婆诃。”
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240914-heart-sutra.html</guid><pubDate>Thu, 26 Dec 2024 17:59:53 +0800</pubDate></item><item><title>仿射变换与透视变换</title><link>https://xuchengpeng.cn/posts/20240911-affine_and_perspective_transformation.html</link><description>仿射变换与透视变换
+仿射变换是指在几何中，一个向量空间进行一次线性变换并接上一个平移，变换为另一个向量空间。
+基本的图像变换就是二维坐标的变换：从一个二维坐标 \((x, y)\) 到另一个二维坐标 \((u, v)\) 的线性变换：
+\begin{split}
+u = a_{1}x+b_{1}y+c_{1} \\
+v = a_{2}x+b_{2}y+c_{2}
+\end{split}
+写成矩阵的形式：
+\[\begin{bmatrix} u \\ v \end{bmatrix} = \begin{bmatrix} a_{1} &amp; b_{1} \\ a_{2} &amp; b_{2} \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix}\]
+\[R=\begin{bmatrix} a_{1} &amp; b_{1} \\ a_{2} &amp; b_{2} \end{bmatrix},t=\begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix},T=\begin{bmatrix} R &amp; t \end{bmatrix}\]
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240911-affine_and_perspective_transformation.html</guid><pubDate>Thu, 26 Dec 2024 17:59:53 +0800</pubDate></item><item><title>刚体变换</title><link>https://xuchengpeng.cn/posts/20240910-rigid-body-transformation.html</link><description>刚体变换
+三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \(R_{A}^{B} = \begin{bmatrix} u_{x}  &amp; v_{x} &amp; w_{x} \\ u_{y}  &amp; v_{y} &amp; w_{y} \\ u_{z}  &amp; v_{z} &amp; w_{z} \end{bmatrix}\) 表示旋转矩阵，用 \(t_{A}^{B} = \begin{bmatrix} t_{x} \\ t_{y} \\ t_{z} \end{bmatrix}\) 表示平移矩阵。
+坐标系A到B刚体变换形式为：
+\[\begin{bmatrix} x^{'} \\ y^{'} \\ z^{'} \end{bmatrix} = R_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \end{bmatrix} + t_{A}^{B}\]
+用齐次变换矩阵 \(T_{A}^{B}\) 的表示形式为：
+\[\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} &amp; t_{A}^{B} \\ 0 &amp; 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}\]
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240910-rigid-body-transformation.html</guid><pubDate>Thu, 26 Dec 2024 17:59:53 +0800</pubDate></item><item><title>WSL导入导出</title><link>https://xuchengpeng.cn/posts/20240813-wsl-import-export.html</link><description>WSL导入导出
+默认情况WSL会安装在C盘，可以将其迁移到其他盘，这里使用WSL提供的导入和导出命令。
+关闭所有的WSL，查询要导出的名称:
+PS &gt; wsl --shutdown
+PS &gt; wsl -l -v
+  NAME            STATE           VERSION
+  Ubuntu-22.04    Stopped         2
+将要导出的WSL保存到D盘：
+PS &gt; wsl --export Ubuntu-22.04 D:\Ubuntu-22.04.tar
+注销原有的WSL：
+PS &gt; wsl --unregister Ubuntu-22.04
+在D盘安装WSL：
+PS &gt; wsl --import Ubuntu-22.04 D:\WSL\Ubuntu-22.04 D:\Ubuntu-22.04.tar
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240813-wsl-import-export.html</guid><pubDate>Thu, 26 Dec 2024 17:59:53 +0800</pubDate></item><item><title>Use tldraw in Vite</title><link>https://xuchengpeng.cn/posts/20240731-use-tldraw-in-vite.html</link><description>Use tldraw in Vite
 Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects.
 Is consists of two major parts:
 A dev server that provides rich feature enhancements over native ES modules, for example extremly fast Hot Module Replacement(HMR).
