@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>sdcv</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">sdcv</h1>
+</header><div class="PREVIEW">
+<p>
+<a href="https://github.com/Dushistov/sdcv">sdcv</a> is a simple, cross-platform, text-based utility for working with dictionaries in <a href="https://stardict-4.sourceforge.net/">StarDict</a> format.
+</p>
+
+<p>
+StarDict dictionaries can be downloaded from <a href="https://www.nchrs.xyz/stardict/index.html">https://www.nchrs.xyz/stardict/index.html</a>.
+</p>
+
+<p>
+The <a href="https://github.com/jamescherti/quick-sdcv.el">quick-sdcv</a> package serves as a lightweight Emacs interface for the sdcv command-line interface, which is the console version of the StarDict dictionary application.
+</p>
+
+</div>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">use-package</span> quick-sdcv
+  <span style="color: #8f0075;">:ensure</span> t
+  <span style="color: #8f0075;">:commands</span> (quick-sdcv-search-input quick-sdcv-search-at-point)
+  <span style="color: #8f0075;">:config</span>
+  (<span style="color: #531ab6;">setq</span> quick-sdcv-program <span style="color: #3548cf;">"/path/to/sdcv"</span>
+        quick-sdcv-dictionary-data-dir <span style="color: #3548cf;">"/path/to/sdcv/dict/"</span>)
+  (add-hook 'quick-sdcv-mode-hook #'visual-line-mode)
+  (keymap-set quick-sdcv-mode-map <span style="color: #3548cf;">"q"</span> #'quit-window))
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>

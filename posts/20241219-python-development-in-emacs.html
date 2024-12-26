@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs中Python开发</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Emacs中Python开发</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#create-venv">创建虚拟环境</a></li>
+<li><a href="#install-lsp-server">安装LSP服务端</a></li>
+<li><a href="#project-configuration">项目配置</a></li>
+<li><a href="#python-mode-configuration">python-mode配置</a></li>
+</ul>
+</div>
+</nav>
+<div class="PREVIEW">
+<p>
+A guide to do some Python development in GNU Emacs.
+</p>
+
+</div>
+<div id="outline-container-create-venv" class="outline-2">
+<h2 id="create-venv">创建虚拟环境</h2>
+<div class="outline-text-2" id="text-create-venv">
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #8f0075;">cd</span> /path/to/project
+python -m venv .venv
+<span style="color: #8f0075;">source</span> .venv/bin/activate
+pip install -r requirements.txt
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-install-lsp-server" class="outline-2">
+<h2 id="install-lsp-server">安装LSP服务端</h2>
+<div class="outline-text-2" id="text-install-lsp-server">
+<blockquote>
+<p>
+<a href="https://github.com/microsoft/pyright">Pyright</a> is a full-featured, standards-based static type checker for Python. It is designed for high performance and can be used with large Python source bases.
+</p>
+</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-shell">npm install -g pyright
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-project-configuration" class="outline-2">
+<h2 id="project-configuration">项目配置</h2>
+<div class="outline-text-2" id="text-project-configuration">
+<p>
+安装完Pyright后，在 <code>pyproject.toml</code> 中增加配置：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-toml">[<span style="color: #005f5f;">tool.pyright</span>]
+<span style="color: #005e8b;">venvPath</span> = <span style="color: #3548cf;">"."</span>
+<span style="color: #005e8b;">venv</span> = <span style="color: #3548cf;">".venv"</span>
+
+[<span style="color: #005f5f;">tool.black</span>]
+<span style="color: #005e8b;">line-length</span> = 120
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-python-mode-configuration" class="outline-2">
+<h2 id="python-mode-configuration">python-mode配置</h2>
+<div class="outline-text-2" id="text-python-mode-configuration">
+<p>
+在Emacs中使用<a href="https://www.gnu.org/software/emacs/manual/html_node/eglot/">Eglot</a>作为LSP客户端，在 <code>.dir-locals.el</code> 中增加配置：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">((python-base-mode . ((python-indent-offset . 4)
+                      (python-indent-guess-indent-offset-verbose . nil)
+                      (python-shell-interpreter . <span style="color: #3548cf;">"python"</span>)
+                      (python-shell-virtualenv-root . <span style="color: #3548cf;">"/path/to/project/.venv/"</span>))))
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>

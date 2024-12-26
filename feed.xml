@@ -1,5 +1,44 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 18:04:00 +0800</lastBuildDate><item><title>Safe Local Variable Directories</title><link>https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</link><description>Safe Local Variable Directories
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 18:45:43 +0800</lastBuildDate><item><title>Emacs中Python开发</title><link>https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</link><description>Emacs中Python开发
+Table of Contents
+创建虚拟环境
+安装LSP服务端
+项目配置
+python-mode配置
+A guide to do some Python development in GNU Emacs.
+创建虚拟环境
+cd /path/to/project
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+安装LSP服务端
+Pyright is a full-featured, standards-based static type checker for Python. It is designed for high performance and can be used with large Python source bases.
+npm install -g pyright
+项目配置
+安装完Pyright后，在 pyproject.toml 中增加配置：
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</guid><pubDate>Thu, 26 Dec 2024 18:44:01 +0800</pubDate></item><item><title>Matplotlib: Work with threads</title><link>https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</link><description>Matplotlib: Work with threads
+Matplotlib is not thread-safe: in fact, there are known race conditions that affect certain artists. Hence, if you work with threads, it is your responsibility to set up the proper locks to serialize access to Matplotlib artists.
+You may be able to work on separate figures from separate threads. However, you must in that case use a non-interactive backend (typically Agg), because most GUI backends require being run from the main thread as well.
+import matplotlib
+matplotlib.use("Agg")
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</guid><pubDate>Thu, 26 Dec 2024 18:44:01 +0800</pubDate></item><item><title>MDict Dictionaries</title><link>https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</link><description>MDict Dictionaries
+A collections of website archives where you can download MDict dictionaries.
+https://downloads.freemdict.com
+https://files.emiliabear.com/onedrive2/%E4%B9%A6%E7%B1%8D%E8%B5%84%E6%96%99/%E6%AC%A7%E8%B7%AF%E8%AF%8D%E5%85%B8%E5%BA%93
+https://al.chirmyram.com/rep/Doc/%E6%AC%A7%E8%B7%AF%E8%AF%8D%E5%85%B8%E5%BA%93
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</guid><pubDate>Thu, 26 Dec 2024 18:44:01 +0800</pubDate></item><item><title>sdcv</title><link>https://xuchengpeng.cn/posts/20241209-sdcv.html</link><description>sdcv
+sdcv is a simple, cross-platform, text-based utility for working with dictionaries in StarDict format.
+StarDict dictionaries can be downloaded from https://www.nchrs.xyz/stardict/index.html.
+The quick-sdcv package serves as a lightweight Emacs interface for the sdcv command-line interface, which is the console version of the StarDict dictionary application.
+(use-package quick-sdcv
+  :ensure t
+  :commands (quick-sdcv-search-input quick-sdcv-search-at-point)
+  :config
+  (setq quick-sdcv-program "/path/to/sdcv"
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241209-sdcv.html</guid><pubDate>Thu, 26 Dec 2024 18:44:01 +0800</pubDate></item><item><title>Safe Local Variable Directories</title><link>https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</link><description>Safe Local Variable Directories
 safe-local-variable-directories was introduced in Emacs 30.1.
 A list of directories where local variables are always enabled.
 Directory-local variables loaded from these directories, such as the variables in .dir-locals.el, will be enabled even if they are risky.
