@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Build Emacs From Source</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Build Emacs From Source</h1>
+</header><div class="PREVIEW">
+<p>
+Windows 11 features <a href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps">built-in support for running Linux GUI applications</a>. Emacs 29 has became a real GTK application, gone with the blurry fonts problem.
+</p>
+
+<p>
+This is a guide to show how to build Emacs from source for Linux.
+</p>
+
+</div>
+
+<p>
+Firstly, install essential packages in WSL2 Ubuntu 22.04.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">apt-get update
+apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev autoconf
+</pre>
+</div>
+
+<p>
+Native compilation support is enabled by default with emacs 30, install <code>libgccjit0</code> and <code>libgccjit-xx-dev</code> to build this feature.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">apt-get install libgccjit0 libgccjit-13-dev
+</pre>
+</div>
+
+<p>
+And in Emacs 29, support for tree-sitter is built-in. Now build tree-sitter from source code.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git clone https://github.com/tree-sitter/tree-sitter.git
+<span style="color: #8f0075;">cd</span> tree-sitter
+git checkout v0.24.3
+make
+make install
+</pre>
+</div>
+
+<p>
+Now tree-sitter library has been installed into <code>/usr/local/lib</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"><span style="color: #8f0075;">export</span> <span style="color: #005e8b;">LD_LIBRARY_PATH</span>=/usr/local/lib/
+</pre>
+</div>
+
+<p>
+Now build emacs with pgtk and tree-sitter.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git clone https://git.savannah.gnu.org/git/emacs.git -b emacs-30
+<span style="color: #8f0075;">cd</span> emacs
+./autogen.sh
+./configure --prefix=/usr/local/emacs --with-native-compilation=aot --with-pgtk --with-tree-sitter --without-pop
+make -j 8
+make install
+</pre>
+</div>
+
+<p>
+Build <a href="https://www.leonerd.org.uk/code/libvterm/">libvterm</a> if you need to use <a href="https://github.com/akermu/emacs-libvterm">vterm</a> on Linux.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">tar -zxf libvterm-0.3.3.tar.gz
+<span style="color: #8f0075;">cd</span> libvterm-0.3.3
+make
+make install
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>

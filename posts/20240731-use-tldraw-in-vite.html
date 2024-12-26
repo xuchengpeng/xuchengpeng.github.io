@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Use tldraw in Vite</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Use tldraw in Vite</h1>
+</header><div class="PREVIEW">
+<p>
+<a href="https://vitejs.dev/">Vite</a> is a build tool that aims to provide a faster and leaner development experience for modern web projects.
+</p>
+
+</div>
+
+<p>
+Is consists of two major parts:
+</p>
+<ul class="org-ul">
+<li>A dev server that provides rich feature enhancements over native ES modules, for example extremly fast Hot Module Replacement(HMR).</li>
+<li>A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production.</li>
+</ul>
+
+<p>
+<a href="https://tldraw.com/">tldraw</a> is a library for creating infinite canvas experiences in <a href="https://react.dev/">React</a>.
+</p>
+
+<p>
+To scaffold a Vite+React project, run:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">npm create vite@latest tldraw -- --template react-swc-ts
+<span style="color: #8f0075;">cd</span> tldraw
+npm install
+npm run dev
+</pre>
+</div>
+
+<p>
+Install tldraw library, run:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">npm install tldraw
+</pre>
+</div>
+
+<p>
+Import fonts and CSS for tldraw, edit <code>App.css</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-css"><span style="color: #8f0075;">@import</span> url(<span style="color: #3548cf;">"https://fonts.googleapis.com/css2?family=Inter:wght@500;700&amp;display=swap"</span>);
+<span style="color: #8f0075;">@import</span> url(<span style="color: #3548cf;">"tldraw/tldraw.css"</span>);
+
+<span style="color: #721045;">body</span> {
+  <span style="color: #531ab6;">font-family</span>: <span style="color: #3548cf;">"Inter"</span>;
+}
+</pre>
+</div>
+
+<p>
+Render the tldraw component, edit <code>App.tsx</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-tsx">import { Tldraw } from 'tldraw'
+import './App.css'
+
+function App() {
+    return (
+        &lt;div style={{ position: 'fixed', inset: 0 }}&gt;
+            &lt;Tldraw /&gt;
+        &lt;/div&gt;
+    )
+}
+
+export default App
+</pre>
+</div>
+
+<p>
+You may run <code>npm run build</code> to build the app, and run <code>npm run preview</code> to test it.
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>
