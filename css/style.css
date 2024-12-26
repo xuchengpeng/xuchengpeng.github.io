@@ -217,6 +217,7 @@ td {
 
 .org-center {
   text-align: center;
+  margin: .12rem 0;
 }
 
 .org-right {
