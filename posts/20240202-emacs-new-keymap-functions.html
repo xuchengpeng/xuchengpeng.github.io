@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs New Keymap Functions</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Emacs New Keymap Functions</h1>
+</header><div class="PREVIEW">
+<p>
+Emacs 29 comes with new functions for defining and manipulating keystrokes.
+</p>
+
+</div>
+
+<p>
+These all take the syntax defined by <code>key-valid-p</code>, which is basically the same syntax as the one accepted by the <code>kbd</code> macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
+</p>
+
+<ul class="org-ul">
+<li>Use <code>keymap-set</code> instead of <code>define-key</code>.</li>
+<li>Use <code>keymap-global-set</code> instead of <code>global-set-key</code>.</li>
+<li>Use <code>keymap-local-set</code> instead of <code>local-set-key</code>.</li>
+<li>Use <code>keymap-global-unset</code> instead of <code>global-unset-key</code>.</li>
+<li>Use <code>keymap-local-unset</code> instead of <code>local-unset-key</code>.</li>
+<li>Use <code>keymap-substitute</code> instead of <code>substitute-key-definition</code>.</li>
+<li>Use <code>keymap-set-after</code> instead of <code>define-key-after</code>.</li>
+<li>Use <code>keymap-lookup</code> instead of <code>lookup-key</code> and <code>key-binding</code>.</li>
+<li>Use <code>keymap-local-lookup</code> instead of <code>local-key-binding</code>.</li>
+<li>Use <code>keymap-global-lookup</code> instead of <code>global-key-binding</code>.</li>
+</ul>
+
+<p>
+New function <code>key-valid-p</code> predicate does a stricter check of the syntax. New function <code>key-parse</code> is like <code>kbd</code>, but only returns vectors instead of a mix of vectors and strings.
+</p>
+
+<p>
+New function <code>define-keymap</code> allows defining a number of keystrokes with one form. New macro <code>defvar-keymap</code> allows defining keymap variables more conveniently, can specify <code>repeat-mode</code> behavior for the keymap.
+</p>
+
+<p>
+I have already redefine <a href="https://github.com/xuchengpeng/.emacs.d/blob/91cdc6fcb3f7f0ff2a9a0204e752d59c438cf2d0/lisp/init-keybinds.el">my own keybinds</a> with these new functions.
+</p>
+
+<p>
+Protesilaos Stavrou posted a video on <a href="https://www.youtube.com/watch?v=gojOZ3k1mmk">nested key maps</a>. The video shows how to define a prefix key in Emacs 29 using built-in functionality. The idea is to organise our keys in an efficient way. Using this method, we can have nested key maps as well, meaning that the prefix key can have access to the contents of another map which holds more key bindings. The video also shows us how to describe the keymaps with <a href="https://github.com/justbur/emacs-which-key">which-key</a>.
+</p>
+
+<p>
+Here is the example, we can have <code>C-z</code> as a prefix, <code>C-z b</code> as a nested key maps for buffer-related commands, and <code>C-z f</code> for file-related commands.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #595959;">;; </span><span style="color: #595959;">Read this to learn about key binding conventions so that you know</span>
+<span style="color: #595959;">;; </span><span style="color: #595959;">which keys are safe for users:</span>
+<span style="color: #595959;">;;</span>
+<span style="color: #595959;">;;     </span><span style="color: #595959;">(info "(elisp) Key Binding Conventions")</span>
+
+<span style="color: #595959;">;; </span><span style="color: #595959;">Sample of a generic command with a corresponding key binding</span>
+(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">test-command</span> ()
+  (<span style="color: #531ab6;">interactive</span>)
+  (message <span style="color: #3548cf;">"Hello world"</span>))
+
+(keymap-set global-map <span style="color: #3548cf;">"C-z"</span> #'test-command)
+
+<span style="color: #595959;">;; </span><span style="color: #595959;">Define key maps that will then be added to the prefix map</span>
+(<span style="color: #531ab6;">defvar-keymap</span> test-prefix-buffer-map
+  <span style="color: #8f0075;">:doc</span> <span style="color: #2a5045;">"My prefix key map for buffers."</span>
+  <span style="color: #3548cf;">"s"</span> #'save-buffer
+  <span style="color: #3548cf;">"w"</span> #'write-file
+  <span style="color: #3548cf;">"p"</span> #'previous-buffer
+  <span style="color: #3548cf;">"n"</span> #'next-buffer)
+
+(<span style="color: #531ab6;">defvar-keymap</span> test-prefix-mode-map
+  <span style="color: #8f0075;">:doc</span> <span style="color: #2a5045;">"My prefix key map for minor modes."</span>
+  <span style="color: #3548cf;">"l"</span> #'display-line-numbers-mode
+  <span style="color: #3548cf;">"h"</span> #'hl-line-mode)
+
+<span style="color: #595959;">;; </span><span style="color: #595959;">Define a key map with commands and nested key maps</span>
+(<span style="color: #531ab6;">defvar-keymap</span> test-prefix-map
+  <span style="color: #8f0075;">:doc</span> <span style="color: #2a5045;">"My prefix key map."</span>
+  <span style="color: #3548cf;">"b"</span> test-prefix-buffer-map
+  <span style="color: #3548cf;">"m"</span> test-prefix-mode-map
+  <span style="color: #3548cf;">"f"</span> #'find-file
+  <span style="color: #3548cf;">"d"</span> #'dired)
+
+<span style="color: #595959;">;; </span><span style="color: #595959;">Define how the nested keymaps are labelled in `</span><span style="color: #0000b0;">which-key-mode</span><span style="color: #595959;">'.</span>
+(which-key-add-keymap-based-replacements test-prefix-map
+  <span style="color: #3548cf;">"b"</span> `(<span style="color: #3548cf;">"Buffer"</span> . ,test-prefix-buffer-map)
+  <span style="color: #3548cf;">"m"</span> `(<span style="color: #3548cf;">"Testing"</span> . ,test-prefix-mode-map))
+
+<span style="color: #595959;">;; </span><span style="color: #595959;">Bind the prefix key map to a key.  Notice the absence of a quote for</span>
+<span style="color: #595959;">;; </span><span style="color: #595959;">the map's symbol.</span>
+(keymap-set global-map <span style="color: #3548cf;">"C-z"</span> test-prefix-map)
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>

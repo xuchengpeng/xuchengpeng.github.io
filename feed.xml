@@ -1,5 +1,39 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 17:31:47 +0800</lastBuildDate><item><title>Install a Package from a VCS Repository</title><link>https://xuchengpeng.cn/posts/20240130-install-a-package-from-a-vcs-repository.html</link><description>Install a Package from a VCS Repository
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 17:41:10 +0800</lastBuildDate><item><title>Math Equation With Org Mode</title><link>https://xuchengpeng.cn/posts/20240229-math-equation-with-org-mode.html</link><description>Math Equation With Org Mode
+LaTeX math snippets can be displayed on HTML pages which exported with org-mode. The default is to use the MathJax.
+If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+If \(a^2=b\) and \( b=2 \), then the solution must be either \[ a=+\sqrt{2} \] or \[ a=-\sqrt{2} \].
+Some Mathjax display options can be configured via org-html-mathjax-options, or in the buffer, with #+HTML_MATHJAX or #+OPTIONS settings.
+Here comes with some complex examples.
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240229-math-equation-with-org-mode.html</guid><pubDate>Thu, 26 Dec 2024 17:39:43 +0800</pubDate></item><item><title>Generate RSS For Blog</title><link>https://xuchengpeng.cn/posts/20240208-generate-rss-for-blog.html</link><description>Generate RSS For Blog
+Table of Contents
+Getting Posts List
+Parsing HTML
+Generating RSS XML
+I'm not sure how many people still use RSS, but I still want to have a RSS feed for my blog though I don't use RSS myself either.
+From what I known, many people recommend using ox-rss.el to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of org-contrib right now.
+Luckily, Python has many modules which can generate and parse RSS feeds (python-feedgen, feedparser, rfeed, etc.). I love Python, it is easy to use. So I decided to use python-feedgen to generate an RSS XML file from HTML files of my blog.
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240208-generate-rss-for-blog.html</guid><pubDate>Thu, 26 Dec 2024 17:39:43 +0800</pubDate></item><item><title>Emacs Proxy</title><link>https://xuchengpeng.cn/posts/20240205-emacs-proxy.html</link><description>Emacs Proxy
+Table of Contents
+System Proxy
+URL Proxy Services
+Socks Proxy
+Proxy servers are commonly used to provide gateways through firewalls or as caches serving some more-or-less local network. Each protocol (HTTP, FTP, etc.) can have a different gateway server. Proxying is conventionally configured commonly amongst different programs through environment variables of the form protocol-proxy, where protocol is one of the supported network protocols (http, ftp, etc.). The library recognized such variables in either upper or lower case.
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240205-emacs-proxy.html</guid><pubDate>Thu, 26 Dec 2024 17:39:43 +0800</pubDate></item><item><title>Emacs New Keymap Functions</title><link>https://xuchengpeng.cn/posts/20240202-emacs-new-keymap-functions.html</link><description>Emacs New Keymap Functions
+Emacs 29 comes with new functions for defining and manipulating keystrokes.
+These all take the syntax defined by key-valid-p, which is basically the same syntax as the one accepted by the kbd macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
+Use keymap-set instead of define-key.
+Use keymap-global-set instead of global-set-key.
+Use keymap-local-set instead of local-set-key.
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240202-emacs-new-keymap-functions.html</guid><pubDate>Thu, 26 Dec 2024 17:39:43 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.cn/posts/20240201-true-emacs-transparency.html</link><description>True Emacs Transparency
+Before Emacs 29, we can set the alpha frame parameter to adjust the opacity of the frame. The issue with alpha is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
+The solution came from a patch make by Håkon Flatval. The patch adds the alpha-background frame parameter which make only the background of a frame transparent.
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240201-true-emacs-transparency.html</guid><pubDate>Thu, 26 Dec 2024 17:39:43 +0800</pubDate></item><item><title>Emacs tokyonight-themes</title><link>https://xuchengpeng.cn/posts/20240201-emacs-tokyonight-themes.html</link><description>Emacs tokyonight-themes
+A clean dark Visual Studio Code theme that celebrates the lights of Downtown Tokyo at night.
+Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now it has many other ports.
+Rawley make a tokyo-theme.el for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
+So I want to make it for myself, here it is. The theme templates were taken from modus-themes, and the color palettes were taken from tokyonight.nvim, these two themes are very popular and awesome with GNU Emacs or Neovim.
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240201-emacs-tokyonight-themes.html</guid><pubDate>Thu, 26 Dec 2024 17:39:43 +0800</pubDate></item><item><title>Install a Package from a VCS Repository</title><link>https://xuchengpeng.cn/posts/20240130-install-a-package-from-a-vcs-repository.html</link><description>Install a Package from a VCS Repository
 Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers package-vc-install to install these codes easily.
 For example:
 (package-vc-install "https://github.com/clojure-emacs/clojure-ts-mode")

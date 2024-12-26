@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Emacs Proxy</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Emacs Proxy</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#system-proxy">System Proxy</a></li>
+<li><a href="#url-proxy-services">URL Proxy Services</a></li>
+<li><a href="#socks-proxy">Socks Proxy</a></li>
+</ul>
+</div>
+</nav>
+<div class="PREVIEW">
+<p>
+Proxy servers are commonly used to provide gateways through firewalls or as caches serving some more-or-less local network. Each protocol (HTTP, FTP, etc.) can have a different gateway server. Proxying is conventionally configured commonly amongst different programs through environment variables of the form <i>protocol-proxy</i>, where <i>protocol</i> is one of the supported network protocols (http, ftp, etc.). The library recognized such variables in either upper or lower case.
+</p>
+
+</div>
+<div id="outline-container-system-proxy" class="outline-2">
+<h2 id="system-proxy">System Proxy</h2>
+<div class="outline-text-2" id="text-system-proxy">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8f0075;">export</span> <span style="color: #005e8b;">http_proxy</span>=http://username:password@proxy.xxx.com:8080
+<span style="color: #8f0075;">export</span> <span style="color: #005e8b;">https_proxy</span>=${<span style="color: #005e8b;">http_proxy</span>}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-url-proxy-services" class="outline-2">
+<h2 id="url-proxy-services">URL Proxy Services</h2>
+<div class="outline-text-2" id="text-url-proxy-services">
+<p>
+Proxies are supported by URL package, by setting <code>url-proxy-services</code> to an assoc list mapping url services and the proxy servers that support them.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">setq</span> url-proxy-services
+      '((<span style="color: #3548cf;">"http"</span>     . <span style="color: #3548cf;">"proxy.example.com:8080"</span>)
+        (<span style="color: #3548cf;">"https"</span>    . <span style="color: #3548cf;">"proxy.example.com:8080"</span>)
+          (<span style="color: #3548cf;">"no_proxy"</span> . <span style="color: #3548cf;">"^.*example.com"</span>)))
+</pre>
+</div>
+
+<p>
+If the proxy services need to be authorized, we need to customize <code>url-http-proxy-basic-auth-storage</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">setq</span> url-http-proxy-basic-auth-storage
+      (list (list <span style="color: #3548cf;">"proxy.example.com:8080"</span>
+                  (cons <span style="color: #3548cf;">"Input your LDAP UID !"</span>
+                        (base64-encode-string <span style="color: #3548cf;">"LOGIN:PASSWORD"</span>)))))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-socks-proxy" class="outline-2">
+<h2 id="socks-proxy">Socks Proxy</h2>
+<div class="outline-text-2" id="text-socks-proxy">
+<p>
+Enable socks proxy:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">setq</span> url-gateway-method 'socks
+      socks-server '(<span style="color: #3548cf;">"Default Server"</span> <span style="color: #3548cf;">"socks.proxy.com"</span> 1080 5)
+      socks-noproxy '(<span style="color: #3548cf;">"localhost"</span>))
+</pre>
+</div>
+
+<p>
+If the <code>socks-server</code> need to be authorized, <code>socks-username</code> and <code>socks-password</code> need to be customized.
+</p>
+
+<p>
+Disable socks proxy:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">setq</span> url-gateway-method 'native
+      socks-server nil
+      socks-noproxy nil)
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>
