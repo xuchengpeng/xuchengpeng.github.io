@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Install a Package from a VCS Repository</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Install a Package from a VCS Repository</h1>
+</header><div class="PREVIEW">
+<p>
+Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers <code>package-vc-install</code> to install these codes easily.
+</p>
+
+</div>
+
+<p>
+For example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(package-vc-install <span style="color: #3548cf;">"https://github.com/clojure-emacs/clojure-ts-mode"</span>)
+</pre>
+</div>
+
+<p>
+The function offers a few more parameters that allow you to specify the name of the package and a particular revision (commit) you want to use:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(package-vc-install PACKAGE <span style="color: #005f5f;">&amp;optional</span> REV BACKEND)
+</pre>
+</div>
+
+<p>
+If <code>PACKAGE</code> is a string containing an URL, download the package from the repository at that URL.
+</p>
+
+<p>
+By default, this function installs the last revision of the package available from its repository. If <code>REV</code> is a string, it describes the revision to install, as interpreted by the VC backend.
+</p>
+
+<p>
+Optional argument <code>BACKEND</code> specifies the VC backend to use for cloning the package's repository. If <code>BACKEND</code> is nil, the function uses <code>package-vc-heuristic-alist</code> to guess the backend.
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>

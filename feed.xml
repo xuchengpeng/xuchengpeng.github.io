@@ -1,5 +1,164 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 17:19:36 +0800</lastBuildDate><item><title>Emacs本地变量</title><link>https://xuchengpeng.cn/posts/20231229-emacs-local-variables.html</link><description>Emacs本地变量
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 26 Dec 2024 17:31:47 +0800</lastBuildDate><item><title>Install a Package from a VCS Repository</title><link>https://xuchengpeng.cn/posts/20240130-install-a-package-from-a-vcs-repository.html</link><description>Install a Package from a VCS Repository
+Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers package-vc-install to install these codes easily.
+For example:
+(package-vc-install "https://github.com/clojure-emacs/clojure-ts-mode")
+The function offers a few more parameters that allow you to specify the name of the package and a particular revision (commit) you want to use:
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-install-a-package-from-a-vcs-repository.html</guid><pubDate>Thu, 26 Dec 2024 17:31:21 +0800</pubDate></item><item><title>Disable Annoying Audio Notifications</title><link>https://xuchengpeng.cn/posts/20240130-disable-annoying-audio-notifications.html</link><description>Disable Annoying Audio Notifications
+By default Emacs ring the bell to attract the user's attention, this is annoying.
+To get a visual signal instead, set visual-bell with t Emacs should flash the screen to represent a bell.
+We can also customize ring-bell-function to just flash the modeline.
+;;;###autoload
+(defun dotemacs-ring-bell-fn ()
+  "Blink the mode-line."
+  (let ((buf (current-buffer)))
+    (invert-face 'mode-line)
+    (run-with-timer 0.05 nil
+                    (lambda ()
+                      (with-current-buffer buf
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-disable-annoying-audio-notifications.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Converting Between Symbols and Strings</title><link>https://xuchengpeng.cn/posts/20240130-converting-between-symbols-and-strings.html</link><description>Converting Between Symbols and Strings
+Sometimes you might need to convert a symbol to string in Emacs Lisp. You start looking for functions like symbol-to-string and string-to-symbol but, they do not exist.
+With Emacs Lisp, you can do it like this.
+(symbol-name 'some-symbol)
+; ==&gt; "some-symbol"
+(intern "some-symbol")
+; ==&gt; some-symbol
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-converting-between-symbols-and-strings.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Check if a Font is Available with Emacs Lisp</title><link>https://xuchengpeng.cn/posts/20240130-check-if-a-font-is-available-with-emacs-lisp.html</link><description>Check if a Font is Available with Emacs Lisp
+In Emacs Lisp, find-font function return a font-entity matching with FONT-SPEC. So we can make a helper function.
+(defun font-available-p (font-name)
+  (find-font (font-spec :name font-name)))
+Before setting a font, we can check with this helper function.
+(when (font-available-p "Fira Code")
+  (set-face-attribute 'default nil :font (font-spec :family "Fira Code" :size 17)))
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-check-if-a-font-is-available-with-emacs-lisp.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Eglot: clangd配置</title><link>https://xuchengpeng.cn/posts/20240129-eglot-clangd-configuration.html</link><description>Eglot: clangd配置
+Eglot是Emacs内置的LSP客户端。Eglot内置已支持大量的LSP服务端1。
+以C++语言为例，Eglot支持clangd和ccls两种服务端模式。
+以我常用的clangd来说，Eglot默认启动clangd不附带任何参数，对于clangd来说，最重要的参数莫过于 CompilationDatabase ，即 compile_commands.json 文件所在的目录，默认情况下，clangd会查找源代码文件所在目录的所有父目录。
+当前C/C++工程代码很流行使用CMake替代之前的Makefile作为编译构建的工程文件，通常使用CMake命令对代码工程进行配置时，会将生成的中间文件统一在一个目录下管理（比如代码工程根目录下的cmake-build目录），而不是默认生成在代码工程根目录，这样造成一个问题就是clangd无法找到此目录下的 compile_commands.json 文件。
+解决这个问题的办法就需要在clangd启动时指定 compile_commands.json 所在的目录，方法有很多种。
+(with-eval-after-load 'eglot
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240129-eglot-clangd-configuration.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>中医：辩证论治</title><link>https://xuchengpeng.cn/posts/20240126-treatment-based-on-syndrome-differentiation.html</link><description>中医：辩证论治
+辩证论治 是中医认识疾病和治疗疾病的基本原则，是中医学对疾病的一种特殊的研究和处理方法。
+辩证即是认证识证的过程。证是对机体在疾病发展过程中某一阶段的病理反映的概括，包含病变的部位、原因、性质以及邪正关系，反映这一阶段病理变化的本质。因而，证比症状更全面、更深刻、更正确的揭示疾病的本质。所谓辩证，就是根据望、闻、问、切四诊所收集的资料，通过分析、综合、辨清疾病的病因、性质、部分，以及邪正之间的关系，概括、判断为某种性质证。
+论治，是根据辩证的结果，确定相应的治疗原则和具体治法。辩证和论治是诊治疾病过程中相互联系不可分离的两部分。辩证是决定治疗的前提和依据，论治是治疗的手段和方法。通过论治的效果可以检验辩证的正确与否。
+辩证论治是认识疾病和解决疾病的过程，是理论与实践相结合的表现，是理法方药在临床上的具体运用，是指导中医临床工作的基本原则。
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240126-treatment-based-on-syndrome-differentiation.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>中医：五脏与五行</title><link>https://xuchengpeng.cn/posts/20240124-tcm-five-organs-and-five-elements.html</link><description>中医：五脏与五行
+中医腑脏1通常成为五脏六腑。五脏是：肝、心、脾、肺、肾，主要功能为生化和蓄存精气；六腑是：胆、小肠、胃、大肠、膀胱、三焦2，主要功能为受乘和传化水谷并积存精气。
+《黄帝内经》中，五行与五脏相互对应，即心火、肝木、脾土、肺金、肾水。各脏器之间又相生相克。
+相生：肝生心，心生脾，脾生肺，肺生肾，肾生肝。
+相克：肝克脾，脾克肾，肾克心，心克肺，肺克肝。
+心：《黄帝内经》说：“心者五脏六腑之大主”。主神志，主血脉，在液为汗，开窍于舌。位于胸腔之内，斜位于胸腔中纵隔内，隔膜之上，两肺之间，三分之二位于正中线左侧，三分之一位于正中线右侧，心尖朝向左前下方。形似倒垂未开之莲蕊，外有心包护卫。心为神之舍，血之主，脉之宗，在五行属火，为阳中之阳，起着主宰人体生命活动的作用。手少阴心经与手太阳小肠经在小肠与心之间相互络属， 与小肠相表里 。
+肝：在五行属木，主疏泄，魂之处，藏血，其华在爪，其充在筋，开窍于目，在志为怒，在液为泪， 与胆相表里 。《素问》说：”肝者，将军之官，谋虑出焉”，表现在调节精神情志，促进消化吸收，以及维持气血、津液的运作三方面。肝位于上腹部，横隔之下。
+脾：在五行属土，主藏，统血，谓之主，开窍于口，主肌肉，运化水谷，主升清，后天之本，主四肢，其华在唇，统血益气，在志为思，藏意生思，思伤脾。在液为涎；藏营，司运动， 与胃相表里 。
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240124-tcm-five-organs-and-five-elements.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Aspell: Personal Dictionaries</title><link>https://xuchengpeng.cn/posts/20240123-aspell-personal-dictionaries.html</link><description>Aspell: Personal Dictionaries
+Table of Contents
+Format of Personal Dictionary
+Format of Personal Replacement Dictionary
+GNU Aspell 是一个用来替换ispell的免费开源拼写检查器。
+Aspell除了可以安装官方提供的字典外，还可以自定义字典。
+Format of Personal Dictionary
+个人词典的文件名格式为 .aspell.&lt;lang&gt;.pws ，这个文件分为两部分。
+第一部分为文件头第一行： personal_ws-1.1 lang num [encoding] ，num为字典列表中单词的数目，encoding为可选项。
+第二部分为单词列表，一个单词占用一行。
+Format of Personal Replacement Dictionary
+个人替换词典的文件名格式为： .aspell.&lt;lang&gt;.prepl ，这个文件分为两部分。
+第一部分为文件头第一行： personal_repl-1.1 lang num [encoding] ，num当前未使用一直为0，encoding为可选项。
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240123-aspell-personal-dictionaries.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Elisp: Lexical and Dynamic Binding</title><link>https://xuchengpeng.cn/posts/20240122-elisp-lexical-and-dynamic-binding.html</link><description>Elisp: Lexical and Dynamic Binding
+在Lexical Binding下使用let绑定本地变量时，这些变量仅在let被包围的body中有效。在其他的代码中，它们有其他的含义，所以如果你在body中调用其他的函数，这些let绑定的本地变量对这些函数不可见。
+;;; -*- lexical-binding: t -*-
+(setq x 0)
+(defun getx ()
+  x)
+(setq x 1)
+(let ((x 2))
+  (getx))   ;; ==&gt; 1
+在Dynamic Binding下使用let绑定本地变量时，这些变量在let表达式的整个执行周期内都有效。所以如果你在body中调用其他的函数，这些let绑定的本地变量对这些函数是可见的。
+;;; -*- lexical-binding: nil -*-
+(setq x 0)
+(defun getx ()
+  x)
+(setq x 1)
+(let ((x 2))
+  (getx))   ;; ==&gt; 2
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240122-elisp-lexical-and-dynamic-binding.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Elisp: List Processing</title><link>https://xuchengpeng.cn/posts/20240119-elisp-list-processing.html</link><description>Elisp: List Processing
+Lisp程序由表达式组成，表达式可以是列表或单个原子。
+列表由零个或多个原子、或内层列表组成，用空格分隔，括号包围。一个列表可以是空的。
+原子是多字符符号比如 forward-paragraph ，单字符符号比如 + ，双引号之间的字符串，或者数字。
+一个数字进行评估，得到的是其本身。
+一个双引号之间的字符串进行评估，得到的是其本身。
+当评估一个符号自身时，返回它的值。
+当评估一个列表时，Lisp解释器先查找列表中的第一个符号，然后查看绑定到该符号的函数定义。然后执行函数中定义的指令。
+一个单引号 ' 告诉Lisp解释器返回表达式本身，而不是像单引号不存在时评估它。
+参数是传递给函数的信息。函数的参数是通过评估该函数作为第一个元素的列表的其余元素来计算的。
+一个函数进行评估时总会返回一个值（除非出现错误）；此外，它可能执行一些有副作用的操作。在许多情况下，函数的主要目的就是产生副作用。
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240119-elisp-list-processing.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Emacs treesit</title><link>https://xuchengpeng.cn/posts/20240118-emacs-treesit.html</link><description>Emacs treesit
+Table of Contents
+安装语言解析器
+使用预编译的语言解析器
+检查语言解析器是否可用
+使用tree-sitter
+tree-sitter 是一个解析器生成工具和增量解析库。它可以为源文件构建语法树，当源文件修改时可以高效的更新语法树。
+自Emacs 29开始，内置treesit模块实现了对tree-sitter的支持。
+安装语言解析器
+为某一个编程语言添加tree-sitter支持时，运行 M-x treesit-install-language-grammar 命令，会先clone语言解析器的仓库，然后在进行编译安装。
+通过设定 treesit-language-source-alist 变量来定义每种语言解析器的仓库地址，这样在进行命令安装时就不需要再输入仓库地址。
+;; M-x `treesit-install-language-grammar` to install language grammar.
+(setq treesit-language-source-alist
+      '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240118-emacs-treesit.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>删除文件中的Windows换行符</title><link>https://xuchengpeng.cn/posts/20240108-delete-carrage-returns.html</link><description>删除文件中的Windows换行符
+在Windows中创建的文件如果使用了Windows换行符，那么在Linux中打开时每一行行末会显示 ^M 。
+可以使用replace命令1删除： M-x replace-string RET C-q C-m RET RET ，或者使用 query-replace 命令，会询问你是否进行替换。
+还可以封装一个函数，直接执行进行删除替换：
+(defun delete-carrage-returns ()
+  (interactive)
+  (save-excursion
+    (goto-char 0)
+    (while (search-forward "\r" nil :noerror)
+      (replace-match ""))))
+Footnotes: 
+1 
+https://www.gnu.org/software/emacs/manual/html_node/emacs/Replace.html
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240108-delete-carrage-returns.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>强大的Org Capture</title><link>https://xuchengpeng.cn/posts/20240105-powerful-org-capture.html</link><description>强大的Org Capture
+Table of Contents
+Capture templates
+Template elements
+Template expansion
+Capture让你快速的保存笔记，并且让你的工作流中很少被打断。
+Capture的配置比较复杂，主要是Capture templates。
+Capture templates1
+配置Capture templates的基本形式是：
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+在Capture菜单中按下 t 时，Org会准备Todo模板：
+Template elements2
+关键字
+对应内容
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240105-powerful-org-capture.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Emacs根据时间切换主题</title><link>https://xuchengpeng.cn/posts/20240105-emacs-switch-theme-with-time.html</link><description>Emacs根据时间切换主题
+每小时运行一次，早上6点和晚上18点自动切换主题。
+(setq day-theme 'modus-operandi)
+(setq dark-theme 'modus-vivendi)
+(defun switch-theme ()
+    (setq hour
+          (string-to-number
+            (substring (current-time-string) 11 13)))
+    (if (member hour (number-sequence 6 18))
+        (setq now day-theme)
+      (setq now dark-theme))
+    (load-theme now)
+)
+(run-with-timer 0 3600 'switch-theme)
+自动切换主题的包：circadian.el
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240105-emacs-switch-theme-with-time.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>黄鹤楼</title><link>https://xuchengpeng.cn/posts/20240103-yellow-crane-tower.html</link><description>黄鹤楼
+黄鹤楼
+唐 崔颢
+昔人已乘黄鹤去，此地空余黄鹤楼。
+黄鹤一去不复返，白云千载空悠悠。
+晴川历历汉阳树，芳草萋萋鹦鹉洲。
+日暮乡关何处是？烟波江上使人愁。
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240103-yellow-crane-tower.html</guid><pubDate>Thu, 26 Dec 2024 17:31:20 +0800</pubDate></item><item><title>Emacs本地变量</title><link>https://xuchengpeng.cn/posts/20231229-emacs-local-variables.html</link><description>Emacs本地变量
 Table of Contents
 Per-Directory Local Variables
 Specifying File Variables

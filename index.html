@@ -47,84 +47,131 @@
 <h2 id="recent">Recent</h2>
 <div class="outline-text-2" id="text-recent">
 </div>
-<div id="outline-container-2023-12-29-file-posts-20231229-emacs-local-variables-org-emacs" class="outline-3">
-<h3 id="2023-12-29-file-posts-20231229-emacs-local-variables-org-emacs">2023-12-29 <a href="posts/20231229-emacs-local-variables.html">Emacs本地变量</a></h3>
-<div class="outline-text-3" id="text-2023-12-29-file-posts-20231229-emacs-local-variables-org-emacs">
+<div id="outline-container-2024-01-30-file-posts-20240130-install-a-package-from-a-vcs-repository-org-install-a-package-from-a-vcs-repository" class="outline-3">
+<h3 id="2024-01-30-file-posts-20240130-install-a-package-from-a-vcs-repository-org-install-a-package-from-a-vcs-repository">2024-01-30 <a href="posts/20240130-install-a-package-from-a-vcs-repository.html">Install a Package from a VCS Repository</a></h3>
+<div class="outline-text-3" id="text-2024-01-30-file-posts-20240130-install-a-package-from-a-vcs-repository-org-install-a-package-from-a-vcs-repository">
 <p>
-一般情况下，我们在 <code>init.el</code> 中设置一些变量可以全局生效，如果想针对不同的目录、不同的mode设置不同的变量，可以借助Emcas提供的Local Variables机制。
+Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers <code>package-vc-install</code> to install these codes easily.
 </p>
 </div>
 </div>
-<div id="outline-container-2023-12-28-file-posts-20231228-emacs-code-indent-org-emacs" class="outline-3">
-<h3 id="2023-12-28-file-posts-20231228-emacs-code-indent-org-emacs">2023-12-28 <a href="posts/20231228-emacs-code-indent.html">Emacs代码缩进</a></h3>
-<div class="outline-text-3" id="text-2023-12-28-file-posts-20231228-emacs-code-indent-org-emacs">
+<div id="outline-container-2024-01-30-file-posts-20240130-disable-annoying-audio-notifications-org-disable-annoying-audio-notifications" class="outline-3">
+<h3 id="2024-01-30-file-posts-20240130-disable-annoying-audio-notifications-org-disable-annoying-audio-notifications">2024-01-30 <a href="posts/20240130-disable-annoying-audio-notifications.html">Disable Annoying Audio Notifications</a></h3>
+<div class="outline-text-3" id="text-2024-01-30-file-posts-20240130-disable-annoying-audio-notifications-org-disable-annoying-audio-notifications">
 <p>
-Emacs自带的 <code>electric-indent-mode</code> 或者第三方插件 <a href="https://github.com/Malabarba/aggressive-indent-mode">aggressive-indent-mode</a> 可以自动进行代码缩进。
-</p>
-</div>
-</div>
-<div id="outline-container-2023-12-28-file-posts-20231228-org-capture-template-for-new-blog-post-org-org-capture" class="outline-3">
-<h3 id="2023-12-28-file-posts-20231228-org-capture-template-for-new-blog-post-org-org-capture">2023-12-28 <a href="posts/20231228-org-capture-template-for-new-blog-post.html">为新建博客文章增加Org Capture模板</a></h3>
-<div class="outline-text-3" id="text-2023-12-28-file-posts-20231228-org-capture-template-for-new-blog-post-org-org-capture">
-<p>
-<code>dotemacs-org-post-file</code> 函数会在博客文件夹对应的年份目录下新建文章；
-</p>
-
-<div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">dotemacs-org-post-file</span> ()
-  (<span style="color: #531ab6;">let*</span> ((filename (read-from-minibuffer <span style="color: #3548cf;">"New post filename: "</span>))
-         (post-dir (concat dotemacs-org-site-dir <span style="color: #3548cf;">"/org/posts/"</span> (format-time-string <span style="color: #3548cf;">"%Y"</span>))))
-    (<span style="color: #531ab6;">unless</span> (file-exists-p post-dir)
-      (make-directory post-dir t))
-    (find-file (expand-file-name filename post-dir))
-    (tempel-insert 'blog-title)))
-(<span style="color: #531ab6;">setq</span> org-capture-templates
-      `((<span style="color: #3548cf;">"p"</span> <span style="color: #3548cf;">"Post"</span> plain
-         (<span style="color: #531ab6;">function</span> dotemacs-org-post-file)
-         <span style="color: #3548cf;">""</span> <span style="color: #8f0075;">:jump-to-captured</span> t <span style="color: #8f0075;">:immediate-finish</span> t)))
-</pre>
-</div>
-</div>
-</div>
-<div id="outline-container-2019-12-20-file-posts-20191220-cross-compile-arm64-kernel-org-arm64" class="outline-3">
-<h3 id="2019-12-20-file-posts-20191220-cross-compile-arm64-kernel-org-arm64">2019-12-20 <a href="posts/20191220-cross-compile-arm64-kernel.html">交叉编译ARM64内核</a></h3>
-<div class="outline-text-3" id="text-2019-12-20-file-posts-20191220-cross-compile-arm64-kernel-org-arm64">
-<p>
-介绍如何使用编译器交叉编译ARM64内核。
-</p>
-</div>
-</div>
-<div id="outline-container-2019-12-08-file-posts-20191208-github-unlimited-free-private-repos-org-github-announcing-unlimited-free-private-repos" class="outline-3">
-<h3 id="2019-12-08-file-posts-20191208-github-unlimited-free-private-repos-org-github-announcing-unlimited-free-private-repos">2019-12-08 <a href="posts/20191208-github-unlimited-free-private-repos.html">GitHub: Announcing unlimited free private repos</a></h3>
-<div class="outline-text-3" id="text-2019-12-08-file-posts-20191208-github-unlimited-free-private-repos-org-github-announcing-unlimited-free-private-repos">
-<p>
-<a href="https://github.com/">GitHub</a> is announcing unlimited free private repos and unified Enterprise offering.
-</p>
-</div>
-</div>
-<div id="outline-container-2019-12-02-file-posts-20191202-what-is-rest-org-what-is-rest" class="outline-3">
-<h3 id="2019-12-02-file-posts-20191202-what-is-rest-org-what-is-rest">2019-12-02 <a href="posts/20191202-what-is-rest.html">What is REST</a></h3>
-<div class="outline-text-3" id="text-2019-12-02-file-posts-20191202-what-is-rest-org-what-is-rest">
-<p>
-REST is acronym for REpresentational State Transfer. It is architectural style for <b>distributed hypermedia systems</b> and was first presented by Roy Fielding in 2000 in his famous <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">dissertation</a>.
+By default Emacs ring the bell to attract the user's attention, this is annoying.
 </p>
 
 <p>
-Like any other architectural style, REST also does have it's own <a href="https://restfulapi.net/rest-architectural-constraints/">6 guiding constraints</a> which must be satisfied if an interface needs to be referred as <b>RESTful</b>. These principles are listed below.
+To get a visual signal instead, set <code>visual-bell</code> with <code>t</code> Emacs should flash the screen to represent a bell.
 </p>
-</div>
-</div>
-<div id="outline-container-2019-12-01-file-posts-20191201-org-publish-html-org-publishing-org-mode-files-to-html" class="outline-3">
-<h3 id="2019-12-01-file-posts-20191201-org-publish-html-org-publishing-org-mode-files-to-html">2019-12-01 <a href="posts/20191201-org-publish-html.html">Publishing Org-mode files to HTML</a></h3>
-<div class="outline-text-3" id="text-2019-12-01-file-posts-20191201-org-publish-html-org-publishing-org-mode-files-to-html">
-<blockquote>
-<p>
-Emacs is the best editor in the world.
-</p>
-</blockquote>
 
 <p>
-This is a guide to show how to publish a static blog with Org mode.
+We can also customize <code>ring-bell-function</code> to just flash the modeline.
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-30-file-posts-20240130-check-if-a-font-is-available-with-emacs-lisp-org-check-if-a-font-is-available-with-emacs-lisp" class="outline-3">
+<h3 id="2024-01-30-file-posts-20240130-check-if-a-font-is-available-with-emacs-lisp-org-check-if-a-font-is-available-with-emacs-lisp">2024-01-30 <a href="posts/20240130-check-if-a-font-is-available-with-emacs-lisp.html">Check if a Font is Available with Emacs Lisp</a></h3>
+<div class="outline-text-3" id="text-2024-01-30-file-posts-20240130-check-if-a-font-is-available-with-emacs-lisp-org-check-if-a-font-is-available-with-emacs-lisp">
+<p>
+In Emacs Lisp, <code>find-font</code> function return a font-entity matching with FONT-SPEC. So we can make a helper function.
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-30-file-posts-20240130-converting-between-symbols-and-strings-org-converting-between-symbols-and-strings" class="outline-3">
+<h3 id="2024-01-30-file-posts-20240130-converting-between-symbols-and-strings-org-converting-between-symbols-and-strings">2024-01-30 <a href="posts/20240130-converting-between-symbols-and-strings.html">Converting Between Symbols and Strings</a></h3>
+<div class="outline-text-3" id="text-2024-01-30-file-posts-20240130-converting-between-symbols-and-strings-org-converting-between-symbols-and-strings">
+<p>
+Sometimes you might need to convert a symbol to string in Emacs Lisp. You start looking for functions like <code>symbol-to-string</code> and <code>string-to-symbol</code> but, they do not exist.
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-29-file-posts-20240129-eglot-clangd-configuration-org-eglot-clangd" class="outline-3">
+<h3 id="2024-01-29-file-posts-20240129-eglot-clangd-configuration-org-eglot-clangd">2024-01-29 <a href="posts/20240129-eglot-clangd-configuration.html">Eglot: clangd配置</a></h3>
+<div class="outline-text-3" id="text-2024-01-29-file-posts-20240129-eglot-clangd-configuration-org-eglot-clangd">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-26-file-posts-20240126-treatment-based-on-syndrome-differentiation-org" class="outline-3">
+<h3 id="2024-01-26-file-posts-20240126-treatment-based-on-syndrome-differentiation-org">2024-01-26 <a href="posts/20240126-treatment-based-on-syndrome-differentiation.html">中医：辩证论治</a></h3>
+<div class="outline-text-3" id="text-2024-01-26-file-posts-20240126-treatment-based-on-syndrome-differentiation-org">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-24-file-posts-20240124-tcm-five-organs-and-five-elements-org" class="outline-3">
+<h3 id="2024-01-24-file-posts-20240124-tcm-five-organs-and-five-elements-org">2024-01-24 <a href="posts/20240124-tcm-five-organs-and-five-elements.html">中医：五脏与五行</a></h3>
+<div class="outline-text-3" id="text-2024-01-24-file-posts-20240124-tcm-five-organs-and-five-elements-org">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-23-file-posts-20240123-aspell-personal-dictionaries-org-aspell-personal-dictionaries" class="outline-3">
+<h3 id="2024-01-23-file-posts-20240123-aspell-personal-dictionaries-org-aspell-personal-dictionaries">2024-01-23 <a href="posts/20240123-aspell-personal-dictionaries.html">Aspell: Personal Dictionaries</a></h3>
+<div class="outline-text-3" id="text-2024-01-23-file-posts-20240123-aspell-personal-dictionaries-org-aspell-personal-dictionaries">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-22-file-posts-20240122-elisp-lexical-and-dynamic-binding-org-elisp-lexical-and-dynamic-binding" class="outline-3">
+<h3 id="2024-01-22-file-posts-20240122-elisp-lexical-and-dynamic-binding-org-elisp-lexical-and-dynamic-binding">2024-01-22 <a href="posts/20240122-elisp-lexical-and-dynamic-binding.html">Elisp: Lexical and Dynamic Binding</a></h3>
+<div class="outline-text-3" id="text-2024-01-22-file-posts-20240122-elisp-lexical-and-dynamic-binding-org-elisp-lexical-and-dynamic-binding">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-19-file-posts-20240119-elisp-list-processing-org-elisp-list-processing" class="outline-3">
+<h3 id="2024-01-19-file-posts-20240119-elisp-list-processing-org-elisp-list-processing">2024-01-19 <a href="posts/20240119-elisp-list-processing.html">Elisp: List Processing</a></h3>
+<div class="outline-text-3" id="text-2024-01-19-file-posts-20240119-elisp-list-processing-org-elisp-list-processing">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-18-file-posts-20240118-emacs-treesit-org-emacs-treesit" class="outline-3">
+<h3 id="2024-01-18-file-posts-20240118-emacs-treesit-org-emacs-treesit">2024-01-18 <a href="posts/20240118-emacs-treesit.html">Emacs treesit</a></h3>
+<div class="outline-text-3" id="text-2024-01-18-file-posts-20240118-emacs-treesit-org-emacs-treesit">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-08-file-posts-20240108-delete-carrage-returns-org-windows" class="outline-3">
+<h3 id="2024-01-08-file-posts-20240108-delete-carrage-returns-org-windows">2024-01-08 <a href="posts/20240108-delete-carrage-returns.html">删除文件中的Windows换行符</a></h3>
+<div class="outline-text-3" id="text-2024-01-08-file-posts-20240108-delete-carrage-returns-org-windows">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-05-file-posts-20240105-emacs-switch-theme-with-time-org-emacs" class="outline-3">
+<h3 id="2024-01-05-file-posts-20240105-emacs-switch-theme-with-time-org-emacs">2024-01-05 <a href="posts/20240105-emacs-switch-theme-with-time.html">Emacs根据时间切换主题</a></h3>
+<div class="outline-text-3" id="text-2024-01-05-file-posts-20240105-emacs-switch-theme-with-time-org-emacs">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-05-file-posts-20240105-powerful-org-capture-org-org-capture" class="outline-3">
+<h3 id="2024-01-05-file-posts-20240105-powerful-org-capture-org-org-capture">2024-01-05 <a href="posts/20240105-powerful-org-capture.html">强大的Org Capture</a></h3>
+<div class="outline-text-3" id="text-2024-01-05-file-posts-20240105-powerful-org-capture-org-org-capture">
+<p>
+(No preview)
+</p>
+</div>
+</div>
+<div id="outline-container-2024-01-03-file-posts-20240103-yellow-crane-tower-org" class="outline-3">
+<h3 id="2024-01-03-file-posts-20240103-yellow-crane-tower-org">2024-01-03 <a href="posts/20240103-yellow-crane-tower.html">黄鹤楼</a></h3>
+<div class="outline-text-3" id="text-2024-01-03-file-posts-20240103-yellow-crane-tower-org">
+<p>
+(No preview)
 </p>
 </div>
 </div>

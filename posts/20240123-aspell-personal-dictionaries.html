@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aspell: Personal Dictionaries</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Aspell: Personal Dictionaries</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#format-of-personal-dictionary">Format of Personal Dictionary</a></li>
+<li><a href="#format-of-personal-replacement-dictionary">Format of Personal Replacement Dictionary</a></li>
+</ul>
+</div>
+</nav>
+<p>
+<a href="http://aspell.net/">GNU Aspell</a> 是一个用来替换ispell的免费开源拼写检查器。
+</p>
+
+<p>
+Aspell除了可以安装官方提供的字典外，还可以自定义字典。
+</p>
+<div id="outline-container-format-of-personal-dictionary" class="outline-2">
+<h2 id="format-of-personal-dictionary">Format of Personal Dictionary</h2>
+<div class="outline-text-2" id="text-format-of-personal-dictionary">
+<p>
+个人词典的文件名格式为 <code>.aspell.&lt;lang&gt;.pws</code> ，这个文件分为两部分。
+</p>
+
+<p>
+第一部分为文件头第一行： <code>personal_ws-1.1 lang num [encoding]</code> ，num为字典列表中单词的数目，encoding为可选项。
+</p>
+
+<p>
+第二部分为单词列表，一个单词占用一行。
+</p>
+</div>
+</div>
+<div id="outline-container-format-of-personal-replacement-dictionary" class="outline-2">
+<h2 id="format-of-personal-replacement-dictionary">Format of Personal Replacement Dictionary</h2>
+<div class="outline-text-2" id="text-format-of-personal-replacement-dictionary">
+<p>
+个人替换词典的文件名格式为： <code>.aspell.&lt;lang&gt;.prepl</code> ，这个文件分为两部分。
+</p>
+
+<p>
+第一部分为文件头第一行： <code>personal_repl-1.1 lang num [encoding]</code> ，num当前未使用一直为0，encoding为可选项。
+</p>
+
+<p>
+第二部分为单词替换列表，一对替换组合占用一行，格式如： <code>misspelled_word correction</code> 。
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>

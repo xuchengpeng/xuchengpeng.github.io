@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elisp: Lexical and Dynamic Binding</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Elisp: Lexical and Dynamic Binding</h1>
+</header><p>
+在Lexical Binding下使用let绑定本地变量时，这些变量仅在let被包围的body中有效。在其他的代码中，它们有其他的含义，所以如果你在body中调用其他的函数，这些let绑定的本地变量对这些函数不可见。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #595959;">;;; </span><span style="color: #595959;">-*- lexical-binding: t -*-</span>
+(<span style="color: #531ab6;">setq</span> x 0)
+
+(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">getx</span> ()
+  x)
+
+(<span style="color: #531ab6;">setq</span> x 1)
+
+(<span style="color: #531ab6;">let</span> ((x 2))
+  (getx))   <span style="color: #595959;">;; </span><span style="color: #595959;">==&gt; 1</span>
+</pre>
+</div>
+
+<p>
+在Dynamic Binding下使用let绑定本地变量时，这些变量在let表达式的整个执行周期内都有效。所以如果你在body中调用其他的函数，这些let绑定的本地变量对这些函数是可见的。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp"><span style="color: #595959;">;;; </span><span style="color: #595959;">-*- lexical-binding: nil -*-</span>
+(<span style="color: #531ab6;">setq</span> x 0)
+
+(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">getx</span> ()
+  x)
+
+(<span style="color: #531ab6;">setq</span> x 1)
+
+(<span style="color: #531ab6;">let</span> ((x 2))
+  (getx))   <span style="color: #595959;">;; </span><span style="color: #595959;">==&gt; 2</span>
+</pre>
+</div>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>
