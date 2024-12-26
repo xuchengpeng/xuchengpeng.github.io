@@ -54,7 +54,7 @@ body {
 .title {
   font-size: .32rem;
   width: 100%;
-  margin: .14rem 0;
+  margin: .20rem 0;
   padding: 0;
 }
 
@@ -97,7 +97,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: .12rem 0;
+  margin: .15rem 0;
 }
 
 h2 code:last-child,
