@@ -32,7 +32,46 @@
 <div id="content" class="content">
 <header>
 <h1 class="title">Archives</h1>
-</header><div id="outline-container-2019-12-20-file-posts-20191220-cross-compile-arm64-kernel-org-arm64" class="outline-2">
+</header><div id="outline-container-2023-12-29-file-posts-20231229-emacs-local-variables-org-emacs" class="outline-2">
+<h2 id="2023-12-29-file-posts-20231229-emacs-local-variables-org-emacs">2023-12-29 <a href="posts/20231229-emacs-local-variables.html">Emacs本地变量</a></h2>
+<div class="outline-text-2" id="text-2023-12-29-file-posts-20231229-emacs-local-variables-org-emacs">
+<p>
+一般情况下，我们在 <code>init.el</code> 中设置一些变量可以全局生效，如果想针对不同的目录、不同的mode设置不同的变量，可以借助Emcas提供的Local Variables机制。
+</p>
+</div>
+</div>
+<div id="outline-container-2023-12-28-file-posts-20231228-emacs-code-indent-org-emacs" class="outline-2">
+<h2 id="2023-12-28-file-posts-20231228-emacs-code-indent-org-emacs">2023-12-28 <a href="posts/20231228-emacs-code-indent.html">Emacs代码缩进</a></h2>
+<div class="outline-text-2" id="text-2023-12-28-file-posts-20231228-emacs-code-indent-org-emacs">
+<p>
+Emacs自带的 <code>electric-indent-mode</code> 或者第三方插件 <a href="https://github.com/Malabarba/aggressive-indent-mode">aggressive-indent-mode</a> 可以自动进行代码缩进。
+</p>
+</div>
+</div>
+<div id="outline-container-2023-12-28-file-posts-20231228-org-capture-template-for-new-blog-post-org-org-capture" class="outline-2">
+<h2 id="2023-12-28-file-posts-20231228-org-capture-template-for-new-blog-post-org-org-capture">2023-12-28 <a href="posts/20231228-org-capture-template-for-new-blog-post.html">为新建博客文章增加Org Capture模板</a></h2>
+<div class="outline-text-2" id="text-2023-12-28-file-posts-20231228-org-capture-template-for-new-blog-post-org-org-capture">
+<p>
+<code>dotemacs-org-post-file</code> 函数会在博客文件夹对应的年份目录下新建文章；
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">dotemacs-org-post-file</span> ()
+  (<span style="color: #531ab6;">let*</span> ((filename (read-from-minibuffer <span style="color: #3548cf;">"New post filename: "</span>))
+         (post-dir (concat dotemacs-org-site-dir <span style="color: #3548cf;">"/org/posts/"</span> (format-time-string <span style="color: #3548cf;">"%Y"</span>))))
+    (<span style="color: #531ab6;">unless</span> (file-exists-p post-dir)
+      (make-directory post-dir t))
+    (find-file (expand-file-name filename post-dir))
+    (tempel-insert 'blog-title)))
+(<span style="color: #531ab6;">setq</span> org-capture-templates
+      `((<span style="color: #3548cf;">"p"</span> <span style="color: #3548cf;">"Post"</span> plain
+         (<span style="color: #531ab6;">function</span> dotemacs-org-post-file)
+         <span style="color: #3548cf;">""</span> <span style="color: #8f0075;">:jump-to-captured</span> t <span style="color: #8f0075;">:immediate-finish</span> t)))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-2019-12-20-file-posts-20191220-cross-compile-arm64-kernel-org-arm64" class="outline-2">
 <h2 id="2019-12-20-file-posts-20191220-cross-compile-arm64-kernel-org-arm64">2019-12-20 <a href="posts/20191220-cross-compile-arm64-kernel.html">交叉编译ARM64内核</a></h2>
 <div class="outline-text-2" id="text-2019-12-20-file-posts-20191220-cross-compile-arm64-kernel-org-arm64">
 <p>
