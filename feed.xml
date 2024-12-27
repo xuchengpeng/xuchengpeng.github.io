@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 27 Dec 2024 10:26:44 +0800</lastBuildDate><item><title>Emacs中Python开发</title><link>https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</link><description>Emacs中Python开发
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Fri, 27 Dec 2024 12:22:54 +0800</lastBuildDate><item><title>Generating sitemap in Emacs</title><link>https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</link><description>Generating sitemap in Emacs
+Table of Contents
+:sitemap-filename
+:sitemap-title
+:sitemap-format-entry
+:sitemap-function
+:sitemap-sort-files
+使用Emacs导出博客时，可以导出Sitemap文件，可以很方便的生成最近的文章信息或者归档列表。通过配置Sitemap导出时的参数，定制化的生成不同形式的Sitemap文件。
+:sitemap-filename
+导出的文件名，默认为 sitemap.org ，对应导出 sitemap.html 文件。
+:sitemap-title
+标题，默认为文件名称。
+:sitemap-format-entry
+这个选项用于配置每个条目生成的格式，这个选项是一个函数，包含3个参数：文件或目录名、样式和当前项目。函数返回一个字符串，默认情况下生成每个文件的链接，使用文件标题作为链接描述。可以使用 org-publish-find-date, org-publish-find-title, org-publish-find-property 获取附加信息来定制生成的样式。
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</guid><pubDate>Fri, 27 Dec 2024 12:22:21 +0800</pubDate></item><item><title>Emacs中Python开发</title><link>https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</link><description>Emacs中Python开发
 Table of Contents
 创建虚拟环境
 安装LSP服务端

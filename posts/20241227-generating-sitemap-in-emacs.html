@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Generating sitemap in Emacs</title>
+<meta name="description" content="This is Chuck's personal website, published with Emacs Org mode." />
+<meta name="keywords" content="Chuck, blog, technology, programming" />
+<meta name="generator" content="Org Mode" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="/js/copycode.js"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+
+<div class="header-wrapper">
+  <div class="site-header">
+  <a class="site-title" href="/">Chuck</a>
+  <div class="site-nav">
+    <a class="nav-link" href="/archives.html">Archives</a>
+    <a class="nav-link" href="/search.html">Search</a>
+    <a class="nav-link" href="/about.html">About</a>
+  </div>
+  </div>
+</div>
+</div>
+<div id="content" class="content">
+<header>
+<h1 class="title">Generating sitemap in Emacs</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#sitemap-filename">:sitemap-filename</a></li>
+<li><a href="#sitemap-title">:sitemap-title</a></li>
+<li><a href="#sitemap-format-entry">:sitemap-format-entry</a></li>
+<li><a href="#sitemap-function">:sitemap-function</a></li>
+<li><a href="#sitemap-sort-files">:sitemap-sort-files</a></li>
+</ul>
+</div>
+</nav>
+<div class="PREVIEW">
+<p>
+使用Emacs导出博客时，可以导出Sitemap文件，可以很方便的生成最近的文章信息或者归档列表。通过配置Sitemap导出时的参数，定制化的生成不同形式的Sitemap文件。
+</p>
+
+</div>
+<div id="outline-container-sitemap-filename" class="outline-2">
+<h2 id="sitemap-filename">:sitemap-filename</h2>
+<div class="outline-text-2" id="text-sitemap-filename">
+<p>
+导出的文件名，默认为 <code>sitemap.org</code> ，对应导出 <code>sitemap.html</code> 文件。
+</p>
+</div>
+</div>
+<div id="outline-container-sitemap-title" class="outline-2">
+<h2 id="sitemap-title">:sitemap-title</h2>
+<div class="outline-text-2" id="text-sitemap-title">
+<p>
+标题，默认为文件名称。
+</p>
+</div>
+</div>
+<div id="outline-container-sitemap-format-entry" class="outline-2">
+<h2 id="sitemap-format-entry">:sitemap-format-entry</h2>
+<div class="outline-text-2" id="text-sitemap-format-entry">
+<p>
+这个选项用于配置每个条目生成的格式，这个选项是一个函数，包含3个参数：文件或目录名、样式和当前项目。函数返回一个字符串，默认情况下生成每个文件的链接，使用文件标题作为链接描述。可以使用 <code>org-publish-find-date</code>, <code>org-publish-find-title</code>, <code>org-publish-find-property</code> 获取附加信息来定制生成的样式。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">+org-publish-org-sitemap-format-entry</span> (entry style project)
+  (<span style="color: #531ab6;">cond</span> ((not (directory-name-p entry))
+         (format <span style="color: #3548cf;">"%s - [[file:%s][%s]]"</span>
+                 (format-time-string <span style="color: #3548cf;">"%Y-%m-%d"</span> (org-publish-find-date entry project))
+                 entry
+                 (org-publish-find-title entry project)))
+        ((eq style 'tree)
+         <span style="color: #595959;">;; </span><span style="color: #595959;">Return only last subdir.</span>
+         (file-name-nondirectory (directory-file-name entry)))
+        (t entry)))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sitemap-function" class="outline-2">
+<h2 id="sitemap-function">:sitemap-function</h2>
+<div class="outline-text-2" id="text-sitemap-function">
+<p>
+用于生成Sitemap文件的函数，默认情况下，生成指定标题的Sitemap文件，并把所有条目以list的方式添加到文件中。也可以将所有的list转换为subtree。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-elisp">(<span style="color: #531ab6;">defun</span> <span style="color: #721045;">+org-publish-org-sitemap</span> (title list)
+  <span style="color: #2a5045;">"Sitemap generation function."</span>
+  (concat <span style="color: #3548cf;">"#+TITLE: "</span> title <span style="color: #3548cf;">"\n"</span>
+          <span style="color: #3548cf;">"#+OPTIONS: toc:nil\n\n"</span>
+          (org-list-to-subtree list)))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sitemap-sort-files" class="outline-2">
+<h2 id="sitemap-sort-files">:sitemap-sort-files</h2>
+<div class="outline-text-2" id="text-sitemap-sort-files">
+<p>
+默认设置为 <code>alphabetically</code> ，按字母排序；还可以设置为 <code>chronologically</code> 或 <code>anti-chronologically</code> 按照日期或者日期逆序排序，日期通过 <code>org-publish-find-date</code> 获取。
+</p>
+
+<div class="giscus-comments">
+  <br>
+  <script src="https://giscus.app/client.js"
+    data-repo="xuchengpeng/xuchengpeng.github.io"
+    data-repo-id="R_kgDONhnWdw"
+    data-category="Comments"
+    data-category-id="DIC_kwDONhnWd84Cleth"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+
+<a href="#top" class="top-link" id="top-link" style="visibility: hidden; opacity: 0;">Top &#8593;</a>
+<script src="/js/scroll-to-top.js"></script>
+<div class="footer-wrapper">
+  <div class="site-footer">&copy xuchengpeng. <a href="/feed.xml">RSS Feed</a></div>
+</div>
+</div>
+</body>
+</html>
