@@ -58,46 +58,40 @@ body {
   padding: 0;
 }
 
-a {
-  color: #2563eb;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #147;
-  text-decoration: underline;
-}
-
 h1 {
   font-size: .32rem;
+  margin: .20rem 0;
+  color: #000000;
 }
 
 h2 {
   font-size: .24rem;
+  margin: .16rem 0;
+  color: #000000;
 }
 
 h3 {
   font-size: .20rem;
+  margin: .16rem 0;
+  color: #000000;
 }
 
 h4 {
   font-size: .18rem;
+  margin: .16rem 0;
+  color: #000000;
 }
 
 h5 {
   font-size: .16rem;
+  margin: .16rem 0;
+  color: #000000;
 }
 
 h6 {
   font-size: .16rem;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
   margin: .16rem 0;
+  color: #000000;
 }
 
 h2 code:last-child,
@@ -110,6 +104,16 @@ h6 code:last-child {
   color: #eee;
   font-size: .12rem;
   padding: 2px 6px;
+}
+
+a {
+  color: #2563EB;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #147;
+  text-decoration: underline;
 }
 
 /* paragrapn */
@@ -339,7 +343,7 @@ td:last-child {
   margin: 0 auto;
   padding: 10px 10px;
   font-size: .15rem;
-  color: #666;
+  color: #111;
   text-align: center;
 }
 
