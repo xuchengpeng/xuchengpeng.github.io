@@ -32,12 +32,9 @@
 <div id="content" class="content">
 <header>
 <h1 class="title">True Emacs Transparency</h1>
-</header><div class="PREVIEW">
-<p>
+</header><p>
 Before Emacs 29, we can set the <code>alpha</code> frame parameter to adjust the opacity of the frame. The issue with <code>alpha</code> is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
 </p>
-
-</div>
 
 <p>
 The solution came from a <a href="https://lists.gnu.org/archive/html/emacs-devel/2022-01/msg01215.html">patch</a> make by Håkon Flatval. The patch adds the <code>alpha-background</code> frame parameter which make only the background of a frame transparent.

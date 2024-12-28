@@ -32,16 +32,13 @@
 <div id="content" class="content">
 <header>
 <h1 class="title">Define Emacs Formatter</h1>
-</header><div class="PREVIEW">
-<p>
+</header><p>
 Steve Purcell has created a package <a href="https://github.com/purcell/emacs-reformatter">reformatter</a>, which can define commands to format the current Emacs buffer.
 </p>
 
 <p>
 The <code>reformatter-define</code> macro expands to code which generates <code>xxx-buffer</code> and <code>xxx-region</code> interactive commands, and a local minor mode called <code>xxx-on-save-mode</code>. The <code>:args</code> and <code>:program</code> expressions will be evaluated at runtime, so they can refer to variables that may have a buffer-local value. A custom variable will be generated for the mode lighter, with the supplied value becoming the default.
 </p>
-
-</div>
 
 <p>
 For example, we can use <a href="https://github.com/mvdan/sh">shfmt</a> to format shell scripts.
