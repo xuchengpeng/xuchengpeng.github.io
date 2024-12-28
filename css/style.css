@@ -133,9 +133,10 @@ img {
 
 /* blockquote */
 blockquote {
-  color: #369;
-  border-left: 1px solid #369;
+  color: #147;
+  border-left: 2px solid #147;
   padding-left: .16rem;
+  margin: .12rem 0;
 }
 
 /* code */
