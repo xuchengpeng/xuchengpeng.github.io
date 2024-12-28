@@ -33,13 +33,20 @@
 <div id="content" class="content">
 <header>
 <h1 class="title">删除Git Submodule</h1>
-</header><ol class="org-ol">
+</header><div class="preview">
+<p>
+Git子模块的删除相对比较麻烦，需要执行多个步骤才能清理干净。
+</p>
+
+</div>
+
+<ul class="org-ul">
 <li>删除子模块目录；</li>
 <li>删除 <code>.gitmodules</code> 中对应的子模块内容；</li>
 <li>删除 <code>.git/config</code> 中对应的子模块内容；</li>
 <li>删除 <code>.git/modules/</code> 下对应的子模块目录；</li>
 <li><code>git rm --cached</code> 子模块目录。</li>
-</ol>
+</ul>
 
 <div class="giscus-comments">
   <br>
