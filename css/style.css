@@ -47,7 +47,6 @@ body {
 }
 
 /* header line */
-/* i.e. h1 */
 .title {
   font-size: .32rem;
   width: 100%;
@@ -246,7 +245,6 @@ td:last-child {
   min-height: 100%;
   height: 100%;
   font-size: .16rem;
-  font-size: 90%;
   color: #369;
   padding: 0 1%;
   transition: .3s all ease-in-out;
@@ -265,13 +263,6 @@ td:last-child {
 
 #table-of-contents h2:before {
   content: "";
-}
-
-/* Highlight TOC active item */
-.link-active {
-  color: #fff;
-  background: #2a7ae2;
-  padding: 1px 2px;
 }
 
 ::-webkit-scrollbar {
@@ -373,11 +364,6 @@ td:last-child {
   padding-right: .08rem;
 }
 
-.post-meta {
-  font-size: 0.14rem;
-  color: #828282;
-}
-
 .top-link {
   visibility: hidden;
   position: fixed;
@@ -399,7 +385,7 @@ td:last-child {
   border-radius: 3px;
   background: #911;
   color: #eee;
-  font-size: .12rem;
+  font-size: .14rem;
   padding: 2px 6px;
 }
 
@@ -407,7 +393,7 @@ td:last-child {
   border-radius: 3px;
   background: #147;
   color: #eee;
-  font-size: .12rem;
+  font-size: .14rem;
   padding: 2px 6px;
 }
 
@@ -417,7 +403,7 @@ td:last-child {
   border-bottom-right-radius: 10px;
   background: #c60;
   color: #eee;
-  font-size: .12rem;
+  font-size: .14rem;
   padding: 2px 6px;
   display: inline-block;
 }
@@ -426,12 +412,9 @@ td:last-child {
   border-radius: 3px;
   background: #991;
   color: #eee;
-  font-size: .12rem;
+  font-size: .14rem;
   padding: 2px 6px;
 }
-
-/* .timestamp-wrapper */
-/* In CSS&CSS3, there has no a selector to get parentNode. Now via js. */
 
 .org-ul .on code {
   color: #009;
@@ -559,12 +542,6 @@ td:last-child {
   #table-of-contents:hover {
     top: 0px;
     opacity: 1;
-  }
-
-  .link-active {
-    color: #fff;
-    background: #2a7ae2;
-    padding: 1px 2px;
   }
 
   pre {
