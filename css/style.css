@@ -1,42 +1,9 @@
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-p,
-blockquote,
-dl,
-dt,
-dd,
-ul,
-ol,
-li,
-pre,
-form,
-fieldset,
-legend,
-button,
-input,
-textarea,
-th,
-td {
-  margin: 0;
-  padding: 0;
-}
-
-/* Basic Style */
-
-html {
-  font-size: 100px;
-}
-
 body {
   font-family: "Open Sans", Arial, sans-serif;
-  font-size: .16rem;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
 }
 
 #content {
@@ -48,58 +15,53 @@ body {
 
 /* header line */
 .title {
-  font-size: .32rem;
+  font-size: 2em;
+  line-height: 1.5;
   width: 100%;
-  margin: .20rem 0;
+  margin: 0.625em 0;
   padding: 0;
 }
 
 h1 {
-  font-size: .32rem;
-  margin: .20rem 0;
+  font-size: 2em;
+  line-height: 1.5em;
+  margin: 1.25em 0;
   color: #000000;
 }
 
 h2 {
-  font-size: .24rem;
-  margin: .16rem 0;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin: 0.75em 0;
   color: #000000;
 }
 
 h3 {
-  font-size: .20rem;
-  margin: .16rem 0;
+  font-size: 1.25em;
+  line-height: 1.5em;
+  margin: 0.8em 0;
   color: #000000;
 }
 
 h4 {
-  font-size: .18rem;
-  margin: .16rem 0;
+  font-size: 1.125em;
+  line-height: 1.5em;
+  margin: 0.8em 0;
   color: #000000;
 }
 
 h5 {
-  font-size: .16rem;
-  margin: .16rem 0;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 1em 0;
   color: #000000;
 }
 
 h6 {
-  font-size: .16rem;
-  margin: .16rem 0;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 1em 0;
   color: #000000;
-}
-
-h2 code:last-child,
-h3 code:last-child,
-h4 code:last-child,
-h5 code:last-child,
-h6 code:last-child {
-  border-radius: 3px;
-  background: #363;
-  color: #eee;
-  font-size: .12rem;
-  padding: 2px 6px;
 }
 
 a {
@@ -114,7 +76,7 @@ a:hover {
 
 /* paragrapn */
 p {
-  margin: .12rem 0;
+  margin: 0.75em 0;
 }
 
 /* img */
@@ -125,23 +87,24 @@ img {
 /* img caption */
 .figure p:last-child {
   color: #666;
-  font-size: .14rem;
+  font-size: 0.875em;
   text-align: center;
-  margin: .06rem 0;
+  margin: 0.375em 0;
 }
 
 /* blockquote */
 blockquote {
   color: #147;
   border-left: 2px solid #147;
-  padding-left: .16rem;
-  margin: .12rem 0;
+  padding-left: 1em;
+  margin: 0.75em 0;
 }
 
 /* code */
 code {
   font-family: 'Cousine', monospace;
-  font-size: 0.15rem;
+  font-size: 0.9375em;
+  line-height: 1.5em;
   padding: 1px 4px;
   border: 1px solid #eff0f2;
   border-radius: 3px;
@@ -150,12 +113,13 @@ code {
 
 pre {
   font-family: 'Cousine', monospace;
-  font-size: 0.15rem;
-  padding: .14rem;
+  font-size: 0.9375em;
+  line-height: 1.5em;
+  padding: 0.875em;
   border: 1px solid #f6f6f8;
   border-radius: 3px;
   background-color: #f6f6f8;
-  margin: .12rem 0;
+  margin: 0.75em 0;
   overflow: hidden;
 }
 
@@ -168,32 +132,24 @@ pre:hover {
 ul,
 ol {
   list-style-position: inside;
-  margin: .12rem 0;
+  margin: 0.75em 0;
+  padding: 0;
 }
 
 li>ul,
 li>ol {
-  padding-left: .16rem;
+  padding-left: 1em;
 }
-
 
 /* table */
-.t-above {
-  font-size: .14rem;
-  color: #666;
-  margin: .06rem 0;
-}
-
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  margin: .24rem 0;
+  margin: 1.5em 0;
 }
 
 thead tr {
   border-top: 2px solid #369;
-  border-left: 2px solid #369;
-  border-right: 2px solid #369;
 }
 
 tbody {
@@ -202,8 +158,6 @@ tbody {
 
 tbody tr {
   border-bottom: 1px solid #369;
-  border-left: 2px solid #369;
-  border-right: 2px solid #369;
 }
 
 tbody tr:last-child {
@@ -216,15 +170,6 @@ td {
   padding: 3px 6px;
 }
 
-.org-center {
-  text-align: center;
-  margin: .12rem 0;
-}
-
-.org-right {
-  text-align: right;
-}
-
 th:first-child,
 td:first-child {
   border-left: rgba(255, 255, 255, 0);
@@ -235,16 +180,25 @@ td:last-child {
   border-right: rgba(255, 255, 255, 0);
 }
 
+.org-center {
+  text-align: center;
+  margin: 0.75em 0;
+}
+
+.org-right {
+  text-align: right;
+}
+
 #table-of-contents {
   position: fixed;
   box-shadow: 1px 0 3px #999;
-
   left: -16%;
   top: 0;
   min-width: 16%;
   min-height: 100%;
   height: 100%;
-  font-size: .15rem;
+  font-size: 0.9375em;
+  line-height: 1.5em;
   color: #369;
   padding: 0 1%;
   transition: .3s all ease-in-out;
@@ -303,8 +257,8 @@ td:last-child {
 }
 
 .site-title {
-  font-size: .32rem;
-  line-height: 54px;
+  font-size: 2em;
+  line-height: 1.6875em;
   float: left;
 }
 
@@ -314,7 +268,7 @@ td:last-child {
 }
 
 .site-nav {
-  line-height: 54px;
+  line-height: 3.375em;
   float: right;
 }
 
@@ -324,14 +278,14 @@ td:last-child {
 }
 
 .site-nav .nav-link:not(:last-child) {
-  margin-right: .08rem
+  margin-right: 0.5em
 }
 
 .site-footer {
   max-width: 900px;
   margin: 0 auto;
   padding: 10px 10px;
-  font-size: .15rem;
+  font-size: 0.9375em;
   color: #111;
   text-align: center;
 }
@@ -345,25 +299,6 @@ td:last-child {
   border-bottom: 1px solid #333;
 }
 
-/* Contect with Me */
-.me {
-  margin-top: .48rem;
-}
-
-.me span {
-  color: #333;
-}
-
-.contect {
-  padding: .16rem 0;
-}
-
-.contect i {
-  color: #369;
-  font-size: .20rem;
-  padding-right: .08rem;
-}
-
 .top-link {
   visibility: hidden;
   position: fixed;
@@ -375,7 +310,7 @@ td:last-child {
   background: #e8e8e8;
   width: 64px;
   height: 32px;
-  line-height: 32px;
+  line-height: 2;
   text-align: center;
   transition: visibility .5s, opacity .8s linear
 }
@@ -383,54 +318,53 @@ td:last-child {
 /* GTD Style */
 .todo {
   border-radius: 3px;
-  background: #911;
-  color: #eee;
-  font-size: .14rem;
-  padding: 2px 6px;
+  background: red;
+  color: white;
+  font-family: 'Cousine', monospace;
+  font-size: 0.875em;
+  line-height: 1em;
+  padding: 0.1em 0.3em;
+  background-clip: padding-box;
 }
 
 .done {
   border-radius: 3px;
-  background: #147;
-  color: #eee;
-  font-size: .14rem;
-  padding: 2px 6px;
-}
-
-.tag span {
-  border-radius: 3px;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background: #c60;
-  color: #eee;
-  font-size: .14rem;
-  padding: 2px 6px;
-  display: inline-block;
+  background: green;
+  color: white;
+  font-family: 'Cousine', monospace;
+  font-size: 0.875em;
+  line-height: 1em;
+  padding: 0.1em 0.3em;
+  background-clip: padding-box;
 }
 
 .priority {
+  color: orange;
+  font-family: 'Cousine', monospace;
+}
+
+.tag {
+  font-family: 'Cousine', monospace;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+.tag span {
+  padding: 0.3em 0.3em;
+  float: right;
+  margin-right: 0.5em;
+  border: 1px solid #bbb;
   border-radius: 3px;
-  background: #991;
-  color: #eee;
-  font-size: .14rem;
-  padding: 2px 6px;
-}
-
-.org-ul .on code {
-  color: #009;
-  font-weight: 900;
-}
-
-.org-ul .off code {
-  color: #900;
-  font-weight: 900;
+  background-clip: padding-box;
+  color: #333;
+  background-color: #eee;
+  line-height: 1;
 }
 
 /* Footnotes */
-
 .footpara {
   display: inline;
-  font-size: .15rem;
+  font-size: 0.9375em;
   color: #333;
 }
 
@@ -463,7 +397,7 @@ td:last-child {
 .search .search-icon {
   float: left;
   height: 100%;
-  font-size: .28rem;
+  font-size: 28px;
   line-height: 30px;
   cursor: pointer;
   user-select: none
@@ -473,7 +407,7 @@ td:last-child {
   float: left;
   width: 80%;
   height: 30px;
-  font-size: .16rem;
+  font-size: 16px;
   line-height: 30px;
   margin: 0;
   padding-left: 10px;
@@ -511,8 +445,9 @@ td:last-child {
 
 .search .search-results .result-item .result-item-title {
   color: #000;
-  font-size: .20rem;
+  font-size: 20px;
   font-weight: bold;
+  line-height: 30px;
 }
 
 .search .search-results .result-item .result-item-detail a {
@@ -522,7 +457,7 @@ td:last-child {
 /* Mobile UI */
 @media screen and (max-width: 600px) {
   .title {
-    font-size: .32rem;
+    font-size: 2em;
     white-space: nowrap;
     overflow: auto;
   }
