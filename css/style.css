@@ -254,12 +254,14 @@ td:last-child {
   max-width: 900px;
   margin: 0 auto;
   padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .site-title {
   font-size: 2em;
   line-height: 1.6875em;
-  float: left;
 }
 
 .site-title,
@@ -269,7 +271,6 @@ td:last-child {
 
 .site-nav {
   line-height: 3.375em;
-  float: right;
 }
 
 .site-nav .nav-link {
