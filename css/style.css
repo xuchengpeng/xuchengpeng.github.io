@@ -127,20 +127,6 @@ pre:hover {
   overflow: auto;
 }
 
-
-/* list */
-ul,
-ol {
-  list-style-position: inside;
-  margin: 0.75em 0;
-  padding: 0;
-}
-
-li>ul,
-li>ol {
-  padding-left: 1em;
-}
-
 /* table */
 table {
   border-collapse: collapse;
