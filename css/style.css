@@ -65,7 +65,7 @@ h6 {
 }
 
 a {
-  color: #2563EB;
+  color: #0969da;
   text-decoration: none;
 }
 
@@ -245,15 +245,6 @@ td:last-child {
   font-size: 0.9375em;
   color: #111;
   text-align: center;
-}
-
-.validation a {
-  color: #2a7ae2;
-}
-
-/* Inline Format */
-.underline {
-  border-bottom: 1px solid #333;
 }
 
 .top-link {
