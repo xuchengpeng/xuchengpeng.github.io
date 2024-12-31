@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 31 Dec 2024 16:04:41 +0800</lastBuildDate><item><title>Generating sitemap in Emacs</title><link>https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</link><description>Generating sitemap in Emacs
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 31 Dec 2024 16:19:52 +0800</lastBuildDate><item><title>Generating sitemap in Emacs</title><link>https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</link><description>Generating sitemap in Emacs
 Table of Contents
 :sitemap-filename
 :sitemap-title
@@ -13,7 +13,7 @@ Table of Contents
 标题，默认为文件名称。
 :sitemap-format-entry
 这个选项用于配置每个条目生成的格式，这个选项是一个函数，包含3个参数：文件或目录名、样式和当前项目。函数返回一个字符串，默认情况下生成每个文件的链接，使用文件标题作为链接描述。可以使用 org-publish-find-date, org-publish-find-title, org-publish-find-property 获取附加信息来定制生成的样式。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</guid><pubDate>Tue, 31 Dec 2024 15:53:32 +0800</pubDate></item><item><title>Emacs中Python开发</title><link>https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</link><description>Emacs中Python开发
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</guid><pubDate>Tue, 31 Dec 2024 16:19:25 +0800</pubDate></item><item><title>Emacs中Python开发</title><link>https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</link><description>Emacs中Python开发
 Table of Contents
 创建虚拟环境
 安装LSP服务端
@@ -33,17 +33,17 @@ npm install -g pyright
 [tool.pyright]
 venvPath = "."
 venv = ".venv"
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</guid><pubDate>Tue, 31 Dec 2024 15:53:31 +0800</pubDate></item><item><title>Matplotlib: Work with threads</title><link>https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</link><description>Matplotlib: Work with threads
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</guid><pubDate>Tue, 31 Dec 2024 16:19:24 +0800</pubDate></item><item><title>Matplotlib: Work with threads</title><link>https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</link><description>Matplotlib: Work with threads
 Matplotlib is not thread-safe: in fact, there are known race conditions that affect certain artists. Hence, if you work with threads, it is your responsibility to set up the proper locks to serialize access to Matplotlib artists.
 You may be able to work on separate figures from separate threads. However, you must in that case use a non-interactive backend (typically Agg), because most GUI backends require being run from the main thread as well.
 import matplotlib
 matplotlib.use("Agg")
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</guid><pubDate>Tue, 31 Dec 2024 15:53:31 +0800</pubDate></item><item><title>MDict Dictionaries</title><link>https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</link><description>MDict Dictionaries
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</guid><pubDate>Tue, 31 Dec 2024 16:19:24 +0800</pubDate></item><item><title>MDict Dictionaries</title><link>https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</link><description>MDict Dictionaries
 A collections of website archives where you can download MDict dictionaries.
 FreeMdict
 emiliabear
 chirmyram
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</guid><pubDate>Tue, 31 Dec 2024 15:53:31 +0800</pubDate></item><item><title>sdcv</title><link>https://xuchengpeng.cn/posts/20241209-sdcv.html</link><description>sdcv
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</guid><pubDate>Tue, 31 Dec 2024 16:19:23 +0800</pubDate></item><item><title>sdcv</title><link>https://xuchengpeng.cn/posts/20241209-sdcv.html</link><description>sdcv
 sdcv is a simple, cross-platform, text-based utility for working with dictionaries in StarDict format.
 StarDict dictionaries can be downloaded from https://www.nchrs.xyz/stardict/index.html.
 The quick-sdcv package serves as a lightweight Emacs interface for the sdcv command-line interface, which is the console version of the StarDict dictionary application.
@@ -52,24 +52,24 @@ The quick-sdcv package serves as a lightweight Emacs interface for the sdcv comm
   :commands (quick-sdcv-search-input quick-sdcv-search-at-point)
   :config
   (setq quick-sdcv-program "/path/to/sdcv"
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241209-sdcv.html</guid><pubDate>Tue, 31 Dec 2024 15:53:30 +0800</pubDate></item><item><title>Safe Local Variable Directories</title><link>https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</link><description>Safe Local Variable Directories
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241209-sdcv.html</guid><pubDate>Tue, 31 Dec 2024 16:19:23 +0800</pubDate></item><item><title>Safe Local Variable Directories</title><link>https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</link><description>Safe Local Variable Directories
 safe-local-variable-directories was introduced in Emacs 30.1. A list of directories where local variables are always enabled.
 Directory-local variables loaded from these directories, such as the variables in .dir-locals.el, will be enabled even if they are risky.
 The names of the directories in the list must be absolute, and must end in a slash.
 Remote directories can be included if the variable enable-remote-dir-locals is non-nil.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</guid><pubDate>Tue, 31 Dec 2024 15:53:30 +0800</pubDate></item><item><title>删除Git Submodule</title><link>https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</link><description>删除Git Submodule
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</guid><pubDate>Tue, 31 Dec 2024 16:19:22 +0800</pubDate></item><item><title>删除Git Submodule</title><link>https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</link><description>删除Git Submodule
 Git子模块的删除相对比较麻烦，需要执行多个步骤才能清理干净。
 删除子模块目录；
 删除 .gitmodules 中对应的子模块内容；
 删除 .git/config 中对应的子模块内容；
 删除 .git/modules/ 下对应的子模块目录；
 git rm --cached 子模块目录。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</guid><pubDate>Tue, 31 Dec 2024 15:53:30 +0800</pubDate></item><item><title>Solutions to Introduction to Algorithms</title><link>https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</link><description>Solutions to Introduction to Algorithms
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</guid><pubDate>Tue, 31 Dec 2024 16:19:22 +0800</pubDate></item><item><title>Solutions to Introduction to Algorithms</title><link>https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</link><description>Solutions to Introduction to Algorithms
 收集了一些互联网上算法导论练习题的答案。
 https://github.com/walkccc/CLRS
 https://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html
 https://clrs.skanev.com/
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</guid><pubDate>Tue, 31 Dec 2024 15:53:30 +0800</pubDate></item><item><title>般若波罗蜜多心经</title><link>https://xuchengpeng.cn/posts/20240914-heart-sutra.html</link><description>般若波罗蜜多心经
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</guid><pubDate>Tue, 31 Dec 2024 16:19:21 +0800</pubDate></item><item><title>般若波罗蜜多心经</title><link>https://xuchengpeng.cn/posts/20240914-heart-sutra.html</link><description>般若波罗蜜多心经
 观自在菩萨，行深般若波罗蜜多时，照见五蕴皆空，度一切苦厄。舍利子，色不异空，空不异色；色即是空，空即是色。受、想、行、识，亦复如是。舍利子，是诸法空相，不生不灭，不垢不净，不增不减，是故空中无色，无受、想、行、识；无眼、耳、鼻、舌、身、意；无色、声、香、味、触、法；无眼界，乃至无意识界；无无明，亦无无明尽；乃至无老死，亦无老死尽。无苦、集、灭、道，无智亦无得。以无所得故，菩提萨埵，依般若波罗蜜多故，心无罣碍。无罣碍故，无有恐怖，远离颠倒梦想，究竟涅槃。三世诸佛，依般若波罗蜜多故，得阿耨多罗三藐三菩提。故知般若波罗蜜多，是大神咒，是大明咒，是无上咒，是无等等咒，能除一切苦，真实不虚。故说般若波罗蜜多咒，即说咒曰：“揭谛、揭谛，波罗揭谛，波罗僧揭谛，菩提萨婆诃。”
 </description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240914-heart-sutra.html</guid><pubDate>Tue, 31 Dec 2024 15:53:29 +0800</pubDate></item><item><title>仿射变换与透视变换</title><link>https://xuchengpeng.cn/posts/20240911-affine_and_perspective_transformation.html</link><description>仿射变换与透视变换
 仿射变换是指在几何中，一个向量空间进行一次线性变换并接上一个平移，变换为另一个向量空间。
