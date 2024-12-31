@@ -18,21 +18,21 @@ body {
   font-size: 2em;
   line-height: 1.5;
   width: 100%;
-  margin: 0.625em 0;
+  margin: 0.8em 0;
   padding: 0;
 }
 
 h1 {
   font-size: 2em;
   line-height: 1.5em;
-  margin: 1.25em 0;
+  margin: 0.8em 0;
   color: #000000;
 }
 
 h2 {
   font-size: 1.5em;
   line-height: 1.5em;
-  margin: 0.75em 0;
+  margin: 0.8em 0;
   color: #000000;
 }
 
@@ -53,14 +53,14 @@ h4 {
 h5 {
   font-size: 1em;
   line-height: 1.5em;
-  margin: 1em 0;
+  margin: 0.8em 0;
   color: #000000;
 }
 
 h6 {
   font-size: 1em;
   line-height: 1.5em;
-  margin: 1em 0;
+  margin: 0.8em 0;
   color: #000000;
 }
 
@@ -187,36 +187,6 @@ td:last-child {
 
 .org-right {
   text-align: right;
-}
-
-#table-of-contents {
-  position: fixed;
-  box-shadow: 1px 0 3px #999;
-  left: -16%;
-  top: 0;
-  min-width: 16%;
-  min-height: 100%;
-  height: 100%;
-  font-size: 0.9375em;
-  line-height: 1.5em;
-  color: #369;
-  padding: 0 1%;
-  transition: .3s all ease-in-out;
-  overflow: hidden;
-  opacity: 0;
-  z-index: 9999;
-}
-
-#table-of-contents:hover {
-  opacity: 1;
-  left: 0;
-  border-right: 1px solid #eee;
-  overflow: auto;
-  background: rgba(255, 255, 255, 0.86);
-}
-
-#table-of-contents h2:before {
-  content: "";
 }
 
 ::-webkit-scrollbar {
@@ -461,23 +431,6 @@ td:last-child {
     font-size: 2em;
     white-space: nowrap;
     overflow: auto;
-  }
-
-  #table-of-contents {
-    height: 400px;
-    min-height: 400px;
-    width: 100%;
-    top: -380px;
-    left: 0;
-    color: #369;
-    opacity: 0;
-    box-shadow: 0 1px 3px #999;
-    background: #fff;
-  }
-
-  #table-of-contents:hover {
-    top: 0px;
-    opacity: 1;
   }
 
   pre {
