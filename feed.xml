@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Sat, 28 Dec 2024 16:40:44 +0800</lastBuildDate><item><title>Generating sitemap in Emacs</title><link>https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</link><description>Generating sitemap in Emacs
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Tue, 31 Dec 2024 16:04:41 +0800</lastBuildDate><item><title>Generating sitemap in Emacs</title><link>https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</link><description>Generating sitemap in Emacs
 Table of Contents
 :sitemap-filename
 :sitemap-title
@@ -13,7 +13,7 @@ Table of Contents
 标题，默认为文件名称。
 :sitemap-format-entry
 这个选项用于配置每个条目生成的格式，这个选项是一个函数，包含3个参数：文件或目录名、样式和当前项目。函数返回一个字符串，默认情况下生成每个文件的链接，使用文件标题作为链接描述。可以使用 org-publish-find-date, org-publish-find-title, org-publish-find-property 获取附加信息来定制生成的样式。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</guid><pubDate>Sat, 28 Dec 2024 15:23:01 +0800</pubDate></item><item><title>Emacs中Python开发</title><link>https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</link><description>Emacs中Python开发
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</guid><pubDate>Tue, 31 Dec 2024 15:53:32 +0800</pubDate></item><item><title>Emacs中Python开发</title><link>https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</link><description>Emacs中Python开发
 Table of Contents
 创建虚拟环境
 安装LSP服务端
@@ -33,17 +33,17 @@ npm install -g pyright
 [tool.pyright]
 venvPath = "."
 venv = ".venv"
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</guid><pubDate>Sat, 28 Dec 2024 15:23:01 +0800</pubDate></item><item><title>Matplotlib: Work with threads</title><link>https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</link><description>Matplotlib: Work with threads
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241219-python-development-in-emacs.html</guid><pubDate>Tue, 31 Dec 2024 15:53:31 +0800</pubDate></item><item><title>Matplotlib: Work with threads</title><link>https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</link><description>Matplotlib: Work with threads
 Matplotlib is not thread-safe: in fact, there are known race conditions that affect certain artists. Hence, if you work with threads, it is your responsibility to set up the proper locks to serialize access to Matplotlib artists.
 You may be able to work on separate figures from separate threads. However, you must in that case use a non-interactive backend (typically Agg), because most GUI backends require being run from the main thread as well.
 import matplotlib
 matplotlib.use("Agg")
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</guid><pubDate>Sat, 28 Dec 2024 15:23:00 +0800</pubDate></item><item><title>MDict Dictionaries</title><link>https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</link><description>MDict Dictionaries
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241218-matplotlib-work-with-threads.html</guid><pubDate>Tue, 31 Dec 2024 15:53:31 +0800</pubDate></item><item><title>MDict Dictionaries</title><link>https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</link><description>MDict Dictionaries
 A collections of website archives where you can download MDict dictionaries.
 FreeMdict
 emiliabear
 chirmyram
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</guid><pubDate>Sat, 28 Dec 2024 15:23:00 +0800</pubDate></item><item><title>sdcv</title><link>https://xuchengpeng.cn/posts/20241209-sdcv.html</link><description>sdcv
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241212-mdict-dictionaries.html</guid><pubDate>Tue, 31 Dec 2024 15:53:31 +0800</pubDate></item><item><title>sdcv</title><link>https://xuchengpeng.cn/posts/20241209-sdcv.html</link><description>sdcv
 sdcv is a simple, cross-platform, text-based utility for working with dictionaries in StarDict format.
 StarDict dictionaries can be downloaded from https://www.nchrs.xyz/stardict/index.html.
 The quick-sdcv package serves as a lightweight Emacs interface for the sdcv command-line interface, which is the console version of the StarDict dictionary application.
@@ -52,26 +52,26 @@ The quick-sdcv package serves as a lightweight Emacs interface for the sdcv comm
   :commands (quick-sdcv-search-input quick-sdcv-search-at-point)
   :config
   (setq quick-sdcv-program "/path/to/sdcv"
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241209-sdcv.html</guid><pubDate>Sat, 28 Dec 2024 15:23:00 +0800</pubDate></item><item><title>Safe Local Variable Directories</title><link>https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</link><description>Safe Local Variable Directories
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241209-sdcv.html</guid><pubDate>Tue, 31 Dec 2024 15:53:30 +0800</pubDate></item><item><title>Safe Local Variable Directories</title><link>https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</link><description>Safe Local Variable Directories
 safe-local-variable-directories was introduced in Emacs 30.1. A list of directories where local variables are always enabled.
 Directory-local variables loaded from these directories, such as the variables in .dir-locals.el, will be enabled even if they are risky.
 The names of the directories in the list must be absolute, and must end in a slash.
 Remote directories can be included if the variable enable-remote-dir-locals is non-nil.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</guid><pubDate>Sat, 28 Dec 2024 15:23:00 +0800</pubDate></item><item><title>删除Git Submodule</title><link>https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</link><description>删除Git Submodule
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241125-safe-local-variable-directories.html</guid><pubDate>Tue, 31 Dec 2024 15:53:30 +0800</pubDate></item><item><title>删除Git Submodule</title><link>https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</link><description>删除Git Submodule
 Git子模块的删除相对比较麻烦，需要执行多个步骤才能清理干净。
 删除子模块目录；
 删除 .gitmodules 中对应的子模块内容；
 删除 .git/config 中对应的子模块内容；
 删除 .git/modules/ 下对应的子模块目录；
 git rm --cached 子模块目录。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</guid><pubDate>Sat, 28 Dec 2024 16:34:41 +0800</pubDate></item><item><title>Solutions to Introduction to Algorithms</title><link>https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</link><description>Solutions to Introduction to Algorithms
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241119-delete-git-submodule.html</guid><pubDate>Tue, 31 Dec 2024 15:53:30 +0800</pubDate></item><item><title>Solutions to Introduction to Algorithms</title><link>https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</link><description>Solutions to Introduction to Algorithms
 收集了一些互联网上算法导论练习题的答案。
 https://github.com/walkccc/CLRS
 https://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html
 https://clrs.skanev.com/
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</guid><pubDate>Sat, 28 Dec 2024 16:34:41 +0800</pubDate></item><item><title>般若波罗蜜多心经</title><link>https://xuchengpeng.cn/posts/20240914-heart-sutra.html</link><description>般若波罗蜜多心经
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20241118-clrs-solutions.html</guid><pubDate>Tue, 31 Dec 2024 15:53:30 +0800</pubDate></item><item><title>般若波罗蜜多心经</title><link>https://xuchengpeng.cn/posts/20240914-heart-sutra.html</link><description>般若波罗蜜多心经
 观自在菩萨，行深般若波罗蜜多时，照见五蕴皆空，度一切苦厄。舍利子，色不异空，空不异色；色即是空，空即是色。受、想、行、识，亦复如是。舍利子，是诸法空相，不生不灭，不垢不净，不增不减，是故空中无色，无受、想、行、识；无眼、耳、鼻、舌、身、意；无色、声、香、味、触、法；无眼界，乃至无意识界；无无明，亦无无明尽；乃至无老死，亦无老死尽。无苦、集、灭、道，无智亦无得。以无所得故，菩提萨埵，依般若波罗蜜多故，心无罣碍。无罣碍故，无有恐怖，远离颠倒梦想，究竟涅槃。三世诸佛，依般若波罗蜜多故，得阿耨多罗三藐三菩提。故知般若波罗蜜多，是大神咒，是大明咒，是无上咒，是无等等咒，能除一切苦，真实不虚。故说般若波罗蜜多咒，即说咒曰：“揭谛、揭谛，波罗揭谛，波罗僧揭谛，菩提萨婆诃。”
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240914-heart-sutra.html</guid><pubDate>Sat, 28 Dec 2024 15:22:59 +0800</pubDate></item><item><title>仿射变换与透视变换</title><link>https://xuchengpeng.cn/posts/20240911-affine_and_perspective_transformation.html</link><description>仿射变换与透视变换
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240914-heart-sutra.html</guid><pubDate>Tue, 31 Dec 2024 15:53:29 +0800</pubDate></item><item><title>仿射变换与透视变换</title><link>https://xuchengpeng.cn/posts/20240911-affine_and_perspective_transformation.html</link><description>仿射变换与透视变换
 仿射变换是指在几何中，一个向量空间进行一次线性变换并接上一个平移，变换为另一个向量空间。
 基本的图像变换就是二维坐标的变换：从一个二维坐标 \((x, y)\) 到另一个二维坐标 \((u, v)\) 的线性变换：
 \begin{split}
@@ -81,13 +81,13 @@ v = a_{2}x+b_{2}y+c_{2}
 写成矩阵的形式：
 \[\begin{bmatrix} u \\ v \end{bmatrix} = \begin{bmatrix} a_{1} &amp; b_{1} \\ a_{2} &amp; b_{2} \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} + \begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix}\]
 \[R=\begin{bmatrix} a_{1} &amp; b_{1} \\ a_{2} &amp; b_{2} \end{bmatrix},t=\begin{bmatrix} c_{1} \\ c_{2} \end{bmatrix},T=\begin{bmatrix} R &amp; t \end{bmatrix}\]
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240911-affine_and_perspective_transformation.html</guid><pubDate>Sat, 28 Dec 2024 15:22:59 +0800</pubDate></item><item><title>刚体变换</title><link>https://xuchengpeng.cn/posts/20240910-rigid-body-transformation.html</link><description>刚体变换
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240911-affine_and_perspective_transformation.html</guid><pubDate>Tue, 31 Dec 2024 15:53:29 +0800</pubDate></item><item><title>刚体变换</title><link>https://xuchengpeng.cn/posts/20240910-rigid-body-transformation.html</link><description>刚体变换
 三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \(R_{A}^{B} = \begin{bmatrix} u_{x}  &amp; v_{x} &amp; w_{x} \\ u_{y}  &amp; v_{y} &amp; w_{y} \\ u_{z}  &amp; v_{z} &amp; w_{z} \end{bmatrix}\) 表示旋转矩阵，用 \(t_{A}^{B} = \begin{bmatrix} t_{x} \\ t_{y} \\ t_{z} \end{bmatrix}\) 表示平移矩阵。
 坐标系A到B刚体变换形式为：
 \[\begin{bmatrix} x^{'} \\ y^{'} \\ z^{'} \end{bmatrix} = R_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \end{bmatrix} + t_{A}^{B}\]
 用齐次变换矩阵 \(T_{A}^{B}\) 的表示形式为：
 \[\begin{bmatrix} x_{'} \\ y_{'} \\ z_{'} \\ 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} &amp; t_{A}^{B} \\ 0 &amp; 1 \end{bmatrix} \ast \begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}\]
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240910-rigid-body-transformation.html</guid><pubDate>Sat, 28 Dec 2024 15:22:59 +0800</pubDate></item><item><title>WSL导入导出</title><link>https://xuchengpeng.cn/posts/20240813-wsl-import-export.html</link><description>WSL导入导出
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240910-rigid-body-transformation.html</guid><pubDate>Tue, 31 Dec 2024 15:53:29 +0800</pubDate></item><item><title>WSL导入导出</title><link>https://xuchengpeng.cn/posts/20240813-wsl-import-export.html</link><description>WSL导入导出
 默认情况WSL会安装在C盘，可以将其迁移到其他盘，这里使用WSL提供的导入和导出命令。
 关闭所有的WSL，查询要导出的名称:
 PS &gt; wsl --shutdown
@@ -100,14 +100,14 @@ PS &gt; wsl --export Ubuntu-22.04 D:\Ubuntu-22.04.tar
 PS &gt; wsl --unregister Ubuntu-22.04
 在D盘安装WSL：
 PS &gt; wsl --import Ubuntu-22.04 D:\WSL\Ubuntu-22.04 D:\Ubuntu-22.04.tar
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240813-wsl-import-export.html</guid><pubDate>Sat, 28 Dec 2024 15:22:58 +0800</pubDate></item><item><title>Use tldraw in Vite</title><link>https://xuchengpeng.cn/posts/20240731-use-tldraw-in-vite.html</link><description>Use tldraw in Vite
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240813-wsl-import-export.html</guid><pubDate>Tue, 31 Dec 2024 15:53:29 +0800</pubDate></item><item><title>Use tldraw in Vite</title><link>https://xuchengpeng.cn/posts/20240731-use-tldraw-in-vite.html</link><description>Use tldraw in Vite
 Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects.
 Is consists of two major parts:
 A dev server that provides rich feature enhancements over native ES modules, for example extremly fast Hot Module Replacement(HMR).
 A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production.
 tldraw is a library for creating infinite canvas experiences in React.
 To scaffold a Vite+React project, run:
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240731-use-tldraw-in-vite.html</guid><pubDate>Sat, 28 Dec 2024 15:22:58 +0800</pubDate></item><item><title>C++可变参函数模板</title><link>https://xuchengpeng.cn/posts/20240727-cpp-variadic-function-templates.html</link><description>C++可变参函数模板
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240731-use-tldraw-in-vite.html</guid><pubDate>Tue, 31 Dec 2024 15:53:28 +0800</pubDate></item><item><title>C++可变参函数模板</title><link>https://xuchengpeng.cn/posts/20240727-cpp-variadic-function-templates.html</link><description>C++可变参函数模板
 可变参模板的英文为Variadic Templates，是C++11标准引入的，可变参模板允许模板定义中含有0到多个模板参数。
 template &lt;typename... T&gt;
 void myvtfunct(T... args)
@@ -127,7 +127,7 @@ void myvtfunct()
 {
 }
 在C++17标准中，引入了编译期间if语句，在if后面又增加了一个constexpr关键字，这个关键字代表常量或编译期求值。通过编译期间if语句，可以把上述递归终止函数省略。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240727-cpp-variadic-function-templates.html</guid><pubDate>Sat, 28 Dec 2024 15:22:58 +0800</pubDate></item><item><title>C++折叠表达式</title><link>https://xuchengpeng.cn/posts/20240727-cpp-fold-expressions.html</link><description>C++折叠表达式
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240727-cpp-variadic-function-templates.html</guid><pubDate>Tue, 31 Dec 2024 15:53:28 +0800</pubDate></item><item><title>C++折叠表达式</title><link>https://xuchengpeng.cn/posts/20240727-cpp-fold-expressions.html</link><description>C++折叠表达式
 折叠表达式(Fold Expressions)是C++17标准引入的，引入折叠表达式的主要目的是计算某个值。这个值的特殊性在于：它与可变参有关，而不是与单独某个可变参有关。换句话说，所有的可变参都参与计算，才能求出该值。在可变参函数模板中，因为展开参数比较麻烦，如果要把传递进来的所有参数加在一起，可能要写很多代码，而通过折叠表达式，只需要一行代码就可以求出所有可变参的和。
 template&lt;typename... T&gt;
 auto add_val(T... args)
@@ -141,35 +141,35 @@ auto add_val(T... args)
 计算方式：(((参数1 运算符 参数2) 运算符 参数3)… 运算符 参数N)
 运算符指的是C++语言中的运算符，绝大部分运算符都可以用在这里。
 一元右折(Unary Right Fold):
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240727-cpp-fold-expressions.html</guid><pubDate>Sat, 28 Dec 2024 15:22:58 +0800</pubDate></item><item><title>李白《侠客行》</title><link>https://xuchengpeng.cn/posts/20240523-libai-xiakexing.html</link><description>李白《侠客行》
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240727-cpp-fold-expressions.html</guid><pubDate>Tue, 31 Dec 2024 15:53:28 +0800</pubDate></item><item><title>李白《侠客行》</title><link>https://xuchengpeng.cn/posts/20240523-libai-xiakexing.html</link><description>李白《侠客行》
 赵客缦胡缨，吴钩霜雪明。银鞍照白马，飒沓如流星。
 十步杀一人，千里不留行。事了拂衣去，深藏身与名。
 闲过信陵饮，脱剑膝前横。将炙啖朱亥，持觞劝侯嬴。
 三杯吐然诺，五岳倒为轻。眼花耳热后，意气素霓生。
 救赵挥金锤，邯郸先震惊。千秋二壮士，烜赫大梁城。
 纵死侠骨香，不惭世上英。谁能书阁下，白首太玄经。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240523-libai-xiakexing.html</guid><pubDate>Sat, 28 Dec 2024 15:22:57 +0800</pubDate></item><item><title>Define Emacs Formatter</title><link>https://xuchengpeng.cn/posts/20240409-define-emacs-formatter.html</link><description>Define Emacs Formatter
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240523-libai-xiakexing.html</guid><pubDate>Tue, 31 Dec 2024 15:53:28 +0800</pubDate></item><item><title>Define Emacs Formatter</title><link>https://xuchengpeng.cn/posts/20240409-define-emacs-formatter.html</link><description>Define Emacs Formatter
 Steve Purcell has created a package reformatter, which can define commands to format the current Emacs buffer.
 The reformatter-define macro expands to code which generates xxx-buffer and xxx-region interactive commands, and a local minor mode called xxx-on-save-mode. The :args and :program expressions will be evaluated at runtime, so they can refer to variables that may have a buffer-local value. A custom variable will be generated for the mode lighter, with the supplied value becoming the default.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240409-define-emacs-formatter.html</guid><pubDate>Sat, 28 Dec 2024 15:22:57 +0800</pubDate></item><item><title>苏轼《定风波》</title><link>https://xuchengpeng.cn/posts/20240403-sushi-dingfengbo.html</link><description>苏轼《定风波》
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240409-define-emacs-formatter.html</guid><pubDate>Tue, 31 Dec 2024 15:53:27 +0800</pubDate></item><item><title>苏轼《定风波》</title><link>https://xuchengpeng.cn/posts/20240403-sushi-dingfengbo.html</link><description>苏轼《定风波》
 莫听穿林打叶声，何妨吟啸且徐行。竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。
 料峭春风吹酒醒，微冷，山头斜照却相迎。回首向来萧瑟处，归去，也无风雨也无晴。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240403-sushi-dingfengbo.html</guid><pubDate>Sat, 28 Dec 2024 15:22:57 +0800</pubDate></item><item><title>Build Emacs On Windows</title><link>https://xuchengpeng.cn/posts/20240401-build-emacs-on-windows.html</link><description>Build Emacs On Windows
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240403-sushi-dingfengbo.html</guid><pubDate>Tue, 31 Dec 2024 15:53:27 +0800</pubDate></item><item><title>Build Emacs On Windows</title><link>https://xuchengpeng.cn/posts/20240401-build-emacs-on-windows.html</link><description>Build Emacs On Windows
 On Windows, we can build GNU Emacs with MSYS2 and MinGW-w64. 
 First, install some necessary packages. The packages include the base developer tools, the compiler toolchain, several image libraries, and XML library, the GnuTLS library, zlib for decompressing text, HarfBuzz for use as the shaping engine, libgccjit for native-compilation support, SQLite3 for accessing SQL databases, and the tree-sitter library used by some major modes. You can select only part of the libraries if you don't need them all.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240401-build-emacs-on-windows.html</guid><pubDate>Sat, 28 Dec 2024 15:22:57 +0800</pubDate></item><item><title>Build Emacs From Source</title><link>https://xuchengpeng.cn/posts/20240308-build-emacs-from-source.html</link><description>Build Emacs From Source
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240401-build-emacs-on-windows.html</guid><pubDate>Tue, 31 Dec 2024 15:53:27 +0800</pubDate></item><item><title>Build Emacs From Source</title><link>https://xuchengpeng.cn/posts/20240308-build-emacs-from-source.html</link><description>Build Emacs From Source
 Windows 11 features built-in support for running Linux GUI applications. Emacs 29 has became a real GTK application, gone with the blurry fonts problem.
 This is a guide to show how to build Emacs from source for Linux.
 Firstly, install essential packages in WSL2 Ubuntu 22.04.
 apt-get update
 apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev autoconf
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240308-build-emacs-from-source.html</guid><pubDate>Sat, 28 Dec 2024 15:22:56 +0800</pubDate></item><item><title>Math Equation With Org Mode</title><link>https://xuchengpeng.cn/posts/20240229-math-equation-with-org-mode.html</link><description>Math Equation With Org Mode
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240308-build-emacs-from-source.html</guid><pubDate>Tue, 31 Dec 2024 15:53:27 +0800</pubDate></item><item><title>Math Equation With Org Mode</title><link>https://xuchengpeng.cn/posts/20240229-math-equation-with-org-mode.html</link><description>Math Equation With Org Mode
 LaTeX math snippets can be displayed on HTML pages which exported with org-mode. The default is to use the MathJax.
 If $a^2=b$ and \( b=2 \), then the solution must be either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
 If \(a^2=b\) and \( b=2 \), then the solution must be either \[ a=+\sqrt{2} \] or \[ a=-\sqrt{2} \].
 Some Mathjax display options can be configured via org-html-mathjax-options, or in the buffer, with #+HTML_MATHJAX or #+OPTIONS settings.
 Here comes with some complex examples.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240229-math-equation-with-org-mode.html</guid><pubDate>Sat, 28 Dec 2024 15:22:56 +0800</pubDate></item><item><title>Generate RSS For Blog</title><link>https://xuchengpeng.cn/posts/20240208-generate-rss-for-blog.html</link><description>Generate RSS For Blog
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240229-math-equation-with-org-mode.html</guid><pubDate>Tue, 31 Dec 2024 15:53:26 +0800</pubDate></item><item><title>Generate RSS For Blog</title><link>https://xuchengpeng.cn/posts/20240208-generate-rss-for-blog.html</link><description>Generate RSS For Blog
 Table of Contents
 Getting Posts List
 Parsing HTML
@@ -177,32 +177,32 @@ Generating RSS XML
 I'm not sure how many people still use RSS, but I still want to have a RSS feed for my blog though I don't use RSS myself either.
 From what I known, many people recommend using ox-rss.el to generate RSS XML from blog files. The ox-rss.el is a org-export backed derived from the HTML backend and it exports org files to an RSS XML file. But ox-rss.el is not part of org-contrib right now.
 Luckily, Python has many modules which can generate and parse RSS feeds (python-feedgen, feedparser, rfeed, etc.). I love Python, it is easy to use. So I decided to use python-feedgen to generate an RSS XML file from HTML files of my blog.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240208-generate-rss-for-blog.html</guid><pubDate>Sat, 28 Dec 2024 15:22:56 +0800</pubDate></item><item><title>Emacs Proxy</title><link>https://xuchengpeng.cn/posts/20240205-emacs-proxy.html</link><description>Emacs Proxy
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240208-generate-rss-for-blog.html</guid><pubDate>Tue, 31 Dec 2024 15:53:26 +0800</pubDate></item><item><title>Emacs Proxy</title><link>https://xuchengpeng.cn/posts/20240205-emacs-proxy.html</link><description>Emacs Proxy
 Table of Contents
 System Proxy
 URL Proxy Services
 Socks Proxy
 Proxy servers are commonly used to provide gateways through firewalls or as caches serving some more-or-less local network. Each protocol (HTTP, FTP, etc.) can have a different gateway server. Proxying is conventionally configured commonly amongst different programs through environment variables of the form protocol-proxy, where protocol is one of the supported network protocols (http, ftp, etc.). The library recognized such variables in either upper or lower case.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240205-emacs-proxy.html</guid><pubDate>Sat, 28 Dec 2024 15:22:56 +0800</pubDate></item><item><title>Emacs New Keymap Functions</title><link>https://xuchengpeng.cn/posts/20240202-emacs-new-keymap-functions.html</link><description>Emacs New Keymap Functions
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240205-emacs-proxy.html</guid><pubDate>Tue, 31 Dec 2024 15:53:26 +0800</pubDate></item><item><title>Emacs New Keymap Functions</title><link>https://xuchengpeng.cn/posts/20240202-emacs-new-keymap-functions.html</link><description>Emacs New Keymap Functions
 Emacs 29 comes with new functions for defining and manipulating keystrokes.
 These all take the syntax defined by key-valid-p, which is basically the same syntax as the one accepted by the kbd macro. None of the older functions have been deprecated or altered, but they are now de-emphasized in the documentation, and we encourage Lisp programs to switch to these new functions.
 Use keymap-set instead of define-key.
 Use keymap-global-set instead of global-set-key.
 Use keymap-local-set instead of local-set-key.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240202-emacs-new-keymap-functions.html</guid><pubDate>Sat, 28 Dec 2024 15:22:55 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.cn/posts/20240201-true-emacs-transparency.html</link><description>True Emacs Transparency
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240202-emacs-new-keymap-functions.html</guid><pubDate>Tue, 31 Dec 2024 15:53:26 +0800</pubDate></item><item><title>True Emacs Transparency</title><link>https://xuchengpeng.cn/posts/20240201-true-emacs-transparency.html</link><description>True Emacs Transparency
 Before Emacs 29, we can set the alpha frame parameter to adjust the opacity of the frame. The issue with alpha is that is set the opacity of the entire window, which means both text foreground and background become transparent together. But what we want is the text remains opaque while the background becomes transparent.
 The solution came from a patch make by Håkon Flatval. The patch adds the alpha-background frame parameter which make only the background of a frame transparent.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240201-true-emacs-transparency.html</guid><pubDate>Sat, 28 Dec 2024 15:22:55 +0800</pubDate></item><item><title>Emacs tokyonight-themes</title><link>https://xuchengpeng.cn/posts/20240201-emacs-tokyonight-themes.html</link><description>Emacs tokyonight-themes
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240201-true-emacs-transparency.html</guid><pubDate>Tue, 31 Dec 2024 15:53:25 +0800</pubDate></item><item><title>Emacs tokyonight-themes</title><link>https://xuchengpeng.cn/posts/20240201-emacs-tokyonight-themes.html</link><description>Emacs tokyonight-themes
 A clean dark Visual Studio Code theme that celebrates the lights of Downtown Tokyo at night.
 Tokyo Night theme was firstly published as a plugin for Visual Studio Code, now it has many other ports.
 Rawley make a tokyo-theme.el for GNU Emacs, but it is unmaintained and has not support any popular packages for GNU Emacs we often use.
 So I want to make it for myself, here it is. The theme templates were taken from modus-themes, and the color palettes were taken from tokyonight.nvim, these two themes are very popular and awesome with GNU Emacs or Neovim.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240201-emacs-tokyonight-themes.html</guid><pubDate>Sat, 28 Dec 2024 15:22:55 +0800</pubDate></item><item><title>Install a Package from a VCS Repository</title><link>https://xuchengpeng.cn/posts/20240130-install-a-package-from-a-vcs-repository.html</link><description>Install a Package from a VCS Repository
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240201-emacs-tokyonight-themes.html</guid><pubDate>Tue, 31 Dec 2024 15:53:25 +0800</pubDate></item><item><title>Install a Package from a VCS Repository</title><link>https://xuchengpeng.cn/posts/20240130-install-a-package-from-a-vcs-repository.html</link><description>Install a Package from a VCS Repository
 Most of time the packages we need to install are already available in some of the popular package repositories (eg. MELPA or GNU ELPA). However, some Elisp code has not been packaged, Emacs 29 offers package-vc-install to install these codes easily.
 For example:
 (package-vc-install "https://github.com/clojure-emacs/clojure-ts-mode")
 The function offers a few more parameters that allow you to specify the name of the package and a particular revision (commit) you want to use:
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-install-a-package-from-a-vcs-repository.html</guid><pubDate>Sat, 28 Dec 2024 15:22:55 +0800</pubDate></item><item><title>Disable Annoying Audio Notifications</title><link>https://xuchengpeng.cn/posts/20240130-disable-annoying-audio-notifications.html</link><description>Disable Annoying Audio Notifications
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-install-a-package-from-a-vcs-repository.html</guid><pubDate>Tue, 31 Dec 2024 15:53:25 +0800</pubDate></item><item><title>Disable Annoying Audio Notifications</title><link>https://xuchengpeng.cn/posts/20240130-disable-annoying-audio-notifications.html</link><description>Disable Annoying Audio Notifications
 By default Emacs ring the bell to attract the user's attention, this is annoying.
 To get a visual signal instead, set visual-bell with t Emacs should flash the screen to represent a bell.
 We can also customize ring-bell-function to just flash the modeline.
@@ -214,33 +214,33 @@ We can also customize ring-bell-function to just flash the modeline.
     (run-with-timer 0.05 nil
                     (lambda ()
                       (with-current-buffer buf
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-disable-annoying-audio-notifications.html</guid><pubDate>Sat, 28 Dec 2024 15:22:54 +0800</pubDate></item><item><title>Converting Between Symbols and Strings</title><link>https://xuchengpeng.cn/posts/20240130-converting-between-symbols-and-strings.html</link><description>Converting Between Symbols and Strings
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-disable-annoying-audio-notifications.html</guid><pubDate>Tue, 31 Dec 2024 15:53:25 +0800</pubDate></item><item><title>Converting Between Symbols and Strings</title><link>https://xuchengpeng.cn/posts/20240130-converting-between-symbols-and-strings.html</link><description>Converting Between Symbols and Strings
 Sometimes you might need to convert a symbol to string in Emacs Lisp. You start looking for functions like symbol-to-string and string-to-symbol but, they do not exist.
 With Emacs Lisp, you can do it like this.
 (symbol-name 'some-symbol)
 ; ==&gt; "some-symbol"
 (intern "some-symbol")
 ; ==&gt; some-symbol
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-converting-between-symbols-and-strings.html</guid><pubDate>Sat, 28 Dec 2024 15:22:54 +0800</pubDate></item><item><title>Check if a Font is Available with Emacs Lisp</title><link>https://xuchengpeng.cn/posts/20240130-check-if-a-font-is-available-with-emacs-lisp.html</link><description>Check if a Font is Available with Emacs Lisp
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-converting-between-symbols-and-strings.html</guid><pubDate>Tue, 31 Dec 2024 15:53:25 +0800</pubDate></item><item><title>Check if a Font is Available with Emacs Lisp</title><link>https://xuchengpeng.cn/posts/20240130-check-if-a-font-is-available-with-emacs-lisp.html</link><description>Check if a Font is Available with Emacs Lisp
 In Emacs Lisp, find-font function return a font-entity matching with FONT-SPEC. So we can make a helper function.
 (defun font-available-p (font-name)
   (find-font (font-spec :name font-name)))
 Before setting a font, we can check with this helper function.
 (when (font-available-p "Fira Code")
   (set-face-attribute 'default nil :font (font-spec :family "Fira Code" :size 17)))
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-check-if-a-font-is-available-with-emacs-lisp.html</guid><pubDate>Sat, 28 Dec 2024 15:22:54 +0800</pubDate></item><item><title>Eglot: clangd配置</title><link>https://xuchengpeng.cn/posts/20240129-eglot-clangd-configuration.html</link><description>Eglot: clangd配置
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240130-check-if-a-font-is-available-with-emacs-lisp.html</guid><pubDate>Tue, 31 Dec 2024 15:53:24 +0800</pubDate></item><item><title>Eglot: clangd配置</title><link>https://xuchengpeng.cn/posts/20240129-eglot-clangd-configuration.html</link><description>Eglot: clangd配置
 Eglot是Emacs内置的LSP客户端。Eglot内置已支持大量的LSP服务端1。
 以C++语言为例，Eglot支持clangd和ccls两种服务端模式。
 以我常用的clangd来说，Eglot默认启动clangd不附带任何参数，对于clangd来说，最重要的参数莫过于 CompilationDatabase ，即 compile_commands.json 文件所在的目录，默认情况下，clangd会查找源代码文件所在目录的所有父目录。
 当前C/C++工程代码很流行使用CMake替代之前的Makefile作为编译构建的工程文件，通常使用CMake命令对代码工程进行配置时，会将生成的中间文件统一在一个目录下管理（比如代码工程根目录下的cmake-build目录），而不是默认生成在代码工程根目录，这样造成一个问题就是clangd无法找到此目录下的 compile_commands.json 文件。
 解决这个问题的办法就需要在clangd启动时指定 compile_commands.json 所在的目录，方法有很多种。
 (with-eval-after-load 'eglot
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240129-eglot-clangd-configuration.html</guid><pubDate>Sat, 28 Dec 2024 15:22:54 +0800</pubDate></item><item><title>中医：辩证论治</title><link>https://xuchengpeng.cn/posts/20240126-treatment-based-on-syndrome-differentiation.html</link><description>中医：辩证论治
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240129-eglot-clangd-configuration.html</guid><pubDate>Tue, 31 Dec 2024 15:53:24 +0800</pubDate></item><item><title>中医：辩证论治</title><link>https://xuchengpeng.cn/posts/20240126-treatment-based-on-syndrome-differentiation.html</link><description>中医：辩证论治
 辩证论治 是中医认识疾病和治疗疾病的基本原则，是中医学对疾病的一种特殊的研究和处理方法。
 辩证即是认证识证的过程。证是对机体在疾病发展过程中某一阶段的病理反映的概括，包含病变的部位、原因、性质以及邪正关系，反映这一阶段病理变化的本质。因而，证比症状更全面、更深刻、更正确的揭示疾病的本质。所谓辩证，就是根据望、闻、问、切四诊所收集的资料，通过分析、综合、辨清疾病的病因、性质、部分，以及邪正之间的关系，概括、判断为某种性质证。
 论治，是根据辩证的结果，确定相应的治疗原则和具体治法。辩证和论治是诊治疾病过程中相互联系不可分离的两部分。辩证是决定治疗的前提和依据，论治是治疗的手段和方法。通过论治的效果可以检验辩证的正确与否。
 辩证论治是认识疾病和解决疾病的过程，是理论与实践相结合的表现，是理法方药在临床上的具体运用，是指导中医临床工作的基本原则。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240126-treatment-based-on-syndrome-differentiation.html</guid><pubDate>Sat, 28 Dec 2024 15:22:54 +0800</pubDate></item><item><title>中医：五脏与五行</title><link>https://xuchengpeng.cn/posts/20240124-tcm-five-organs-and-five-elements.html</link><description>中医：五脏与五行
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240126-treatment-based-on-syndrome-differentiation.html</guid><pubDate>Tue, 31 Dec 2024 15:53:24 +0800</pubDate></item><item><title>中医：五脏与五行</title><link>https://xuchengpeng.cn/posts/20240124-tcm-five-organs-and-five-elements.html</link><description>中医：五脏与五行
 中医腑脏1通常成为五脏六腑。五脏是：肝、心、脾、肺、肾，主要功能为生化和蓄存精气；六腑是：胆、小肠、胃、大肠、膀胱、三焦2，主要功能为受乘和传化水谷并积存精气。
 《黄帝内经》中，五行与五脏相互对应，即心火、肝木、脾土、肺金、肾水。各脏器之间又相生相克。
 相生：肝生心，心生脾，脾生肺，肺生肾，肾生肝。
@@ -248,7 +248,7 @@ Eglot是Emacs内置的LSP客户端。Eglot内置已支持大量的LSP服务端1�
 心：《黄帝内经》说：“心者五脏六腑之大主”。主神志，主血脉，在液为汗，开窍于舌。位于胸腔之内，斜位于胸腔中纵隔内，隔膜之上，两肺之间，三分之二位于正中线左侧，三分之一位于正中线右侧，心尖朝向左前下方。形似倒垂未开之莲蕊，外有心包护卫。心为神之舍，血之主，脉之宗，在五行属火，为阳中之阳，起着主宰人体生命活动的作用。手少阴心经与手太阳小肠经在小肠与心之间相互络属， 与小肠相表里 。
 肝：在五行属木，主疏泄，魂之处，藏血，其华在爪，其充在筋，开窍于目，在志为怒，在液为泪， 与胆相表里 。《素问》说：”肝者，将军之官，谋虑出焉”，表现在调节精神情志，促进消化吸收，以及维持气血、津液的运作三方面。肝位于上腹部，横隔之下。
 脾：在五行属土，主藏，统血，谓之主，开窍于口，主肌肉，运化水谷，主升清，后天之本，主四肢，其华在唇，统血益气，在志为思，藏意生思，思伤脾。在液为涎；藏营，司运动， 与胃相表里 。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240124-tcm-five-organs-and-five-elements.html</guid><pubDate>Sat, 28 Dec 2024 15:22:53 +0800</pubDate></item><item><title>Aspell: Personal Dictionaries</title><link>https://xuchengpeng.cn/posts/20240123-aspell-personal-dictionaries.html</link><description>Aspell: Personal Dictionaries
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240124-tcm-five-organs-and-five-elements.html</guid><pubDate>Tue, 31 Dec 2024 15:53:24 +0800</pubDate></item><item><title>Aspell: Personal Dictionaries</title><link>https://xuchengpeng.cn/posts/20240123-aspell-personal-dictionaries.html</link><description>Aspell: Personal Dictionaries
 Table of Contents
 Format of Personal Dictionary
 Format of Personal Replacement Dictionary
@@ -261,7 +261,7 @@ Format of Personal Dictionary
 Format of Personal Replacement Dictionary
 个人替换词典的文件名格式为： .aspell.&lt;lang&gt;.prepl ，这个文件分为两部分。
 第一部分为文件头第一行： personal_repl-1.1 lang num [encoding] ，num当前未使用一直为0，encoding为可选项。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240123-aspell-personal-dictionaries.html</guid><pubDate>Sat, 28 Dec 2024 15:22:53 +0800</pubDate></item><item><title>Elisp: Lexical and Dynamic Binding</title><link>https://xuchengpeng.cn/posts/20240122-elisp-lexical-and-dynamic-binding.html</link><description>Elisp: Lexical and Dynamic Binding
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240123-aspell-personal-dictionaries.html</guid><pubDate>Tue, 31 Dec 2024 15:53:23 +0800</pubDate></item><item><title>Elisp: Lexical and Dynamic Binding</title><link>https://xuchengpeng.cn/posts/20240122-elisp-lexical-and-dynamic-binding.html</link><description>Elisp: Lexical and Dynamic Binding
 在Lexical Binding下使用let绑定本地变量时，这些变量仅在let被包围的body中有效。在其他的代码中，它们有其他的含义，所以如果你在body中调用其他的函数，这些let绑定的本地变量对这些函数不可见。
 ;;; -*- lexical-binding: t -*-
 (setq x 0)
@@ -278,7 +278,7 @@ Format of Personal Replacement Dictionary
 (setq x 1)
 (let ((x 2))
   (getx))   ;; ==&gt; 2
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240122-elisp-lexical-and-dynamic-binding.html</guid><pubDate>Sat, 28 Dec 2024 15:22:53 +0800</pubDate></item><item><title>Elisp: List Processing</title><link>https://xuchengpeng.cn/posts/20240119-elisp-list-processing.html</link><description>Elisp: List Processing
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240122-elisp-lexical-and-dynamic-binding.html</guid><pubDate>Tue, 31 Dec 2024 15:53:23 +0800</pubDate></item><item><title>Elisp: List Processing</title><link>https://xuchengpeng.cn/posts/20240119-elisp-list-processing.html</link><description>Elisp: List Processing
 Lisp程序由表达式组成，表达式可以是列表或单个原子。
 列表由零个或多个原子、或内层列表组成，用空格分隔，括号包围。一个列表可以是空的。
 原子是多字符符号比如 forward-paragraph ，单字符符号比如 + ，双引号之间的字符串，或者数字。
@@ -289,7 +289,7 @@ Lisp程序由表达式组成，表达式可以是列表或单个原子。
 一个单引号 ' 告诉Lisp解释器返回表达式本身，而不是像单引号不存在时评估它。
 参数是传递给函数的信息。函数的参数是通过评估该函数作为第一个元素的列表的其余元素来计算的。
 一个函数进行评估时总会返回一个值（除非出现错误）；此外，它可能执行一些有副作用的操作。在许多情况下，函数的主要目的就是产生副作用。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240119-elisp-list-processing.html</guid><pubDate>Sat, 28 Dec 2024 15:22:53 +0800</pubDate></item><item><title>Emacs treesit</title><link>https://xuchengpeng.cn/posts/20240118-emacs-treesit.html</link><description>Emacs treesit
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240119-elisp-list-processing.html</guid><pubDate>Tue, 31 Dec 2024 15:53:23 +0800</pubDate></item><item><title>Emacs treesit</title><link>https://xuchengpeng.cn/posts/20240118-emacs-treesit.html</link><description>Emacs treesit
 Table of Contents
 安装语言解析器
 使用预编译的语言解析器
@@ -303,7 +303,7 @@ tree-sitter 是一个解析器生成工具和增量解析库。它可以为源�
 ;; M-x `treesit-install-language-grammar` to install language grammar.
 (setq treesit-language-source-alist
       '((bash . ("https://github.com/tree-sitter/tree-sitter-bash"))
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240118-emacs-treesit.html</guid><pubDate>Sat, 28 Dec 2024 15:22:52 +0800</pubDate></item><item><title>删除文件中的Windows换行符</title><link>https://xuchengpeng.cn/posts/20240108-delete-carrage-returns.html</link><description>删除文件中的Windows换行符
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240118-emacs-treesit.html</guid><pubDate>Tue, 31 Dec 2024 15:53:23 +0800</pubDate></item><item><title>删除文件中的Windows换行符</title><link>https://xuchengpeng.cn/posts/20240108-delete-carrage-returns.html</link><description>删除文件中的Windows换行符
 在Windows中创建的文件如果使用了Windows换行符，那么在Linux中打开时每一行行末会显示 ^M 。
 可以使用replace命令1删除： M-x replace-string RET C-q C-m RET RET ，或者使用 query-replace 命令，会询问你是否进行替换。
 还可以封装一个函数，直接执行进行删除替换：
@@ -316,7 +316,7 @@ tree-sitter 是一个解析器生成工具和增量解析库。它可以为源�
 Footnotes: 
 1 
 https://www.gnu.org/software/emacs/manual/html_node/emacs/Replace.html
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240108-delete-carrage-returns.html</guid><pubDate>Sat, 28 Dec 2024 15:22:52 +0800</pubDate></item><item><title>强大的Org Capture</title><link>https://xuchengpeng.cn/posts/20240105-powerful-org-capture.html</link><description>强大的Org Capture
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240108-delete-carrage-returns.html</guid><pubDate>Tue, 31 Dec 2024 15:53:23 +0800</pubDate></item><item><title>强大的Org Capture</title><link>https://xuchengpeng.cn/posts/20240105-powerful-org-capture.html</link><description>强大的Org Capture
 Table of Contents
 Capture templates
 Template elements
@@ -334,7 +334,7 @@ Capture templates1
 Template elements2
 关键字
 对应内容
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240105-powerful-org-capture.html</guid><pubDate>Sat, 28 Dec 2024 15:22:52 +0800</pubDate></item><item><title>Emacs根据时间切换主题</title><link>https://xuchengpeng.cn/posts/20240105-emacs-switch-theme-with-time.html</link><description>Emacs根据时间切换主题
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240105-powerful-org-capture.html</guid><pubDate>Tue, 31 Dec 2024 15:53:22 +0800</pubDate></item><item><title>Emacs根据时间切换主题</title><link>https://xuchengpeng.cn/posts/20240105-emacs-switch-theme-with-time.html</link><description>Emacs根据时间切换主题
 每小时运行一次，早上6点和晚上18点自动切换主题。
 (setq day-theme 'modus-operandi)
 (setq dark-theme 'modus-vivendi)
@@ -349,14 +349,14 @@ Template elements2
 )
 (run-with-timer 0 3600 'switch-theme)
 自动切换主题的包：circadian.el
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240105-emacs-switch-theme-with-time.html</guid><pubDate>Sat, 28 Dec 2024 15:22:52 +0800</pubDate></item><item><title>黄鹤楼</title><link>https://xuchengpeng.cn/posts/20240103-yellow-crane-tower.html</link><description>黄鹤楼
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240105-emacs-switch-theme-with-time.html</guid><pubDate>Tue, 31 Dec 2024 15:53:22 +0800</pubDate></item><item><title>黄鹤楼</title><link>https://xuchengpeng.cn/posts/20240103-yellow-crane-tower.html</link><description>黄鹤楼
 黄鹤楼
 唐 崔颢
 昔人已乘黄鹤去，此地空余黄鹤楼。
 黄鹤一去不复返，白云千载空悠悠。
 晴川历历汉阳树，芳草萋萋鹦鹉洲。
 日暮乡关何处是？烟波江上使人愁。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240103-yellow-crane-tower.html</guid><pubDate>Sat, 28 Dec 2024 15:22:51 +0800</pubDate></item><item><title>Emacs本地变量</title><link>https://xuchengpeng.cn/posts/20231229-emacs-local-variables.html</link><description>Emacs本地变量
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20240103-yellow-crane-tower.html</guid><pubDate>Tue, 31 Dec 2024 15:53:22 +0800</pubDate></item><item><title>Emacs本地变量</title><link>https://xuchengpeng.cn/posts/20231229-emacs-local-variables.html</link><description>Emacs本地变量
 Table of Contents
 Per-Directory Local Variables
 Specifying File Variables
@@ -369,7 +369,7 @@ Per-Directory Local Variables
 ((nil . ((indent-tabs-mode . t)
          (fill-column . 80)
          (mode . auto-fill)))
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20231229-emacs-local-variables.html</guid><pubDate>Sat, 28 Dec 2024 15:22:51 +0800</pubDate></item><item><title>为新建博客文章增加Org Capture模板</title><link>https://xuchengpeng.cn/posts/20231228-org-capture-template-for-new-blog-post.html</link><description>为新建博客文章增加Org Capture模板
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20231229-emacs-local-variables.html</guid><pubDate>Tue, 31 Dec 2024 15:53:22 +0800</pubDate></item><item><title>为新建博客文章增加Org Capture模板</title><link>https://xuchengpeng.cn/posts/20231228-org-capture-template-for-new-blog-post.html</link><description>为新建博客文章增加Org Capture模板
 dotemacs-org-post-file 函数会在博客文件夹对应的年份目录下新建文章；
 (defun dotemacs-org-post-file ()
   (let* ((filename (read-from-minibuffer "New post filename: "))
@@ -381,13 +381,13 @@ dotemacs-org-post-file 函数会在博客文件夹对应的年份目录下新建
 (setq org-capture-templates
       `(("p" "Post" plain
          (function dotemacs-org-post-file)
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20231228-org-capture-template-for-new-blog-post.html</guid><pubDate>Sat, 28 Dec 2024 15:22:51 +0800</pubDate></item><item><title>Emacs代码缩进</title><link>https://xuchengpeng.cn/posts/20231228-emacs-code-indent.html</link><description>Emacs代码缩进
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20231228-org-capture-template-for-new-blog-post.html</guid><pubDate>Tue, 31 Dec 2024 15:53:21 +0800</pubDate></item><item><title>Emacs代码缩进</title><link>https://xuchengpeng.cn/posts/20231228-emacs-code-indent.html</link><description>Emacs代码缩进
 Emacs自带的 electric-indent-mode 或者第三方插件 aggressive-indent-mode 可以自动进行代码缩进。
 当需要手动调整缩进时，可以使用 indent-rigidly 命令：
 先选中需要调整缩进的代码;
 执行 M-x indent-rigidly ；
 此时使用 &lt;left&gt; 或 &lt;right&gt; 可每次左右缩进一个字符，使用 Shift+&lt;left&gt; 或 Shift+&lt;right&gt; 可每次左右缩进4个字符。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20231228-emacs-code-indent.html</guid><pubDate>Sat, 28 Dec 2024 15:22:51 +0800</pubDate></item><item><title>交叉编译ARM64内核</title><link>https://xuchengpeng.cn/posts/20191220-cross-compile-arm64-kernel.html</link><description>交叉编译ARM64内核
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20231228-emacs-code-indent.html</guid><pubDate>Tue, 31 Dec 2024 15:53:21 +0800</pubDate></item><item><title>交叉编译ARM64内核</title><link>https://xuchengpeng.cn/posts/20191220-cross-compile-arm64-kernel.html</link><description>交叉编译ARM64内核
 介绍如何使用编译器交叉编译ARM64内核。
 从 kernel.org 下载 Linux 内核，从 linaro 或者 arm 下载交叉编译工具链。
 解压内核源码和工具链：
@@ -400,10 +400,10 @@ cp arch/arm64/configs/defconfig .config
 make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- menuconfig
 编译内核：
 make -j8 ARCH=arm64 CROSS_COMPILE=~/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu- all
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191220-cross-compile-arm64-kernel.html</guid><pubDate>Sat, 28 Dec 2024 15:22:51 +0800</pubDate></item><item><title>GitHub: Announcing unlimited free private repos</title><link>https://xuchengpeng.cn/posts/20191208-github-unlimited-free-private-repos.html</link><description>GitHub: Announcing unlimited free private repos
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191220-cross-compile-arm64-kernel.html</guid><pubDate>Tue, 31 Dec 2024 15:53:21 +0800</pubDate></item><item><title>GitHub: Announcing unlimited free private repos</title><link>https://xuchengpeng.cn/posts/20191208-github-unlimited-free-private-repos.html</link><description>GitHub: Announcing unlimited free private repos
 GitHub is announcing unlimited free private repos and unified Enterprise offering.
 GitHub Free now includes unlimited private repositories. For the first time, developers can use GitHub for their private projects with up to three collaborators per repository for free. Many developers want to use private repos to apply for a job, work on a side project, or try something out in private before releasing it publicly. Starting today, those scenarios, and many more, are possible on GitHub at no cost. Public repositories are still free (of course—no changes there) and include unlimited collaborators.
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191208-github-unlimited-free-private-repos.html</guid><pubDate>Sat, 28 Dec 2024 15:22:50 +0800</pubDate></item><item><title>What is REST</title><link>https://xuchengpeng.cn/posts/20191202-what-is-rest.html</link><description>What is REST
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191208-github-unlimited-free-private-repos.html</guid><pubDate>Tue, 31 Dec 2024 15:53:21 +0800</pubDate></item><item><title>What is REST</title><link>https://xuchengpeng.cn/posts/20191202-what-is-rest.html</link><description>What is REST
 Table of Contents
 Guiding Principles of REST
 Resource
@@ -412,7 +412,7 @@ REST and HTTP are not same !!
 REST is acronym for REpresentational State Transfer. It is architectural style for distributed hypermedia systems and was first presented by Roy Fielding in 2000 in his famous dissertation.
 Like any other architectural style, REST also does have it's own 6 guiding constraints which must be satisfied if an interface needs to be referred as RESTful. These principles are listed below.
 Guiding Principles of REST
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191202-what-is-rest.html</guid><pubDate>Sat, 28 Dec 2024 15:22:50 +0800</pubDate></item><item><title>Publishing Org-mode files to HTML</title><link>https://xuchengpeng.cn/posts/20191201-org-publish-html.html</link><description>Publishing Org-mode files to HTML
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191202-what-is-rest.html</guid><pubDate>Tue, 31 Dec 2024 15:53:20 +0800</pubDate></item><item><title>Publishing Org-mode files to HTML</title><link>https://xuchengpeng.cn/posts/20191201-org-publish-html.html</link><description>Publishing Org-mode files to HTML
 Table of Contents
 Basics
 Publishing the org project
@@ -433,4 +433,4 @@ Publishing the org project
         ("blog-notes"
          :base-directory "~/blog/org"
          :base-extension "org"
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191201-org-publish-html.html</guid><pubDate>Sat, 28 Dec 2024 15:22:50 +0800</pubDate></item></channel></rss>
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20191201-org-publish-html.html</guid><pubDate>Tue, 31 Dec 2024 15:53:20 +0800</pubDate></item></channel></rss>
