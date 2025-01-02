@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 02 Jan 2025 13:34:01 +0800</lastBuildDate><item><title>读《未来简史》</title><link>https://xuchengpeng.cn/posts/20250102-reading-a-brief-history-of-tomorrow.html</link><description>读《未来简史》
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Chuck</title><link>https://xuchengpeng.cn/</link><description>Valar Morghulis. Valar Dohaeris.</description><atom:link href="https://xuchengpeng.cn/feed.xml" rel="self"/><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><language>en</language><lastBuildDate>Thu, 02 Jan 2025 18:50:53 +0800</lastBuildDate><item><title>读《未来简史》</title><link>https://xuchengpeng.cn/posts/20250102-reading-a-brief-history-of-tomorrow.html</link><description>读《未来简史》
 Table of Contents
 人类世
+人类的特质
 从智人到智神。
 在减少了饥荒、疾病和战争之后，我们现在希望克服年老甚至战胜死亡。在拯救人类脱离各种不幸之后，我们现在希望他们能够幸福快乐。而在提升人性超越挣扎求生的动物性之后，我们现在希望把人类升级为神，让智人化身为智神。
 知识的悖论。知识如果不能改变行为，就没有用处。但知识一旦改变了行为，本身就立刻失去意义。我们拥有越多数据，对历史了解越深入，历史的轨迹就改变的越快，我们的知识也过时得越快。
-</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20250102-reading-a-brief-history-of-tomorrow.html</guid><pubDate>Thu, 02 Jan 2025 13:32:35 +0800</pubDate></item><item><title>Generating sitemap in Emacs</title><link>https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</link><description>Generating sitemap in Emacs
+</description><author>330476629@qq.com (Chuck)</author><guid isPermaLink="false">https://xuchengpeng.cn/posts/20250102-reading-a-brief-history-of-tomorrow.html</guid><pubDate>Thu, 02 Jan 2025 18:49:36 +0800</pubDate></item><item><title>Generating sitemap in Emacs</title><link>https://xuchengpeng.cn/posts/20241227-generating-sitemap-in-emacs.html</link><description>Generating sitemap in Emacs
 Table of Contents
 :sitemap-filename
 :sitemap-title
