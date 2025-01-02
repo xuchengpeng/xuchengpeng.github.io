@@ -264,7 +264,7 @@ td.org-center {
 .top-link {
   visibility: hidden;
   position: fixed;
-  bottom: 60px;
+  bottom: 30px;
   right: 30px;
   z-index: 99;
   border-radius: 10px;
