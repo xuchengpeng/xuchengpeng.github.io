@@ -76,7 +76,7 @@ a:hover {
 
 /* paragrapn */
 p {
-  margin: 0.75em 0;
+  margin: 1em 0;
 }
 
 /* img */
@@ -86,10 +86,10 @@ img {
 
 /* blockquote */
 blockquote {
-  color: #147;
-  border-left: 2px solid #147;
+  color: #585858;
+  border-left: 2px solid #585858;
   padding-left: 1em;
-  margin: 0.75em 0;
+  margin: 1em 0;
 }
 
 /* code */
@@ -111,7 +111,7 @@ pre {
   border: 1px solid #f6f6f8;
   border-radius: 3px;
   background-color: #f6f6f8;
-  margin: 0.75em 0;
+  margin: 1em 0;
   overflow: hidden;
 }
 
@@ -186,7 +186,7 @@ td.org-center {
 
 .org-center {
   text-align: center;
-  margin: 0.75em 0;
+  margin: 1em 0;
 }
 
 ::-webkit-scrollbar {
