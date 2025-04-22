@@ -1,0 +1,10 @@
+mainSections = ["posts"]
+showRecentItems = 5
+
+[article]
+  showBreadcrumbs = true
+  showMeta = true
+  showTags = true
+  showMath = false
+  showToc = true
+  showPagination = true
