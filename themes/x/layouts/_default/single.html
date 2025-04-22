@@ -1,0 +1,23 @@
+{{ define "main" }}
+  <article class="article">
+    <div class="article-header">
+      {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+      {{ end }}
+      <h1 class="article-title">{{ .Title }}</h1>
+      {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
+      {{- partial "article_meta.html" . -}}
+      {{ end }}
+      {{ if .Params.showTags | default (.Site.Params.article.showTags | default false) }}
+      {{- partial "article_tags.html" . -}}
+      {{ end }}
+    </div>
+    {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents "<ul") }}
+    {{ partial "toc.html" . }}
+    {{ end }}
+    {{ with .Content }}<div class="article-content">{{ . }}</div>{{ end }}
+    <div class="article-footer">
+      {{- partial "article_pagination.html" . -}}
+    </div>
+  </article>
+{{ end }}

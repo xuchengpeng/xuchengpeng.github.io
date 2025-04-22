@@ -1,0 +1,22 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .Title }}</title>
+  {{ with .Params.Description | default .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+  {{ with .Site.Params.author.name }}<meta name="author" content="{{ . }}">{{ end }}
+  {{ $assets := newScratch }}
+  {{ $styleCss := resources.Get "css/style.css" }}
+  {{ $assets.Add "css" (slice $styleCss) }}
+  {{ $customCss := resources.Get "css/custom.css" }}
+  {{ if $customCss }}
+  {{ $assets.Add "css" (slice $customCss) }}
+  {{ end }}
+  {{ $bundleCSS := $assets.Get "css" | resources.Concat "css/main.bundle.css" | resources.Minify }}
+  <link type="text/css" rel="stylesheet" href="{{ $bundleCSS.RelPermalink }}">
+  {{ if templates.Exists "partials/extend_head.html" }}
+  {{ partialCached "extend_head.html" .Site }}
+  {{ end }}
+  {{ if .Params.showMath | default (.Site.Params.article.showMath | default false) }}
+  {{ partial "math.html" . }}
+  {{ end }}
+</head>

@@ -1,0 +1,8 @@
+<div class="pagination">
+  {{ if .Paginator.HasPrev }}
+    <a class="prev" href="{{ .Paginator.Prev.URL }}">«&nbsp;Prev&nbsp;{{- sub .Paginator.PageNumber 1 }}/{{ .Paginator.TotalPages }}</a>
+  {{ end }}
+  {{ if .Paginator.HasNext }}
+    <a class="next" href="{{ .Paginator.Next.URL }}">Next&nbsp;{{- add 1 .Paginator.PageNumber }}/{{ .Paginator.TotalPages }}&nbsp;»</a>
+  {{ end }}
+</div>

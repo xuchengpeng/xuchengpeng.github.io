@@ -1,0 +1,10 @@
+{{- $scratch := newScratch }}
+{{- $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date.Format .Site.Language.Params.dateFormat) (.Date.Format .Site.Language.Params.dateFormat))) }}
+{{- $scratch.Add "meta" (slice (printf "%d words" .WordCount)) }}
+{{- $scratch.Add "meta" (slice (printf "%d min" .ReadingTime)) }}
+
+{{- with ($scratch.Get "meta") }}
+<div class="article-meta">
+  {{- delimit . "&nbsp;·&nbsp;" | safeHTML -}}
+</div>
+{{- end -}}

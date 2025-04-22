@@ -1,0 +1,10 @@
+name = "x"
+license = "MIT"
+description = "A powerful, lightweight theme for Hugo."
+homepage = "https://xuchengpeng.cn"
+tags = ["blog", "personal", "clean", "simple", "minimalist"]
+features = ["blog"]
+
+[author]
+  name = "Chuck"
+  homepage = "https://xuchengpeng.cn"

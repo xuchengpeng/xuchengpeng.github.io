@@ -1,0 +1,17 @@
+<footer>
+  <div class="site-footer">
+    <div class="footer-menu">
+      {{ with .Site.Menus.footer }}
+      <div class="menu">
+        {{ range . }}
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+        {{ end }}
+      </div>
+      {{ end }}
+    </div>
+    <div class="footer-content">
+      <p>&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a></p>
+    </div>
+  </div>
+</footer>

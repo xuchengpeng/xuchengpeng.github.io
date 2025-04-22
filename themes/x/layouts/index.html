@@ -1,0 +1,26 @@
+{{ define "main" }}
+  {{ if or .Title .Content }}
+  <article class="article">
+    <div class="article-header">
+      {{ with .Title }}<h1 class="article-title">{{ . }}</h1>{{ end }}
+    </div>
+    {{ with .Content }}<div class="article-content">{{ . }}</div>{{ end }}
+  </article>
+  {{ end }}
+
+  <h2>Recent</h2>
+  {{ range first .Site.Params.showRecentItems (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+  <article class="article-entry">
+    <h3 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
+    {{- partial "article_meta.html" . -}}
+    {{ end }}
+    {{ if .Params.showTags | default (.Site.Params.article.showTags | default false) }}
+    {{- partial "article_tags.html" . -}}
+    {{ end }}
+    <div class="article-summary">
+      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </div>
+  </article>
+  {{ end }}
+{{ end }}

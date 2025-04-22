@@ -1,0 +1,18 @@
+theme = "x"
+baseURL = "https://xuchengpeng.cn/"
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+pagination.pagerSize = 10
+summaryLength = 0
+hasCJKLanguage = true
+
+buildDrafts = false
+buildFuture = false
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
