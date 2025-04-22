@@ -31,6 +31,9 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: var(--font-sans);
   line-height: 1.5;
   background: var(--theme);
@@ -133,8 +136,15 @@ body:not(.dark) #sun {
 }
 
 .main {
+  display: flex;
+  flex-grow: 1;
+}
+
+.main-block {
+  display: block;
   max-width: var(--main-width);
-  margin: auto;
+  width: 100%;
+  margin: 0 auto;
   padding: 2em 1em;
 }
 

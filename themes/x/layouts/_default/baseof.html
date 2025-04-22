@@ -4,7 +4,9 @@
 <body class="{{ .Site.Params.defaultTheme | default "light" }}">
   {{- partial "header.html" . -}}
   <main class="main">
-    {{ block "main" . }}{{ end }}
+    <div class="main-block">
+      {{ block "main" . }}{{ end }}
+    </div>
   </main>
   {{- partial "footer.html" . -}}
 </body>
