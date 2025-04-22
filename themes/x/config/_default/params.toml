@@ -1,3 +1,4 @@
+defaultTheme = "light" # light, dark
 mainSections = ["posts"]
 showRecentItems = 5
 

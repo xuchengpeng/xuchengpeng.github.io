@@ -64,6 +64,24 @@ pre {
   font-family: var(--font-mono);
 }
 
+button#theme-toggle {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: 1;
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+}
+
+body.dark #moon {
+  display: none;
+}
+
+body:not(.dark) #sun {
+  display: none;
+}
+
 .site-header {
   display: flex;
   flex-wrap: nowrap;
@@ -133,7 +151,8 @@ pre {
   font-size: 2em;
 }
 
-.article-header, .article-footer {
+.article-header,
+.article-footer {
   margin: 1em 0;
 }
 
@@ -142,7 +161,8 @@ pre {
   margin-bottom: 0;
 }
 
-.article-meta, .breadcrumbs {
+.article-meta,
+.breadcrumbs {
   color: var(--secondary);
   font-size: 0.875em;
   display: flex;
