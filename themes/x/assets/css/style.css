@@ -292,13 +292,15 @@ body:not(.dark) #sun {
 }
 
 .article-content table {
+  border-collapse: collapse;
+  border-spacing: 0;
   margin: 1em 0;
 }
 
 .article-content table th,
 .article-content table td {
   padding: 0.5em 0.3em;
-  border-bottom: 1px solid var(--border);
+  border: 1px solid var(--border);
 }
 
 .toc {
