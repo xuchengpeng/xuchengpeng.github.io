@@ -1,9 +1,11 @@
 {{ define "main" }}
   {{ if or .Title .Content }}
   <article class="article">
+    {{ with .Title }}
     <div class="article-header">
-      {{ with .Title }}<h1 class="article-title">{{ . }}</h1>{{ end }}
+      <h1 class="article-title">{{ . }}</h1>
     </div>
+    {{ end }}
     {{ with .Content }}<div class="article-content">{{ . }}</div>{{ end }}
   </article>
   {{ end }}

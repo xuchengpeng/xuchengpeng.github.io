@@ -1,7 +1,6 @@
 :root {
   --font-sans: ui-sans-serif, sans-serif;
   --font-mono: ui-monospace, monospace;
-  --gap: 24px;
   --nav-width: 1024px;
   --main-width: 900px;
   --radius: 4px;
@@ -70,8 +69,6 @@ pre {
 button#theme-toggle {
   margin: 0;
   padding: 0;
-  font: inherit;
-  line-height: 1;
   background: 0 0;
   border: 0;
   cursor: pointer;
@@ -220,6 +217,7 @@ body:not(.dark) #sun {
 
 .article-content {
   color: var(--content);
+  margin: 1em 0;
 }
 
 .article-content h3,
@@ -407,4 +405,67 @@ body:not(.dark) #sun {
 
 .top-link:hover {
   color: var(--primary);
+}
+
+#search-box input {
+  padding: 0.2em 0.6em;
+  width: 100%;
+  color: var(--primary);
+  background: 0 0;
+  font: inherit;
+  border: 2px solid var(--tertiary);
+  border-radius: var(--radius);
+}
+
+#search-box input:focus {
+  border-color: var(--secondary);
+}
+
+#search-results li {
+  list-style: none;
+  background: var(--code-bg);
+  border: 1 px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6em;
+  margin: 0.6em 0;
+  position: relative;
+  transition: transform .1s;
+}
+
+#search-results {
+  margin: 0.6em 0;
+  padding: 0;
+  width: 100%;
+}
+
+#search-results li:active {
+  transition: transform .1s;
+  transform: scale(.98);
+}
+
+#search-results a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  outline: none;
+}
+
+#search-results h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+}
+
+#search-results p {
+  font-size: 1em;
+  font-style: italic;
+  margin: 0;
+  color: var(--secondary);
+}
+
+#search-results .focus {
+  transform: scale(.98);
+  border: 2px solid var(--tertiary);
 }
