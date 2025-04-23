@@ -29,6 +29,15 @@
   --links: rgb(96, 165, 250);
 }
 
+*,::after,::before {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
