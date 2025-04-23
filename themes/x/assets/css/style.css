@@ -59,6 +59,11 @@ a:hover {
   text-decoration: underline;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 code,
 kbd,
 samp,
@@ -257,6 +262,10 @@ body:not(.dark) #sun {
 
 .article-content a {
   color: var(--links);
+}
+
+.article-content img {
+  margin: 1em 0;
 }
 
 .article-content blockquote {
