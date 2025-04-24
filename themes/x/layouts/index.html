@@ -1,14 +1,11 @@
 {{ define "main" }}
-  {{ if or .Title .Content }}
-  <article class="article">
-    {{ with .Title }}
-    <div class="article-header">
-      <h1 class="article-title">{{ . }}</h1>
-    </div>
-    {{ end }}
-    {{ with .Content }}<div class="article-content">{{ . }}</div>{{ end }}
-  </article>
+<article class="article">
+  {{ with .Title }}
+  <div class="article-header">
+    <h1 class="article-title">{{ . }}</h1>
+  </div>
   {{ end }}
+  {{ with .Content }}<div class="article-content">{{ . }}</div>{{ end }}
 
   <h2>Recent</h2>
   {{ range first .Site.Params.showRecentItems (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
@@ -25,4 +22,5 @@
     </div>
   </article>
   {{ end }}
+</article>
 {{ end }}

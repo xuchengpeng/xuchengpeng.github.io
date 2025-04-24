@@ -1,14 +1,15 @@
+const sitePreference = document.documentElement.getAttribute("data-default-appearance");
+const userPreference = localStorage.getItem("appearance");
+
+if ((sitePreference === "dark" && userPreference === null) || userPreference === "dark") {
+  document.documentElement.classList.add("dark");
+}
+
 window.addEventListener("DOMContentLoaded", (event) => {
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-    if (document.body.className.includes("dark")) {
-      document.body.classList.remove("dark");
-      document.body.classList.add("light");
-      localStorage.setItem("pref-theme", "light");
-    } else {
-      document.body.classList.remove("light");
-      document.body.classList.add("dark");
-      localStorage.setItem("pref-theme", "dark");
-    }
+  document.getElementById("appearance-switcher").addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    var targetAppearance = document.documentElement.classList.contains("dark") ? "dark" : "light";
+    localStorage.setItem("appearance",targetAppearance);
   });
 
   window.addEventListener("scroll", () => {
