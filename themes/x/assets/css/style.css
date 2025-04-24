@@ -277,7 +277,7 @@ body:not(.dark) #sun {
 .article-content blockquote {
   margin: 20px 0;
   padding: 0 14px;
-  border-inline-start: 3px solid var(--primary);
+  border-inline-start: 3px solid var(--secondary);
 }
 
 .article-content code {
