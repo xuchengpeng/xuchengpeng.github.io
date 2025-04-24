@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   document.getElementById("appearance-switcher").addEventListener("click", () => {
     document.documentElement.classList.toggle("dark");
     var targetAppearance = document.documentElement.classList.contains("dark") ? "dark" : "light";
-    localStorage.setItem("appearance",targetAppearance);
+    localStorage.setItem("appearance", targetAppearance);
   });
 
   window.addEventListener("scroll", () => {
