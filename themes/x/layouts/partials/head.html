@@ -13,6 +13,8 @@
   {{ $assets := newScratch }}
   {{ $styleCss := resources.Get "css/style.css" }}
   {{ $assets.Add "css" (slice $styleCss) }}
+  {{ $syntaxCss := resources.Get "css/syntax.css" }}
+  {{ $assets.Add "css" (slice $syntaxCss) }}
   {{ $customCss := resources.Get "css/custom.css" }}
   {{ if $customCss }}
   {{ $assets.Add "css" (slice $customCss) }}
