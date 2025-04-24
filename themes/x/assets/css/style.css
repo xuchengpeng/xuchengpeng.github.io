@@ -11,7 +11,7 @@
   --content: rgb(52, 66, 87);
   --code-bg: rgb(248, 250, 252);
   --border: rgb(203, 212, 225);
-  --links: rgb(37, 99, 235);
+  --link: rgb(37, 99, 235);
 }
 
 .dark {
@@ -22,7 +22,7 @@
   --content: rgb(203, 213, 225);
   --code-bg: rgb(51, 65, 85);
   --border: rgb(71, 85, 105);
-  --links: rgb(96, 165, 250);
+  --link: rgb(96, 165, 250);
 }
 
 *,
@@ -211,7 +211,7 @@ body:not(.dark) #sun {
   line-height: 1.5;
   margin: 0;
   padding: 0 0.5em;
-  color: var(--links);
+  color: var(--link);
   border-radius: var(--radius);
   border: 1px solid var(--border);
   text-decoration: none;
@@ -266,7 +266,8 @@ body:not(.dark) #sun {
 }
 
 .article-content a {
-  color: var(--links);
+  color: var(--link);
+  text-decoration: none;
 }
 
 .article-content img {
