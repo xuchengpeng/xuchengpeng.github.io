@@ -3,6 +3,8 @@ defaultMarkdownHandler = 'goldmark'
 [goldmark]
 [goldmark.renderer]
   unsafe = true
+[goldmark.parser.attribute]
+  title = true
 
 [highlight]
   noClasses = false
