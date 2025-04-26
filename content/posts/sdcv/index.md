@@ -2,7 +2,7 @@
 title: "sdcv"
 date: "2024-12-09"
 categories: ["Emacs"]
-tags: ["sdcv", "StarDict"]
+tags: ["Emacs", "sdcv", "StarDict"]
 ---
 
 [sdcv](https://github.com/Dushistov/sdcv) is a simple, cross-platform, text-based utility for working with dictionaries in [StarDict](https://stardict-4.sourceforge.net/) format.
