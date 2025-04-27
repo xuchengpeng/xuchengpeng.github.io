@@ -19,4 +19,3 @@ showPagination: false
 | elpa-mirror           | A mirror of [ELPA](https://elpa.gnu.org/) and [MELPA](https://melpa.org/). | [github](https://github.com/xuchengpeng/elpa-mirror)           |
 | mirror-elpa           | Mirror ELPA and MELPA everyday.                                            | [github](https://github.com/xuchengpeng/mirror-elpa)           |
 | emacs.d               | My old Emacs configuration.                                                | [github](https://github.com/xuchengpeng/emacs.d)               |
-| Rime                  | My Rime configuration.                                                     | [github](https://github.com/xuchengpeng/Rime)                  |
