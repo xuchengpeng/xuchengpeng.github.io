@@ -2,12 +2,16 @@
 <html lang="{{ .Site.LanguageCode | default "en" }}" class="scroll-smooth" data-default-appearance="{{ .Site.Params.defaultTheme | default "light" }}">
 {{- partial "head.html" . -}}
 <body>
-  {{- partial "header.html" . -}}
+  <header class="header">
+    {{- partial "header.html" . -}}
+  </header>
   <main class="main">
     <div class="main-block">
       {{ block "main" . }}{{ end }}
     </div>
   </main>
-  {{- partial "footer.html" . -}}
+  <footer class="footer">
+    {{- partial "footer.html" . -}}
+  </footer>
 </body>
 </html>
