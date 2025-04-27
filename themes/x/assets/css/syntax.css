@@ -1,8 +1,8 @@
 :root {
   /* PreWrapper */
   .chroma {
-    color: var(--content);
-    background-color: var(--theme);
+    color: rgb(var(--content));
+    background-color: rgb(var(--theme));
   }
 
   /* Other */
@@ -377,8 +377,8 @@
 .dark {
   /* PreWrapper */
   .chroma {
-    color: var(--content);
-    background-color: var(--theme);
+    color: rgb(var(--content));
+    background-color: rgb(var(--theme));
   }
 
   /* Other */
