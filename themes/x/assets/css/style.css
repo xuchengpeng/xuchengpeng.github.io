@@ -32,7 +32,6 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
 }
@@ -93,6 +92,10 @@ html.dark #moon {
 
 html:not(.dark) #sun {
   display: none;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
 }
 
 .header {
