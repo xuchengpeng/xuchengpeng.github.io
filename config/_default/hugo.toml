@@ -6,6 +6,7 @@ enableRobotsTXT = true
 pagination.pagerSize = 10
 summaryLength = 0
 hasCJKLanguage = true
+enableEmoji = true
 
 buildDrafts = false
 buildFuture = false
