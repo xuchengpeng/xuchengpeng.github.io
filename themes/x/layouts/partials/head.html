@@ -26,6 +26,8 @@
   <script type="text/javascript" src="{{ $jsAppearance.RelPermalink }}"></script>
   {{ $jsCode := resources.Get "js/code.js" }}
   {{ $assets.Add "js" (slice $jsCode) }}
+  {{ $jsMenu := resources.Get "js/menu.js" }}
+  {{ $assets.Add "js" (slice $jsMenu) }}
   {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify }}
   <script defer type="text/javascript" src="{{ $bundleJS.RelPermalink }}"></script>
   {{ if templates.Exists "partials/extend_head.html" }}
