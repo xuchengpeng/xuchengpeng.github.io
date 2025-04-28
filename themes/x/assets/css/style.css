@@ -119,7 +119,7 @@ html:not(.dark) #sun {
   gap: 1em;
 }
 
-#mobile-menu {
+div#mobile-menu {
   display: none;
   position: fixed;
   z-index: 1;
@@ -133,7 +133,7 @@ html:not(.dark) #sun {
   line-height: 1;
 }
 
-#mobile-menu a {
+div#mobile-menu a {
   color: rgb(var(--primary));
   text-decoration: none;
   text-align: right;
@@ -141,7 +141,7 @@ html:not(.dark) #sun {
   margin: 1em;
 }
 
-#mobile-menu a:hover {
+div#mobile-menu a:hover {
   color: rgb(var(--link));
 }
 
