@@ -12,10 +12,12 @@
       {{- partial "article_tags.html" . -}}
       {{ end }}
     </div>
+    <div class="article-content">
     {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents "<ul") }}
     {{ partial "toc.html" . }}
     {{ end }}
-    {{ with .Content }}<div class="article-content">{{ . }}</div>{{ end }}
+    {{ with .Content }}<div class="content">{{ . }}</div>{{ end }}
+    </div>
     <div class="article-footer">
       {{- partial "article_pagination.html" . -}}
     </div>
