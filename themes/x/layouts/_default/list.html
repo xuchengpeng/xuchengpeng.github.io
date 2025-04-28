@@ -4,7 +4,11 @@
     <div class="article-header">
       {{ with .Title }}<h1 class="article-title">{{ . }}</h1>{{ end }}
     </div>
-    {{ with .Content }}<div class="article-content">{{ . }}</div>{{ end }}
+    {{ with .Content }}
+    <div class="article-content">
+      <div class="content">{{ . }}</div>
+    </div>
+    {{ end }}
   </article>
   {{ end }}
 

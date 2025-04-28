@@ -5,7 +5,11 @@
     <h1 class="article-title">{{ . }}</h1>
   </div>
   {{ end }}
-  {{ with .Content }}<div class="article-content">{{ . }}</div>{{ end }}
+  {{ with .Content }}
+  <div class="article-content">
+    <div class="content">{{ . }}</div>
+  </div>
+  {{ end }}
 
   <h2>Recent</h2>
   {{ range first .Site.Params.showRecentItems (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}

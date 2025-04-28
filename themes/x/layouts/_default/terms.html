@@ -4,12 +4,14 @@
 </div>
 
 <div class="article-content">
-  <ul class="terms">
-    {{ range .Data.Terms }}
-    <li>
-      <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>&nbsp;·&nbsp;{{ .Count }}
-    </li>
-    {{ end }}
-  </ul>
+  <div class="content">
+    <ul class="terms">
+      {{ range .Data.Terms }}
+      <li>
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>&nbsp;·&nbsp;{{ .Count }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
 </div>
 {{ end }}
