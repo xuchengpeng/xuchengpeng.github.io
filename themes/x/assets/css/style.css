@@ -173,6 +173,54 @@ html:not(.dark) #sun {
   font-size: 2em;
 }
 
+.highlight, pre {
+  position: relative;
+}
+
+code {
+  margin: 0;
+  padding: 3px 5px;
+  font-size: 0.875em;
+  line-height: 1.5;
+  color: rgb(var(--content));
+  background: rgb(var(--code-bg));
+  border-radius: 2px;
+}
+
+pre code {
+  display: grid;
+  margin: auto 0;
+  padding: 0.8em;
+  background: rgb(var(--code-bg)) !important;
+  border-radius: var(--radius);
+  overflow-x: auto;
+  word-break: break-all;
+}
+
+.copy-code {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  cursor: pointer;
+  border: 0 solid;
+  border-top-right-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  color: rgb(var(--content));
+  background-color: rgb(var(--tertiary));
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+  line-height: 1.5;
+  padding-block: 0.2em;
+  width: 6em;
+  user-select: none;
+}
+
+.highlight:hover .copy-code, pre:hover .copy-code {
+  visibility: visible;
+}
+
 .article-entry {
   position: relative;
   margin: 0 0 2em 0;
@@ -313,27 +361,7 @@ html:not(.dark) #sun {
   border-inline-start: 3px solid rgb(var(--secondary));
 }
 
-.article-content code {
-  margin: 0;
-  padding: 3px 5px;
-  font-size: 0.875em;
-  line-height: 1.5;
-  background: rgb(var(--code-bg));
-  border-radius: 2px;
-}
-
-.article-content pre code {
-  display: grid;
-  margin: auto 0;
-  padding: 10px;
-  background: rgb(var(--code-bg)) !important;
-  border-radius: var(--radius);
-  overflow-x: auto;
-  word-break: break-all;
-}
-
 .article-content {
-
   ul,
   ol {
     margin: 1em 0;
