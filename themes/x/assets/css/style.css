@@ -119,7 +119,7 @@ html:not(.dark) #sun {
   gap: 1em;
 }
 
-button#appearance-switcher, button#menu-button {
+.menu button {
   font-size: 1em;
   line-height: 1;
   margin: 0;
