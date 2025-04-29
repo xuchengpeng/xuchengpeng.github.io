@@ -78,11 +78,11 @@ pre {
   font-family: var(--font-mono);
 }
 
-html.dark #moon {
+html.dark svg#moon {
   display: none;
 }
 
-html:not(.dark) #sun {
+html:not(.dark) svg#sun {
   display: none;
 }
 
@@ -183,6 +183,10 @@ button#menu-button {
 
 .footer-menu {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  gap: 1em;
 }
 
 .footer-menu a {
