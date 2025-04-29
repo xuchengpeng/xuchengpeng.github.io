@@ -129,10 +129,6 @@ html:not(.dark) #sun {
   cursor: pointer;
 }
 
-.block {
-  display: block !important;
-}
-
 .main-menu {
   @media (width >= 800px) {
     display: flex;
