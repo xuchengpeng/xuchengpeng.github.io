@@ -585,6 +585,18 @@ pre code {
   color: rgb(var(--primary));
 }
 
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
 #search-box input {
   padding: 0.2em 0.6em;
   width: 100%;
