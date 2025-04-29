@@ -597,6 +597,10 @@ pre code {
   text-align: right;
 }
 
+.\!block {
+  display: block !important;
+}
+
 #search-box input {
   padding: 0.2em 0.6em;
   width: 100%;
