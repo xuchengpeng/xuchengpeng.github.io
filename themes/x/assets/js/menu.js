@@ -1,6 +1,6 @@
 var menuButton = document.getElementById("menu-button");
-var mobileMenu = document.getElementById("mobile-menu");
+var menuList = document.getElementById("menu-list");
 
 menuButton.addEventListener("click", () => {
-  mobileMenu.style.display = mobileMenu.style.display === "block" ? "none" : "block";
+  menuList.classList.toggle("block");
 });

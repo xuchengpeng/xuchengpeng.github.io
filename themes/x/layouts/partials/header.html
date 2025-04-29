@@ -1,7 +1,7 @@
 <nav class="site-header">
   <a class="title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
   <div class="menu">
-    <div class="main-menu">
+    <div id="menu-list" class="main-menu">
       {{ range .Site.Menus.main }}
       <a href="{{ .URL | relURL }}">{{ .Name }}</a>
       {{ end }}
@@ -29,11 +29,6 @@
         <path fill="currentcolor" d="M0 96C0 78.33 14.33 64 32 64H416c17.7.0 32 14.33 32 32 0 17.7-14.3 32-32 32H32C14.33 128 0 113.7.0 96zM0 256c0-17.7 14.33-32 32-32H416c17.7.0 32 14.3 32 32s-14.3 32-32 32H32c-17.67.0-32-14.3-32-32zM416 448H32c-17.67.0-32-14.3-32-32s14.33-32 32-32H416c17.7.0 32 14.3 32 32s-14.3 32-32 32z">
         </path>
       </svg>
-      <div id="mobile-menu">
-        {{ range .Site.Menus.main }}
-        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
-        {{ end }}
-      </div>
     </button>
   </div>
 </nav>
