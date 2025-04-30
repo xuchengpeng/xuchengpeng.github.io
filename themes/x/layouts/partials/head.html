@@ -36,4 +36,7 @@
   {{ if .Params.showMath | default (.Site.Params.article.showMath | default false) }}
   {{ partial "math.html" . }}
   {{ end }}
+  {{ if .Page.HasShortcode "mermaid" }}
+  {{ partial "mermaid.html" . }}
+  {{ end }}
 </head>

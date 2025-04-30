@@ -343,26 +343,19 @@ pre code {
   margin: 1em 0;
 }
 
-.article-content h3,
-.article-content h4,
-.article-content h5,
-.article-content h6 {
-  margin: 1.5em 0 1em;
-}
-
 .article-content h1 {
   font-size: 2em;
-  margin: 1em auto 0.8em;
+  margin: 1.5em 0 0.8em;
 
 }
 
 .article-content h2 {
-  font-size: 1.7em;
-  margin: 1em auto 0.75em;
+  font-size: 1.5em;
+  margin: 1.5em 0 0.75em;
 }
 
 .article-content h3 {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .article-content h4 {
@@ -375,6 +368,13 @@ pre code {
 
 .article-content h6 {
   font-size: 0.75em;
+}
+
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  margin: 1.5em 0 0.7em;
 }
 
 .article-content h1 .anchor,
@@ -512,6 +512,11 @@ pre code {
 }
 
 .toc ul, .toc li {
+  margin: 0;
+  padding: 0;
+}
+
+.toc ul ul {
   margin: 0;
   padding: 0;
 }
