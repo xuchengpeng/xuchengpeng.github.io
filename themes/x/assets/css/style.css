@@ -430,6 +430,19 @@ pre code {
   ol ol {
     margin: 0.75em 0;
   }
+
+  dl {
+    margin: 1em 0;
+  }
+
+  dt {
+    color: rgb(var(--primary));
+    font-weight: bold;
+  }
+
+  dd{
+    margin-inline-start: 1.5em;
+  }
 }
 
 .article-content hr {
