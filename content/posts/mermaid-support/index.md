@@ -17,9 +17,9 @@ It is a JavaScript based diagramming and charting tool that renders Markdown-ins
 `layouts/shortcodes/mermaid.html`:
 
 ```html
-<div class="mermaid" align="center">
-  {{ .Inner }}
-</div>
+<pre class="mermaid" align="center">
+  {{ .Inner | htmlEscape | safeHTML }}
+</pre>
 ```
 
 ### Head
