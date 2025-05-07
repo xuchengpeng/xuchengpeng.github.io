@@ -1,7 +1,7 @@
 ---
 title: "仿射变换与透视变换"
 date: "2024-09-11"
-categories: ["Computer Science"]
+categories: ["Computer Vision"]
 tags: ["Computer Vision"]
 summary: 仿射变换，平移，旋转，翻转，刚体变换，缩放，相似变换，透视变换。
 showMath: true

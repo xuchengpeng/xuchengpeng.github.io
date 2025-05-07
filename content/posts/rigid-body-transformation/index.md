@@ -1,7 +1,7 @@
 ---
 title: "刚体变换"
 date: "2024-09-10"
-categories: ["Computer Science"]
+categories: ["Computer Vision"]
 tags: ["Computer Vision"]
 summary: 刚体变换的矩阵表示，以及逆变换的计算方法。
 showMath: true
