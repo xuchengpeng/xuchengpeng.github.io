@@ -9,7 +9,6 @@ summary: 《黄鹤楼》是唐代诗人崔颢创作的一首七言律诗，此�
 {{< figure
   src="https://image.artron.net/wd/auction//118/art/28657/a55dc29b404ae2b145c3f4ae53404f0d.jpg"
   alt="Yellow Crane Tower"
-  class="text-center"
 >}}
 
 {{% center %}}

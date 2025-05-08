@@ -71,6 +71,18 @@ img {
   max-width: 100%;
 }
 
+figure {
+  margin: 1em auto;
+  padding: 0;
+  text-align: center;
+}
+
+figcaption {
+  font-size: 0.875em;
+  line-height: 1.5;
+  margin-top: 0.5em;
+}
+
 code,
 kbd,
 samp,
