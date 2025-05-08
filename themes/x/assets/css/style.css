@@ -445,11 +445,15 @@ pre code {
   }
 }
 
-.article-content hr {
+.article-content .footnotes hr {
   margin: 30px 0;
   height: 2px;
   background: rgb(var(--tertiary));
   border: 0;
+}
+
+.article-content .footnotes p {
+  margin: 0;
 }
 
 .article-content table {
