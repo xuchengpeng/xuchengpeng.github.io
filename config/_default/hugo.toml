@@ -3,13 +3,15 @@ baseURL = "https://xuchengpeng.cn/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-pagination.pagerSize = 10
 summaryLength = 0
 hasCJKLanguage = true
 enableEmoji = true
 
 buildDrafts = false
 buildFuture = false
+
+[pagination]
+  pagerSize = 10
 
 [taxonomies]
   tag = "tags"

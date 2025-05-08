@@ -540,20 +540,24 @@ pre code {
 
 .pagination {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5em;
 }
 
-.pagination a {
-  color: rgb(var(--theme));
-  font-size: smaller;
-  line-height: 36px;
-  background: rgb(var(--secondary));
-  border-radius: 18px;
-  padding: 0 1em;
+.pagination .page-item {
+  color: rgb(var(--primary));
+  font-size: 0.875em;
+  line-height: 2em;
+  min-width: 2em;
+  border: 1px solid rgba(var(--border));
+  border-radius: var(--radius);
+  text-align: center;
   text-decoration: none;
 }
 
-.pagination .next {
-  margin-inline-start: auto;
+.pagination .page-item.active {
+  background: rgb(var(--tertiary));
 }
 
 .article-pagination {
