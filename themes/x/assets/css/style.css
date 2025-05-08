@@ -267,7 +267,7 @@ pre code {
   user-select: none;
 }
 
-.highlight:hover .copy-code, pre:hover .copy-code {
+:is(.highlight:hover, pre:hover) .copy-code {
   visibility: visible;
 }
 
@@ -370,31 +370,22 @@ pre code {
   font-size: 0.75em;
 }
 
-.article-content h3,
-.article-content h4,
-.article-content h5,
-.article-content h6 {
+.article-content :is(h3, h4, h5, h6) {
   margin: 1.5em 0 0.7em;
 }
 
-.article-content h1 .anchor,
-.article-content h2 .anchor,
-.article-content h3 .anchor,
-.article-content h4 .anchor,
-.article-content h5 .anchor,
-.article-content h6 .anchor {
+.article-content :is(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: 3em;
+}
+
+.article-content :is(h1, h2, h3, h4, h5, h6) .anchor {
   display: none;
   color: rgb(var(--secondary));
   margin-inline-start: 0.3em;
   user-select: none;
 }
 
-.article-content h1:hover .anchor,
-.article-content h2:hover .anchor,
-.article-content h3:hover .anchor,
-.article-content h4:hover .anchor,
-.article-content h5:hover .anchor,
-.article-content h6:hover .anchor {
+.article-content :is(h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover) .anchor {
   display: inline;
 }
 
