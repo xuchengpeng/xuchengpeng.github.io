@@ -86,6 +86,14 @@ figcaption {
   }
 }
 
+details {
+  margin: 1em 0;
+}
+
+details > summary {
+  cursor: pointer;
+}
+
 code,
 kbd,
 samp,
