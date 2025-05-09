@@ -509,43 +509,47 @@ pre code {
   background: rgb(var(--code-bg));
   border-radius: var(--radius);
   padding: .4em;
-}
 
-.toc details summary {
-  cursor: pointer;
-  margin-inline-start: 0.25em;
-  user-select: none;
-  font-weight: bold;
-  color: rgb(var(--primary));
-}
+  details {
+    margin: 0;
+  }
 
-.toc .toc-inner {
-  margin: 0.25em 1em 0;
-  padding: 0 0.5em;
-  opacity: 0.9;
-}
+  details > summary {
+    cursor: pointer;
+    margin-inline-start: 0.25em;
+    user-select: none;
+    font-weight: bold;
+    color: rgb(var(--primary));
+  }
 
-.toc ul, .toc li {
-  margin: 0;
-  padding: 0;
-}
+  details > summary:focus {
+    outline: 0;
+  }
 
-.toc ul ul {
-  margin: 0;
-  padding: 0;
-}
+  .toc-inner {
+    margin: 0.25em 1em 0;
+    padding: 0 0.5em;
+    opacity: 0.9;
+  }
 
-.toc li ul {
-  margin-inline-start: 1em;
-}
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
 
-.toc summary:focus {
-  outline: 0;
-}
+  ul ul {
+    margin: 0;
+    padding: 0;
+  }
 
-.toc a {
-  color: rgb(var(--content));
-  text-decoration: none;
+  li ul {
+    margin-inline-start: 1em;
+  }
+
+  a {
+    color: rgb(var(--content));
+    text-decoration: none;
+  }
 }
 
 .pagination {
