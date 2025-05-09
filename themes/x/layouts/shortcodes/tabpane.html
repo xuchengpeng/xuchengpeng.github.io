@@ -1,0 +1,5 @@
+{{ $align := .Get "align" | default "left" }}
+
+<div class="tabpane tabpane-{{ $align }}">
+  {{ .Inner }}
+</div>

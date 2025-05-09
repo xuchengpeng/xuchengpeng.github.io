@@ -1,0 +1,9 @@
+{{- $group := printf "tabpane-%v" (default .Parent.Ordinal (.Parent.Get 0)) -}}
+{{- $tab := printf "%s-%d" $group .Ordinal }}
+<input type="radio" class="tab-input" name="{{ $group }}" id="{{ $tab }}" {{ if not .Ordinal }}checked="checked"{{ end }} />
+<label for="{{ $tab }}" class="tab-label">
+  {{- .Get 0 -}}
+</label>
+<div class="tab-content">
+  {{- .Inner | markdownify -}}
+</div>
