@@ -80,7 +80,10 @@ figure {
 figcaption {
   font-size: 0.875em;
   line-height: 1.5;
-  margin-top: 0.5em;
+  margin-top: 0.3em;
+  p {
+    margin: 0;
+  }
 }
 
 code,

@@ -1,0 +1,130 @@
+---
+title: "Shortcodes"
+date: 2025-05-09T13:24:52+08:00
+categories: ["Web"]
+tags: ["Hugo"]
+---
+
+Rather than writing all your site pages from scratch, Hugo lets you define and use [shortcodes](https://gohugo.io/content-management/shortcodes/). These are reusable snippets of content that you can include in your pages, often using HTML to create effects that are difficult or impossible to do in simple Markdown. Shortcodes can also have parameters that let you, for example, add your own text to a fancy shortcode text box.
+<!--more-->
+
+## details
+
+{{< details summary="Summary" open=true >}}
+#### Markdown content
+Lorem est tota propiore conpellat pectoribus de pectora summo.
+{{< /details >}}
+
+## figure
+
+{{< figure
+  src="https://image.artron.net/wd/auction//118/art/28657/a55dc29b404ae2b145c3f4ae53404f0d.jpg"
+  alt="Yellow Crane Tower"
+  caption="Yellow Crane Tower"
+>}}
+
+## highlight
+
+{{< highlight go "linenos=inline, hl_lines=3 6-8" >}}
+package main
+
+import "fmt"
+
+func main() {
+    for i := 0; i < 3; i++ {
+        fmt.Println("Value of i:", i)
+    }
+}
+{{< /highlight >}}
+
+## center
+
+{{% center %}}
+Center paragraph.
+{{% /center %}}
+
+## ltr
+
+{{% ltr %}}
+- This is an markdown list
+- It is LTR direction
+{{% /ltr %}}
+
+## rtl
+
+{{% rtl %}}
+- This is an markdown list
+- It is RTL direction
+{{% /rtl %}}
+
+## mermaid
+
+{{< mermaid >}}
+graph LR;
+A[Lemons]-->B[Lemonade];
+B-->C[Profit]
+{{< /mermaid >}}
+
+## typeit
+
+{{< typeit 
+  tag=h4
+  speed=50
+  breakLines=false
+  loop=true
+>}}
+"Frankly, my dear, I don't give a damn." Gone with the Wind (1939)
+"I'm gonna make him an offer he can't refuse." The Godfather (1972)
+"Toto, I've a feeling we're not in Kansas anymore." The Wizard of Oz (1939)
+{{< /typeit >}}
+
+## tabpane
+
+{{< tabpane >}}
+{{< tab "Ruby" >}}
+
+```ruby
+puts 'Hello'
+```
+
+{{< /tab >}}
+{{< tab "Python" >}}
+
+```python
+print('Hello')
+```
+
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+
+```js
+console.log("Hello");
+```
+
+{{< /tab >}}
+{{< /tabpane >}}
+
+
+{{< tabpane align="right" >}}
+{{< tab "Ruby" >}}
+
+```ruby
+puts 'Hello'
+```
+
+{{< /tab >}}
+{{< tab "Python" >}}
+
+```python
+print('Hello')
+```
+
+{{< /tab >}}
+{{< tab "JavaScript" >}}
+
+```js
+console.log("Hello");
+```
+
+{{< /tab >}}
+{{< /tabpane >}}
