@@ -39,4 +39,7 @@
   {{ if .Page.HasShortcode "mermaid" }}
   {{ partial "mermaid.html" . }}
   {{ end }}
+  {{ if .Page.HasShortcode "typeit"}}
+  {{ partial "typeit.html" . }}
+  {{ end }}
 </head>
