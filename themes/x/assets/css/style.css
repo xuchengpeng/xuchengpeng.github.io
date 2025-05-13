@@ -721,6 +721,17 @@ pre code {
   }
 }
 
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 1em 0;
+  div {
+    flex: 1 1;
+    min-width: 10em;
+  }
+}
+
 #search-box input {
   padding: 0.2em 0.6em;
   width: 100%;
