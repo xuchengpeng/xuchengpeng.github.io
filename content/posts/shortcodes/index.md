@@ -132,3 +132,20 @@ console.log("Hello");
 ## bilibili
 
 {{< bilibili id="BV1qG411Z7UR" >}}
+
+## columns
+
+{{< columns >}}
+#### Left Content
+Dolor sit, sumo unique argument um no. Gracie nominal id xiv. Romanesque acclimates investiture. Ornateness bland it ex enc, est yeti am bongo detract re. Pro ad prompts feud gait, quid exercise emeritus bis e. In pro quints consequent, denim fastidious copious quo ad. Stet probates in duo.
+
+<--->
+
+#### Mid Content
+Dolor sit, sumo unique argument um no. Gracie nominal id xiv. Romanesque acclimates investiture. Ornateness bland it ex enc, est yeti am bongo detract re.
+
+<--->
+
+#### Right Content
+Dolor sit, sumo unique argument um no. Gracie nominal id xiv. Romanesque acclimates investiture. Ornateness bland it ex enc, est yeti am bongo detract re. Pro ad prompts feud gait, quid exercise emeritus bis e. In pro quints consequent, denim fastidious copious quo ad. Stet probates in duo.
+{{< /columns >}}
