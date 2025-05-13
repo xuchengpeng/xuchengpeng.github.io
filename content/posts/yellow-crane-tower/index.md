@@ -6,6 +6,8 @@ tags: ["Reading", "Poetry"]
 summary: 《黄鹤楼》是唐代诗人崔颢创作的一首七言律诗，此诗描写了在黄鹤楼上远眺的美好景色，是一首吊古怀乡之佳作。
 ---
 
+{{< bilibili  id="BV1jdbjerEK2" >}}
+
 {{< figure
   src="https://image.artron.net/wd/auction//118/art/28657/a55dc29b404ae2b145c3f4ae53404f0d.jpg"
   alt="Yellow Crane Tower"
