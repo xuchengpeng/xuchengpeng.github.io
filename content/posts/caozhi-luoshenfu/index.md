@@ -5,6 +5,8 @@ categories: ["Reading"]
 tags: ["Reading", "Poetry"]
 ---
 
+{{< bilibili id="BV1Ae4y1n73a" p=193 >}}
+
 黄初三年，余朝京师，还济洛川。古人有言，斯水之神，名曰宓妃。感宋玉对楚王神女之事，遂作斯赋。其辞曰：
 <!--more-->
 
