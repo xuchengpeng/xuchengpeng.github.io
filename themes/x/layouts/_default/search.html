@@ -4,11 +4,14 @@
   <div class="article-header">
     <h1 class="article-title">{{ .Title }}</h1>
   </div>
-
-  <div id="search-box">
-    <input id="search-input" autofocus placeholder="{{ .Params.placeholder | default (printf " %s ↵" .Title) }}"
-      aria-label="search" type="search" autocomplete="off" maxlength="64">
-    <ul id="search-results" aria-label="search results"></ul>
+  <div class="article-content">
+    <div class="content">
+      <div id="search-box">
+        <input id="search-input" autofocus placeholder="{{ .Params.placeholder | default (printf " %s ↵" .Title) }}"
+               aria-label="search" type="search" autocomplete="off" maxlength="64">
+        <ul id="search-results" aria-label="search results"></ul>
+      </div>
+    </div>
   </div>
 </article>
 
