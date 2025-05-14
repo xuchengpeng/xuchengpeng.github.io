@@ -1,17 +1,19 @@
 {{ define "main" }}
-<div class="article-header">
-  <h1>{{ .Title }}</h1>
-</div>
-
-<div class="article-content">
-  <div class="content">
-    <ul class="terms">
-      {{ range .Data.Terms }}
-      <li>
-        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>&nbsp;·&nbsp;{{ .Count }}
-      </li>
-      {{ end }}
-    </ul>
+<article class="article">
+  <div class="article-header">
+    <h1 class="article-title">{{ .Title }}</h1>
   </div>
-</div>
+
+  <div class="article-content">
+    <div class="content">
+      <ul class="terms">
+        {{ range .Data.Terms }}
+        <li>
+          <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>&nbsp;·&nbsp;{{ .Count }}
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+</article>
 {{ end }}

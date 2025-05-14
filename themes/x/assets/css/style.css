@@ -2,7 +2,7 @@
   --font-sans: ui-sans-serif, sans-serif;
   --font-mono: ui-monospace, monospace;
   --nav-width: 1024px;
-  --main-width: 900px;
+  --main-width: 1024px;
   --radius: 4px;
   --theme: 255, 255, 255;
   --primary: 15, 23, 42;
@@ -294,69 +294,13 @@ pre code {
   visibility: visible;
 }
 
-.article-entry {
-  position: relative;
-  margin: 0 0 2em 0;
-}
-
-.article h1 {
-  font-size: 2em;
-}
-
 .article-header,
 .article-footer {
   margin: 1em 0;
 }
 
-.article-title {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.article-meta,
-.breadcrumbs {
-  color: rgb(var(--secondary));
-  font-size: 0.875em;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0.1em 0;
-}
-
-.breadcrumbs a {
-  color: inherit;
-}
-
-.article-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 0.4em 0;
-  padding: 0;
-}
-
-.article-tags li {
-  display: inline-block;
-}
-
-.article-tags a {
-  display: block;
-  font-size: 0.875em;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0 0.5em;
-  color: rgb(var(--link));
-  border-radius: var(--radius);
-  border: 1px solid rgb(var(--border));
-  text-decoration: none;
-}
-
-.article-summary {
-  margin: 0.5em 0;
-  color: rgb(var(--content));
-}
-
-.article-summary p {
-  margin: 0;
+.article-header h1 {
+  font-size: 2em;
 }
 
 .article-content {
@@ -364,12 +308,77 @@ pre code {
   flex-direction: column;
   color: rgb(var(--content));
   margin: 1em 0;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.article-content .content {
+  flex-grow: 1;
+  @media (min-width: 1024px) {
+    max-width: 70ch;
+  }
+}
+
+.article-content .toc {
+  order: -1;
+
+  .toc-content {
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  @media (min-width: 1024px) {
+    order: 1;
+    .toc-content {
+      position: sticky;
+      top: 4em;
+      max-width: 30ch;
+      padding-inline-start: 1.5em;
+    }
+  }
+
+  .toc-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: rgb(var(--primary));
+    background-color: rgb(var(--code-bg));
+    padding: 0 0.5em;
+  }
+
+  .toc-nav {
+    padding: 1em 0 1em 1em;
+    border-left: 1px dotted rgb(var(--border));
+  }
+
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li ul {
+    margin-inline-start: 1em;
+  }
+
+  a {
+    color: rgb(var(--content));
+    text-decoration: none;
+  }
+  a:hover {
+    color: rgb(var(--link));
+  }
 }
 
 .article-content h1 {
   font-size: 2em;
   margin: 1.5em 0 0.8em;
-
 }
 
 .article-content h2 {
@@ -504,51 +513,66 @@ pre code {
   text-decoration: underline;
 }
 
-.toc {
-  margin: 0;
-  background: rgb(var(--code-bg));
-  border-radius: var(--radius);
-  padding: .4em;
+.article-content .article-entry {
+  position: relative;
+  margin: 0 0 2em 0;
+}
 
-  details {
-    margin: 0;
-  }
-
-  details > summary {
-    cursor: pointer;
-    margin-inline-start: 0.25em;
-    user-select: none;
-    font-weight: bold;
+:is(.article-header, .article-content) .article-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  a {
     color: rgb(var(--primary));
+    text-decoration: none;
   }
-
-  details > summary:focus {
-    outline: 0;
+  a:hover {
+    text-decoration: underline;
   }
+}
 
-  .toc-inner {
-    margin: 0.25em 1em 0;
-    padding: 0 0.5em;
-    opacity: 0.9;
-  }
+:is(.article-header, .article-content) :is(.article-meta, .breadcrumbs) {
+  color: rgb(var(--secondary));
+  font-size: 0.875em;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.1em 0;
+}
 
-  ul, li {
+:is(.article-header, .article-content) .breadcrumbs a {
+  color: inherit;
+}
+
+:is(.article-header, .article-content) .article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0.4em 0;
+  padding: 0;
+
+  li {
+    display: inline-block;
     margin: 0;
-    padding: 0;
-  }
-
-  ul ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  li ul {
-    margin-inline-start: 1em;
   }
 
   a {
-    color: rgb(var(--content));
+    display: block;
+    font-size: 0.875em;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 0.5em;
+    color: rgb(var(--link));
+    border-radius: var(--radius);
+    border: 1px solid rgb(var(--border));
     text-decoration: none;
+  }
+}
+
+:is(.article-header, .article-content) .article-summary {
+  margin: 0.5em 0;
+  color: rgb(var(--content));
+
+  p {
+    margin: 0;
   }
 }
 

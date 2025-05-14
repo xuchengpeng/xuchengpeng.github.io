@@ -1,32 +1,30 @@
 {{ define "main" }}
-  {{ if or .Title .Content }}
   <article class="article">
     <div class="article-header">
       {{ with .Title }}<h1 class="article-title">{{ . }}</h1>{{ end }}
     </div>
-    {{ with .Content }}
     <div class="article-content">
-      <div class="content">{{ . }}</div>
+      <div class="content">
+        {{ .Content }}
+        {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+        {{ range .Pages }}
+        <article class="article-entry">
+          <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+          {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
+          {{- partial "article_meta.html" . -}}
+          {{ end }}
+          {{ if .Params.showTags | default (.Site.Params.article.showTags | default false) }}
+          {{- partial "article_tags.html" . -}}
+          {{ end }}
+          <div class="article-summary">
+            <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+          </div>
+        </article>
+        {{ end }}
+        {{ end }}
+      </div>
     </div>
-    {{ end }}
   </article>
-  {{ end }}
 
-  {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
-  {{ range .Pages }}
-  <article class="article-entry">
-    <h1 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-    {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
-    {{- partial "article_meta.html" . -}}
-    {{ end }}
-    {{ if .Params.showTags | default (.Site.Params.article.showTags | default false) }}
-    {{- partial "article_tags.html" . -}}
-    {{ end }}
-    <div class="article-summary">
-      <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-    </div>
-  </article>
-  {{ end }}
-  {{ end }}
   {{ partial "pagination.html" . }}
 {{ end }}
