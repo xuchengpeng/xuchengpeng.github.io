@@ -11,15 +11,4 @@ window.addEventListener("DOMContentLoaded", (event) => {
     var targetAppearance = document.documentElement.classList.contains("dark") ? "dark" : "light";
     localStorage.setItem("appearance", targetAppearance);
   });
-
-  window.addEventListener("scroll", () => {
-    var mybutton = document.getElementById("top-link");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      mybutton.style.visibility = "visible";
-      mybutton.style.opacity = "1";
-    } else {
-      mybutton.style.visibility = "hidden";
-      mybutton.style.opacity = "0";
-    }
-  });
 });

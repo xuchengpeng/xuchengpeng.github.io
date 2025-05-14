@@ -374,6 +374,10 @@ pre code {
   a:hover {
     color: rgb(var(--link));
   }
+  a.active {
+    color: rgb(var(--link));
+    font-weight: bold;
+  }
 }
 
 .article-content h1 {
