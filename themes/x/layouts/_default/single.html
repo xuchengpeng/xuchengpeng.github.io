@@ -3,7 +3,7 @@
   <div class="sidebar sidebar-menu">
   </div>
   <div class="sidebar sidebar-toc">
-    {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents "<ul") }}
+    {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents `<ul>`) }}
     {{ partial "toc.html" . }}
     {{ end }}
   </div>
