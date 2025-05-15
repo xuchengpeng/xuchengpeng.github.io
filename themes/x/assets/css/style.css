@@ -334,7 +334,6 @@ pre code {
     .toc-content {
       position: sticky;
       top: 4em;
-      max-width: 30ch;
       padding-inline-start: 1.5em;
     }
   }
