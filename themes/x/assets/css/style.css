@@ -231,15 +231,7 @@ button#menu-button {
 
 .main {
   display: flex;
-  flex-grow: 1;
-}
-
-.main-block {
-  display: block;
-  max-width: var(--main-width);
-  width: 100%;
-  margin: 0 auto;
-  padding: 2em 1em;
+  flex: auto;
 }
 
 .title {
@@ -292,6 +284,13 @@ pre code {
 
 :is(.highlight:hover, pre:hover) .copy-code {
   visibility: visible;
+}
+
+.article {
+  max-width: var(--main-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: 2em 1em;
 }
 
 .article-header,

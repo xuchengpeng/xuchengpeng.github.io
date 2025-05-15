@@ -6,9 +6,7 @@
     {{- partial "header.html" . -}}
   </header>
   <main class="main">
-    <div class="main-block">
-      {{ block "main" . }}{{ end }}
-    </div>
+    {{ block "main" . }}{{ end }}
   </main>
   <footer class="footer">
     {{- partial "footer.html" . -}}
