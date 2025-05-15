@@ -1,12 +1,12 @@
 {{ define "main" }}
 <article class="article">
-  {{ with .Title }}
-  <div class="article-header">
-    <h1 class="article-title">{{ . }}</h1>
-  </div>
-  {{ end }}
-  <div class="article-content">
-    <div class="content">
+  <div class="content">
+    {{ with .Title }}
+    <div class="article-header">
+      <h1 class="article-title">{{ . }}</h1>
+    </div>
+    {{ end }}
+    <div class="article-content">
       {{ .Content }}
       <h2>Recent</h2>
       {{ range first .Site.Params.showRecentItems (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}

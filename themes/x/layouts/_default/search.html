@@ -1,11 +1,11 @@
 {{ define "main" }}
 
 <article class="article">
-  <div class="article-header">
-    <h1 class="article-title">{{ .Title }}</h1>
-  </div>
-  <div class="article-content">
-    <div class="content">
+  <div class="content">
+    <div class="article-header">
+      <h1 class="article-title">{{ .Title }}</h1>
+    </div>
+    <div class="article-content">
       <div id="search-box">
         <input id="search-input" autofocus placeholder="{{ .Params.placeholder | default (printf " %s ↵" .Title) }}"
                aria-label="search" type="search" autocomplete="off" maxlength="64">

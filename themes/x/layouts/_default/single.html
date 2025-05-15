@@ -1,5 +1,13 @@
 {{ define "main" }}
-  <article class="article">
+<article class="article">
+  <div class="sidebar sidebar-menu">
+  </div>
+  <div class="sidebar sidebar-toc">
+    {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents "<ul") }}
+    {{ partial "toc.html" . }}
+    {{ end }}
+  </div>
+  <div class="content">
     <div class="article-header">
       {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
       {{ partial "breadcrumbs.html" . }}
@@ -13,13 +21,11 @@
       {{ end }}
     </div>
     <div class="article-content">
-    {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents "<ul") }}
-    {{ partial "toc.html" . }}
-    {{ end }}
-    {{ with .Content }}<div class="content">{{ . }}</div>{{ end }}
+      {{ .Content }}
     </div>
     <div class="article-footer">
       {{- partial "article_pagination.html" . -}}
     </div>
-  </article>
+  </div>
+</article>
 {{ end }}
