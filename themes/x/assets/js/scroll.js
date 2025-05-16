@@ -22,6 +22,12 @@ function smartToc() {
     if (window.innerWidth < 1024) {
       return;
     }
+    if (window.scrollY <= 50) {
+      document.querySelectorAll("#TableOfContents a.active").forEach((activeElement) => {
+        activeElement.classList.remove("active");
+      });
+      return;
+    }
     elements.forEach((element) => {
       const boundingRect = document.getElementById(element.getAttribute("href").substring(1)).getBoundingClientRect();
       if (boundingRect.top <= 90 && boundingRect.bottom >= 0) {
