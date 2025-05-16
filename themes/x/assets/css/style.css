@@ -287,6 +287,19 @@ pre code {
   visibility: visible;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--secondary), 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--secondary), 0.5);
+}
+
 .article {
   display: flex;
   flex: auto;
