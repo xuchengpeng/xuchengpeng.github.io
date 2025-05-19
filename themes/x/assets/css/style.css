@@ -465,23 +465,22 @@ pre code {
 }
 
 .article-content .terms {
+  display: flex;
+  flex-wrap: wrap;
   margin: 1em 0;
-  padding: 0;
-}
 
-.article-content .terms li {
-  display: inline-block;
-  margin: 0.5em 1em;
-}
+  span {
+    margin: 0.5em 1em;
+  }
 
-.article-content .terms a {
-  color: rgb(var(--primary));
-  text-decoration: none;
-}
-
-.article-content .terms a:hover {
-  color: rgb(var(--link));
-  text-decoration: underline;
+  a {
+    color: rgb(var(--primary));
+    text-decoration: none;
+  }
+  a:hover {
+    color: rgb(var(--link));
+    text-decoration: underline;
+  }
 }
 
 .article-content .article-entry {
