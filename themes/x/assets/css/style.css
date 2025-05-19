@@ -516,14 +516,9 @@ pre code {
 :is(.article-header, .article-content) .article-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.5em;
   margin: 0.4em 0;
   padding: 0;
-
-  li {
-    display: inline-block;
-    margin: 0;
-  }
 
   a {
     display: block;

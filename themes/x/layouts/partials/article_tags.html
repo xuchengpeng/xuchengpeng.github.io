@@ -1,5 +1,5 @@
-<ul class="article-tags">
+<div class="article-tags">
   {{ range ($.GetTerms "tags") }}
-  <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
   {{ end }}
-</ul>
+</div>
