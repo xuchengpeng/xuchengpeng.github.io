@@ -567,25 +567,20 @@ pre code {
 .article-pagination {
   display: flex;
   justify-content: space-between;
+  padding-top: 0.5em;
   border-top: 1px dotted rgb(var(--border));
-}
-
-.article-pagination a {
-  padding-inline-start: 0.8em;
-  padding-inline-end: 0.8em;
-  border-radius: var(--radius);
 }
 
 .article-pagination .title {
   letter-spacing: 1px;
-  text-transform: uppercase;
   font-size: small;
   color: rgb(var(--secondary));
 }
 
 .article-pagination .prev,
 .article-pagination .next {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 
 .article-pagination .prev {
