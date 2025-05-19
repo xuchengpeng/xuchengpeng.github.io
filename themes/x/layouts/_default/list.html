@@ -9,18 +9,7 @@
       {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
       <h2>{{ .Key }}</h2>
       {{ range .Pages }}
-      <article class="article-entry">
-        <h3 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
-        {{- partial "article_meta.html" . -}}
-        {{ end }}
-        {{ if .Params.showTags | default (.Site.Params.article.showTags | default false) }}
-        {{- partial "article_tags.html" . -}}
-        {{ end }}
-        <div class="article-summary">
-          <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-        </div>
-      </article>
+      {{ partial "article_entry.html" . }}
       {{ end }}
       {{ end }}
     </div>
