@@ -469,17 +469,21 @@ pre code {
   flex-wrap: wrap;
   margin: 1em 0;
 
-  span {
-    margin: 0.5em 1em;
-  }
-
   a {
+    display: inline-block;
     color: rgb(var(--primary));
     text-decoration: none;
-  }
-  a:hover {
-    color: rgb(var(--link));
-    text-decoration: underline;
+    transition: all 0.3s ease-in-out;
+    margin: 0.5em 1em;
+
+    &:hover {
+      transform: scale(1.2);
+      color: rgb(var(--link));
+    }
+
+    sup {
+      color: rgb(var(--content));
+    }
   }
 }
 

@@ -7,7 +7,7 @@
     <div class="article-content">
       <div class="terms">
         {{ range .Data.Terms }}
-        <span><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>&nbsp;·&nbsp;{{ .Count }}</span>
+        <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}&nbsp;<sup>{{ .Count }}</sup></a>
         {{ end }}
       </div>
     </div>
