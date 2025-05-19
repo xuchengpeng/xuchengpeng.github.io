@@ -44,9 +44,8 @@ searchInput.onkeyup = function (event) {
     if (results.length !== 0) {
       let resultSet = "";
       for (let item in results) {
-        resultSet += `<li><a href="${results[item].item.permalink}" aria-label="${results[item].item.title}"></a>
-          <h1>${results[item].item.title}</h1>
-          <p>${results[item].item.summary}</p></li>`
+        resultSet += `<li><a href="${results[item].item.permalink}" aria-label="${results[item].item.title}">
+          <h1>${results[item].item.title}</h1><p>${results[item].item.summary}</p></a></li>`
       }
       searchResults.innerHTML = resultSet;
       hasResults = true;
