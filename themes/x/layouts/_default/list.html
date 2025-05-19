@@ -7,9 +7,10 @@
     <div class="article-content">
       {{ .Content }}
       {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+      <h2>{{ .Key }}</h2>
       {{ range .Pages }}
       <article class="article-entry">
-        <h2 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <h3 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
         {{- partial "article_meta.html" . -}}
         {{ end }}
