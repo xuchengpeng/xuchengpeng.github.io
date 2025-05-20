@@ -1,7 +1,7 @@
 ---
 title: "Shortcodes"
 date: 2025-05-09T13:24:52+08:00
-categories: ["Web"]
+categories: ["Themes"]
 tags: ["Hugo"]
 ---
 

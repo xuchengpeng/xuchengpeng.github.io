@@ -1,7 +1,7 @@
 ---
 title: "Mermaid Support"
 date: 2025-04-30T09:03:27+08:00
-categories: ["Web"]
+categories: ["Themes"]
 tags: ["Mermaid", "Hugo"]
 ---
 
