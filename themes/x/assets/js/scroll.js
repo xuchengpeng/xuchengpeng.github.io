@@ -1,7 +1,19 @@
 window.addEventListener("DOMContentLoaded", (event) => {
+  headerShadow();
   scrollTop();
   smartToc();
 });
+
+function headerShadow() {
+  var header = document.querySelector(".header");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY >= 50) {
+      header.classList.add("header-shadow");
+    } else {
+      header.classList.remove("header-shadow");
+    }
+  });
+}
 
 function scrollTop() {
   var toplink = document.getElementById("top-link");

@@ -119,7 +119,10 @@ html:not(.dark) svg#sun {
   top: 0;
   z-index: 100;
   background: rgb(var(--theme));
-  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+.header-shadow {
+  box-shadow: 0 1em 2em rgba(0, 0, 0, 0.15);
 }
 
 .site-header {
