@@ -334,76 +334,72 @@ pre code {
 }
 
 .article-header,
-.article-footer {
-  margin: 1em 0;
-}
-
-.article-header h1 {
-  font-size: 2em;
-}
-
+.article-footer,
 .article-content {
-  color: rgb(var(--content));
   margin: 1em 0;
 }
 
-.article-content h1 {
+.content {
+  color: rgb(var(--content));
+}
+
+.content h1 {
   font-size: 2em;
   margin: 1.5em 0 0.8em;
 }
 
-.article-content h2 {
+.content h2 {
   font-size: 1.5em;
   margin: 1.5em 0 0.75em;
 }
 
-.article-content h3 {
+.content h3 {
   font-size: 1.25em;
 }
 
-.article-content h4 {
+.content h4 {
   font-size: 1em;
 }
 
-.article-content h5 {
+.content h5 {
   font-size: 0.875em;
 }
 
-.article-content h6 {
+.content h6 {
   font-size: 0.75em;
 }
 
-.article-content :is(h3, h4, h5, h6) {
+.content :is(h3, h4, h5, h6) {
   margin: 1.5em 0 0.7em;
 }
 
-.article-content :is(h1, h2, h3, h4, h5, h6) {
+.content :is(h1, h2, h3, h4, h5, h6) {
   scroll-margin-top: 3em;
 }
 
-.article-content :is(h1, h2, h3, h4, h5, h6) .anchor {
+.content :is(h1, h2, h3, h4, h5, h6) .anchor {
   display: none;
   color: rgb(var(--secondary));
   margin-inline-start: 0.3em;
   user-select: none;
 }
 
-.article-content :is(h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover) .anchor {
+.content :is(h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover) .anchor {
   display: inline;
 }
 
-.article-content a {
+.content a {
   color: rgb(var(--link));
   text-decoration: none;
 }
 
-.article-content blockquote {
-  margin: 20px 0;
-  padding: 0 14px;
+.content blockquote {
+  margin: 1em 0;
+  padding-inline-start: 1em;
   border-inline-start: 3px solid rgb(var(--secondary));
 }
 
-.article-content {
+.content {
   ul,
   ol {
     margin: 1em 0;
@@ -435,36 +431,36 @@ pre code {
   }
 }
 
-.article-content .footnotes hr {
+.content .footnotes hr {
   margin: 30px 0;
   height: 2px;
   background: rgb(var(--tertiary));
   border: 0;
 }
 
-.article-content .footnotes p {
+.content .footnotes p {
   margin: 0;
 }
 
-.article-content table {
+.content table {
   border-collapse: collapse;
   border-spacing: 0;
   margin: 1em 0;
 }
 
-.article-content table th {
+.content table th {
   color: rgb(var(--primary));
   padding: 0.5em 0.3em;
   border: 1px solid rgb(var(--border));
 }
 
-.article-content table td {
+.content table td {
   color: rgb(var(--content));
   padding: 0.5em 0.3em;
   border: 1px solid rgb(var(--border));
 }
 
-.article-content .terms {
+.content .terms {
   display: flex;
   flex-wrap: wrap;
   margin: 1em 0;
@@ -487,24 +483,24 @@ pre code {
   }
 }
 
-.article-content .article-entry {
+.content .article-entry {
   position: relative;
   margin: 0 0 2em 0;
 }
 
-:is(.article-header, .article-content) .article-title {
+.content .article-title {
   margin-top: 0;
   margin-bottom: 0;
   a {
     color: rgb(var(--primary));
     text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
-:is(.article-header, .article-content) :is(.article-meta, .breadcrumbs) {
+.content :is(.article-meta, .breadcrumbs) {
   color: rgb(var(--secondary));
   font-size: 0.875em;
   display: flex;
@@ -512,11 +508,14 @@ pre code {
   margin: 0.1em 0;
 }
 
-:is(.article-header, .article-content) .breadcrumbs a {
+.content .breadcrumbs a {
   color: inherit;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
-:is(.article-header, .article-content) .article-tags {
+.content .article-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
@@ -536,7 +535,7 @@ pre code {
   }
 }
 
-:is(.article-header, .article-content) .article-summary {
+.content .article-summary {
   margin: 0.5em 0;
   color: rgb(var(--content));
 
@@ -550,21 +549,21 @@ pre code {
   flex-direction: row;
   justify-content: center;
   gap: 0.5em;
-}
 
-.pagination .page-item {
-  color: rgb(var(--primary));
-  font-size: 0.875em;
-  line-height: 2em;
-  min-width: 2em;
-  border: 1px solid rgb(var(--border));
-  border-radius: var(--radius);
-  text-align: center;
-  text-decoration: none;
-}
+  .page-item {
+    color: rgb(var(--primary));
+    font-size: 0.875em;
+    line-height: 2em;
+    min-width: 2em;
+    border: 1px solid rgb(var(--border));
+    border-radius: var(--radius);
+    text-align: center;
+    text-decoration: none;
+  }
 
-.pagination .page-item.active {
-  background: rgb(var(--tertiary));
+  .page-item.active {
+    background: rgb(var(--tertiary));
+  }
 }
 
 .article-pagination {
@@ -572,26 +571,32 @@ pre code {
   justify-content: space-between;
   padding-top: 0.5em;
   border-top: 1px dotted rgb(var(--border));
-}
 
-.article-pagination .title {
-  letter-spacing: 1px;
-  font-size: small;
-  color: rgb(var(--secondary));
-}
+  a {
+    color: rgb(var(--primary));
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
-.article-pagination .prev,
-.article-pagination .next {
-  display: flex;
-  flex-direction: column;
-}
+  .title {
+    letter-spacing: 1px;
+    font-size: small;
+    color: rgb(var(--secondary));
+  }
 
-.article-pagination .prev {
-  text-align: left;
-}
+  .prev, .next {
+    display: flex;
+    flex-direction: column;
+  }
 
-.article-pagination .next {
-  text-align: right;
+  .prev {
+    text-align: left;
+  }
+
+  .next {
+    text-align: right;
+  }
 }
 
 .toc {
@@ -659,10 +664,10 @@ pre code {
   padding: 12px;
   border-radius: 64px;
   transition: visibility .5s, opacity .8s linear;
-}
 
-.top-link:hover {
-  color: rgb(var(--primary));
+  &:hover {
+    color: rgb(var(--primary));
+  }
 }
 
 .text-center {
