@@ -61,6 +61,7 @@ h6 {
 
 a {
   text-decoration: none;
+  word-break: break-all;
 }
 
 a:hover {
@@ -157,6 +158,13 @@ html:not(.dark) svg#sun {
 }
 
 .main-menu {
+  a {
+    color: rgb(var(--primary));
+    text-decoration: none;
+    &:hover {
+      color: rgb(var(--link));
+    }
+  }
   @media (width >= 800px) {
     display: flex;
     flex-wrap: wrap;
@@ -178,15 +186,9 @@ html:not(.dark) svg#sun {
     line-height: 1;
 
     a {
-      color: rgb(var(--primary));
-      text-decoration: none;
       text-align: right;
       display: block;
       margin: 1em;
-    }
-
-    a:hover {
-      color: rgb(var(--link));
     }
   }
 }
@@ -582,7 +584,7 @@ pre code {
     }
   }
 
-  .title {
+  .direction {
     letter-spacing: 1px;
     font-size: small;
     color: rgb(var(--secondary));
