@@ -448,6 +448,8 @@ pre code {
 }
 
 .content table {
+  display: block;
+  overflow: auto;
   border-collapse: collapse;
   border-spacing: 0;
   margin: 1em 0;
