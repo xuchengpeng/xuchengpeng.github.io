@@ -218,7 +218,12 @@ button#menu-button {
   gap: 1em;
 
   & a {
+    text-decoration: none;
     color: inherit;
+
+    &:hover {
+      color: rgb(var(--link));
+    }
   }
 }
 
@@ -232,6 +237,10 @@ button#menu-button {
 
   & a {
     color: inherit;
+
+    &:hover {
+      color: rgb(var(--link));
+    }
   }
 }
 
@@ -242,6 +251,10 @@ button#menu-button {
 
 .title {
   font-size: 2em;
+
+  &:hover {
+    text-decoration-color: rgb(var(--link));
+  }
 }
 
 .highlight, pre {
@@ -503,6 +516,7 @@ pre code {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
+      text-decoration-color: rgb(var(--link));
     }
   }
 }
@@ -567,6 +581,10 @@ pre code {
     text-align: center;
     text-decoration: none;
 
+    &:hover {
+      color: rgb(var(--link));
+    }
+
     &.active {
       background: rgb(var(--tertiary));
     }
@@ -583,6 +601,7 @@ pre code {
     color: rgb(var(--primary));
     &:hover {
       text-decoration: underline;
+      text-decoration-color: rgb(var(--link));
     }
   }
 
