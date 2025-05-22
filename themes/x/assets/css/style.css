@@ -782,6 +782,10 @@ pre code {
   }
 }
 
+.katex-display {
+  overflow: auto hidden;
+}
+
 #search-box input {
   padding: 0.2em 0.6em;
   width: 100%;
