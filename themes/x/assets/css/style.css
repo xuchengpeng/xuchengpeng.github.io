@@ -324,6 +324,7 @@ pre code {
 
   & .sidebar {
     width: var(--sidebar-width);
+    padding: 2em 0;
     @media (max-width: 1400px) {
       display: none;
     }
@@ -607,7 +608,8 @@ pre code {
 
 .toc {
   position: sticky;
-  top: 10em;
+  top: 4em;
+  margin: 1em 0;
 
   & .toc-content {
     max-height: 100vh;
@@ -619,8 +621,6 @@ pre code {
     font-size: 1.1em;
     font-weight: bold;
     color: rgb(var(--primary));
-    background-color: rgb(var(--code-bg));
-    padding: 0 0.5em;
   }
 
   & .toc-nav {
