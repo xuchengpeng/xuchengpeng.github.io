@@ -155,6 +155,10 @@ html:not(.dark) svg#sun {
   background: 0 0;
   border: 0;
   cursor: pointer;
+
+  &:hover {
+    color: rgb(var(--link));
+  }
 }
 
 .main-menu {
