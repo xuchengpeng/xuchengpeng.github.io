@@ -420,6 +420,7 @@ pre code {
   margin: 1em 0;
   padding-inline-start: 1em;
   border-inline-start: 3px solid rgb(var(--secondary));
+  font-style: italic;
 }
 
 .content {
