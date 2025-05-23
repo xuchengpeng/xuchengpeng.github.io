@@ -21,9 +21,9 @@ window.addEventListener("load", (event) => {
             includeMatches: true,
             keys: [
               'title',
-              'permalink',
               'summary',
-              'content'
+              'tags',
+              "categories"
             ]
           };
           fuse = new Fuse(data, options); // build the index from the json file

@@ -1,7 +1,5 @@
 {{- $.Scratch.Add "index" slice -}}
-{{- range site.RegularPages -}}
-  {{- if (ne .Layout `search`) }}
-  {{- $.Scratch.Add "index" (dict "title" .Title "content" .Plain "permalink" .RelPermalink "summary" (.Summary | plainify)) -}}
-  {{- end }}
+{{- range where .Site.RegularPages "Type" "in" .Site.Params.mainSections -}}
+  {{- $.Scratch.Add "index" (dict "title" (.Title | safeJS) "tags" .Params.tags "categories" .Params.categories "summary" (.Summary | htmlUnescape | plainify | safeJS) "permalink" .RelPermalink) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}
