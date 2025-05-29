@@ -12,6 +12,7 @@ A basic 3D rotation (also called elemental rotation) is a rotation about one of 
 {{< figure
   src="angle-orientation-in-rotation-matrix-around-x-y-and-z.svg"
   alt="Angle-orientation-in-rotation-matrix-around-x-y-and-z"
+  width=500
 >}}
 
 $$
