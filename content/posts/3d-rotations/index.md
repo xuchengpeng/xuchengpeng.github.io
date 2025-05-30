@@ -49,3 +49,11 @@ A rotation represented by Euler angles (\\(\alpha, \beta, \gamma\\)) = (−60°,
   alt="EulerG"
   width=700
 >}}
+
+The same rotation represented by (\\(\gamma, \beta, \alpha\\)) = (45°, 30°, −60°), using z-x-z extrinsic rotations:
+
+{{< figure
+  src="EulerX.png"
+  alt="EulerX"
+  width=700
+>}}
