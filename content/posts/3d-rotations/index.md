@@ -23,7 +23,7 @@ R_z(\theta) &= \begin{bmatrix} \cos\theta & -\sin\theta & 0 \newline \sin\theta 
 \end{split}
 $$
 
-Other 3D rotation matrices can be obtained from these three using matrix multiplication. For example, a rotation whose yaw, pitch and roll angles are \\(\alpha\\), \\(\beta\\) and \\(\gamma\\).
+Other 3D rotation matrices can be obtained from these three using matrix multiplication. For example, a rotation whose yaw, pitch and roll angles are \\(\alpha\\), \\(\beta\\) and \\(\gamma\\). It is an intrinsic rotation whose Tait–Bryan angles are \\(\alpha\\), \\(\beta\\), \\(\gamma\\), about axes \\(z\\), \\(y\\), \\(x\\), respectively.
 
 $$
 \begin{split}
@@ -33,3 +33,19 @@ R &= R_z(\alpha)R_y(\beta)R_z(\gamma) \newline
 -\sin\beta & \cos\beta\sin\gamma & \cos\beta\cos\gamma \end{bmatrix}
 \end{split}
 $$
+
+[Euler angles](https://en.wikipedia.org/wiki/Euler_angles) can be defined by elemental geometry or by composition of rotations. The geometrical definition demonstrates that three consecutive elemental rotations (rotations about the axes of a coordinate system) are always sufficient to reach any target frame.
+
+The three elemental rotations may be extrinsic (rotations about the axes xyz of the original coordinate system, which is assumed to remain motionless), or intrinsic (rotations about the axes of the rotating coordinate system XYZ, solidary with the moving body, which changes its orientation with respect to the extrinsic frame after each elemental rotation).
+
+Without considering the possibility of using two different conventions for the definition of the rotation axes (intrinsic or extrinsic), there exist twelve possible sequences of rotation axes, divided in two groups:
+- **Proper Euler angles** (z-x-z, x-y-x, y-z-y, z-y-z, x-z-x, y-x-y)
+- **Tait–Bryan angles** (x-y-z, y-z-x, z-x-y, x-z-y, z-y-x, y-x-z)
+
+A rotation represented by Euler angles (\\(\alpha, \beta, \gamma\\)) = (−60°, 30°, 45°), using z-x-z intrinsic rotations:
+
+{{< figure
+  src="EulerG.png"
+  alt="EulerG"
+  width=700
+>}}
