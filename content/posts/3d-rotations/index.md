@@ -27,7 +27,7 @@ Other 3D rotation matrices can be obtained from these three using matrix multipl
 
 $$
 \begin{split}
-R &= R_z(\alpha)R_y(\beta)R_z(\gamma) \newline
+R &= R_z(\alpha)R_y(\beta)R_x(\gamma) \newline
 &= \begin{bmatrix} \cos\alpha\cos\beta & \cos\alpha\sin\beta\sin\gamma - \sin\alpha\cos\gamma & \cos\alpha\sin\beta\cos\gamma + \sin\alpha\sin\gamma \newline
 \sin\alpha\cos\beta & \sin\alpha\sin\beta\sin\gamma + \cos\alpha\cos\gamma & \sin\alpha\sin\beta\cos\gamma - \cos\alpha\sin\gamma \newline
 -\sin\beta & \cos\beta\sin\gamma & \cos\beta\cos\gamma \end{bmatrix}
