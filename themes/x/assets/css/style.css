@@ -78,6 +78,9 @@ figure {
   margin: 1em auto;
   padding: 0;
   text-align: center;
+  & img {
+    margin: 0;
+  }
 }
 
 figcaption {
