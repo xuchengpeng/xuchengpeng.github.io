@@ -21,6 +21,7 @@ Lorem est tota propiore conpellat pectoribus de pectora summo.
   src="https://image.artron.net/wd/auction//118/art/28657/a55dc29b404ae2b145c3f4ae53404f0d.jpg"
   alt="Yellow Crane Tower"
   caption="Yellow Crane Tower"
+  width=700
 >}}
 
 ## highlight
