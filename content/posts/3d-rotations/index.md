@@ -10,10 +10,12 @@ A basic 3D rotation (also called elemental rotation) is a rotation about one of 
 <!--more-->
 
 {{< figure
-  src="angle-orientation-in-rotation-matrix-around-x-y-and-z.svg"
-  alt="Angle-orientation-in-rotation-matrix-around-x-y-and-z"
-  width=500
+  src="left-and-right-hand-rule.svg"
+  alt="left-and-right-hand-rule"
+  caption="Left and right hand rule"
 >}}
+
+For **left-hand rule**, the turn is **clockwise**, and for **right-hand rule**, the turn is **counter-clockwise**.
 
 $$
 \begin{split}
