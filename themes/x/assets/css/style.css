@@ -400,8 +400,8 @@ pre code {
   margin: 1.5em 0 0.7em;
 }
 
-.content :is(h1, h2, h3, h4, h5, h6) {
-  scroll-margin-top: 3em;
+.content :is(h1, h2, h3, h4, h5, h6, [id^="fn"], [id^="fnref"]) {
+  scroll-margin-top: 3.5em;
 }
 
 .content :is(h1, h2, h3, h4, h5, h6) .anchor {
