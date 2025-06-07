@@ -5,7 +5,7 @@ if ((sitePreference === "dark" && userPreference === null) || userPreference ===
   document.documentElement.classList.add("dark");
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", (_) => {
   document.getElementById("appearance-switcher").addEventListener("click", () => {
     document.documentElement.classList.toggle("dark");
     var targetAppearance = document.documentElement.classList.contains("dark") ? "dark" : "light";

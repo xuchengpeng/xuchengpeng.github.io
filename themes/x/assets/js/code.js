@@ -17,6 +17,6 @@ function createCopyButton(highlightDiv) {
   highlightDiv.appendChild(button);
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", (_) => {
   document.querySelectorAll(".highlight").forEach((highlightDiv) => createCopyButton(highlightDiv));
 });

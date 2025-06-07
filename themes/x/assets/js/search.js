@@ -6,7 +6,7 @@ var last = searchResults.lastChild;
 var hasResults = false;
 
 // load index
-window.addEventListener("load", (event) => {
+window.addEventListener("load", (_) => {
   let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
@@ -38,7 +38,7 @@ window.addEventListener("load", (event) => {
 });
 
 // execute search as each character is typed
-searchInput.onkeyup = function (event) {
+searchInput.onkeyup = function (_) {
   if (fuse) {
     let results = fuse.search(this.value);
     if (results.length !== 0) {
@@ -65,7 +65,7 @@ function clearSearch() {
   searchInput.focus();
 }
 
-searchInput.addEventListener("search", (event) => {
+searchInput.addEventListener("search", (_) => {
   // clicked on x
   if (!this.value) {
     clearSearch();
