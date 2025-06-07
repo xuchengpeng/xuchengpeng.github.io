@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", (_) => {
   headerShadow();
   scrollTop();
   smartToc();
@@ -42,7 +42,7 @@ function smartToc() {
     }
     elements.forEach((element) => {
       const boundingRect = document.getElementById(element.getAttribute("href").substring(1)).getBoundingClientRect();
-      if (boundingRect.top <= 90 && boundingRect.bottom >= 0) {
+      if (boundingRect.top <= 100 && boundingRect.bottom >= 0) {
         document.querySelectorAll("#TableOfContents a.active").forEach((activeElement) => {
           if (activeElement.getAttribute("href") == element.getAttribute("href")) {
             return;
