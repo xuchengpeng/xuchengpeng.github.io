@@ -11,6 +11,12 @@ Each Modus theme specifies a color palette that declares named color values and 
 ## Make mode line borderless
 
 ```emacs-lisp
+;; Remove the border
+(setq modus-themes-common-palette-overrides
+      '((border-mode-line-active unspecified)
+        (border-mode-line-inactive unspecified)))
+
+;; Or make border color same as background color
 (setq modus-themes-common-palette-overrides
       '((border-mode-line-active bg-mode-line-active)
         (border-mode-line-inactive bg-mode-line-inactive)))
