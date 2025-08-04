@@ -3,7 +3,6 @@
   --font-mono: ui-monospace, monospace;
   --nav-width: 1024px;
   --main-width: 900px;
-  --sidebar-width: 250px;
   --radius: 4px;
   --theme: 255, 255, 255;
   --primary: 15, 23, 42;
@@ -330,7 +329,7 @@ pre code {
   display: flex;
   flex: auto;
   justify-content: center;
-  max-width: calc(var(--main-width) + 2 * var(--sidebar-width));
+  max-width: var(--main-width);
   width: 100%;
   margin: 0 auto;
 }
@@ -341,22 +340,6 @@ pre code {
     max-width: var(--main-width);
     width: 100%;
     padding: 2em 1em;
-  }
-
-  & .sidebar {
-    width: var(--sidebar-width);
-    padding: 2em 0;
-    @media (max-width: 1400px) {
-      display: none;
-    }
-  }
-
-  & .sidebar-menu {
-    order: -1;
-  }
-
-  & .sidebar-toc {
-    order: 1;
   }
 }
 
@@ -635,9 +618,20 @@ pre code {
 }
 
 .toc {
-  position: sticky;
-  top: 4em;
   margin: 1em 0;
+
+  @media screen and (min-width: 1400px) {
+    position: fixed;
+    width: calc(((100vw - var(--main-width)) / 2) - 30px);
+    height: 80vh;
+    right: 0;
+    top: 10vh;
+    overflow: hidden;
+
+    &:hover {
+      overflow: auto;
+    }
+  }
 
   & .toc-content {
     max-height: 100vh;

@@ -1,5 +1,5 @@
 theme = "x"
-baseURL = "https://xuchengpeng.github.io/hugo-x"
+baseURL = "https://xuchengpeng.cn"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
