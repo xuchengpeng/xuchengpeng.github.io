@@ -1,5 +1,5 @@
 defaultTheme = "light" # light, dark
-mainSections = ["posts", "notes"]
+mainSections = ["posts"]
 showRecentItems = 5
 
 [article]
