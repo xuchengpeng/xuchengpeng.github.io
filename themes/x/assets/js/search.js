@@ -16,9 +16,10 @@ window.addEventListener("load", (_) => {
           // fuse.js options; check fuse.js website for details
           let options = {
             shouldSort: true,
-            ignoreLocation: true,
-            threshold: 0.0,
-            includeMatches: true,
+            location: 0,
+            threshold: 0.6,
+            distance: 100,
+            ignoreLocation: false,
             keys: [
               'title',
               'summary',
