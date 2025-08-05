@@ -4,5 +4,7 @@
 }
 
 body {
-  font-size: 18px;
+  @media (min-width: 800px) {
+    font-size: 18px;
+  }
 }
