@@ -1,18 +1,18 @@
 {{ define "main" }}
 <article class="article">
-  <div class="content">
-    <div class="article-header">
-      {{ with .Title }}<h1 class="article-title">{{ . }}</h1>{{ end }}
-    </div>
-    <div class="article-content">
-      {{ .Content }}
-      {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
-      <h2>{{ .Key }}</h2>
-      {{ range .Pages }}
-      {{ partial "article_entry.html" . }}
-      {{ end }}
-      {{ end }}
-    </div>
+  <div class="article-header">
+    {{ with .Title }}<h1 class="article-title">{{ . }}</h1>{{ end }}
+  </div>
+  <div class="article-content">
+    {{ .Content }}
+    {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+    <h2>{{ .Key }}</h2>
+    {{ range .Pages }}
+    {{ partial "article_entry.html" . }}
+    {{ end }}
+    {{ end }}
+  </div>
+  <div class="article-footer">
     {{ partial "pagination.html" . }}
   </div>
 </article>

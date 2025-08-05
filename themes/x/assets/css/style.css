@@ -326,91 +326,80 @@ pre code {
 }
 
 .article {
-  display: flex;
-  flex: auto;
-  justify-content: center;
+  flex: 1;
   max-width: var(--main-width);
   width: 100%;
   margin: 0 auto;
+  padding: 2em 1em;
 }
 
-.article {
-  & .content {
-    flex: 1;
-    max-width: var(--main-width);
-    width: 100%;
-    padding: 2em 1em;
-  }
+.article :is(.article-header, .article-footer) {
+  margin:1em 0;
 }
 
-.article-header,
-.article-footer,
-.article-content {
-  margin: 1em 0;
-}
-
-.content {
+.article .article-content {
+  margin: 1.5em 0;
   color: rgb(var(--content));
 }
 
-.content h1 {
+.article h1 {
   font-size: 2em;
   margin: 1.5em 0 0.8em;
 }
 
-.content h2 {
+.article h2 {
   font-size: 1.5em;
   margin: 1.5em 0 0.75em;
 }
 
-.content h3 {
+.article h3 {
   font-size: 1.25em;
 }
 
-.content h4 {
+.article h4 {
   font-size: 1em;
 }
 
-.content h5 {
+.article h5 {
   font-size: 0.875em;
 }
 
-.content h6 {
+.article h6 {
   font-size: 0.75em;
 }
 
-.content :is(h3, h4, h5, h6) {
+.article :is(h3, h4, h5, h6) {
   margin: 1.5em 0 0.7em;
 }
 
-.content :is(h1, h2, h3, h4, h5, h6, [id^="fn"], [id^="fnref"]) {
+.article :is(h1, h2, h3, h4, h5, h6, [id^="fn"], [id^="fnref"]) {
   scroll-margin-top: 3.5em;
 }
 
-.content :is(h1, h2, h3, h4, h5, h6) .anchor {
+.article :is(h1, h2, h3, h4, h5, h6) .anchor {
   display: none;
   color: rgb(var(--secondary));
   margin-inline-start: 0.3em;
   user-select: none;
 }
 
-.content :is(h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover) .anchor {
+.article :is(h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover) .anchor {
   display: inline;
 }
 
-.content a {
+.article a {
   color: rgb(var(--link));
   text-decoration: none;
 }
 
-.content blockquote {
+.article blockquote {
   margin: 1em 0;
   padding-inline-start: 1em;
   border-inline-start: 3px solid rgb(var(--secondary));
   font-style: italic;
 }
 
-.content {
+.article {
   & ul, & ol {
     margin: 1em 0;
     padding-inline-start: 1.5em;
@@ -438,7 +427,7 @@ pre code {
   }
 }
 
-.content .footnotes {
+.article .footnotes {
   & hr {
     margin: 30px 0;
     height: 2px;
@@ -451,7 +440,7 @@ pre code {
   }
 }
 
-.content table {
+.article table {
   display: block;
   overflow: auto;
   border-collapse: collapse;
@@ -471,7 +460,7 @@ pre code {
   }
 }
 
-.content .terms {
+.article .terms {
   display: flex;
   flex-wrap: wrap;
   margin: 1em 0;
@@ -494,12 +483,12 @@ pre code {
   }
 }
 
-.content .article-entry {
+.article .article-entry {
   position: relative;
   margin: 0 0 2em 0;
 }
 
-.content .article-title {
+.article .article-title {
   margin-top: 0;
   margin-bottom: 0;
 
@@ -513,7 +502,7 @@ pre code {
   }
 }
 
-.content :is(.article-meta, .breadcrumbs) {
+.article :is(.article-meta, .breadcrumbs) {
   color: rgb(var(--secondary));
   font-size: 0.875em;
   display: flex;
@@ -521,14 +510,14 @@ pre code {
   margin: 0.1em 0;
 }
 
-.content .breadcrumbs a {
+.article .breadcrumbs a {
   color: inherit;
   &:hover {
     text-decoration: underline;
   }
 }
 
-.content .article-tags {
+.article .article-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
@@ -548,7 +537,7 @@ pre code {
   }
 }
 
-.content .article-summary {
+.article .article-summary {
   margin: 0.5em 0;
   color: rgb(var(--content));
 
