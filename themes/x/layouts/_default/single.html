@@ -4,7 +4,7 @@
     {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
     {{- partial "breadcrumbs.html" . -}}
     {{ end }}
-    <h1 class="article-title">{{ .Title }}</h1>
+    <h1 class="article-title">{{ .Title | emojify }}</h1>
     {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
     {{- partial "article_meta.html" . -}}
     {{ end }}

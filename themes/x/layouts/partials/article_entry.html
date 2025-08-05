@@ -1,5 +1,5 @@
 <article class="article-entry">
-  <h3 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <h3 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title | emojify }}</a></h3>
   {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
   {{- partial "article_meta.html" . -}}
   {{ end }}

@@ -1,5 +1,5 @@
 <nav class="site-header">
-  <a class="title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+  <a class="title" href="{{ .Site.BaseURL }}">{{ .Site.Title | emojify }}</a>
   <div class="menu">
     <div id="menu-list" class="main-menu">
       {{ range .Site.Menus.main }}

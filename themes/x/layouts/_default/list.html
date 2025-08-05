@@ -1,7 +1,7 @@
 {{ define "main" }}
 <article class="article">
   <div class="article-header">
-    {{ with .Title }}<h1 class="article-title">{{ . }}</h1>{{ end }}
+    {{ with .Title }}<h1 class="article-title">{{ . | emojify }}</h1>{{ end }}
   </div>
   <div class="article-content">
     {{ .Content }}

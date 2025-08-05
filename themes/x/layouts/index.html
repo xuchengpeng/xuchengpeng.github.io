@@ -2,7 +2,7 @@
 <article class="article">
   {{ with .Title }}
   <div class="article-header">
-    <h1 class="article-title">{{ . }}</h1>
+    <h1 class="article-title">{{ . | emojify }}</h1>
   </div>
   {{ end }}
   <div class="article-content">

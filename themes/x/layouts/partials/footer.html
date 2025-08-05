@@ -7,7 +7,7 @@
   </div>
   {{ end }}
   <div class="footer-content">
-    <p>&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
+    <p>&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title | emojify }}</a></p>
     <p>Powered by <a href="https://gohugo.io/">Hugo</a></p>
   </div>
 </div>
