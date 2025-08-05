@@ -8,12 +8,12 @@
     {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
     <h2>{{ .Key }}</h2>
     {{ range .Pages }}
-    {{ partial "article_entry.html" . }}
+    {{- partial "article_entry.html" . -}}
     {{ end }}
     {{ end }}
   </div>
   <div class="article-footer">
-    {{ partial "pagination.html" . }}
+    {{- partial "pagination.html" . -}}
   </div>
 </article>
 {{ end }}

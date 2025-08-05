@@ -7,6 +7,6 @@
   {{- partial "article_tags.html" . -}}
   {{ end }}
   <div class="article-summary">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    <p>{{ .Summary | plainify }}{{ if .Truncated }}...{{ end }}</p>
   </div>
 </article>
