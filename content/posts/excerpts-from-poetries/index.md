@@ -2,7 +2,7 @@
 title: "Excerpts From Poetries"
 date: 2025-08-04T16:24:42+08:00
 categories: ["Reading"]
-tags: ["Poetry"]
+tags: ["Reading", "Poetry"]
 summary: "A collection of excerpts from some poetries."
 ---
 
