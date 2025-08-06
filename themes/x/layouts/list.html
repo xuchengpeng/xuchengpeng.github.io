@@ -5,12 +5,12 @@
   </div>
   <div class="article-content">
     {{ .Content }}
-    {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+    {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
     <h2>{{ .Key }}</h2>
-    {{ range .Pages }}
+    {{- range .Pages -}}
     {{- partial "article_entry.html" . -}}
-    {{ end }}
-    {{ end }}
+    {{- end -}}
+    {{- end -}}
   </div>
   <div class="article-footer">
     {{- partial "pagination.html" . -}}

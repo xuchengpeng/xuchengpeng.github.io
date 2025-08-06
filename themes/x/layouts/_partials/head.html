@@ -32,7 +32,7 @@
   {{ $assets.Add "js" (slice $jsScroll) }}
   {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify }}
   <script defer type="text/javascript" src="{{ $bundleJS.RelPermalink }}"></script>
-  {{ if templates.Exists "partials/extend_head.html" }}
+  {{ if templates.Exists "_partials/extend_head.html" }}
   {{ partialCached "extend_head.html" .Site }}
   {{ end }}
   {{ if .Params.showMath | default (.Site.Params.article.showMath | default false) }}
