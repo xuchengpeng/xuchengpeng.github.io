@@ -12,12 +12,11 @@ Harper takes advantage of decades of natural language research to analyze exactl
 
 In a way, Harper is an error-tolerant parser for English.
 
-After installing harper-ls, configure it with Eglot for text modes:
+After installing harper-ls, configure it with Eglot for org-mode:
 
 ```emacs-lisp
 (with-eval-after-load 'eglot
   (add-to-list 'eglot-server-programs
-               '((text-mode markdown-mode org-mode) . ("harper-ls" "--stdio"))))
-(dolist (hook '(text-mode markdown-mode org-mode))
-  (add-hook hook #'eglot-ensure))
+               '(org-mode . ("harper-ls" "--stdio"))))
+(add-hook 'org-mode-hook #'eglot-ensure)
 ```
