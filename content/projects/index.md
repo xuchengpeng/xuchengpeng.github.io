@@ -15,6 +15,7 @@ showPagination: false
 | mingw-builds-binaries | MinGW-W64 compiler binaries.                                               | [github](https://github.com/xuchengpeng/mingw-builds-binaries) |
 | tokyonight-themes     | Tokyo Night themes for GNU Emacs.                                          | [github](https://github.com/xuchengpeng/tokyonight-themes)     |
 | nvim                  | My neovim configuration.                                                   | [github](https://github.com/xuchengpeng/nvim)                  |
+| hugo-x                | A powerful, lightweight theme for Hugo.                                    | [github](https://github.com/xuchengpeng/xuchengpeng.github.io) |
 | org-blog              | A blog which published by Org-mode.                                        | [github](https://github.com/xuchengpeng/org-blog)              |
 | elpa-mirror           | A mirror of [ELPA](https://elpa.gnu.org/) and [MELPA](https://melpa.org/). | [github](https://github.com/xuchengpeng/elpa-mirror)           |
 | mirror-elpa           | Mirror ELPA and MELPA everyday.                                            | [github](https://github.com/xuchengpeng/mirror-elpa)           |
