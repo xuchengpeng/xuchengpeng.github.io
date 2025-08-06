@@ -2,9 +2,9 @@
   <a class="title" href="{{ .Site.BaseURL }}">{{ .Site.Title | emojify }}</a>
   <div class="menu">
     <div id="menu-list" class="main-menu">
-      {{ range .Site.Menus.main }}
+      {{- range .Site.Menus.main -}}
       <a href="{{ .URL | relURL }}">{{ .Name }}</a>
-      {{ end }}
+      {{- end -}}
     </div>
     <button aria-label="Search" onclick="window.location.href='/search/';">
       <svg width="20" height="20" viewBox="0 0 24 24">

@@ -1,9 +1,9 @@
 <div class="site-footer">
   {{ with .Site.Menus.footer }}
   <div class="footer-menu">
-    {{ range . }}
+    {{- range . -}}
     <a href="{{ .URL | relURL }}">{{ .Name }}</a>
-    {{ end }}
+    {{- end -}}
   </div>
   {{ end }}
   <div class="footer-content">
