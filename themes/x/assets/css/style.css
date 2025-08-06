@@ -378,7 +378,7 @@ pre code {
 
 .article :is(h1, h2, h3, h4, h5, h6) .anchor {
   display: none;
-  color: rgb(var(--secondary));
+  color: rgba(var(--link), 0.5);
   margin-inline-start: 0.3em;
   user-select: none;
 }
@@ -422,7 +422,7 @@ pre code {
     font-weight: bold;
   }
 
-  & dd{
+  & dd {
     margin-inline-start: 1.5em;
   }
 }
