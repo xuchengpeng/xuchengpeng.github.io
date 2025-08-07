@@ -1,15 +1,26 @@
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{ if .IsHome }}
-  <title>{{ .Site.Title | emojify }}</title>
-  <meta name="title" content="{{ .Site.Title | emojify }}" />
+    <title>{{ .Site.Title | emojify }}</title>
+    <meta name="title" content="{{ .Site.Title | emojify }}">
   {{ else }}
-  <title>{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}</title>
-  <meta name="title" content="{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}" />
+    <title>{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}</title>
+    <meta name="title" content="{{ .Title | emojify }} &middot; {{ .Site.Title | emojify }}">
   {{ end }}
-  {{ with .Params.Description | default .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
-  {{ with .Site.Params.author.name }}<meta name="author" content="{{ . }}">{{ end }}
+  {{ with .Params.Description | default .Site.Params.description }}
+    <meta name="description" content="{{ . }}">
+  {{ end }}
+  {{ with .Params.Tags | default .Site.Params.keywords }}
+    {{ $keywords := delimit . "," }}
+    <meta name="keywords" content="{{ $keywords }}">
+  {{ end }}
+  {{ with .Site.Params.author.name }}
+    <meta name="author" content="{{ . }}">
+  {{ end }}
+  {{ with .Params.robots | default .Site.Params.robots }}
+    <meta name="robots" content="{{ . }}">
+  {{ end }}
   {{ $assets := newScratch }}
   {{ $styleCss := resources.Get "css/style.css" }}
   {{ $assets.Add "css" (slice $styleCss) }}
@@ -17,7 +28,7 @@
   {{ $assets.Add "css" (slice $syntaxCss) }}
   {{ $customCss := resources.Get "css/custom.css" }}
   {{ if $customCss }}
-  {{ $assets.Add "css" (slice $customCss) }}
+    {{ $assets.Add "css" (slice $customCss) }}
   {{ end }}
   {{ $bundleCSS := $assets.Get "css" | resources.Concat "css/main.bundle.css" | resources.Minify }}
   <link type="text/css" rel="stylesheet" href="{{ $bundleCSS.RelPermalink }}">
@@ -33,15 +44,15 @@
   {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify }}
   <script defer type="text/javascript" src="{{ $bundleJS.RelPermalink }}"></script>
   {{ if templates.Exists "_partials/extend_head.html" }}
-  {{ partialCached "extend_head.html" .Site }}
+    {{ partialCached "extend_head.html" .Site }}
   {{ end }}
   {{ if .Params.showMath | default (.Site.Params.article.showMath | default false) }}
-  {{ partial "math.html" . }}
+    {{ partial "math.html" . }}
   {{ end }}
   {{ if .Page.HasShortcode "mermaid" }}
-  {{ partial "mermaid.html" . }}
+    {{ partial "mermaid.html" . }}
   {{ end }}
   {{ if .Page.HasShortcode "typeit"}}
-  {{ partial "typeit.html" . }}
+    {{ partial "typeit.html" . }}
   {{ end }}
 </head>

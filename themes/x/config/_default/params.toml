@@ -1,6 +1,8 @@
 defaultTheme = "light" # light, dark
 mainSections = ["posts"]
 showRecentItems = 5
+# robots = ""
+# keywords = [""]
 
 [article]
   showBreadcrumbs = true
