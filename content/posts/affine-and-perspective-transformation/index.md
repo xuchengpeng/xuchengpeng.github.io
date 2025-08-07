@@ -13,7 +13,7 @@ showMath: true
 
 仿射变换是指在几何中，一个向量空间进行一次线性变换并接上一个平移，变换为另一个向量空间。
 
-基本的图像变换就是二维坐标的变换：从一个二维坐标 \\((x, y)\\) 到另一个二维坐标 \\((u, v)\\) 的线性变换：
+基本的图像变换就是二维坐标的变换：从一个二维坐标 \((x, y)\) 到另一个二维坐标 \((u, v)\) 的线性变换：
 
 $$
 \begin{split}
@@ -28,7 +28,7 @@ $$\begin{bmatrix} u \newline v \end{bmatrix} = \begin{bmatrix} a_{1} & b_{1} \ne
 
 $$R=\begin{bmatrix} a_{1} & b_{1} \newline a_{2} & b_{2} \end{bmatrix},t=\begin{bmatrix} c_{1} \newline c_{2} \end{bmatrix},T=\begin{bmatrix} R & t \end{bmatrix}$$
 
-矩阵 \\(T\\) 就是仿射变换的变换矩阵，\\(R\\) 为线性变换矩阵，\\(t\\) 为平移矩阵，简单来说，仿射变换就是线性变换+平移。变换后直线依然是直线，平行线依然是平行线，直线间的相对位置关系不变，因此非共线的三个对应点便可确定唯一的一个仿射变换，线性变换 4 个自由度 + 平移 2 个自由度 →仿射变换自由度为 6。
+矩阵 \(T\) 就是仿射变换的变换矩阵，\(R\) 为线性变换矩阵，\(t\) 为平移矩阵，简单来说，仿射变换就是线性变换+平移。变换后直线依然是直线，平行线依然是平行线，直线间的相对位置关系不变，因此非共线的三个对应点便可确定唯一的一个仿射变换，线性变换 4 个自由度 + 平移 2 个自由度 →仿射变换自由度为 6。
 
 其实平移、旋转、缩放和翻转等变换就是对应了不同的仿射变换矩阵。
 
@@ -40,7 +40,7 @@ $$\begin{bmatrix} u \newline v \end{bmatrix} = \begin{bmatrix} 1 & 0 \newline 0 
 
 ## 旋转
 
-旋转是坐标轴方向饶原点旋转一定的角度 \\(\theta\\)，自由度为 1，不包含平移，如顺时针旋转可以表示为：
+旋转是坐标轴方向饶原点旋转一定的角度 \(\theta\)，自由度为 1，不包含平移，如顺时针旋转可以表示为：
 
 $$\begin{bmatrix} u \newline v \end{bmatrix} = \begin{bmatrix} \cos \theta  & -\sin \theta \newline \sin \theta & \cos \theta \end{bmatrix}\begin{bmatrix} x \newline y \end{bmatrix} + \begin{bmatrix} 0 \newline 0 \end{bmatrix}$$
 
@@ -88,9 +88,9 @@ $$
 
 $$\begin{bmatrix} X \newline Y \newline Z \end{bmatrix} = \begin{bmatrix} a_{1} & b_{1} & c_{1} \newline a_{2} & b_{2} & c_{2} \newline a_{3} & b_{3} & c_{3} \end{bmatrix} \begin{bmatrix} x \newline y \newline 1 \end{bmatrix}$$
 
-其中，\\(\begin{bmatrix} a_{1} & b_{1} \newline a_{2} & b_{2} \end{bmatrix}\\) 为线性变换，\\(\begin{bmatrix} a_{3} & b_{3} \end{bmatrix}\\) 为透视变换，\\(\begin{bmatrix} c_{1} \newline c_{2} \newline c_{3} \end{bmatrix}\\) 为平移变换，因此仿射变换是透视变换的子集。
+其中，\(\begin{bmatrix} a_{1} & b_{1} \newline a_{2} & b_{2} \end{bmatrix}\) 为线性变换，\(\begin{bmatrix} a_{3} & b_{3} \end{bmatrix}\) 为透视变换，\(\begin{bmatrix} c_{1} \newline c_{2} \newline c_{3} \end{bmatrix}\) 为平移变换，因此仿射变换是透视变换的子集。
 
-接下来再通过除以 \\(Z\\) 轴转换成二维坐标：
+接下来再通过除以 \(Z\) 轴转换成二维坐标：
 
 $$
 \begin{split}

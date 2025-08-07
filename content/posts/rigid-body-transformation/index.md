@@ -7,13 +7,13 @@ summary: 刚体变换的矩阵表示，以及逆变换的计算方法。
 showMath: true
 ---
 
-三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \\(R_{A}^{B} = \begin{bmatrix} u_{x}  & v_{x} & w_{x} \newline u_{y}  & v_{y} & w_{y} \newline u_{z}  & v_{z} & w_{z} \end{bmatrix}\\) 表示旋转矩阵，用 \\(t_{A}^{B} = \begin{bmatrix} t_{x} \newline t_{y} \newline t_{z} \end{bmatrix}\\) 表示平移矩阵。
+三维空间坐标的刚体变换可分为旋转和平移两个步骤，用 \(R_{A}^{B} = \begin{bmatrix} u_{x}  & v_{x} & w_{x} \newline u_{y}  & v_{y} & w_{y} \newline u_{z}  & v_{z} & w_{z} \end{bmatrix}\) 表示旋转矩阵，用 \(t_{A}^{B} = \begin{bmatrix} t_{x} \newline t_{y} \newline t_{z} \end{bmatrix}\) 表示平移矩阵。
 
 坐标系A到B刚体变换形式为：
 
 $$\begin{bmatrix} x^{'} \newline y^{'} \newline z^{'} \end{bmatrix} = R_{A}^{B} \ast \begin{bmatrix} x \newline y \newline z \end{bmatrix} + t_{A}^{B}$$
 
-用齐次变换矩阵 \\(T_{A}^{B}\\) 的表示形式为：
+用齐次变换矩阵 \(T_{A}^{B}\) 的表示形式为：
 
 $$\begin{bmatrix} x_{'} \newline y_{'} \newline z_{'} \newline 1 \end{bmatrix} = T_{A}^{B} \ast \begin{bmatrix} x \newline y \newline z \newline 1 \end{bmatrix} = \begin{bmatrix} R_{A}^{B} & t_{A}^{B} \newline 0 & 1 \end{bmatrix} \ast \begin{bmatrix} x \newline y \newline z \newline 1 \end{bmatrix}$$
 
@@ -39,7 +39,7 @@ T_{B}^{A} &= \left ( T_{A}^{B} \right ) ^ {-1} \newline
 \end{split}
 $$
 
-在已知 \\(T_{A}^{B}\\) 和 \\(T_{B}^{C}\\) 时，可求解 \\(T_{A}^{C}\\) :
+在已知 \(T_{A}^{B}\) 和 \(T_{B}^{C}\) 时，可求解 \(T_{A}^{C}\) :
 
 $$
 \begin{split}

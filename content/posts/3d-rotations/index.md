@@ -25,7 +25,7 @@ R_z(\theta) &= \begin{bmatrix} \cos\theta & -\sin\theta & 0 \newline \sin\theta 
 \end{split}
 $$
 
-Other 3D rotation matrices can be obtained from these three using matrix multiplication. For example, a rotation whose yaw, pitch and roll angles are \\(\alpha\\), \\(\beta\\) and \\(\gamma\\). It is an intrinsic rotation whose Tait–Bryan angles are \\(\alpha\\), \\(\beta\\), \\(\gamma\\), about axes \\(z\\), \\(y\\), \\(x\\), respectively.
+Other 3D rotation matrices can be obtained from these three using matrix multiplication. For example, a rotation whose yaw, pitch and roll angles are \(\alpha\), \(\beta\) and \(\gamma\). It is an intrinsic rotation whose Tait–Bryan angles are \(\alpha\), \(\beta\), \(\gamma\), about axes \(z\), \(y\), \(x\), respectively.
 
 $$
 \begin{split}
@@ -51,7 +51,7 @@ Without considering the possibility of using two different conventions for the d
   alt="EulerG"
 >}}
 
-A rotation represented by Euler angles (\\(\alpha, \beta, \gamma\\)) = (−60°, 30°, 45°), using z-x-z intrinsic rotations.
+A rotation represented by Euler angles (\(\alpha, \beta, \gamma\)) = (−60°, 30°, 45°), using z-x-z intrinsic rotations.
 
 <--->
 
@@ -60,6 +60,6 @@ A rotation represented by Euler angles (\\(\alpha, \beta, \gamma\\)) = (−60°,
   alt="EulerX"
 >}}
 
-The same rotation represented by (\\(\gamma, \beta, \alpha\\)) = (45°, 30°, −60°), using z-x-z extrinsic rotations.
+The same rotation represented by (\(\gamma, \beta, \alpha\)) = (45°, 30°, −60°), using z-x-z extrinsic rotations.
 
 {{< /columns >}}
