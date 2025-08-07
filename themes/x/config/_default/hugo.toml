@@ -19,3 +19,8 @@ buildFuture = false
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = '0.146.0'
