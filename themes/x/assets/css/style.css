@@ -42,20 +42,9 @@ body {
   min-height: 100vh;
   font-family: var(--font-sans);
   line-height: 1.5;
+  color: rgb(var(--primary));
   background: rgb(var(--theme));
   margin: 0;
-}
-
-a,
-button,
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: rgb(var(--primary));
 }
 
 a {
@@ -158,6 +147,7 @@ html:not(.dark) svg#sun {
   background: 0 0;
   border: 0;
   cursor: pointer;
+  color: rgb(var(--primary));
 
   &:hover {
     color: rgb(var(--link));
@@ -258,6 +248,7 @@ button#menu-button {
 
 .title {
   font-size: 2em;
+  color: rgb(var(--primary));
 
   &:hover {
     text-decoration-color: rgb(var(--link));
@@ -374,6 +365,10 @@ pre code {
 
 .article :is(h1, h2, h3, h4, h5, h6, [id^="fn"], [id^="fnref"]) {
   scroll-margin-top: 3.5em;
+}
+
+.article :is(h1, h2, h3, h4, h5, h6) {
+  color: rgb(var(--primary));
 }
 
 .article :is(h1, h2, h3, h4, h5, h6) .anchor {
