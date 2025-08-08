@@ -25,10 +25,11 @@
   --link: 96, 165, 250;
 }
 
-*,
-::after,
-::before {
+*, ::after, ::before, ::backdrop, ::file-selector-button {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
 }
 
 html {
@@ -45,6 +46,10 @@ body {
   color: rgb(var(--primary));
   background: rgb(var(--theme));
   margin: 0;
+}
+
+p {
+  margin: 1em 0;
 }
 
 a {
@@ -415,10 +420,12 @@ pre code {
   & dt {
     color: rgb(var(--primary));
     font-weight: bold;
+    margin-top: 0.75em;
   }
 
   & dd {
-    margin-inline-start: 1.5em;
+    margin-top: 0.5em;
+    padding-inline-start: 1.5em;
   }
 }
 

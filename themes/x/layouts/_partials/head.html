@@ -44,7 +44,7 @@
   {{ $bundleJS := $assets.Get "js" | resources.Concat "js/main.bundle.js" | resources.Minify }}
   <script defer type="text/javascript" src="{{ $bundleJS.RelPermalink }}"></script>
   {{ if templates.Exists "_partials/extend_head.html" }}
-    {{ partialCached "extend_head.html" .Site }}
+    {{ partial "extend_head.html" . }}
   {{ end }}
   {{ if .Params.showMath | default (.Site.Params.article.showMath | default false) }}
     {{ partial "math.html" . }}
