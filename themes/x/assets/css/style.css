@@ -262,6 +262,7 @@ button#menu-button {
 
 .highlight, pre {
   position: relative;
+  margin: 1em 0;
 }
 
 code {
