@@ -30,6 +30,9 @@ function scrollTop() {
 
 function smartToc() {
   var elements = document.querySelectorAll("#TableOfContents a");
+  if (elements.length == 0) {
+    return;
+  }
   window.addEventListener("scroll", function () {
     if (window.innerWidth < 1024) {
       return;
