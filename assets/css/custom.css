@@ -4,7 +4,7 @@
 }
 
 body {
-  @media (min-width: 800px) {
+  @media (min-width: 1400px) {
     font-size: 18px;
   }
 }

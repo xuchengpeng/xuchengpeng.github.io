@@ -274,14 +274,14 @@ code {
   border-radius: 2px;
 }
 
-pre code {
-  display: grid;
-  margin: auto 0;
+pre {
   padding: 0.8em;
-  background: rgb(var(--code-bg)) !important;
-  border-radius: var(--radius);
   overflow-x: auto;
-  word-break: break-all;
+  & > code {
+    padding: 0;
+    color: inherit;
+    background-color: transparent;
+  }
 }
 
 .copy-code {

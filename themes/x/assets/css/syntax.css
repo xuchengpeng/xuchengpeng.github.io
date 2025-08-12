@@ -1,6 +1,6 @@
 .chroma {
   color: rgb(var(--content));
-  background-color: rgb(var(--theme));
+  background-color: rgb(var(--code-bg));
 }
 
 .chroma .lnlinks {
@@ -39,10 +39,6 @@
   margin-right: 0.4em;
   padding: 0 0.4em 0 0.4em;
   color: #7f7f7f;
-}
-
-.chroma .line {
-  display: flex;
 }
 
 .chroma .k,
