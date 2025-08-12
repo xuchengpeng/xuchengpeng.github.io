@@ -1,10 +1,10 @@
 <div class="site-footer">
   {{ with .Site.Menus.footer }}
-  <div class="footer-menu">
-    {{- range . -}}
-    <a href="{{ .URL | relURL }}">{{ .Name }}</a>
-    {{- end -}}
-  </div>
+    <div class="footer-menu">
+      {{- range . -}}
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+      {{- end -}}
+    </div>
   {{ end }}
   <div class="footer-content">
     <p>&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title | emojify }}</a></p>

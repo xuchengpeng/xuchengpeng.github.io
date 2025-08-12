@@ -1,8 +1,7 @@
 :root {
   --font-sans: ui-sans-serif, sans-serif;
   --font-mono: ui-monospace, monospace;
-  --nav-width: 1024px;
-  --main-width: 900px;
+  --main-width: 1024px;
   --radius: 4px;
   --theme: 255, 255, 255;
   --primary: 15, 23, 42;
@@ -130,7 +129,7 @@ html:not(.dark) svg#sun {
   align-items: center;
   gap: 1em;
   line-height: 3em;
-  max-width: var(--nav-width);
+  max-width: var(--main-width);
   margin-inline-start: auto;
   margin-inline-end: auto;
   padding: 0 1em;
@@ -473,7 +472,7 @@ pre code {
     color: rgb(var(--primary));
     text-decoration: none;
     transition: all 0.3s ease-in-out;
-    margin: 0.5em 1em;
+    padding: 0.5em 1em;
 
     &:hover {
       transform: scale(1.2);
@@ -486,9 +485,28 @@ pre code {
   }
 }
 
+.article .article-entries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 1em 0;
+
+  & > * {
+    width: 100%;
+  }
+
+  @media (min-width: 800px) {
+    & > * {
+      width: calc((100% - 2em) / 3);
+    }
+  }
+}
+
 .article .article-entry {
-  position: relative;
-  margin: 1em 0 2em 0;
+  padding: 1em;
+  border: 2px solid rgba(var(--border), 0.5);
+  border-radius: var(--radius);
+  box-shadow: 0 1em 1em rgba(0, 0, 0, 0.15);
 }
 
 .article .article-title {

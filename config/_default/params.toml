@@ -1,6 +1,6 @@
 defaultTheme = "light" # light, dark
 mainSections = ["posts"]
-showRecentItems = 5
+showRecentItems = 9
 
 [article]
   showBreadcrumbs = true
@@ -9,3 +9,4 @@ showRecentItems = 5
   showMath = false
   showToc = true
   showPagination = true
+  showSummary = false

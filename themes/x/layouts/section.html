@@ -4,13 +4,17 @@
     <h1 class="article-title">{{ .Title | emojify }}</h1>
   </div>
   <div class="article-content">
-    {{ .Content }}
-    {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
-    <h2>{{ .Key }}</h2>
-    {{- range .Pages -}}
-    {{- partial "article_entry.html" . -}}
-    {{- end -}}
-    {{- end -}}
+    {{ with .Content }}<section>{{ . }}</section>{{ end }}
+    <section>
+      {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
+        <h2>{{ .Key }}</h2>
+        <div class="article-entries">
+          {{- range .Pages -}}
+            {{- partial "article_entry.html" . -}}
+          {{- end -}}
+        </div>
+      {{- end -}}
+    </section>
   </div>
   <div class="article-footer">
     {{- partial "pagination.html" . -}}

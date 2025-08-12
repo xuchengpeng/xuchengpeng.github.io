@@ -3,7 +3,7 @@
   <div class="menu">
     <div id="menu-list" class="main-menu">
       {{- range .Site.Menus.main -}}
-      <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+        <a href="{{ .URL | relURL }}">{{ .Name }}</a>
       {{- end -}}
     </div>
     <button aria-label="Search" onclick="window.location.href='/search/';">

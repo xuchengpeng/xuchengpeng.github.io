@@ -1,12 +1,14 @@
-<article class="article-entry">
+<div class="article-entry">
   <h3 class="article-title"><a href="{{ .RelPermalink }}">{{ .Title | emojify }}</a></h3>
   {{ if .Params.showMeta | default (.Site.Params.article.showMeta | default false) }}
-  {{- partial "article_meta.html" . -}}
+    {{- partial "article_meta.html" . -}}
   {{ end }}
   {{ if .Params.showTags | default (.Site.Params.article.showTags | default false) }}
-  {{- partial "article_tags.html" . -}}
+    {{- partial "article_tags.html" . -}}
   {{ end }}
-  <div class="article-summary">
-    <p>{{ .Summary | plainify }}{{ if .Truncated }}...{{ end }}</p>
-  </div>
-</article>
+  {{ if .Params.showSummary | default (.Site.Params.article.showSummary | default false) }}
+    <div class="article-summary">
+      <p>{{ .Summary | plainify }}</p>
+    </div>
+  {{ end }}
+</div>

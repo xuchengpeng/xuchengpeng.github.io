@@ -1,7 +1,7 @@
 {{ with .GetTerms "tags" }}
-<div class="article-tags">
-  {{- range . -}}
-  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-  {{- end -}}
-</div>
+  <div class="article-tags">
+    {{- range . -}}
+      <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{- end -}}
+  </div>
 {{ end }}

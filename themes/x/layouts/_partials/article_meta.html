@@ -4,7 +4,7 @@
 {{ $scratch.Add "meta" (slice (printf "<span>%d min</span>" .ReadingTime)) }}
 
 {{ with ($scratch.Get "meta") }}
-<div class="article-meta">
-  {{- delimit . "&nbsp;&middot;&nbsp;" | safeHTML -}}
-</div>
+  <div class="article-meta">
+    {{- delimit . "&nbsp;&middot;&nbsp;" | safeHTML -}}
+  </div>
 {{ end }}

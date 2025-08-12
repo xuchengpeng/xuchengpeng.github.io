@@ -11,7 +11,7 @@ buildDrafts = false
 buildFuture = false
 
 [pagination]
-  pagerSize = 10
+  pagerSize = 15
 
 [taxonomies]
   tag = "tags"
