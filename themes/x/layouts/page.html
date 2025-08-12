@@ -16,7 +16,7 @@
     {{- partial "toc.html" . -}}
   {{ end }}
   <div class="article-content">
-    {{ .Content }}
+    {{ with .Content }}<section>{{ . }}</section>{{ end }}
   </div>
   <div class="article-footer">
     {{- partial "article_pagination.html" . -}}
