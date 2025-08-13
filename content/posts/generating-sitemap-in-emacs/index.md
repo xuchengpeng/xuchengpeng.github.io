@@ -5,9 +5,10 @@ categories: ["Emacs"]
 tags: ["Emacs"]
 ---
 
-使用Emacs导出博客时，可以导出Sitemap文件，可以很方便的生成最近的文章信息或者归档列表。通过配置Sitemap导出时的参数，定制化的生成不同形式的Sitemap文件。
-
+使用Emacs导出博客时，可以导出Sitemap文件，可以很方便的生成最近的文章信息或者归档列表。
 <!--more-->
+
+通过配置Sitemap导出时的参数，定制化的生成不同形式的Sitemap文件。
 
 ## :sitemap-filename
 

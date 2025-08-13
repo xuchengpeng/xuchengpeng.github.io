@@ -6,9 +6,9 @@ tags: ["Emacs", "LLM"]
 ---
 
 [Ollama](https://ollama.com/) 是一个用于构建大型语言模型应用的工具，它提供了一个简洁易用的命令行界面和服务器，让你能够轻松下载、运行和管理各种开源LLM。
+<!--more-->
 
 [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1) is DeepSeek’s first-generation reasoning models, achieving performance comparable to OpenAI-o1 across math, code, and reasoning tasks.
-<!--more-->
 
 ## 安装Ollama
 

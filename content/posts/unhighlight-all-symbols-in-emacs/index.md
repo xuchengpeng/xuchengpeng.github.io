@@ -5,10 +5,10 @@ categories: ["Emacs"]
 tags: ["Emacs"]
 ---
 
-之前的文章介绍了如何在Emacs中高亮符号，一般运行 `M-x unhighlight-regexp` 来选择其中一个符号去高亮。
+之前的文章介绍了如何在[Emacs中高亮符号](../emacs-highlight-symbol/)，一般运行 `M-x unhighlight-regexp` 来选择其中一个符号去高亮。
+<!--more-->
 
 那么如何去高亮当前Buffer中所有的符号呢？方法是运行 `C-u M-x unhighlight-regexp` 。
-<!--more-->
 
 这里总结一下符号高亮常用的操作：
 - `M-s h .` or `highlight-symbol-at-point`

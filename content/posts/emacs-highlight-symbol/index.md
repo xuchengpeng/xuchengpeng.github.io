@@ -3,10 +3,10 @@ title: "Emacs中高亮符号"
 date: "2025-02-26"
 categories: ["Emacs"]
 tags: ["Emacs"]
+summary: "Use hi-lock to highlight symbol."
 ---
 
 日常都是使用[symbol-overlay](https://github.com/wolray/symbol-overlay)包在编程时进行符号高亮，James Cherti介绍了[Emacs内置功能实现符号高亮](https://www.jamescherti.com/emacs-symbol-highlighting-built-in-functions/)的方法，核心是使用Emacs内置的[hi-lock](https://www.gnu.org/software/emacs/manual/html_node/emacs/Highlight-Interactively.html)包来实现。
-<!--more-->
 
 执行 `hi-lock-face-symbol-at-point` 可以高亮当前符号，执行 `hi-lock-unface-buffer` 可以选择需要符号来取消高亮。James Cherti实现了一个便捷开启和关闭符号高亮的函数。
 

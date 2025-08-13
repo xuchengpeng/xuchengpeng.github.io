@@ -3,7 +3,7 @@ title: "Emacs中记笔记"
 date: "2025-03-19"
 categories: ["Emacs"]
 tags: ["Emacs", "Denote", "Org"]
-summary: Denote is a simple note-taking tool for Emacs. It is based on the idea that notes should follow a predictable and descriptive file-naming scheme. The file name must offer a clear indication of what the note is about, without reference to any other metadata. Denote basically streamlines the creation of such files while providing facilities to link between them.
+summary: Denote is a simple note-taking tool for Emacs.
 ---
 
 以前在Emacs中记笔记主要使用Org mode配置Capture模板，将笔记记录在指定的文件中，这种方式很简陋，慢慢的指定的文件内容会很臃肿，笔记管理上没有实现文件分类管理等，而且也会拖慢Agenda的速度。

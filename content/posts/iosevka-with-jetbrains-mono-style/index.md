@@ -3,10 +3,10 @@ title = "Iosevka With JetBrains Mono Style"
 date = 2025-04-23
 categories = ["Themes"]
 tags = ["Themes"]
+summary = "Build Iosevka with JetBrains Mono Style."
 +++
 
-[Iosevka](https://github.com/be5invis/Iosevka) [ˌjɔˈseβ.kʰa] is an *open-source, sans-serif + slab-serif, monospace + quasi‑proportional* typeface family, designed for *writing code*, using in *terminals*, and preparing *technical documents*.
-<!--more-->
+> [Iosevka](https://github.com/be5invis/Iosevka) [ˌjɔˈseβ.kʰa] is an *open-source, sans-serif + slab-serif, monospace + quasi‑proportional* typeface family, designed for *writing code*, using in *terminals*, and preparing *technical documents*.
 
 Iosevka支持多种风格设置，并且很方便进行自定义构建。这里介绍下如何继承[JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)字体风格，并修改字宽、连字符、个别字符风格。
 

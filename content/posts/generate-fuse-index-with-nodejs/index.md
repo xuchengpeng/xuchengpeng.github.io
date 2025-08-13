@@ -5,8 +5,10 @@ categories: ["Web"]
 tags: ["Node.js", "Cheerio", "Fuse.js", "JavaScript"]
 ---
 
-[Cheerio](https://github.com/cheeriojs/cheerio) is a fast, flexible, and elegant library for parsing and manipulating HTML and XML. [Fuse.js](https://github.com/krisk/fuse) is a lightweight fuzzy-search, in JavaScript, with zero dependencies.
+[Fuse.js](https://github.com/krisk/fuse) is a lightweight fuzzy-search, in JavaScript, with zero dependencies.
 <!--more-->
+
+[Cheerio](https://github.com/cheeriojs/cheerio) is a fast, flexible, and elegant library for parsing and manipulating HTML and XML.
 
 With Node.js, use Cheerio to manipulate HTML, then select elements to generate Fuse index.
 

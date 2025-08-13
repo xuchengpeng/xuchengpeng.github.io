@@ -11,4 +11,4 @@ showRecentItems = 9
   showMath = false
   showToc = true
   showPagination = true
-  showSummary = false
+  showSummary = true

@@ -5,8 +5,10 @@ categories: ["Emacs"]
 tags: ["Emacs"]
 ---
 
-From Emacs 23.1, you can change the font of current buffer, using `buffer-face-set`. You can toggle this using `buffer-face-mode` or `buffer-face-toggle`.
+From Emacs 23.1, you can change the font of current buffer, using `buffer-face-set`.
 <!--more-->
+
+You can toggle this using `buffer-face-mode` or `buffer-face-toggle`.
 
 For example, change the font of all org mode buffers when openning:
 

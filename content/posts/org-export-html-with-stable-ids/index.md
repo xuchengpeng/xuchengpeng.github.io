@@ -1,5 +1,5 @@
 ---
-title: "Org导出HTML时生成稳定的ID"
+title: "Org导出HTML时生成稳定ID"
 date: "2025-01-26"
 categories: ["Emacs"]
 tags: ["Emacs", "Org", "HTML"]

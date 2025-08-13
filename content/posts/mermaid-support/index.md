@@ -6,9 +6,9 @@ tags: ["Mermaid", "Hugo"]
 ---
 
 Mermaid lets you create diagrams and visualizations using text and code.
+<!--more-->
 
 It is a JavaScript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.
-<!--more-->
 
 ## Hugo Integration
 

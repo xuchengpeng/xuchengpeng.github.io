@@ -5,8 +5,10 @@ categories: ["Emacs"]
 tags: ["Emacs", "Themes"]
 ---
 
-Each Modus theme specifies a color palette that declares named color values and semantic color mappings. Both of those subsets can be overridden, thus refashioning the theme. Overrides are either shared, by being stored in the user option `modus-themes-common-palette-overrides`, or they are specific to the theme they name. In the latter case, the naming scheme of each palette variable is `THEME-NAME-palette-overrides`.
+Each Modus theme specifies a color palette that declares named color values and semantic color mappings.
 <!--more-->
+
+Both of those subsets can be overridden, thus refashioning the theme. Overrides are either shared, by being stored in the user option `modus-themes-common-palette-overrides`, or they are specific to the theme they name. In the latter case, the naming scheme of each palette variable is `THEME-NAME-palette-overrides`.
 
 ## Make mode line borderless
 
