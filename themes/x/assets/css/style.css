@@ -1,7 +1,8 @@
 :root {
   --font-sans: ui-sans-serif, sans-serif;
   --font-mono: ui-monospace, monospace;
-  --main-width: 1024px;
+  --main-width: 72rem;
+  --spacing: 0.25em;
   --radius: 4px;
   --theme: 255, 255, 255;
   --primary: 15, 23, 42;
@@ -330,12 +331,33 @@ pre {
 }
 
 .article :is(.article-header, .article-footer) {
-  margin:1em 0;
+  margin: 1em 0;
 }
 
 .article .article-content {
+  display: flex;
+  flex-direction: column;
   margin: 1.5em 0;
   color: rgb(var(--content));
+
+  & > .content {
+    flex: 1;
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+
+    & > .table-of-contents {
+      order: 1;
+      width: calc(var(--spacing) * 64);
+      padding-left: calc(var(--spacing) * 4);
+      & > .toc {
+        position: sticky;
+        top: 4em;
+      }
+    }
+  }
 }
 
 .article h1 {
@@ -629,19 +651,6 @@ pre {
 
 .toc {
   margin: 1em 0;
-
-  @media screen and (min-width: 1400px) {
-    position: fixed;
-    width: calc(((100vw - var(--main-width)) / 2) - 30px);
-    height: 80vh;
-    right: 0;
-    top: 10vh;
-    overflow: hidden;
-
-    &:hover {
-      overflow: auto;
-    }
-  }
 
   & .toc-content {
     max-height: 100vh;

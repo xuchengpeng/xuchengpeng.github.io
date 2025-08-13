@@ -4,8 +4,8 @@
     <h1 class="article-title">{{ .Title | emojify }}</h1>
   </div>
   <div class="article-content">
-    {{ with .Content }}<section>{{ . }}</section>{{ end }}
-    <section>
+    <section class="content">
+      {{ .Content }}
       {{- range (.Paginate (.Pages.GroupByDate "2006")).PageGroups -}}
         <h2>{{ .Key }}</h2>
         <div class="article-entries">

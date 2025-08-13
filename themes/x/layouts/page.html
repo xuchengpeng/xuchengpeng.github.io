@@ -12,11 +12,11 @@
       {{- partial "article_tags.html" . -}}
     {{ end }}
   </div>
-  {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents `<ul>`) }}
-    {{- partial "toc.html" . -}}
-  {{ end }}
   <div class="article-content">
-    {{ with .Content }}<section>{{ . }}</section>{{ end }}
+    {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents `<ul>`) }}
+      <section class="table-of-contents">{{- partial "toc.html" . -}}</section>
+    {{ end }}
+    <section class="content">{{ .Content }}</section>
   </div>
   <div class="article-footer">
     {{- partial "article_pagination.html" . -}}

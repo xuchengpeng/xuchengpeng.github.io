@@ -6,8 +6,8 @@
     </div>
   {{ end }}
   <div class="article-content">
-    {{ with .Content }}<section>{{ . }}</section>{{ end }}
-    <section>
+    <section class="content">
+      {{ .Content }}
       <h2>Recent</h2>
       <div class="article-entries">
         {{- range first .Site.Params.showRecentItems (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) -}}
