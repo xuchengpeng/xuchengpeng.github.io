@@ -14,9 +14,28 @@
   </div>
   <div class="article-content">
     {{ if and (.Params.showToc | default (.Site.Params.article.showToc | default false)) (in .TableOfContents `<ul>`) }}
-      <section class="table-of-contents">{{- partial "toc.html" . -}}</section>
+      <div class="table-of-contents">
+        {{- partial "toc.html" . -}}
+      </div>
     {{ end }}
-    <section class="content">{{ .Content }}</section>
+    <div class="content">
+      {{ with .Content }}
+        <section>{{ . }}</section>
+      {{ end }}
+      {{ if .Params.showRelatedContent | default (.Site.Params.article.showRelatedContent | default false) }}
+        {{ $related := .Site.RegularPages.Related . | first .Site.Params.article.relatedContentLimit }}
+        {{ with $related }}
+          <section>
+            <h2>Related</h2>
+            <div class="article-entries">
+              {{- range . -}}
+                {{- partial "article_entry.html" . -}}
+              {{- end -}}
+            </div>
+          </section>
+        {{ end }}
+      {{ end }}
+    </div>
   </div>
   <div class="article-footer">
     {{- partial "article_pagination.html" . -}}

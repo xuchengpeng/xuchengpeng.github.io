@@ -6,15 +6,19 @@
     </div>
   {{ end }}
   <div class="article-content">
-    <section class="content">
-      {{ .Content }}
-      <h2>Recent</h2>
-      <div class="article-entries">
-        {{- range first .Site.Params.showRecentItems (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) -}}
-          {{- partial "article_entry.html" . -}}
-        {{- end -}}
-      </div>
-    </section>
+    <div class="content">
+      {{ with .Content }}
+        <section>{{ . }}</section>
+      {{ end }}
+      <section>
+        <h2>Recent</h2>
+        <div class="article-entries">
+          {{- range first .Site.Params.showRecentItems (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) -}}
+            {{- partial "article_entry.html" . -}}
+          {{- end -}}
+        </div>
+      </section>
+    </div>
   </div>
 </article>
 {{ end }}

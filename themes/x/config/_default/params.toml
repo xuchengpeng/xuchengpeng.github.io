@@ -12,3 +12,5 @@ showRecentItems = 9
   showToc = true
   showPagination = true
   showSummary = true
+  showRelatedContent = true
+  relatedContentLimit = 3

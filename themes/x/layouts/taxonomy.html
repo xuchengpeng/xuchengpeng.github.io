@@ -4,14 +4,16 @@
     <h1 class="article-title">{{ .Title | emojify }}</h1>
   </div>
   <div class="article-content">
-    <section class="content">
-      {{ .Content }}
-      <div class="terms">
+    <div class="content">
+      {{ with .Content }}
+        <section>{{ . }}</section>
+      {{ end }}
+      <section class="terms">
         {{- range .Data.Terms -}}
           <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}&nbsp;<sup>{{ .Count }}</sup></a>
         {{- end -}}
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
 </article>
 {{ end }}
