@@ -29,30 +29,34 @@ function scrollTop() {
 }
 
 function smartToc() {
-  var elements = document.querySelectorAll("#TableOfContents a");
-  if (elements.length == 0) {
+  if (window.innerWidth < 1024) {
+    return;
+  }
+  const toc = document.querySelector("#TableOfContents");
+  if (!toc) {
+    return;
+  }
+  const tocLinks = toc.querySelectorAll("a");
+  if (tocLinks.length == 0) {
     return;
   }
   window.addEventListener("scroll", function () {
-    if (window.innerWidth < 1024) {
-      return;
-    }
-    if (window.scrollY <= 50) {
-      document.querySelectorAll("#TableOfContents a.active").forEach((activeElement) => {
-        activeElement.classList.remove("active");
+    if (window.scrollY == 0) {
+      toc.querySelectorAll("a.active").forEach((activeLink) => {
+        activeLink.classList.remove("active");
       });
       return;
     }
-    elements.forEach((element) => {
-      const boundingRect = document.getElementById(element.getAttribute("href").substring(1)).getBoundingClientRect();
+    tocLinks.forEach((tocLink) => {
+      const boundingRect = document.getElementById(tocLink.getAttribute("href").substring(1)).getBoundingClientRect();
       if (boundingRect.top <= 100 && boundingRect.bottom >= 0) {
-        document.querySelectorAll("#TableOfContents a.active").forEach((activeElement) => {
-          if (activeElement.getAttribute("href") == element.getAttribute("href")) {
+        toc.querySelectorAll("a.active").forEach((activeLink) => {
+          if (activeLink.getAttribute("href") == tocLink.getAttribute("href")) {
             return;
           }
-          activeElement.classList.remove("active");
+          activeLink.classList.remove("active");
         });
-        element.classList.add("active");
+        tocLink.classList.add("active");
       }
     });
   });
