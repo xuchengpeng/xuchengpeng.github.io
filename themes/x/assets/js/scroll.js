@@ -12,7 +12,7 @@ function headerShadow() {
     } else {
       header.classList.remove("header-shadow");
     }
-  });
+  }, { passive: true });
 }
 
 function scrollTop() {
@@ -25,22 +25,11 @@ function scrollTop() {
       toplink.style.visibility = "hidden";
       toplink.style.opacity = "0";
     }
-  });
+  }, { passive: true });
 }
 
 function smartToc() {
-  if (window.innerWidth < 1024) {
-    return;
-  }
-  const toc = document.querySelector("#TableOfContents");
-  if (!toc) {
-    return;
-  }
-  const tocLinks = toc.querySelectorAll("a");
-  if (tocLinks.length == 0) {
-    return;
-  }
-  window.addEventListener("scroll", function () {
+  function update({toc, tocLinks}) {
     if (window.scrollY == 0) {
       toc.querySelectorAll("a.active").forEach((activeLink) => {
         activeLink.classList.remove("active");
@@ -59,5 +48,24 @@ function smartToc() {
         tocLink.classList.add("active");
       }
     });
-  });
+  }
+
+  function init() {
+    if (window.innerWidth < 1024) {
+      return;
+    }
+    const toc = document.querySelector("#TableOfContents");
+    if (!toc) {
+      return;
+    }
+    const tocLinks = toc.querySelectorAll("a");
+    if (tocLinks.length == 0) {
+      return;
+    }
+
+    window.addEventListener("scroll", () => update({toc, tocLinks}), { passive: true });
+    window.addEventListener("hashchange", () => update({toc, tocLinks}), { passive: true });
+  }
+
+  init();
 }
