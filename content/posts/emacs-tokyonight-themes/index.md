@@ -16,14 +16,11 @@ This theme has four color palettes, as same sa tokyonight.nvim. I have add suppo
 
 Install manually from source:
 
-```bash
-git clone https://github.com/xuchengpeng/tokyonight-themes.git ~/.emacs.d/tokyonight-themes
-```
-
 ```emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/tokyonight-themes")
-(require 'tokyonight-themes)
-(load-theme 'tokyonight-moon :no-confirm)  ; Or tokyonight-day, tokyonight-storm, tokyonight-night
+(use-package tokyonight-themes
+  :vc (:url "https://github.com/xuchengpeng/modus-themes")
+  :config
+  (load-theme 'tokyonight-moon :no-confirm))
 ```
 
 If you like it, clone the theme, and add support for your plugins into the theme code. Also, you can use theme colors in code with `tokyonight-themes-with-colors`.
