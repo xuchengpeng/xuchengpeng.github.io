@@ -48,20 +48,12 @@ Without considering the possibility of using two different conventions for the d
 
 {{< columns >}}
 
-{{< figure
-  src="EulerG.png"
-  alt="EulerG"
->}}
+- 
+  {{< figure src="EulerG.png" alt="EulerG" >}}
+  A rotation represented by Euler angles (\(\alpha, \beta, \gamma\)) = (−60°, 30°, 45°), using z-x-z intrinsic rotations.
 
-A rotation represented by Euler angles (\(\alpha, \beta, \gamma\)) = (−60°, 30°, 45°), using z-x-z intrinsic rotations.
-
-<--->
-
-{{< figure
-  src="EulerX.png"
-  alt="EulerX"
->}}
-
-The same rotation represented by (\(\gamma, \beta, \alpha\)) = (45°, 30°, −60°), using z-x-z extrinsic rotations.
+- 
+  {{< figure src="EulerX.png" alt="EulerX" >}}
+  The same rotation represented by (\(\gamma, \beta, \alpha\)) = (45°, 30°, −60°), using z-x-z extrinsic rotations.
 
 {{< /columns >}}

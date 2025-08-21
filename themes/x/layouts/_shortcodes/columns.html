@@ -1,7 +1,3 @@
 <div class="columns">
-  {{- range split .Inner "<--->" -}}
-  <div>
-    {{ . | markdownify }}
-  </div>
-  {{- end -}}
+  {{ .InnerDeindent | markdownify }}
 </div>
