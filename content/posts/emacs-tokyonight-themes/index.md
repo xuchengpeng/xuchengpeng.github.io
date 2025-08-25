@@ -18,7 +18,7 @@ Install manually from source:
 
 ```emacs-lisp
 (use-package tokyonight-themes
-  :vc (:url "https://github.com/xuchengpeng/modus-themes")
+  :vc (:url "https://github.com/xuchengpeng/tokyonight-themes")
   :config
   (load-theme 'tokyonight-moon :no-confirm))
 ```
