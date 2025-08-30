@@ -8,20 +8,21 @@ summary: "RGB color lighten and darken in catppuccin-themes."
 
 ```elisp
 (defun catppuccin--hex-to-rgb (color)
-  "Convert a hex COLOR string like \"#rrggbb\" to a list of three integers."
-  (mapcar (lambda (i) (string-to-number (substring color i (+ i 2)) 16))
-          '(1 3 5)))
+  "Convert a hex COLOR string like \"#rrggbb\" to R, G, B."
+  (cl-loop with div = (float (car (tty-color-standard-values "#ffffff")))
+           for x in (tty-color-standard-values (downcase color))
+           collect (/ x div)))
 
 (defun catppuccin--rgb-to-hex (r g b)
-  "Convert R, G, B integers to a hex color string."
-  (format "#%02x%02x%02x" r g b))
+  "Convert R, G, B to a hex color string."
+  (format "#%02x%02x%02x" (* r 255) (* g 255) (* b 255)))
 
 (defun catppuccin--blend (color1 color2 alpha)
   "Blends COLOR1 onto COLOR2 (hexidecimal strings) with ALPHA (a float between 0 and 1)."
   (apply #'catppuccin--rgb-to-hex
          (cl-loop for it in (catppuccin--hex-to-rgb color1)
                   for other in (catppuccin--hex-to-rgb color2)
-                  collect (floor (+ (min (max (+ (* alpha it) (* (- 1 alpha) other)) 0) 255) 0.5)))))
+                  collect (+ (* alpha it) (* (- 1 alpha) other)))))
 
 (defun catppuccin-lighten (color value)
   "Lighten COLOR by VALUE% (0–100)."
