@@ -69,7 +69,8 @@
   }
 }
 
-.chroma .nb {
+.chroma .nb,
+.chroma .bp {
   color: #8f0075;
 
   &:is(.dark *) {
@@ -77,7 +78,8 @@
   }
 }
 
-.chroma .nf {
+.chroma .nf,
+.chroma .fm {
   color: #721045;
 
   &:is(.dark *) {
@@ -85,7 +87,11 @@
   }
 }
 
-.chroma .nv {
+.chroma .nv,
+.chroma .vc,
+.chroma .vg,
+.chroma .vi,
+.chroma .vm {
   color: #00538b;
 
   &:is(.dark *) {
