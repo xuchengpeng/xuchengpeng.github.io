@@ -833,7 +833,7 @@ pre {
   }
 }
 
-.katex-display {
+mjx-container[jax="CHTML"][display="true"] {
   overflow: auto hidden;
 }
 
