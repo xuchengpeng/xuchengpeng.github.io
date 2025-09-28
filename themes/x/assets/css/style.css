@@ -674,17 +674,18 @@ pre {
 
   & :is(ul, li) {
     list-style: none;
-    margin: 0;
+    line-height: 1.375;
+    margin: 0.5em 0;
     padding: 0;
   }
 
   & ul ul {
-    margin: 0;
+    margin: 0.5em 0;
     padding: 0;
   }
 
   & li ul {
-    margin-inline-start: 1em;
+    padding-left: calc(var(--spacing) * 4);
   }
 
   & a {
