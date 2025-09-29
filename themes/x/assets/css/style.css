@@ -591,6 +591,30 @@ pre {
   }
 }
 
+.article .show-more-link {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+
+  & button {
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    background-color: transparent;
+    color: rgb(var(--content));
+    border-color: rgb(var(--link));
+    border-width: 1px;
+    border-radius: 4px;
+    &:hover {
+      color: rgb(var(--link));
+      border-color: transparent;
+    }
+  }
+}
+
 .pagination {
   display: flex;
   flex-direction: row;

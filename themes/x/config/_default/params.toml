@@ -1,6 +1,7 @@
 defaultTheme = "light" # light, dark
 mainSections = ["posts"]
 showRecentItems = 9
+showMoreLink = "/posts/"
 # robots = ""
 # keywords = [""]
 

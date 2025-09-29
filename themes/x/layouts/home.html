@@ -17,6 +17,11 @@
             {{- partial "article_entry.html" . -}}
           {{- end -}}
         </div>
+        <div class="show-more-link">
+          <a href="{{ .Site.Params.showMoreLink }}">
+            <button>{{ "Show More" | markdownify }}</button>
+          </a>
+        </div>
       </section>
     </div>
   </div>
