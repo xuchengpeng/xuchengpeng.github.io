@@ -235,7 +235,7 @@ button#menu-button {
   justify-content: space-between;
   align-items: center;
   gap: 1em;
-  font-size: smaller;
+  font-size: 0.875em;
 
   & a {
     color: inherit;
@@ -658,7 +658,7 @@ pre {
 
   & .direction {
     letter-spacing: 1px;
-    font-size: small;
+    font-size: 0.875em;
     color: rgb(var(--secondary));
   }
 
@@ -732,7 +732,7 @@ pre {
   bottom: 60px;
   right: 30px;
   z-index: 99;
-  font-size: smaller;
+  font-size: 0.875em;
   line-height: 0;
   color: rgb(var(--secondary));
   background: rgb(var(--tertiary));
