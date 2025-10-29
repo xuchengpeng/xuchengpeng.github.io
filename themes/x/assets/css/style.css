@@ -426,7 +426,7 @@ pre {
 .article {
   & ul, & ol {
     margin: 1em 0;
-    padding-inline-start: 1.5em;
+    padding-inline-start: 2em;
   }
 
   & li {
@@ -449,7 +449,7 @@ pre {
 
   & dd {
     margin-top: 0.5em;
-    padding-inline-start: 1.5em;
+    padding-inline-start: 2em;
   }
 }
 
