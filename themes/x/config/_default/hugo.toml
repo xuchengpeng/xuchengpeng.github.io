@@ -44,3 +44,8 @@ buildFuture = false
   [[related.indices]]
     name = "date"
     weight = 10
+
+[module]
+[module.hugoVersion]
+  extended = true
+  min = "0.146.0"
