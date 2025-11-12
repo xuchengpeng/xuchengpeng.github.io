@@ -13,7 +13,7 @@ showPagination: false
 | build-emacs-windows   | Build Emacs on Windows with MSYS2 and MinGW-w64.                           | [github](https://github.com/xuchengpeng/build-emacs-windows)   |
 | IosevkaSS14           | Iosevka with JetBrains Mono style.                                         | [github](https://github.com/xuchengpeng/IosevkaSS14)           |
 | mingw-builds-binaries | MinGW-W64 compiler binaries.                                               | [github](https://github.com/xuchengpeng/mingw-builds-binaries) |
-| catppuccin-themes     | Catppuccin themes for GNU Emacs.                                           | [github](https://github.com/xuchengpeng/catppuccin-themes)     |
+| catppuccin-themes     | Catppuccin themes for GNU Emacs, build on top of the modus-themes.         | [github](https://github.com/xuchengpeng/catppuccin-themes)     |
 | tokyonight-themes     | Tokyo Night themes for GNU Emacs.                                          | [github](https://github.com/xuchengpeng/tokyonight-themes)     |
 | nvim                  | My neovim configuration.                                                   | [github](https://github.com/xuchengpeng/nvim)                  |
 | hugo-x                | A powerful, lightweight theme for Hugo.                                    | [github](https://github.com/xuchengpeng/xuchengpeng.github.io) |
