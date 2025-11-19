@@ -15,7 +15,7 @@ Native compilation support is enabled by default with Emacs 30, install `libgccj
 
 ```shell
 apt-get update
-apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev autoconf
+apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev librsvg2-dev libxml2-dev autoconf
 apt-get install libgccjit0 libgccjit-13-dev
 ```
 
@@ -26,7 +26,7 @@ And in Emacs 29, tree-sitter support is built-in. Now build tree-sitter from sou
 ```shell
 git clone https://github.com/tree-sitter/tree-sitter.git
 cd tree-sitter
-git checkout v0.24.3
+git checkout v0.25.10
 make
 make install
 export LD_LIBRARY_PATH=/usr/local/lib/
