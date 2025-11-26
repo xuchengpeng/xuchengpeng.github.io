@@ -645,34 +645,27 @@ pre {
 .article-pagination {
   display: flex;
   justify-content: space-between;
+  gap: 0.5em;
+  font-size: 1.1em;
+  line-height: 1.5;
   padding-top: 0.5em;
   border-top: 1px dotted rgb(var(--border));
+
+  & > div {
+    flex: 1 1;
+    &.prev {
+      text-align: left;
+    }
+    &.next {
+      text-align: right;
+    }
+  }
 
   & a {
     color: rgb(var(--primary));
     &:hover {
-      text-decoration: underline;
-      text-decoration-color: rgb(var(--link));
+      color: rgb(var(--link));
     }
-  }
-
-  & .direction {
-    letter-spacing: 1px;
-    font-size: 0.875em;
-    color: rgb(var(--secondary));
-  }
-
-  & :is(.prev, .next) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  & .prev {
-    text-align: left;
-  }
-
-  & .next {
-    text-align: right;
   }
 }
 
