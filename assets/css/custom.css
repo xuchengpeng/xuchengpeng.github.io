@@ -31,6 +31,6 @@
 }
 
 :root {
-  --font-sans: "Berkeley Mono", ui-sans-serif, sans-serif;
-  --font-mono: "Berkeley Mono", ui-monospace, monospace;
+  --font-sans: "Berkeley Mono", "LXGW Wenkai", ui-sans-serif, sans-serif;
+  --font-mono: "Berkeley Mono", "LXGW Wenkai", ui-monospace, monospace;
 }
