@@ -853,6 +853,7 @@ pre {
 }
 
 .katex-display {
+  padding: 0.2em 0;
   overflow: auto hidden;
 }
 
