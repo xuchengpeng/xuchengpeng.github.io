@@ -40,7 +40,7 @@ Now build emacs with pgtk and tree-sitter.
 git clone https://git.savannah.gnu.org/git/emacs.git
 cd emacs
 ./autogen.sh
-./configure --prefix=/usr/local/emacs --with-native-compilation=aot --with-pgtk --with-tree-sitter --without-pop
+./configure --prefix=/usr/local/emacs --with-native-compilation=aot --with-pgtk --with-tree-sitter --without-compress-install --without-pop
 make -j 8
 make install
 ```
