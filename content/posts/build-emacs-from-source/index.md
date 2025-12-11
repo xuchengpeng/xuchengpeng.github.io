@@ -24,9 +24,8 @@ apt-get install libgccjit0 libgccjit-13-dev
 And in Emacs 29, tree-sitter support is built-in. Now build tree-sitter from source code, tree-sitter library will be installed into `/usr/local/lib`.
 
 ```shell
-git clone https://github.com/tree-sitter/tree-sitter.git
+git clone --depth 1 --branch v0.26.2 https://github.com/tree-sitter/tree-sitter.git
 cd tree-sitter
-git checkout v0.25.10
 make
 make install
 export LD_LIBRARY_PATH=/usr/local/lib/
@@ -37,7 +36,7 @@ export LD_LIBRARY_PATH=/usr/local/lib/
 Now build emacs with pgtk and tree-sitter.
 
 ```shell
-git clone https://git.savannah.gnu.org/git/emacs.git
+git clone --depth 1 https://git.savannah.gnu.org/git/emacs.git
 cd emacs
 ./autogen.sh
 ./configure --prefix=/usr/local/emacs --with-native-compilation=aot --with-pgtk --with-tree-sitter --without-compress-install --without-pop
