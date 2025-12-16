@@ -866,6 +866,37 @@ pre {
   }
 }
 
+.alert {
+  margin: 1em 0;
+  padding: 0.1em 0;
+  padding-inline-start: 1em;
+  border-inline-start: 4px solid;
+  &.success {
+    border-color: rgba(64, 160, 43, 1);
+    background-color: rgba(64, 160, 43, 0.1);
+    &:is(.dark *) {
+      border-color: rgba(166, 227, 161, 1);
+      background-color: rgba(166, 227, 161, 0.2);
+    }
+  }
+  &.warning {
+    border-color: rgba(223, 142, 29, 1);
+    background-color: rgba(223, 142, 29, 0.1);
+    &:is(.dark *) {
+      border-color: rgba(249, 226, 175, 1);
+      background-color: rgba(249, 226, 175, 0.2);
+    }
+  }
+  &.error {
+    border-color: rgba(210, 15, 57, 1);
+    background-color: rgba(210, 15, 57, 0.1);
+    &:is(.dark *) {
+      border-color: rgba(243, 139, 168, 1);
+      background-color: rgba(243, 139, 168, 0.2);
+    }
+  }
+}
+
 .katex-display {
   padding: 0.2em 0;
   overflow: auto hidden;
