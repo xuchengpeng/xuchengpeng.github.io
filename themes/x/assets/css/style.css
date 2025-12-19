@@ -868,9 +868,10 @@ pre {
 
 .alert {
   margin: 1em 0;
-  padding: 0.1em 0;
-  padding-inline-start: 1em;
-  border-inline-start: 4px solid;
+  padding-block: 0.1em;
+  padding-inline: 1em;
+  border-inline-start-width: 4px;
+  border-inline-start-style: solid;
   &.success {
     border-color: rgba(64, 160, 43, 1);
     background-color: rgba(64, 160, 43, 0.1);
