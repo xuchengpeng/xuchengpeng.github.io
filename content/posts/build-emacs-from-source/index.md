@@ -14,17 +14,17 @@ Firstly, install essential packages in WSL2 Ubuntu 24.04.
 Native compilation support is enabled by default with Emacs 30, install `libgccjit0` and `libgccjit-xx-dev` to build this feature.
 
 ```shell
-apt-get update
-apt-get install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev librsvg2-dev libxml2-dev autoconf
-apt-get install libgccjit0 libgccjit-13-dev
+apt update
+apt install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev librsvg2-dev libxml2-dev autoconf
+apt install libgccjit0 libgccjit-13-dev
 ```
 
 ## Tree-sitter Support
 
-And in Emacs 29, tree-sitter support is built-in. Now build tree-sitter from source code, tree-sitter library will be installed into `/usr/local/lib`.
+And from Emacs 29, tree-sitter support is built-in. Now build tree-sitter from source code, tree-sitter library will be installed into `/usr/local/lib`.
 
 ```shell
-git clone --depth 1 --branch v0.26.2 https://github.com/tree-sitter/tree-sitter.git
+git clone --depth 1 --branch v0.26.3 https://github.com/tree-sitter/tree-sitter.git
 cd tree-sitter
 make
 make install
@@ -46,7 +46,7 @@ make install
 
 ## Install libvterm
 
-Build [libvterm](https://www.leonerd.org.uk/code/libvterm/) if you need to use [vterm](https://github.com/akermu/emacs-libvterm) on Linux.
+Build [libvterm](https://launchpad.net/libvterm) if you need to use [vterm](https://github.com/akermu/emacs-libvterm) on Linux.
 
 ```shell
 tar -zxf libvterm-0.3.3.tar.gz
