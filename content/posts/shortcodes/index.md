@@ -157,22 +157,14 @@ console.log("Hello");
 
 ## alert
 
-{{< alert >}}
-#### Markdown content
-Lorem est tota propiore conpellat pectoribus de pectora summo.
-{{< /alert >}}
-
 {{< alert "success" >}}
-#### Markdown content
-Lorem est tota propiore conpellat pectoribus de pectora summo.
+**🟢 Success:** Lorem est tota propiore conpellat pectoribus de pectora summo.
 {{< /alert >}}
 
 {{< alert "warning" >}}
-#### Markdown content
-Lorem est tota propiore conpellat pectoribus de pectora summo.
+**🟡 Warning:** Lorem est tota propiore conpellat pectoribus de pectora summo.
 {{< /alert >}}
 
 {{< alert "error" >}}
-#### Markdown content
-Lorem est tota propiore conpellat pectoribus de pectora summo.
+**🔴 Error:** Lorem est tota propiore conpellat pectoribus de pectora summo.
 {{< /alert >}}
