@@ -75,6 +75,7 @@ Then run `org-publish-project` to generate html files to `~/blog/public` folder.
 
 ## Update
 
+- 2025-12-22 Publish with [build-site.el](https://github.com/xuchengpeng/org-blog/blob/main/build-site.el).
 - 2025-10-28 Export woff2 files.
 - 2025-09-24 Render math with MathJax 4.
 - 2025-07-29 Search with [Fuse.js](https://www.fusejs.io/).
