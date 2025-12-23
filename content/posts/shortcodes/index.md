@@ -157,6 +157,10 @@ console.log("Hello");
 
 ## alert
 
+{{< alert >}}
+**🔵 Info:** Lorem est tota propiore conpellat pectoribus de pectora summo.
+{{< /alert >}}
+
 {{< alert "success" >}}
 **🟢 Success:** Lorem est tota propiore conpellat pectoribus de pectora summo.
 {{< /alert >}}

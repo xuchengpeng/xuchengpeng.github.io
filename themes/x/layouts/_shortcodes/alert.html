@@ -1,4 +1,4 @@
-{{- $level := (default "success" (.Get 0)) -}}
+{{- $level := (default "info" (.Get 0)) -}}
 <div class="alert {{ $level }}">
   {{- .Inner | markdownify -}}
 </div>

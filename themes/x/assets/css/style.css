@@ -880,6 +880,10 @@ pre {
     --alert-warning: 249, 226, 175;
     --alert-error: 243, 139, 168;
   }
+  &.info {
+    border-inline-start-color: rgba(var(--link), 1);
+    background-color: rgba(var(--link), 0.15);
+  }
   &.success {
     border-inline-start-color: rgba(var(--alert-success), 1);
     background-color: rgba(var(--alert-success), 0.15);
