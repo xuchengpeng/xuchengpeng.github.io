@@ -1,7 +1,7 @@
 ---
 title: "风雨"
 date: 2025-04-30T07:45:10+08:00
-categories: ["Poetry"]
+categories: ["Reading"]
 tags: ["Poetry", "The Book of Songs"]
 summary: 《风雨》出自《诗经·国风·郑风》，描写一位女子与丈夫重逢时欢欣、惊喜的场景，道出其相思和欣喜之情。
 ---
