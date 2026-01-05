@@ -15,7 +15,7 @@ Native compilation support is enabled by default with Emacs 30, install `libgccj
 
 ```shell
 apt update
-apt install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev librsvg2-dev libxml2-dev autoconf
+apt install build-essential libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo sqlite3 libsqlite3-dev libjansson4 libjansson-dev librsvg2-dev libxml2-dev liblcms2-dev autoconf
 apt install libgccjit0 libgccjit-13-dev
 ```
 
