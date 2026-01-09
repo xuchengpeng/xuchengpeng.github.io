@@ -11,6 +11,7 @@ showPagination: false
 |:----------------------|:---------------------------------------------------------------------------|:---------------------------------------------------------------|
 | .emacs.d              | A clean and fast Emacs Configuration.                                      | [github](https://github.com/xuchengpeng/.emacs.d)              |
 | build-emacs-windows   | Build Emacs on Windows with MSYS2 and MinGW-w64.                           | [github](https://github.com/xuchengpeng/build-emacs-windows)   |
+| IosevkaBerkeleyMono   | Iosevka with Berkeley Mono style.                                          | [github](https://github.com/xuchengpeng/IosevkaBerkeleyMono)   |
 | IosevkaSS14           | Iosevka with JetBrains Mono style.                                         | [github](https://github.com/xuchengpeng/IosevkaSS14)           |
 | IosevkaSS15           | Iosevka with IBM Plex Mono style.                                          | [github](https://github.com/xuchengpeng/IosevkaSS15)           |
 | mingw-builds-binaries | MinGW-W64 compiler binaries.                                               | [github](https://github.com/xuchengpeng/mingw-builds-binaries) |
