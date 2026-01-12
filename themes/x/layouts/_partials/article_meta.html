@@ -1,7 +1,7 @@
 {{ $scratch := newScratch }}
 {{ $scratch.Add "meta" (slice (printf "<span title='%s'>%s</span>" (.Date.Format "2006-01-02T15:04:05-07:00") (.Date.Format .Site.Language.Params.dateFormat))) }}
-{{ $scratch.Add "meta" (slice (printf "<span>%d words</span>" .WordCount)) }}
-{{ $scratch.Add "meta" (slice (printf "<span>%d min</span>" .ReadingTime)) }}
+{{ $scratch.Add "meta" (slice (printf "<span title='Word count'>%d words</span>" .WordCount)) }}
+{{ $scratch.Add "meta" (slice (printf "<span title='Reading time'>%d min</span>" .ReadingTime)) }}
 
 {{ with ($scratch.Get "meta") }}
   <div class="article-meta">
