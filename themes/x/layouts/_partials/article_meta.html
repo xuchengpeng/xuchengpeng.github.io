@@ -5,6 +5,6 @@
 
 {{ with ($scratch.Get "meta") }}
   <div class="article-meta">
-    {{- delimit . "&nbsp;&middot;&nbsp;" | safeHTML -}}
+    {{- delimit . "&middot;" | safeHTML -}}
   </div>
 {{ end }}

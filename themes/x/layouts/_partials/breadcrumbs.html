@@ -2,7 +2,7 @@
   {{ range .Ancestors.Reverse }}
     {{ if not .IsHome }}
       <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-      <span>&nbsp;/&nbsp;</span>
+      <span>/</span>
     {{ end }}
   {{ end }}
 </div>

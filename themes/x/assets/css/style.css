@@ -552,6 +552,7 @@ pre {
   font-size: 0.875em;
   display: flex;
   flex-wrap: wrap;
+  gap: calc(var(--spacing) * 2);
   margin: 0.1em 0;
 }
 
