@@ -172,3 +172,9 @@ console.log("Hello");
 {{< alert "error" >}}
 **🔴 Error:** Lorem est tota propiore conpellat pectoribus de pectora summo.
 {{< /alert >}}
+
+## badge
+
+{{< badge title="Hugo" value="0.154.5" >}}
+
+{{< badge "Build" "Passing" >}}

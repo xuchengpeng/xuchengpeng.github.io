@@ -854,7 +854,7 @@ pre {
 }
 
 .btn {
-  color: rgb(255, 255, 255) !important;
+  color: rgb(var(--theme)) !important;
   background-color: rgba(var(--link), 1);
   padding-block: calc(var(--spacing) * 2);
   padding-inline: calc(var(--spacing) * 4);
@@ -896,6 +896,29 @@ pre {
   &.error {
     border-inline-start-color: rgba(var(--alert-error), 1);
     background-color: rgba(var(--alert-error), 0.15);
+  }
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.875em;
+  line-height: 1.5;
+  vertical-align: middle;
+  border-radius: var(--radius);
+  border: 1px solid rgba(var(--link), 0.9);
+  overflow: hidden;
+  text-wrap: nowrap;
+  margin: 0 0.2em;
+
+  & div {
+    display: inline-block;
+    font-size: inherit;
+    padding: 0 0.5em;
+    color: inherit;
+    &.value {
+      color: rgb(var(--theme), 1);
+      background-color: rgba(var(--link), 0.9);
+    }
   }
 }
 

@@ -1,0 +1,8 @@
+<div class="badge">
+  {{- with or (.Get "title") (.Get 0) -}}
+  <div class="title">{{ . | plainify }}</div>
+  {{- end -}}
+  {{- with or (.Get "value") (.Get 1) -}}
+  <div class="value">{{ . | plainify }}</div>
+  {{- end -}}
+</div>
