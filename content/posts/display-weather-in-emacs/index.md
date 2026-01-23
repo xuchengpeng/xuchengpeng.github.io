@@ -18,22 +18,27 @@ summary: 使用异步调用的方式，从 wttr.in 在线获取最新的天气�
          ;; Start the process, directing output to `output-buffer`
          (proc (start-process "weather-proc" output-buffer "curl" "-s" +echo-bar--weather-url)))
     ;; Process filter: append output to the process's associated buffer
-    (set-process-filter
-     proc
-     (lambda (p string)
-       (with-current-buffer (process-buffer p)
-         (insert string))))
-    ;; Process sentinel: called when the process changes state (e.g., finishes)
+    ;; (set-process-filter
+    ;;  proc
+    ;;  (lambda (p string)
+    ;;    (with-current-buffer (process-buffer p)
+    ;;      (insert string))))
+    ;; Process sentinel: called when the process changes state (e.g., finished)
     (set-process-sentinel
      proc
      (lambda (p event)
-       (when (memq (process-status p) '(exit stop))
-         (let* ((buffer (process-buffer p)))
-           (when (zerop (process-exit-status p))
-             (setq +echo-bar--weather-string
-                   (replace-regexp-in-string "[ \t\n\r]+" "" (with-current-buffer buffer (buffer-string)))))
+       (let ((buffer (process-buffer p)))
+         (cond
+          ((and (memq (process-status p) '(exit signal))
+                (/= (process-exit-status p) 0))
+           (message "Weather update error")
            (when (buffer-live-p buffer)
-             (kill-buffer buffer))))))))
+             (kill-buffer buffer)))
+          ((cl-search "finished" event)
+           (setq +echo-bar--weather-string
+                 (replace-regexp-in-string "[ \t\n\r]+" "" (with-current-buffer buffer (buffer-string))))
+           (when (buffer-live-p buffer)
+             (kill-buffer buffer)))))))))
 (run-at-time nil 1800 #'+echo-bar--weather-update)
 ```
 
