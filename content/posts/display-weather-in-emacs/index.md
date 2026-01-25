@@ -35,8 +35,9 @@ summary: 使用异步调用的方式，从 wttr.in 在线获取最新的天气�
            (when (buffer-live-p buffer)
              (kill-buffer buffer)))
           ((cl-search "finished" event)
-           (setq +echo-bar--weather-string
-                 (replace-regexp-in-string "[ \t\n\r]+" "" (with-current-buffer buffer (buffer-string))))
+           (let ((result (replace-regexp-in-string "[ \t\n\r]+" "" (with-current-buffer buffer (buffer-string)))))
+             (when (length< result 30)
+               (setq +echo-bar--weather-string result)))
            (when (buffer-live-p buffer)
              (kill-buffer buffer)))))))))
 (run-at-time nil 1800 #'+echo-bar--weather-update)
