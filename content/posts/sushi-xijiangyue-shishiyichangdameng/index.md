@@ -2,7 +2,7 @@
 title: "苏轼《西江月·世事一场大梦》"
 date: 2025-12-23T13:49:02+08:00
 categories: ["Reading"]
-tags: ["Poetry"]
+tags: ["Reading", "Poetry"]
 summary: 此词反映了作者谪居后的苦闷心情，词调较为低沉、哀惋，充满了人生空幻的深沉喟叹。
 ---
 
