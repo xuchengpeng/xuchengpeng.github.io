@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xuchengpeng.github.io/hugo-x/sitemap.xml
