@@ -18,7 +18,7 @@ showPagination: false
 | catppuccin-themes     | Catppuccin themes for GNU Emacs, build on top of the modus-themes.         | [github](https://github.com/xuchengpeng/catppuccin-themes)     |
 | tokyonight-themes     | Tokyo Night themes for GNU Emacs.                                          | [github](https://github.com/xuchengpeng/tokyonight-themes)     |
 | nvim                  | My neovim configuration.                                                   | [github](https://github.com/xuchengpeng/nvim)                  |
-| hugo-x                | A powerful, lightweight theme for Hugo.                                    | [github](https://github.com/xuchengpeng/xuchengpeng.github.io) |
+| hugo-x                | A powerful, lightweight theme for Hugo.                                    | [github](https://github.com/xuchengpeng/hugo-x)                |
 | org-blog              | A blog which published by Org-mode.                                        | [github](https://github.com/xuchengpeng/org-blog)              |
 | rime                  | RIME configuration.                                                        | [github](https://github.com/xuchengpeng/rime)                  |
 | elpa-mirror           | A mirror of [ELPA](https://elpa.gnu.org/) and [MELPA](https://melpa.org/). | [github](https://github.com/xuchengpeng/elpa-mirror)           |
