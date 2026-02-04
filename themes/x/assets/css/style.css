@@ -10,7 +10,7 @@
   --tertiary: 226, 232, 240;
   --content: 51, 65, 85;
   --code-bg: 248, 250, 252;
-  --border: 203, 212, 225;
+  --border: 203, 213, 225;
   --link: 37, 99, 235;
 }
 
@@ -528,9 +528,8 @@ pre {
 
 .article .article-entry {
   padding: 1em;
-  border: 2px solid rgba(var(--border), 0.5);
+  border: 1px solid rgb(var(--border));
   border-radius: var(--radius);
-  box-shadow: 0 0.5em 0.8em rgba(0, 0, 0, 0.15);
 }
 
 .article .article-title {
