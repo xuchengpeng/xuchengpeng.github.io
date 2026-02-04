@@ -24,7 +24,7 @@ apt install libgccjit0 libgccjit-13-dev
 And from Emacs 29, tree-sitter support is built-in. Now build tree-sitter from source code, tree-sitter library will be installed into `/usr/local/lib`.
 
 ```shell
-git clone --depth 1 --branch v0.26.3 https://github.com/tree-sitter/tree-sitter.git
+git clone --depth 1 --branch v0.26.5 https://github.com/tree-sitter/tree-sitter.git
 cd tree-sitter
 make
 make install
