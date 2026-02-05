@@ -19,7 +19,8 @@ $$
 
 $$
 \begin{split}
-b_{i,n}(t) &= \binom{n}{i} t^i (1 - t)^{n - i}, i=0,...n \newline
+b_{i,n}(t) &= (1 - t)b_{i,n-1}(t) + tb_{i-1,n-1}(t) \newline
+&= \binom{n}{i} t^i (1 - t)^{n - i} \newline
 \binom{n}{i} &= \frac{n!}{i!(n - i)!}
 \end{split}
 $$
