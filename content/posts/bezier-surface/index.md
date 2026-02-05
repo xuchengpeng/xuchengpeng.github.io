@@ -9,6 +9,11 @@ showMath: true
 贝塞尔曲面是[贝塞尔曲线](../bezier-curve/)向二维参数空间的扩展，通常通过两个方向的张量积（Tensor Product）定义。
 <!--more-->
 
+{{< figure
+  src="https://upload.wikimedia.org/wikipedia/commons/b/bf/B%C3%A9zier_surface_example.svg"
+  caption="Sample Bézier surface; red – control points, blue – control grid, black – surface approximation"
+>}}
+
 ## 基础公式（累加形式）
 给定一个 $(n+1) \times (m+1)$ 的控制点网格 $P_{i,j}$，曲面 $S(u, v)$ 定义为：
 $$S(u, v) = \sum_{i=0}^{n} \sum_{j=0}^{m} B_{i,n}(u) B_{j,m}(v) P_{i,j}$$
