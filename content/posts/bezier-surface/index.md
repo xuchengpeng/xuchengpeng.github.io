@@ -10,8 +10,7 @@ showMath: true
 <!--more-->
 
 {{< figure
-  src="https://upload.wikimedia.org/wikipedia/commons/b/bf/B%C3%A9zier_surface_example.svg"
-  caption="Sample Bézier surface; red – control points, blue – control grid, black – surface approximation"
+  src="./bezier_surface.png"
 >}}
 
 ## 基础公式（累加形式）
