@@ -13,23 +13,19 @@ showMath: true
 
 - 
   {{< figure
-    src="https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif"
-    caption="二次贝塞尔曲线，t在[0,1]区间"
+    src="./bezier-curve-1.svg"
   >}}
 
 - 
   {{< figure
-    src="https://upload.wikimedia.org/wikipedia/commons/d/db/B%C3%A9zier_3_big.gif"
-    caption="三次贝塞尔曲线，t在[0,1]区间"
-  >}}
-
--
-  {{< figure
-    src="https://upload.wikimedia.org/wikipedia/commons/a/a4/B%C3%A9zier_4_big.gif"
-    caption="四次贝塞尔曲线，t在[0,1]区间"
+    src="./bezier-curve-2.svg"
   >}}
 
 {{< /columns >}}
+
+{{< figure
+  src="./bezier_curve-3.png"
+>}}
 
 n 阶贝塞尔曲线的一般表示形式为：
 
