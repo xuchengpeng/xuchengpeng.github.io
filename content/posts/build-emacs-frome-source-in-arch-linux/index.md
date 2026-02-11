@@ -24,3 +24,10 @@ cd emacs
 make -j 4
 sudo make install
 ```
+
+{{< alert >}}
+🔵 如果配置了 [archlinuxcn](https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/) 软件仓库，可以直接安装现成的，每天都会更新。
+```bash
+sudo pacman -S emacs-native-comp-pgtk-git
+```
+{{< /alert >}}
