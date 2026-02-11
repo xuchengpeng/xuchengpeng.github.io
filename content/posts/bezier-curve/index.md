@@ -13,18 +13,18 @@ showMath: true
 
 - 
   {{< figure
-    src="./bezier-curve-1.svg"
+    src="./bezier_curve_1.svg"
   >}}
 
 - 
   {{< figure
-    src="./bezier-curve-2.svg"
+    src="./bezier_curve_2.svg"
   >}}
 
 {{< /columns >}}
 
 {{< figure
-  src="./bezier_curve-3.png"
+  src="./bezier_curve_3.png"
 >}}
 
 n 阶贝塞尔曲线的一般表示形式为：
