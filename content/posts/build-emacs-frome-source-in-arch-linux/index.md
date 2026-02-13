@@ -30,4 +30,6 @@ sudo make install
 ```bash
 sudo pacman -S emacs-native-comp-pgtk-git
 ```
+
+稳定版本直接安装 emacs 或者 emacs-wayland 包就可以了。
 {{< /alert >}}
