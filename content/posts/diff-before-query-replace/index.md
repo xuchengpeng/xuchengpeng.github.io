@@ -5,7 +5,7 @@ categories: ["Emacs"]
 tags: ["Emacs"]
 ---
 
-大多数情况下，在 Emacs 中都是先通过 `query-replace` 或者 `query-replace-regexp` 在文件中进行查找替换，完成后再对比查看是否有错误的地方。
+大多数情况下在 Emacs 的大文件查找替换时，都是先通过 `query-replace` 或者 `query-replace-regexp` 进行全量查找替换，完成后再对比查看是否有错误的地方。
 <!--more-->
 
 Emacs 30 提供了查找替换前先进行对比的方式：
