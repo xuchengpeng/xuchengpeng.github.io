@@ -9,3 +9,7 @@ tags: ["Git", "Windows"]
 <!--more-->
 
 这是因为 Git for Windows 的 `/etc/inputrc` 包含了 `set bell-style visible` 配置。解决办法就是在 `~/.inputrc` 中添加 `set bell-style none` 或者 `set bell-style audible` 。
+
+{{< alert >}}
+🔵 别忘记在 `~/.inputrc` 首行添加 `$include /etc/inputrc` 。
+{{< /alert >}}
