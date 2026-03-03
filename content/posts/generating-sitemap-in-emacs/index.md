@@ -23,15 +23,15 @@ tags: ["Emacs"]
 这个选项用于配置每个条目生成的格式，这个选项是一个函数，包含3个参数：文件或目录名、样式和当前项目。函数返回一个字符串，默认情况下生成每个文件的链接，使用文件标题作为链接描述。可以使用 `org-publish-find-date`, `org-publish-find-title`, `org-publish-find-property` 获取附加信息来定制生成的样式。
 
 ```emacs-lisp
-(defun +org-publish-org-sitemap-format-entry (entry style project)
-(cond ((not (directory-name-p entry))
-        (format "%s - [[file:%s][%s]]"
-                (format-time-string "%Y-%m-%d" (org-publish-find-date entry project))
-                entry
-                (org-publish-find-title entry project)))
+(defun +org-publish-sitemap-format-entry (entry style project)
+  (cond ((not (directory-name-p entry))
+         (format "[[file:%s][%s - %s]]"
+                 entry
+                 (format-time-string "%b %d, %Y" (org-publish-find-date entry project))
+                 (org-publish-find-title entry project)))
         ((eq style 'tree)
-        ;; Return only last subdir.
-        (file-name-nondirectory (directory-file-name entry)))
+         ;; Return only last subdir.
+         (file-name-nondirectory (directory-file-name entry)))
         (t entry)))
 ```
 
@@ -40,11 +40,10 @@ tags: ["Emacs"]
 用于生成Sitemap文件的函数，默认情况下，生成指定标题的Sitemap文件，并把所有条目以list的方式添加到文件中。也可以将所有的list转换为subtree。
 
 ```emacs-lisp
-(defun +org-publish-org-sitemap (title list)
-"Sitemap generation function."
-(concat "#+TITLE: " title "\n"
-        "#+OPTIONS: toc:nil\n\n"
-        (org-list-to-subtree list)))
+(defun +org-publish-sitemap (title list)
+  (concat "#+TITLE: " title "\n"
+          "#+OPTIONS: toc:nil\n\n"
+          (org-list-to-org list)))
 ```
 
 ## :sitemap-sortfiles
